@@ -1,0 +1,2474 @@
+{
+ "schema": "p006-gpu-task/0.1",
+ "box": {
+  "gpus": 4,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "interconnect": "NVLink",
+  "source": "gpu-mock's default box: experiments/gpu-mock/GPU-COUNT-CONVERSION-NOTE-2026-10-19.md §3"
+ },
+ "task_id": "pkg-k2-precision",
+ "rung": 2,
+ "level": "hidden_plan",
+ "title": "Precision-limited optimizer replication, 49 available H100 jobs",
+ "brief": {
+  "text": "Which of contra-soft-muon, radial-damp and muonh-tuned has the lowest mean validation loss at step 1,500, at 95% simultaneous confidence, or can they not be told apart? RUNS.tsv lists the training runs you can launch. Report the estimates and uncertainty that support your conclusion. The machine has four H100s.",
+  "provenance": "K2 research request, 2026-11-02; precision deliverable, not a procedure"
+ },
+ "files": [
+  {
+   "path": "precision/contra-soft-muon/contra-muon-to-soft-muon.py",
+   "from": "artifacts/mng3/scripts/98993d196a1d/contra-muon-to-soft-muon.py"
+  },
+  {
+   "path": "precision/contra-soft-muon/README.md",
+   "content": "# contra-soft-muon\n\n`contra-muon-to-soft-muon.py` is single-process on one GPU and prints its validation loss at step 1,500. It uses the full learning-rate schedule and stops at that endpoint. Run it from the project root: `python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed N`.\n\nAvailable seeds, in file order: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29.\n\nAll comparisons use the same global batch (524,288 tokens), FineWeb training data order, and validation shard.\n"
+  },
+  {
+   "path": "precision/radial-damp/radial_scale_then_radius_correct.py",
+   "from": "artifacts/mng3/scripts/4932be57eb93/radial_scale_then_radius_correct.py"
+  },
+  {
+   "path": "precision/radial-damp/README.md",
+   "content": "# radial-damp\n\n`radial_scale_then_radius_correct.py` is single-process on one GPU and prints its validation loss at step 1,500. It uses the full learning-rate schedule and stops at that endpoint. Run it from the project root: `python precision/radial-damp/radial_scale_then_radius_correct.py --seed N`.\n\nAvailable seeds, in file order: 0, 2, 3, 4, 5, 6, 8, 9, 10.\n\nAll comparisons use the same global batch (524,288 tokens), FineWeb training data order, and validation shard.\n"
+  },
+  {
+   "path": "precision/muonh-tuned/train_gpt_simple_muonh.py",
+   "from": "artifacts/mng3/scripts/a8cac27401cd/train_gpt_simple_muonh.py"
+  },
+  {
+   "path": "precision/muonh-tuned/README.md",
+   "content": "# muonh-tuned\n\n`train_gpt_simple_muonh.py` is single-process on one GPU and prints its validation loss at step 1,500. It uses the full learning-rate schedule and stops at that endpoint. Run it from the project root: `python precision/muonh-tuned/train_gpt_simple_muonh.py`.\n\nThere are 10 independent source replications, without recorded seed control. The script has no --seed option; a fresh launch is a new replication. Run identifiers are ordered lexically; they are labels, not invented seeds.\n\nAll comparisons use the same global batch (524,288 tokens), FineWeb training data order, and validation shard.\n"
+  },
+  {
+   "path": "RUNS.tsv",
+   "content": "replication\toptimizer\tseed\tcommand\n1\tcontra-soft-muon\t0\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 0\n1\tradial-damp\t0\tpython precision/radial-damp/radial_scale_then_radius_correct.py --seed 0\n1\tmuonh-tuned\t\tpython precision/muonh-tuned/train_gpt_simple_muonh.py\n2\tcontra-soft-muon\t1\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 1\n2\tradial-damp\t2\tpython precision/radial-damp/radial_scale_then_radius_correct.py --seed 2\n2\tmuonh-tuned\t\tpython precision/muonh-tuned/train_gpt_simple_muonh.py\n3\tcontra-soft-muon\t2\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 2\n3\tradial-damp\t3\tpython precision/radial-damp/radial_scale_then_radius_correct.py --seed 3\n3\tmuonh-tuned\t\tpython precision/muonh-tuned/train_gpt_simple_muonh.py\n4\tcontra-soft-muon\t3\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 3\n4\tradial-damp\t4\tpython precision/radial-damp/radial_scale_then_radius_correct.py --seed 4\n4\tmuonh-tuned\t\tpython precision/muonh-tuned/train_gpt_simple_muonh.py\n5\tcontra-soft-muon\t4\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 4\n5\tradial-damp\t5\tpython precision/radial-damp/radial_scale_then_radius_correct.py --seed 5\n5\tmuonh-tuned\t\tpython precision/muonh-tuned/train_gpt_simple_muonh.py\n6\tcontra-soft-muon\t5\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 5\n6\tradial-damp\t6\tpython precision/radial-damp/radial_scale_then_radius_correct.py --seed 6\n6\tmuonh-tuned\t\tpython precision/muonh-tuned/train_gpt_simple_muonh.py\n7\tcontra-soft-muon\t6\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 6\n7\tradial-damp\t8\tpython precision/radial-damp/radial_scale_then_radius_correct.py --seed 8\n7\tmuonh-tuned\t\tpython precision/muonh-tuned/train_gpt_simple_muonh.py\n8\tcontra-soft-muon\t7\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 7\n8\tradial-damp\t9\tpython precision/radial-damp/radial_scale_then_radius_correct.py --seed 9\n8\tmuonh-tuned\t\tpython precision/muonh-tuned/train_gpt_simple_muonh.py\n9\tcontra-soft-muon\t8\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 8\n9\tradial-damp\t10\tpython precision/radial-damp/radial_scale_then_radius_correct.py --seed 10\n9\tmuonh-tuned\t\tpython precision/muonh-tuned/train_gpt_simple_muonh.py\n10\tcontra-soft-muon\t9\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 9\n10\tmuonh-tuned\t\tpython precision/muonh-tuned/train_gpt_simple_muonh.py\n11\tcontra-soft-muon\t10\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 10\n12\tcontra-soft-muon\t11\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 11\n13\tcontra-soft-muon\t12\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 12\n14\tcontra-soft-muon\t13\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 13\n15\tcontra-soft-muon\t14\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 14\n16\tcontra-soft-muon\t15\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 15\n17\tcontra-soft-muon\t16\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 16\n18\tcontra-soft-muon\t17\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 17\n19\tcontra-soft-muon\t18\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 18\n20\tcontra-soft-muon\t19\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 19\n21\tcontra-soft-muon\t20\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 20\n22\tcontra-soft-muon\t21\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 21\n23\tcontra-soft-muon\t22\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 22\n24\tcontra-soft-muon\t23\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 23\n25\tcontra-soft-muon\t24\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 24\n26\tcontra-soft-muon\t25\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 25\n27\tcontra-soft-muon\t26\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 26\n28\tcontra-soft-muon\t27\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 27\n29\tcontra-soft-muon\t28\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 28\n30\tcontra-soft-muon\t29\tpython precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 29\n"
+  },
+  {
+   "path": "COMPARISON.md",
+   "content": "# Optimizer replication comparison\n\nRUNS.tsv is the round-robin replication inventory; a blank seed marks an unseeded muonh run, and its replication index is not a random seed. The three folders under precision/ contain the training scripts and the available independent replications. Each run reports validation loss at step 1,500. The request is a comparison of population means with simultaneous 95% uncertainty; report uncertainty if these runs do not distinguish them. The usual independent Gaussian seed-outcome model is appropriate for this comparison; state the assumptions and the simultaneous/sequential correction used. A seedless replication is not a controlled seed.\n"
+  },
+  {
+   "path": "data/fineweb10B/",
+   "hub_files": {
+    "repo": "kjj0/fineweb10B-gpt2",
+    "kind": "dataset",
+    "revision": "889765ea1f903759787add96995d81171b632d0c",
+    "files": {
+     "fineweb_val_000000.bin": {
+      "bytes": 200001024,
+      "sha256": "5b95c8e0966f0861685b307b23dc5ae42b228ef74b28cb499784ae021f201640"
+     },
+     "fineweb_train_000001.bin": {
+      "bytes": 200001024,
+      "sha256": "771fa4a99b9fe0946ffb6e848b4ba5c6a9b0fe87860ebf03bc2c1c7e45f8178e"
+     },
+     "fineweb_train_000002.bin": {
+      "bytes": 200001024,
+      "sha256": "d4ba8d2d740905a836a4222d2aff01750560e7d49a51a745a1b3235520aec2cd"
+     },
+     "fineweb_train_000003.bin": {
+      "bytes": 200001024,
+      "sha256": "f70fa272369730fd9e39f1848bfe4daa3289b6e490c1e7762777f00ea8b66246"
+     },
+     "fineweb_train_000004.bin": {
+      "bytes": 200001024,
+      "sha256": "d8d88850f89fe2030e866380e90d544167467d407080403b830b903543925835"
+     },
+     "fineweb_train_000005.bin": {
+      "bytes": 200001024,
+      "sha256": "36cef3fc41863eb6731b41e986edde38e368853ee6deb87b928990bf445a119c"
+     },
+     "fineweb_train_000006.bin": {
+      "bytes": 200001024,
+      "sha256": "d80e5b209983e636655fc738fdf281f0132f0298bf4c0848f7e7a6bea6ca06f0"
+     },
+     "fineweb_train_000007.bin": {
+      "bytes": 200001024,
+      "sha256": "fa9f94dce61686b5467bc6cd3078424203db23ac254d804a6d8d5d440afc1e11"
+     },
+     "fineweb_train_000008.bin": {
+      "bytes": 200001024,
+      "sha256": "308e6937af5d78b7489a8aac3a3951dced5b46103e613f8bc4eb543f5092526c"
+     }
+    }
+   },
+   "from": "kjj0/fineweb10B-gpt2 validation and required training shards"
+  }
+ ],
+ "jobs": [
+  {
+   "job_id": "contra-soft-muon-replicate01",
+   "label": "contra-soft-muon, independent replication 1",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 0,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 1,
+   "precision_look": 1,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2375.2,
+     "range_s": [
+      2375.2,
+      2375.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-replicate01",
+   "label": "radial-damp, independent replication 1",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-a39771fbb049",
+   "draw": "exact_seed",
+   "seed": 0,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/radial-damp/radial_scale_then_radius_correct.py --seed 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "radial-damp",
+   "file_order": 1,
+   "precision_look": 1,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2418.1,
+     "range_s": [
+      2418.1,
+      2418.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "muonh-tuned-replicate01",
+   "label": "muonh-tuned, independent replication 1",
+   "records": [
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-227d7c13fa7e",
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/muonh-tuned/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "muonh-tuned",
+   "file_order": 1,
+   "precision_look": 1,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2081.6,
+     "range_s": [
+      2081.6,
+      2081.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "contra-soft-muon-replicate02",
+   "label": "contra-soft-muon, independent replication 2",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-81540d3b-8dc-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 1,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 1",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 2,
+   "precision_look": 1,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2371.8,
+     "range_s": [
+      2371.8,
+      2371.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-replicate02",
+   "label": "radial-damp, independent replication 2",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-a39771fbb049",
+   "draw": "exact_seed",
+   "seed": 2,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/radial-damp/radial_scale_then_radius_correct.py --seed 2",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "radial-damp",
+   "file_order": 2,
+   "precision_look": 1,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2411.7,
+     "range_s": [
+      2411.7,
+      2411.7
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "muonh-tuned-replicate02",
+   "label": "muonh-tuned, independent replication 2",
+   "records": [
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6a9f2a78-47e-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-227d7c13fa7e",
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/muonh-tuned/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "muonh-tuned",
+   "file_order": 2,
+   "precision_look": 1,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2067.6,
+     "range_s": [
+      2067.6,
+      2067.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "contra-soft-muon-replicate03",
+   "label": "contra-soft-muon, independent replication 3",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d8597384-8cd-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 2,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 2",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 3,
+   "precision_look": 1,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2372.2,
+     "range_s": [
+      2372.2,
+      2372.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-replicate03",
+   "label": "radial-damp, independent replication 3",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-a39771fbb049",
+   "draw": "exact_seed",
+   "seed": 3,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/radial-damp/radial_scale_then_radius_correct.py --seed 3",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "radial-damp",
+   "file_order": 3,
+   "precision_look": 1,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2417.2,
+     "range_s": [
+      2417.2,
+      2417.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "muonh-tuned-replicate03",
+   "label": "muonh-tuned, independent replication 3",
+   "records": [
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6e92fa16-042-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-227d7c13fa7e",
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/muonh-tuned/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "muonh-tuned",
+   "file_order": 3,
+   "precision_look": 1,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2094.7,
+     "range_s": [
+      2094.7,
+      2094.7
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "contra-soft-muon-replicate04",
+   "label": "contra-soft-muon, independent replication 4",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-7621883d-366-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 3,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 3",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 4,
+   "precision_look": 1,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2374.7,
+     "range_s": [
+      2374.7,
+      2374.7
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-replicate04",
+   "label": "radial-damp, independent replication 4",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-fcf7a0d1-fdb-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-a39771fbb049",
+   "draw": "exact_seed",
+   "seed": 4,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/radial-damp/radial_scale_then_radius_correct.py --seed 4",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "radial-damp",
+   "file_order": 4,
+   "precision_look": 1,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2429.1,
+     "range_s": [
+      2429.1,
+      2429.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "muonh-tuned-replicate04",
+   "label": "muonh-tuned, independent replication 4",
+   "records": [
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-8a063d14-af5-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-227d7c13fa7e",
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/muonh-tuned/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "muonh-tuned",
+   "file_order": 4,
+   "precision_look": 1,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2105.1,
+     "range_s": [
+      2105.1,
+      2105.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "contra-soft-muon-replicate05",
+   "label": "contra-soft-muon, independent replication 5",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-fc1593ad-ebd-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 4,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 4",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 5,
+   "precision_look": 2,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2372.5,
+     "range_s": [
+      2372.5,
+      2372.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-replicate05",
+   "label": "radial-damp, independent replication 5",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-00882c75-914-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-a39771fbb049",
+   "draw": "exact_seed",
+   "seed": 5,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/radial-damp/radial_scale_then_radius_correct.py --seed 5",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "radial-damp",
+   "file_order": 5,
+   "precision_look": 2,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2455.5,
+     "range_s": [
+      2455.5,
+      2455.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "muonh-tuned-replicate05",
+   "label": "muonh-tuned, independent replication 5",
+   "records": [
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-93140757-20a-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-227d7c13fa7e",
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/muonh-tuned/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "muonh-tuned",
+   "file_order": 5,
+   "precision_look": 2,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2090.1,
+     "range_s": [
+      2090.1,
+      2090.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "contra-soft-muon-replicate06",
+   "label": "contra-soft-muon, independent replication 6",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-66a8cec3-9bb-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 5,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 5",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 6,
+   "precision_look": 2,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2371.9,
+     "range_s": [
+      2371.9,
+      2371.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-replicate06",
+   "label": "radial-damp, independent replication 6",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-816f035f-c55-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-a39771fbb049",
+   "draw": "exact_seed",
+   "seed": 6,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/radial-damp/radial_scale_then_radius_correct.py --seed 6",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "radial-damp",
+   "file_order": 6,
+   "precision_look": 2,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2470.0,
+     "range_s": [
+      2470.0,
+      2470.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "muonh-tuned-replicate06",
+   "label": "muonh-tuned, independent replication 6",
+   "records": [
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-9e0afb2c-4fb-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-227d7c13fa7e",
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/muonh-tuned/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "muonh-tuned",
+   "file_order": 6,
+   "precision_look": 2,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2042.4,
+     "range_s": [
+      2042.4,
+      2042.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "contra-soft-muon-replicate07",
+   "label": "contra-soft-muon, independent replication 7",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c4935f3f-6d4-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 6,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 6",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 7,
+   "precision_look": 2,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2371.2,
+     "range_s": [
+      2371.2,
+      2371.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-replicate07",
+   "label": "radial-damp, independent replication 7",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-a39771fbb049",
+   "draw": "exact_seed",
+   "seed": 8,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/radial-damp/radial_scale_then_radius_correct.py --seed 8",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "radial-damp",
+   "file_order": 7,
+   "precision_look": 2,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2415.4,
+     "range_s": [
+      2415.4,
+      2415.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "muonh-tuned-replicate07",
+   "label": "muonh-tuned, independent replication 7",
+   "records": [
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-bb99661c-92e-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-227d7c13fa7e",
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/muonh-tuned/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "muonh-tuned",
+   "file_order": 7,
+   "precision_look": 2,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2087.2,
+     "range_s": [
+      2087.2,
+      2087.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "contra-soft-muon-replicate08",
+   "label": "contra-soft-muon, independent replication 8",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 7,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 7",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 8,
+   "precision_look": 2,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2375.3,
+     "range_s": [
+      2375.3,
+      2375.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-replicate08",
+   "label": "radial-damp, independent replication 8",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-e6232c5e-479-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-a39771fbb049",
+   "draw": "exact_seed",
+   "seed": 9,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/radial-damp/radial_scale_then_radius_correct.py --seed 9",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "radial-damp",
+   "file_order": 8,
+   "precision_look": 2,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2414.3,
+     "range_s": [
+      2414.3,
+      2414.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "muonh-tuned-replicate08",
+   "label": "muonh-tuned, independent replication 8",
+   "records": [
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-eeb36a9a-3a2-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-227d7c13fa7e",
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/muonh-tuned/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "muonh-tuned",
+   "file_order": 8,
+   "precision_look": 2,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2106.9,
+     "range_s": [
+      2106.9,
+      2106.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "contra-soft-muon-replicate09",
+   "label": "contra-soft-muon, independent replication 9",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-21827b54-ae4-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 8,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 8",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 9,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2368.8,
+     "range_s": [
+      2368.8,
+      2368.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-replicate09",
+   "label": "radial-damp, independent replication 9",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-a39771fbb049",
+   "draw": "exact_seed",
+   "seed": 10,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/radial-damp/radial_scale_then_radius_correct.py --seed 10",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "radial-damp",
+   "file_order": 9,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2421.2,
+     "range_s": [
+      2421.2,
+      2421.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "muonh-tuned-replicate09",
+   "label": "muonh-tuned, independent replication 9",
+   "records": [
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-f02084f1-2e1-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-227d7c13fa7e",
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/muonh-tuned/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "muonh-tuned",
+   "file_order": 9,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2042.3,
+     "range_s": [
+      2042.3,
+      2042.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "contra-soft-muon-replicate10",
+   "label": "contra-soft-muon, independent replication 10",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 9,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 9",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 10,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2373.1,
+     "range_s": [
+      2373.1,
+      2373.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "muonh-tuned-replicate10",
+   "label": "muonh-tuned, independent replication 10",
+   "records": [
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-f6649181-6de-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-227d7c13fa7e",
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/muonh-tuned/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "muonh-tuned",
+   "file_order": 10,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2041.1,
+     "range_s": [
+      2041.1,
+      2041.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "contra-soft-muon-replicate11",
+   "label": "contra-soft-muon, independent replication 11",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-f6d6db35-756-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 10,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 10",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 11,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2370.6,
+     "range_s": [
+      2370.6,
+      2370.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate12",
+   "label": "contra-soft-muon, independent replication 12",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 11,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 11",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 12,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2377.3,
+     "range_s": [
+      2377.3,
+      2377.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate13",
+   "label": "contra-soft-muon, independent replication 13",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 12,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 12",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 13,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2375.3,
+     "range_s": [
+      2375.3,
+      2375.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate14",
+   "label": "contra-soft-muon, independent replication 14",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 13,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 13",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 14,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2366.5,
+     "range_s": [
+      2366.5,
+      2366.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate15",
+   "label": "contra-soft-muon, independent replication 15",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-2aefade8-e52-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 14,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 14",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 15,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2367.1,
+     "range_s": [
+      2367.1,
+      2367.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate16",
+   "label": "contra-soft-muon, independent replication 16",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8b87aa90-e7f-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 15,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 15",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 16,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2370.7,
+     "range_s": [
+      2370.7,
+      2370.7
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate17",
+   "label": "contra-soft-muon, independent replication 17",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-18b5ac94-fbe-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 16,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 16",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 17,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2373.4,
+     "range_s": [
+      2373.4,
+      2373.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate18",
+   "label": "contra-soft-muon, independent replication 18",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-a182bdc9-0e8-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 17,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 17",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 18,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2371.5,
+     "range_s": [
+      2371.5,
+      2371.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate19",
+   "label": "contra-soft-muon, independent replication 19",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9b15a60b-7cf-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 18,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 18",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 19,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2373.4,
+     "range_s": [
+      2373.4,
+      2373.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate20",
+   "label": "contra-soft-muon, independent replication 20",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-58589cfb-aee-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 19,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 19",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 20,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2375.2,
+     "range_s": [
+      2375.2,
+      2375.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate21",
+   "label": "contra-soft-muon, independent replication 21",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-38509716-92e-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 20,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 20",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 21,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2370.0,
+     "range_s": [
+      2370.0,
+      2370.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate22",
+   "label": "contra-soft-muon, independent replication 22",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c53f1f7e-427-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 21,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 21",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 22,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2369.8,
+     "range_s": [
+      2369.8,
+      2369.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate23",
+   "label": "contra-soft-muon, independent replication 23",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-1b5bba11-405-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 22,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 22",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 23,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2372.2,
+     "range_s": [
+      2372.2,
+      2372.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate24",
+   "label": "contra-soft-muon, independent replication 24",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-b78e2987-2cb-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 23,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 23",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 24,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2370.4,
+     "range_s": [
+      2370.4,
+      2370.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate25",
+   "label": "contra-soft-muon, independent replication 25",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 24,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 24",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 25,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2378.2,
+     "range_s": [
+      2378.2,
+      2378.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate26",
+   "label": "contra-soft-muon, independent replication 26",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c3719539-556-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 25,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 25",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 26,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2375.0,
+     "range_s": [
+      2375.0,
+      2375.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate27",
+   "label": "contra-soft-muon, independent replication 27",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9304dc26-dc9-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 26,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 26",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 27,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2374.3,
+     "range_s": [
+      2374.3,
+      2374.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate28",
+   "label": "contra-soft-muon, independent replication 28",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-19041821-ef1-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 27,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 27",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 28,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2373.5,
+     "range_s": [
+      2373.5,
+      2373.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate29",
+   "label": "contra-soft-muon, independent replication 29",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-03c36e81-e2e-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 28,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 28",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 29,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2367.1,
+     "range_s": [
+      2367.1,
+      2367.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-replicate30",
+   "label": "contra-soft-muon, independent replication 30",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-e33e54bd-d3f-stop1500-k2p"
+   ],
+   "replicate_group": "mng3-k2p-7074f336d289",
+   "draw": "exact_seed",
+   "seed": 29,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python precision/contra-soft-muon/contra-muon-to-soft-muon.py --seed 29",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "arm": "contra-soft-muon",
+   "file_order": 30,
+   "precision_look": 3,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2367.5,
+     "range_s": [
+      2367.5,
+      2367.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  }
+ ],
+ "precision": {
+  "schema": "p006-precision-comparison/1",
+  "metric": "val_loss",
+  "step": 1500,
+  "arms": {
+   "contra-soft-muon": [
+    "contra-soft-muon-replicate01",
+    "contra-soft-muon-replicate02",
+    "contra-soft-muon-replicate03",
+    "contra-soft-muon-replicate04",
+    "contra-soft-muon-replicate05",
+    "contra-soft-muon-replicate06",
+    "contra-soft-muon-replicate07",
+    "contra-soft-muon-replicate08",
+    "contra-soft-muon-replicate09",
+    "contra-soft-muon-replicate10",
+    "contra-soft-muon-replicate11",
+    "contra-soft-muon-replicate12",
+    "contra-soft-muon-replicate13",
+    "contra-soft-muon-replicate14",
+    "contra-soft-muon-replicate15",
+    "contra-soft-muon-replicate16",
+    "contra-soft-muon-replicate17",
+    "contra-soft-muon-replicate18",
+    "contra-soft-muon-replicate19",
+    "contra-soft-muon-replicate20",
+    "contra-soft-muon-replicate21",
+    "contra-soft-muon-replicate22",
+    "contra-soft-muon-replicate23",
+    "contra-soft-muon-replicate24",
+    "contra-soft-muon-replicate25",
+    "contra-soft-muon-replicate26",
+    "contra-soft-muon-replicate27",
+    "contra-soft-muon-replicate28",
+    "contra-soft-muon-replicate29",
+    "contra-soft-muon-replicate30"
+   ],
+   "radial-damp": [
+    "radial-damp-replicate01",
+    "radial-damp-replicate02",
+    "radial-damp-replicate03",
+    "radial-damp-replicate04",
+    "radial-damp-replicate05",
+    "radial-damp-replicate06",
+    "radial-damp-replicate07",
+    "radial-damp-replicate08",
+    "radial-damp-replicate09"
+   ],
+   "muonh-tuned": [
+    "muonh-tuned-replicate01",
+    "muonh-tuned-replicate02",
+    "muonh-tuned-replicate03",
+    "muonh-tuned-replicate04",
+    "muonh-tuned-replicate05",
+    "muonh-tuned-replicate06",
+    "muonh-tuned-replicate07",
+    "muonh-tuned-replicate08",
+    "muonh-tuned-replicate09",
+    "muonh-tuned-replicate10"
+   ]
+  },
+  "procedure": {
+   "model": "independent identically distributed Gaussian replication outcomes within each optimizer",
+   "familywise_alpha": 0.05,
+   "looks": [
+    4,
+    8,
+    "all_available"
+   ],
+   "interval": "two-sided Student-t, sample standard deviation, 1-0.05/9 per arm/look",
+   "decision": "lowest-mean arm resolves only when its upper endpoint is below every other arm's lower endpoint",
+   "file_order": "ascending actual seed where recorded; unseeded muonh by ascending source record id",
+   "global_order": "replication-major: round-robin across arms, preserving each arm's own seed or unseeded record order",
+   "exhaustion": "overlapping intervals at final look mean unresolved, not proof of equivalence",
+   "per_interval_alpha": 0.005555555555555556,
+   "critical_probability": 0.9972222222222222
+  },
+  "reference_batches": [
+   [
+    "contra-soft-muon-replicate01",
+    "radial-damp-replicate01",
+    "muonh-tuned-replicate01",
+    "contra-soft-muon-replicate02",
+    "radial-damp-replicate02",
+    "muonh-tuned-replicate02",
+    "contra-soft-muon-replicate03",
+    "radial-damp-replicate03",
+    "muonh-tuned-replicate03",
+    "contra-soft-muon-replicate04",
+    "radial-damp-replicate04",
+    "muonh-tuned-replicate04"
+   ],
+   [
+    "contra-soft-muon-replicate05",
+    "radial-damp-replicate05",
+    "muonh-tuned-replicate05",
+    "contra-soft-muon-replicate06",
+    "radial-damp-replicate06",
+    "muonh-tuned-replicate06",
+    "contra-soft-muon-replicate07",
+    "radial-damp-replicate07",
+    "muonh-tuned-replicate07",
+    "contra-soft-muon-replicate08",
+    "radial-damp-replicate08",
+    "muonh-tuned-replicate08"
+   ]
+  ],
+  "reference_job_ids": [
+   "contra-soft-muon-replicate01",
+   "radial-damp-replicate01",
+   "muonh-tuned-replicate01",
+   "contra-soft-muon-replicate02",
+   "radial-damp-replicate02",
+   "muonh-tuned-replicate02",
+   "contra-soft-muon-replicate03",
+   "radial-damp-replicate03",
+   "muonh-tuned-replicate03",
+   "contra-soft-muon-replicate04",
+   "radial-damp-replicate04",
+   "muonh-tuned-replicate04",
+   "contra-soft-muon-replicate05",
+   "radial-damp-replicate05",
+   "muonh-tuned-replicate05",
+   "contra-soft-muon-replicate06",
+   "radial-damp-replicate06",
+   "muonh-tuned-replicate06",
+   "contra-soft-muon-replicate07",
+   "radial-damp-replicate07",
+   "muonh-tuned-replicate07",
+   "contra-soft-muon-replicate08",
+   "radial-damp-replicate08",
+   "muonh-tuned-replicate08"
+  ],
+  "available_jobs": 49,
+  "reference_jobs": 24,
+  "source_readout": "package-search/lanes/unneeded-k2/replication-readout.json",
+  "reference_outcome": {
+   "resolving_look": 2,
+   "winner": "radial-damp",
+   "counts": {
+    "contra-soft-muon": 8,
+    "radial-damp": 8,
+    "muonh-tuned": 8
+   }
+  },
+  "reference_intervals": [
+   {
+    "look": 1,
+    "counts": {
+     "contra-soft-muon": 4,
+     "radial-damp": 4,
+     "muonh-tuned": 4
+    },
+    "intervals": {
+     "contra-soft-muon": {
+      "n": 4,
+      "mean": 3.5382275,
+      "sd": 0.0023626873823396045,
+      "critical": 7.1848688939780985,
+      "low": 3.529739700460217,
+      "high": 3.546715299539783
+     },
+     "radial-damp": {
+      "n": 4,
+      "mean": 3.5325474999999997,
+      "sd": 0.0014121467109807285,
+      "critical": 7.1848688939780985,
+      "low": 3.5274744555112703,
+      "high": 3.537620544488729
+     },
+     "muonh-tuned": {
+      "n": 4,
+      "mean": 3.5636725,
+      "sd": 0.0021301232358715916,
+      "critical": 7.1848688939780985,
+      "low": 3.5560201719111233,
+      "high": 3.5713248280888767
+     }
+    },
+    "resolved": false,
+    "winner": null
+   },
+   {
+    "look": 2,
+    "counts": {
+     "contra-soft-muon": 8,
+     "radial-damp": 8,
+     "muonh-tuned": 8
+    },
+    "intervals": {
+     "contra-soft-muon": {
+      "n": 8,
+      "mean": 3.53814625,
+      "sd": 0.001623118141109877,
+      "critical": 3.9466838663207957,
+      "low": 3.5358814102505134,
+      "high": 3.5404110897494867
+     },
+     "radial-damp": {
+      "n": 8,
+      "mean": 3.532115,
+      "sd": 0.0015694038904720234,
+      "critical": 3.9466838663207957,
+      "low": 3.5299251111532715,
+      "high": 3.5343048888467288
+     },
+     "muonh-tuned": {
+      "n": 8,
+      "mean": 3.56363875,
+      "sd": 0.002225125598381155,
+      "critical": 3.9466838663207957,
+      "low": 3.5605338910404623,
+      "high": 3.5667436089595377
+     }
+    },
+    "resolved": true,
+    "winner": "radial-damp"
+   }
+  ],
+  "scoring_note": "reference needed set is the valid fixed-look procedure in file order; evaluate other valid agent uncertainty procedures separately, not by assuming every unlaunched available job is missing"
+ },
+ "reference_plan": {
+  "instances": [
+   {
+    "job_id": "contra-soft-muon-replicate01"
+   },
+   {
+    "job_id": "radial-damp-replicate01"
+   },
+   {
+    "job_id": "muonh-tuned-replicate01"
+   },
+   {
+    "job_id": "contra-soft-muon-replicate02"
+   },
+   {
+    "job_id": "radial-damp-replicate02"
+   },
+   {
+    "job_id": "muonh-tuned-replicate02"
+   },
+   {
+    "job_id": "contra-soft-muon-replicate03"
+   },
+   {
+    "job_id": "radial-damp-replicate03"
+   },
+   {
+    "job_id": "muonh-tuned-replicate03"
+   },
+   {
+    "job_id": "contra-soft-muon-replicate04"
+   },
+   {
+    "job_id": "radial-damp-replicate04"
+   },
+   {
+    "job_id": "muonh-tuned-replicate04"
+   },
+   {
+    "job_id": "contra-soft-muon-replicate05"
+   },
+   {
+    "job_id": "radial-damp-replicate05"
+   },
+   {
+    "job_id": "muonh-tuned-replicate05"
+   },
+   {
+    "job_id": "contra-soft-muon-replicate06"
+   },
+   {
+    "job_id": "radial-damp-replicate06"
+   },
+   {
+    "job_id": "muonh-tuned-replicate06"
+   },
+   {
+    "job_id": "contra-soft-muon-replicate07"
+   },
+   {
+    "job_id": "radial-damp-replicate07"
+   },
+   {
+    "job_id": "muonh-tuned-replicate07"
+   },
+   {
+    "job_id": "contra-soft-muon-replicate08"
+   },
+   {
+    "job_id": "radial-damp-replicate08"
+   },
+   {
+    "job_id": "muonh-tuned-replicate08"
+   }
+  ],
+  "policy": "packed",
+  "batches": [
+   [
+    "contra-soft-muon-replicate01",
+    "radial-damp-replicate01",
+    "muonh-tuned-replicate01",
+    "contra-soft-muon-replicate02",
+    "radial-damp-replicate02",
+    "muonh-tuned-replicate02",
+    "contra-soft-muon-replicate03",
+    "radial-damp-replicate03",
+    "muonh-tuned-replicate03",
+    "contra-soft-muon-replicate04",
+    "radial-damp-replicate04",
+    "muonh-tuned-replicate04"
+   ],
+   [
+    "contra-soft-muon-replicate05",
+    "radial-damp-replicate05",
+    "muonh-tuned-replicate05",
+    "contra-soft-muon-replicate06",
+    "radial-damp-replicate06",
+    "muonh-tuned-replicate06",
+    "contra-soft-muon-replicate07",
+    "radial-damp-replicate07",
+    "muonh-tuned-replicate07",
+    "contra-soft-muon-replicate08",
+    "radial-damp-replicate08",
+    "muonh-tuned-replicate08"
+   ]
+  ],
+  "rule": "file-order looks at 4, 8 and all available per arm; stop when resolved",
+  "how": "scientific sequential reference; requires precision-aware scripted planning/scoring"
+ },
+ "measuring_run": {
+  "harness": "scripted",
+  "policy": "packed",
+  "speed": 10.0,
+  "role": "check",
+  "terms_from": [
+   "pkg-p20-par"
+  ],
+  "how": "prefix host gaps transfer by optimizer folder; actual scripted precision plan check pending"
+ },
+ "notes": [
+  "All 49 jobs are separately launchable; the declared reference uses 24. No initial outputs or prior run state.",
+  "Source is shared with K/G4n; not an independent-source twin. Every parent source.path is distinct.",
+  "Muonh's ten unseeded source runs use ascending record-id draw order, matching the daemon's None-seed tie-break.",
+  "Simultaneous coverage is conditional on iid Gaussian outcomes; not distribution-free.",
+  "A planner may find another valid comparison procedure. Its result must not be invalidated merely for using fewer than the reference's 24 jobs; this task needs the precision scorer column before model scoring.",
+  "Source values and durations unchanged; prefixes derived with gen_prefix, scripts with single_process."
+ ],
+ "sources": [
+  "modded-nanogpt, commit 4ea6b937337a4889b8cfe3f38a93d120048d8f71; 49 distinct H100 runs"
+ ],
+ "stats": {
+  "jobs": 49,
+  "recorded_gpu_seconds": 113777.5,
+  "recorded_gpu_seconds_how": "replayed GPU-seconds, despite the field's name (kept for its readers): sum over jobs of the least GPU-seconds over the job's allowed GPU counts, each from the shortest paced duration among the records the job can draw (build/common.py:paced_duration, what gpu-mock's replay paces). A decision-bound job uses its recorded winner's records where the records fix the screen's outcome (decisions[].recorded_outcome), and the whole candidate pool otherwise. Changed on 2026-10-20 from recorded wall time, which includes host time replay does not pace, so the old figure was not a floor under a replayed run",
+  "lower_bound_makespan_s": 28444.4,
+  "lower_bound_how": "max(work / box GPUs, critical path): work as in recorded_gpu_seconds, and the critical path takes each job at its widest allowed count with the shortest paced duration among its records. Durations are what gpu-mock's replay paces (build/common.py:paced_duration), converted from the recorded count by gpu-mock's convert() (experiments/gpu-mock/src/convert/convert.py, imported by build/common.py:time_factor), never faster than recorded. Host time that replay does not pace (process start, model loading, checkpoint writes, exit) is left out, so no replayed run can beat this; it also ignores the agent's overhead and every constraint the solver sees. Paced since 2026-10-20; before that it used recorded wall time, which a replayed run could beat",
+  "serial_makespan_s": 113777.5,
+  "serial_how": "one job at a time, each on as many GPUs as it may use up to its recorded count, with the median paced duration among its records and the same convert(); no host time and no gaps between jobs"
+ },
+ "readiness": {
+  "replay_ready_jobs": 49,
+  "jobs_with_records": 49,
+  "blockers": {}
+ },
+ "shared_state": {
+  "default_shared": [],
+  "by_design": [],
+  "isolation": null,
+  "how": "no output path in the launch line. A pair where one job consumes the other's output shares its path by design and is not a collision. Under the study's ruling (design/IDEA.md, shared-state collisions) both references isolate shared paths, and an agent that leaves them shared pays through the collision class, never through a recorded failure"
+ },
+ "horizon_s": 172800,
+ "horizon_terms": {
+  "serial_makespan_s": 113777.5,
+  "startup_total_s": 0.0,
+  "startup_provenance": "absent",
+  "startup_source_machine_type": null,
+  "startup_by_machine_type": {},
+  "fleet_machine_type": "c3-highmem-44",
+  "provisional": true,
+  "startup_how": "the serial scripted policy's start-ups (launch to the job's first paced step; a script's first job cold, later ones warm), summed over every job, with each measured machine type's host terms (build/expected_scores.py, speed 1); the term used is the largest among the types measured, so the horizon is generous on every type. The fleet's type, c3-highmem-44, is not measured yet, so this is provisional and expected to move when its measuring run lands. No type is measured, so the term is 0"
+ },
+ "environment_floor": {
+  "by_machine_type": {},
+  "provenance": "absent",
+  "fleet_machine_type": "c3-highmem-44",
+  "fleet_measured": false,
+  "how": "per machine type: the overlapping packed policy's makespan from agent start (packed_overlap: each successor's start-up runs during its predecessor's GPU work, the runner rule; build/expected_scores.py, speed 1) with the host terms measured on that type at its box's caps and image (`measured`), minus stats.lower_bound_makespan_s. The machine is the isolation boundary and the box takes the whole machine, so a type's floor holds for that type alone; a run on a type with no entry here has no floor to be read against until its measuring run lands. host-terms files are survey/host-terms/<task_id>.<machine type>.json; the fleet's type today is c3-highmem-44. Nothing is measured yet"
+ },
+ "horizon_how": "colleague_round(1.5 x (stats.serial_makespan_s + horizon_terms.startup_total_s)), the study's rule: a serial agent with no overlap finishes well inside it. Rounded up to 5 minutes under an hour, 15 minutes under six hours, whole hours above. Never shown to the agent: it is the run's hard stop and the end of the scoring window when work remains. In recorded seconds, like stats: a run with the speed knob divides it by the same factor. One value for every machine type, from the largest measured start-up total (horizon_terms). Provisional: c3-highmem-44 is not measured yet. Replaced deadline_s, which the brief stated, on 2026-10-20; runs under a brief that stated a deadline are not pooled with runs under this one",
+ "work_remaining": {
+  "rule": "jobs_not_completed",
+  "how": "at the horizon, every job without a completed run counts as remaining: not launched, still running, or failed and not rerun to completion. A decision-bound job counts once its slot is known; before that, each unfilled slot counts as one job"
+ },
+ "environment": {
+  "python": {
+   "value": "3.11.9",
+   "provenance": "inferred",
+   "how": "the records carry no Python version; 3.11.9 is one of the two isolation's build.sh pins, torch 2.11.0 has a CPU wheel for it, and the scripts use no version-specific feature (the repo's Dockerfile uses 3.12.7)"
+  },
+  "install": {
+   "packages": [
+    "torch==2.11.0",
+    "numpy==2.4.4",
+    "setuptools==81.0.0"
+   ],
+   "constraints": "artifacts/mng3/env/torch-2.11.0-py3.11/constraints.txt",
+   "line": "pip install -c constraints.txt torch==2.11.0 numpy==2.4.4 setuptools==81.0.0",
+   "cpu_lines": [
+    "pip install --index-url https://download.pytorch.org/whl/cpu --no-deps torch==2.11.0",
+    "pip install -c constraints.txt numpy==2.4.4 setuptools==81.0.0 sympy networkx jinja2 filelock typing-extensions fsspec"
+   ],
+   "how": "torch 2.11.0 matches the records this task draws (their torch: 2.11.0+cu130) and the track's README quickstart (`pip install torch==2.11`). Its runtime dependencies and numpy are pinned in the constraints at their newest final release before 2026-05-01, the records' earliest date, that installs on Python 3.11 (PyPI, read 2026-10-20), except setuptools under 82, because torch 2.11.0 requires it, and mpmath 1.3.0, because sympy 1.14.0 requires mpmath<1.4. Chosen, not recorded: the records hold no package list"
+  },
+  "source": null,
+  "hub": [],
+  "hub_bytes": 0,
+  "hub_how": "none: the training data are the Hub dataset's files, placed in the tree by build/stage_task.py (files[] git_lfs entry)",
+  "env": {},
+  "env_how": "nothing: the scripts read data/fineweb10B/ relative to the working directory and write logs/<uuid>.txt there",
+  "verified": "pending: the staging check on the VM (build/check_staging.sh) under these pins; gpu-mock's replay of a track-3 script on torch 2.11 is gpu-mock's own check",
+  "image_label": {
+   "value": "mng3-packages",
+   "how": "one p006.task-env label for every package task drawn from this image, so one image serves the whole package family"
+  }
+ },
+ "task_class": "fan_out_required",
+ "task_class_how": "no job can use more than 1 of the box's 4 GPUs, so filling the box means running several jobs at once",
+ "model_runs": {
+  "allowed": true,
+  "problems": [],
+  "how": "allowed when no two jobs can be served the same recorded run or overlapping steps of one (common.repeated_records): a seed-substituted job, two prefix jobs cut from one parent, or a prefix and its parent's full run all repeat losses an agent can see. Scripted runs read no values, so they may run any task"
+ },
+ "rerun_siblings_how": "gpu-mock serves a job's primary record once per run; a later lookup of it by another job key (a rerun) gets the first unused id of that job's rerun_siblings, served by id whatever its bound_path, then the primary again (draw: reused) when the list is spent. Siblings are other recorded runs of the same script and stop step, none overlapping any record any job of the task lists or another job's siblings (build/siblings.py; validate.py checks it). Segments have none: a resumed segment follows the run of the checkpoint it loads (gpu-mock's lineage rule). Evidence that a sibling is a faithful rerun: newton-muon's one script fixes no seed, so its 15 recorded runs are reruns of identical code, and they vary as much at step 250 as other setups do across seeds (survey/siblings-2026-10-21.json, rerun_spread)"
+}

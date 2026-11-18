@@ -1,0 +1,584 @@
+{
+ "schema": "p006-gpu-task/0.1",
+ "box": {
+  "gpus": 4,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "interconnect": "NVLink",
+  "source": "gpu-mock's default box: experiments/gpu-mock/GPU-COUNT-CONVERSION-NOTE-2026-10-19.md §3"
+ },
+ "task_id": "pkg-sc-q",
+ "rung": 2,
+ "title": "Package pkg-sc-q: screen 4 setups for 250 steps, then continue the best 2 to step 500 from their checkpoints",
+ "wave": "Q",
+ "wave_how": "short jobs to find failures fast; the standard package confirms them",
+ "brief": {
+  "text": "We're screening four optimizer setups for our small-GPT pretraining, then running further the best two. screen.txt has each setup's screening run: the first 250 steps of its schedule, one GPU each, run from the task root; each saves a checkpoint when it stops. When every screen has finished, take the two setups with the lowest validation loss at step 250 and continue each from its own checkpoint for 250 more steps: the same command with --resume checkpoints/seed<its seed>-step250.pt --stop-at 500 in place of --stop-at 250, again on one GPU. Report every screen's validation loss and the finalists' final ones. The machine has four H100s.",
+  "provenance": "written by gpu-tasks; no deadline or time words"
+ },
+ "files": [
+  {
+   "path": "contra-soft-muon/contra-muon-to-soft-muon.py",
+   "from": "artifacts/mng3/scripts/4464f5ce77f7/contra-muon-to-soft-muon.py"
+  },
+  {
+   "path": "soda-fade/contra-muon-to-soft-muon.py",
+   "from": "artifacts/mng3/scripts/99a237fc44c3/contra-muon-to-soft-muon.py"
+  },
+  {
+   "path": "radial-damp/radial_scale_then_radius_correct.py",
+   "from": "artifacts/mng3/scripts/7f1b67302ed2/radial_scale_then_radius_correct.py"
+  },
+  {
+   "path": "circuit-muon/train_gpt_circuit_muon.py",
+   "from": "artifacts/mng3/scripts/d7398ec26557/train_gpt_circuit_muon.py"
+  },
+  {
+   "path": "screen.txt",
+   "content": "torchrun --standalone --nproc_per_node=1 contra-soft-muon/contra-muon-to-soft-muon.py --seed 7 --stop-at 250\ntorchrun --standalone --nproc_per_node=1 soda-fade/contra-muon-to-soft-muon.py --seed 2 --stop-at 250\ntorchrun --standalone --nproc_per_node=1 radial-damp/radial_scale_then_radius_correct.py --seed 3 --stop-at 250\ntorchrun --standalone --nproc_per_node=1 circuit-muon/train_gpt_circuit_muon.py --seed 6 --stop-at 250\n"
+  },
+  {
+   "path": "data/fineweb10B/",
+   "hub_files": {
+    "repo": "kjj0/fineweb10B-gpt2",
+    "kind": "dataset",
+    "revision": "889765ea1f903759787add96995d81171b632d0c",
+    "files": {
+     "fineweb_val_000000.bin": {
+      "bytes": 200001024,
+      "sha256": "5b95c8e0966f0861685b307b23dc5ae42b228ef74b28cb499784ae021f201640"
+     },
+     "fineweb_train_000001.bin": {
+      "bytes": 200001024,
+      "sha256": "771fa4a99b9fe0946ffb6e848b4ba5c6a9b0fe87860ebf03bc2c1c7e45f8178e"
+     },
+     "fineweb_train_000002.bin": {
+      "bytes": 200001024,
+      "sha256": "d4ba8d2d740905a836a4222d2aff01750560e7d49a51a745a1b3235520aec2cd"
+     },
+     "fineweb_train_000003.bin": {
+      "bytes": 200001024,
+      "sha256": "f70fa272369730fd9e39f1848bfe4daa3289b6e490c1e7762777f00ea8b66246"
+     }
+    }
+   },
+   "from": "kjj0/fineweb10B-gpt2 at 889765ea1f90: the validation shard and the first 3 training shards, the ones these runs read"
+  }
+ ],
+ "jobs": [
+  {
+   "job_id": "screen-contra-soft-muon",
+   "label": "screen contra-soft-muon (seed 7): its first steps, saving a checkpoint",
+   "replicate_group": "mng3-cfg-b7d150b31221",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-seg0-250"
+   ],
+   "draw": "exact_seed",
+   "seed": 7,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "checkpoints/seed7-step250.pt"
+   ],
+   "gpu_options": [
+    1
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=1 contra-soft-muon/contra-muon-to-soft-muon.py --seed 7 --stop-at 250",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 52.8,
+     "range_s": [
+      52.8,
+      52.8
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "screen-soda-fade",
+   "label": "screen soda-fade (seed 2): its first steps, saving a checkpoint",
+   "replicate_group": "mng3-cfg-a871eb7aa089",
+   "records": [
+    "mng3-20260518-soda-fade-3000-n9-h200x4-942b4030-ddf-seg0-250"
+   ],
+   "draw": "exact_seed",
+   "seed": 2,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H200",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "checkpoints/seed2-step250.pt"
+   ],
+   "gpu_options": [
+    1
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=1 soda-fade/contra-muon-to-soft-muon.py --seed 2 --stop-at 250",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 124.4,
+     "range_s": [
+      124.4,
+      124.4
+     ],
+     "on": "4x NVIDIA H200",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "screen-radial-damp",
+   "label": "screen radial-damp (seed 3): its first steps, saving a checkpoint",
+   "replicate_group": "mng3-cfg-141afbd7ce6f",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-seg0-250"
+   ],
+   "draw": "exact_seed",
+   "seed": 3,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "checkpoints/seed3-step250.pt"
+   ],
+   "gpu_options": [
+    1
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=1 radial-damp/radial_scale_then_radius_correct.py --seed 3 --stop-at 250",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 103.9,
+     "range_s": [
+      103.9,
+      103.9
+     ],
+     "on": "4x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "screen-circuit-muon",
+   "label": "screen circuit-muon (seed 6): its first steps, saving a checkpoint",
+   "replicate_group": "mng3-cfg-a1cfcbdc57ac",
+   "records": [
+    "mng3-20260523-circuit-muon-h100-sxmx8-616cccc8-aff-seg0-250"
+   ],
+   "draw": "exact_seed",
+   "seed": 6,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "checkpoints/seed6-step250.pt"
+   ],
+   "gpu_options": [
+    1
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=1 circuit-muon/train_gpt_circuit_muon.py --seed 6 --stop-at 250",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 116.2,
+     "range_s": [
+      116.2,
+      116.2
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "confirm-pick1",
+   "label": "continue the #1 screened setup to step 500",
+   "records": null,
+   "launch": "torchrun --standalone --nproc_per_node=1 <setup>/<script> --seed <its seed> --resume checkpoints/seed<its seed>-step250.pt --stop-at 500",
+   "bind": {
+    "decision": "pick",
+    "slot": 1
+   },
+   "draw": "the bound setup's continuation record",
+   "seed": null,
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "after": [
+    "screen-contra-soft-muon",
+    "screen-soda-fade",
+    "screen-radial-damp",
+    "screen-circuit-muon"
+   ],
+   "consumes": [],
+   "produces": [],
+   "candidate_pool": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-seg250-500",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-942b4030-ddf-seg250-500",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-seg250-500",
+    "mng3-20260523-circuit-muon-h100-sxmx8-616cccc8-aff-seg250-500"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 85.3,
+     "range_s": [
+      50.7,
+      103.2
+     ],
+     "on": "one GPU",
+     "n_runs": 4,
+     "how": "over every setup's continuation, since the winners are not known in advance"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   },
+   "recorded_winner": {
+    "variant": "contra-soft-muon",
+    "records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-seg250-500"
+    ],
+    "launch": "torchrun --standalone --nproc_per_node=1 contra-soft-muon/contra-muon-to-soft-muon.py --seed 7 --resume checkpoints/seed7-step250.pt --stop-at 500",
+    "how": "the candidate the recorded screen values put in this slot, and the records this job then draws from; stats use it, disclosure does not, since the agent cannot know it before the screen"
+   }
+  },
+  {
+   "job_id": "confirm-pick2",
+   "label": "continue the #2 screened setup to step 500",
+   "records": null,
+   "launch": "torchrun --standalone --nproc_per_node=1 <setup>/<script> --seed <its seed> --resume checkpoints/seed<its seed>-step250.pt --stop-at 500",
+   "bind": {
+    "decision": "pick",
+    "slot": 2
+   },
+   "draw": "the bound setup's continuation record",
+   "seed": null,
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "after": [
+    "screen-contra-soft-muon",
+    "screen-soda-fade",
+    "screen-radial-damp",
+    "screen-circuit-muon"
+   ],
+   "consumes": [],
+   "produces": [],
+   "candidate_pool": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-seg250-500",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-942b4030-ddf-seg250-500",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-seg250-500",
+    "mng3-20260523-circuit-muon-h100-sxmx8-616cccc8-aff-seg250-500"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 85.3,
+     "range_s": [
+      50.7,
+      103.2
+     ],
+     "on": "one GPU",
+     "n_runs": 4,
+     "how": "over every setup's continuation, since the winners are not known in advance"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   },
+   "recorded_winner": {
+    "variant": "radial-damp",
+    "records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-seg250-500"
+    ],
+    "launch": "torchrun --standalone --nproc_per_node=1 radial-damp/radial_scale_then_radius_correct.py --seed 3 --resume checkpoints/seed3-step250.pt --stop-at 500",
+    "how": "the candidate the recorded screen values put in this slot, and the records this job then draws from; stats use it, disclosure does not, since the agent cannot know it before the screen"
+   }
+  }
+ ],
+ "decisions": [
+  {
+   "decision_id": "pick",
+   "after": [
+    "screen-contra-soft-muon",
+    "screen-soda-fade",
+    "screen-radial-damp",
+    "screen-circuit-muon"
+   ],
+   "rule": "the 2 setups whose screen ends with the lowest validation loss at step 250, ties broken by name",
+   "rule_spec": {
+    "metric": "final_val_loss",
+    "aggregate": "single",
+    "direction": "min",
+    "top": 2
+   },
+   "observable": "the validation loss each screen prints at step 250, as served",
+   "launches": [
+    "confirm-pick1",
+    "confirm-pick2"
+   ],
+   "slots": 2,
+   "shape_independent_of_outcome": true,
+   "shape_how": "every continuation is one GPU; their lengths differ by setup",
+   "candidates": [
+    {
+     "variant": "contra-soft-muon",
+     "records": [
+      "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-seg0-250"
+     ],
+     "screen_job": "screen-contra-soft-muon",
+     "confirm_records": [
+      "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-seg250-500"
+     ],
+     "confirm_launch": "torchrun --standalone --nproc_per_node=1 contra-soft-muon/contra-muon-to-soft-muon.py --seed 7 --resume checkpoints/seed7-step250.pt --stop-at 500",
+     "replicate_group": "mng3-cfg-20bed864057f",
+     "seed": 7
+    },
+    {
+     "variant": "soda-fade",
+     "records": [
+      "mng3-20260518-soda-fade-3000-n9-h200x4-942b4030-ddf-seg0-250"
+     ],
+     "screen_job": "screen-soda-fade",
+     "confirm_records": [
+      "mng3-20260518-soda-fade-3000-n9-h200x4-942b4030-ddf-seg250-500"
+     ],
+     "confirm_launch": "torchrun --standalone --nproc_per_node=1 soda-fade/contra-muon-to-soft-muon.py --seed 2 --resume checkpoints/seed2-step250.pt --stop-at 500",
+     "replicate_group": "mng3-cfg-0514f78af973",
+     "seed": 2
+    },
+    {
+     "variant": "radial-damp",
+     "records": [
+      "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-seg0-250"
+     ],
+     "screen_job": "screen-radial-damp",
+     "confirm_records": [
+      "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-seg250-500"
+     ],
+     "confirm_launch": "torchrun --standalone --nproc_per_node=1 radial-damp/radial_scale_then_radius_correct.py --seed 3 --resume checkpoints/seed3-step250.pt --stop-at 500",
+     "replicate_group": "mng3-cfg-61ad7ca60f18",
+     "seed": 3
+    },
+    {
+     "variant": "circuit-muon",
+     "records": [
+      "mng3-20260523-circuit-muon-h100-sxmx8-616cccc8-aff-seg0-250"
+     ],
+     "screen_job": "screen-circuit-muon",
+     "confirm_records": [
+      "mng3-20260523-circuit-muon-h100-sxmx8-616cccc8-aff-seg250-500"
+     ],
+     "confirm_launch": "torchrun --standalone --nproc_per_node=1 circuit-muon/train_gpt_circuit_muon.py --seed 6 --resume checkpoints/seed6-step250.pt --stop-at 500",
+     "replicate_group": "mng3-cfg-cc71d44e436c",
+     "seed": 6
+    }
+   ],
+   "recorded_outcome": {
+    "winners": [
+     "contra-soft-muon",
+     "radial-damp"
+    ],
+    "scores": {
+     "contra-soft-muon": 4.0562,
+     "soda-fade": 4.0999,
+     "radial-damp": 4.0869,
+     "circuit-muon": 4.1054
+    },
+    "how": "single final_val_loss over each candidate's screen records, min 2, ties by name; every screen job has exactly one record, so the served values and the winners are fixed"
+   }
+  }
+ ],
+ "measuring_run": {
+  "harness": "scripted",
+  "policy": "packed",
+  "speed": 1.0,
+  "machine_type": "c3-highmem-44",
+  "writes": "survey/host-terms/<task_id>.c3-highmem-44.json, by build/derive_host_terms.py <run dir>",
+  "how": "packed: every job launched the moment a GPU is free, longest first, as in the DPO, battery and quick tasks' measuring runs, so each start-up is measured under the CPU and disk contention a fan-out agent creates. Speed 1, because host time does not scale with the speed knob and a floor or horizon is set only from a speed-1 run",
+  "decisions": "a scripted (oracle) plan binds each confirm job to its recorded_winner: its records and its launch, after every screen"
+ },
+ "sources": [
+  "modded-nanogpt track 3, commit 4ea6b937; records on torch 2.11.0; segment records by build/gen_segment.py"
+ ],
+ "notes": [
+  "Each screen is the first segment of one recorded run (build/gen_segment.py), and each confirm job is the rest of that run, resumed from the screen's checkpoint, so the continuation's served values are the same run's.",
+  "Which setups win is the recorded screen values' to decide; the task records the recorded winners (recorded_winner on each confirm job) for the scripted references, and a model agent decides for itself.",
+  "The setups use distinct seeds because a segment script names its checkpoint by seed and step.",
+  "Under replay a checkpoint holds the model's initial weights and an empty optimizer state; the next run loads it for real, and nothing reads its values."
+ ],
+ "stats": {
+  "jobs": 6,
+  "recorded_gpu_seconds": 2667.6,
+  "recorded_gpu_seconds_how": "replayed GPU-seconds, despite the field's name (kept for its readers): sum over jobs of the least GPU-seconds over the job's allowed GPU counts, each from the shortest paced duration among the records the job can draw (build/common.py:paced_duration, what gpu-mock's replay paces). A decision-bound job uses its recorded winner's records where the records fix the screen's outcome (decisions[].recorded_outcome), and the whole candidate pool otherwise. Changed on 2026-10-20 from recorded wall time, which includes host time replay does not pace, so the old figure was not a floor under a replayed run",
+  "lower_bound_makespan_s": 1058.0,
+  "lower_bound_how": "max(work / box GPUs, critical path): work as in recorded_gpu_seconds, and the critical path takes each job at its widest allowed count with the shortest paced duration among its records. Durations are what gpu-mock's replay paces (build/common.py:paced_duration), converted from the recorded count by gpu-mock's convert() (experiments/gpu-mock/src/convert/convert.py, imported by build/common.py:time_factor), never faster than recorded. Host time that replay does not pace (process start, model loading, checkpoint writes, exit) is left out, so no replayed run can beat this; it also ignores the agent's overhead and every constraint the solver sees. Paced since 2026-10-20; before that it used recorded wall time, which a replayed run could beat",
+  "serial_makespan_s": 2667.6,
+  "serial_how": "one job at a time, each on as many GPUs as it may use up to its recorded count, with the median paced duration among its records and the same convert(); no host time and no gaps between jobs"
+ },
+ "readiness": {
+  "replay_ready_jobs": 4,
+  "jobs_with_records": 4,
+  "blockers": {}
+ },
+ "shared_state": {
+  "default_shared": [],
+  "by_design": [],
+  "isolation": null,
+  "how": "the script writes logs/<uuid>.txt, unique per run, and reads data only. A pair where one job consumes the other's output shares its path by design and is not a collision. Under the study's ruling (design/IDEA.md, shared-state collisions) both references isolate shared paths, and an agent that leaves them shared pays through the collision class, never through a recorded failure"
+ },
+ "horizon_s": 4500,
+ "horizon_terms": {
+  "serial_makespan_s": 2667.6,
+  "startup_total_s": 46.9,
+  "startup_provenance": "derived",
+  "startup_source_machine_type": "c3-highmem-44",
+  "startup_by_machine_type": {
+   "c3-highmem-44": 46.9
+  },
+  "fleet_machine_type": "c3-highmem-44",
+  "provisional": false,
+  "startup_how": "the serial scripted policy's start-ups (launch to the job's first paced step; a script's first job cold, later ones warm), summed over every job, with each measured machine type's host terms (build/expected_scores.py, speed 1); the term used is the largest among the types measured, so the horizon is generous on every type",
+  "measured": {
+   "machine_type": "c3-highmem-44",
+   "run_dir": "<runs>/W0-scq-q-measure",
+   "measured_on": "2026-10-21",
+   "caps": {
+    "cpus": "42",
+    "memory": "346300m",
+    "memory_swap": "346300m",
+    "disk": "40g",
+    "shm": "8g",
+    "pids": 8192,
+    "oom_protect": "on",
+    "source": "machine",
+    "host_reserve_bytes": 8589934592,
+    "cpuset": "2-43",
+    "sidecar_cpuset": "0-1"
+   },
+   "image": {
+    "name": "ml-node:py311-torch2110",
+    "id": "sha256:2592424055488cd033d1d0376ca752d0c7d257690645f9cc5358af1c4f333820",
+    "sidecar_image_id": "sha256:3759106cd67792926e7bc009f750cacbcc2c61d00dfadae83af02d6af049f270",
+    "torch_patch_sha256": "43f33fca563f703331b31053f5b9e67f1bc6edd8a98e735db779b19665701dc8",
+    "gpu_mock_bundle_manifest_sha256": "7daa06f4d9cd589d2d41d753f4416fce0af10efbbdb4817bc4dd7e0290da8b48"
+   },
+   "source": "scripted packed run <run-tag>, speed 1, caps cpus 42 cpuset 2-43 memory 346300m; status completed, jobs_ended"
+  }
+ },
+ "environment_floor": {
+  "by_machine_type": {
+   "c3-highmem-44": {
+    "value": 41.2,
+    "provenance": "derived",
+    "host_terms": "survey/host-terms/pkg-sc-q.c3-highmem-44.json",
+    "packed_makespan_s": 1099.237,
+    "measured": {
+     "machine_type": "c3-highmem-44",
+     "run_dir": "<runs>/W0-scq-q-measure",
+     "measured_on": "2026-10-21",
+     "caps": {
+      "cpus": "42",
+      "memory": "346300m",
+      "memory_swap": "346300m",
+      "disk": "40g",
+      "shm": "8g",
+      "pids": 8192,
+      "oom_protect": "on",
+      "source": "machine",
+      "host_reserve_bytes": 8589934592,
+      "cpuset": "2-43",
+      "sidecar_cpuset": "0-1"
+     },
+     "image": {
+      "name": "ml-node:py311-torch2110",
+      "id": "sha256:2592424055488cd033d1d0376ca752d0c7d257690645f9cc5358af1c4f333820",
+      "sidecar_image_id": "sha256:3759106cd67792926e7bc009f750cacbcc2c61d00dfadae83af02d6af049f270",
+      "torch_patch_sha256": "43f33fca563f703331b31053f5b9e67f1bc6edd8a98e735db779b19665701dc8",
+      "gpu_mock_bundle_manifest_sha256": "7daa06f4d9cd589d2d41d753f4416fce0af10efbbdb4817bc4dd7e0290da8b48"
+     },
+     "source": "scripted packed run <run-tag>, speed 1, caps cpus 42 cpuset 2-43 memory 346300m; status completed, jobs_ended"
+    }
+   }
+  },
+  "provenance": "derived",
+  "fleet_machine_type": "c3-highmem-44",
+  "fleet_measured": true,
+  "how": "per machine type: the overlapping packed policy's makespan from agent start (packed_overlap: each successor's start-up runs during its predecessor's GPU work, the runner rule; build/expected_scores.py, speed 1) with the host terms measured on that type at its box's caps and image (`measured`), minus stats.lower_bound_makespan_s. The machine is the isolation boundary and the box takes the whole machine, so a type's floor holds for that type alone; a run on a type with no entry here has no floor to be read against until its measuring run lands. host-terms files are survey/host-terms/<task_id>.<machine type>.json; the fleet's type today is c3-highmem-44"
+ },
+ "horizon_how": "colleague_round(1.5 x (stats.serial_makespan_s + horizon_terms.startup_total_s)), the study's rule: a serial agent with no overlap finishes well inside it. Rounded up to 5 minutes under an hour, 15 minutes under six hours, whole hours above. Never shown to the agent: it is the run's hard stop and the end of the scoring window when work remains. In recorded seconds, like stats: a run with the speed knob divides it by the same factor. One value for every machine type, from the largest measured start-up total (horizon_terms). c3-highmem-44 is measured; a new machine type, caps or image that moves it makes another task version. Replaced deadline_s, which the brief stated, on 2026-10-20; runs under a brief that stated a deadline are not pooled with runs under this one",
+ "work_remaining": {
+  "rule": "jobs_not_completed",
+  "how": "at the horizon, every job without a completed run counts as remaining: not launched, still running, or failed and not rerun to completion. A decision-bound job counts once its slot is known; before that, each unfilled slot counts as one job"
+ },
+ "environment": {
+  "python": {
+   "value": "3.11.9",
+   "provenance": "inferred",
+   "how": "the records carry no Python version; 3.11.9 is one of the two isolation's build.sh pins, torch 2.11.0 has a CPU wheel for it, and the scripts use no version-specific feature (the repo's Dockerfile uses 3.12.7)"
+  },
+  "install": {
+   "packages": [
+    "torch==2.11.0",
+    "numpy==2.4.4",
+    "setuptools==81.0.0"
+   ],
+   "constraints": "artifacts/mng3/env/torch-2.11.0-py3.11/constraints.txt",
+   "line": "pip install -c constraints.txt torch==2.11.0 numpy==2.4.4 setuptools==81.0.0",
+   "cpu_lines": [
+    "pip install --index-url https://download.pytorch.org/whl/cpu --no-deps torch==2.11.0",
+    "pip install -c constraints.txt numpy==2.4.4 setuptools==81.0.0 sympy networkx jinja2 filelock typing-extensions fsspec"
+   ],
+   "how": "torch 2.11.0 matches the records this task draws (their torch: 2.11.0+cu129, 2.11.0+cu130) and the track's README quickstart (`pip install torch==2.11`). Its runtime dependencies and numpy are pinned in the constraints at their newest final release before 2026-05-01, the records' earliest date, that installs on Python 3.11 (PyPI, read 2026-10-20), except setuptools under 82, because torch 2.11.0 requires it, and mpmath 1.3.0, because sympy 1.14.0 requires mpmath<1.4. Chosen, not recorded: the records hold no package list"
+  },
+  "source": null,
+  "hub": [],
+  "hub_bytes": 0,
+  "hub_how": "none: the training data are the Hub dataset's files, placed in the tree by build/stage_task.py (files[] git_lfs entry)",
+  "env": {},
+  "env_how": "nothing: the scripts read data/fineweb10B/ relative to the working directory and write logs/<uuid>.txt there",
+  "verified": "pending: the staging check on the VM (build/check_staging.sh) under these pins; gpu-mock's replay of a track-3 script on torch 2.11 is gpu-mock's own check",
+  "image_label": {
+   "value": "mng3-packages",
+   "how": "one p006.task-env label for every package task drawn from this image, so one image serves the whole package family"
+  }
+ },
+ "task_class": "fan_out_required",
+ "task_class_how": "no job can use more than 1 of the box's 4 GPUs, so filling the box means running several jobs at once",
+ "model_runs": {
+  "allowed": true,
+  "problems": [],
+  "how": "allowed when no two jobs can be served the same recorded run or overlapping steps of one (common.repeated_records): a seed-substituted job, two prefix jobs cut from one parent, or a prefix and its parent's full run all repeat losses an agent can see. Scripted runs read no values, so they may run any task"
+ },
+ "brief_variants": {
+  "no_launch_line": {
+   "text": "We're screening four optimizer setups for our small-GPT pretraining, then running further the best two. screen.txt has each setup's screening run: the first 250 steps of its schedule, one GPU each, run from the task root; each saves a checkpoint when it stops. When every screen has finished, take the two setups with the lowest validation loss at step 250 and continue each from its own checkpoint for 250 more steps: the same command with --resume checkpoints/seed<its seed>-step250.pt --stop-at 500 in place of --stop-at 250, again on one GPU. Report every screen's validation loss and the finalists' final ones. The machine has four H100s.",
+   "how": "the same text: this brief names its commands only through screen.txt and says what each run is, not that the agent should launch it directly, so nothing in it contradicts S1",
+   "for": "the scheduler rungs S1-S3 (the harness, design/SOLUTION-LADDER.md): the campaign appends S1's own text"
+  }
+ }
+}

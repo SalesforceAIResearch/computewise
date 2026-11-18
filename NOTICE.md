@@ -1,14 +1,18 @@
 # Third-party notices
 
-ComputeWise's own code is licensed under the Apache License 2.0 (`LICENSE.txt`). This file lists the
-third-party material ComputeWise uses, the form it takes here, and its licence.
+ComputeWise's own code is licensed under the Apache License 2.0 (`LICENSE.txt`). The benchmark data in
+`gpu-tasks/registry/` (task files, recorded job runs, staged artifacts and expected scores) is licensed under CC-BY-4.0
+(`gpu-tasks/registry/LICENSE`), as in the Hugging Face dataset it is copied from; the upstream notices are in
+`gpu-tasks/registry/third_party/`. This file lists the third-party material ComputeWise uses, the form it takes here,
+and its licence.
 
 ## Sources the benchmark packages are built from
 
 | Source | Licence | How ComputeWise uses it |
 |---|---|---|
-| [KellerJordan/modded-nanogpt](https://github.com/KellerJordan/modded-nanogpt) @ `4ea6b937` | MIT, Copyright (c) 2024 Keller Jordan | The optimizer packages are built from its track-3 optimization records (timings and validation-loss series) and from the training scripts embedded in those logs. The data is in the Hugging Face dataset, not in this repository. |
-| [test-time-compute-for-tabular-foundation-models](https://github.com/kanghui-learning/test-time-compute-for-tabular-foundation-models) @ `45fb141b` and its [results dataset](https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results) | Apache-2.0 (code), CC-BY-4.0 (results) | Timings and metrics for the tabular packages. |
+| [KellerJordan/modded-nanogpt](https://github.com/KellerJordan/modded-nanogpt) @ `4ea6b937` | MIT, Copyright (c) 2024 Keller Jordan | The optimizer packages are built from its track-3 optimization records (timings and validation-loss series) and from the training scripts embedded in those logs. The data is in `gpu-tasks/registry/` and the Hugging Face dataset, with its MIT notice in `gpu-tasks/registry/third_party/`. |
+| [test-time-compute-for-tabular-foundation-models](https://github.com/kanghui-learning/test-time-compute-for-tabular-foundation-models) @ `45fb141b` and its [results dataset](https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results) | Apache-2.0 (code), CC-BY-4.0 (results) | Timings and metrics for the tabular packages. The results CSVs are in `gpu-tasks/survey/sol-tabular-ttc/source/hf/` and the dataset; its notice is `gpu-tasks/registry/third_party/tabular-ttc.LICENSE`. |
+| [PriorLabs/TabPFN](https://github.com/PriorLabs/TabPFN) | Prior Labs License (Apache-2.0 with an attribution clause) | The tabular packages' memory model reads pinned public TabPFN source (`gpu-tasks/survey/sol-tabular-ttc/memory-source/tabpfn/`, with its LICENSE); notice also in `gpu-tasks/registry/third_party/tabpfn.LICENSE`. Built with PriorLabs-TabPFN. No TabPFN weights are included. |
 | [huggingface/trl](https://github.com/huggingface/trl) | Apache-2.0 | Example training scripts for the early smoke tasks, fetched by `gpu-tasks/build/fetch_trl.py`. |
 | [maomaocun/dLLM-Cache](https://github.com/maomaocun/dLLM-Cache), [Kamichanw/d2Cache](https://github.com/Kamichanw/d2Cache), [VILA-Lab/Elastic-Cache](https://github.com/VILA-Lab/Elastic-Cache) | Apache-2.0 | For `pkg-k2-latepole`: dLLM-Cache is fetched at a pinned commit by `gpu-tasks/build/fetch_mlsbench_inputs.py`; the d2Cache and Elastic-Cache files come from the user's MLS-Bench clone. None is in this repository. |
 | [GSAI-ML/LLaDA-8B-Instruct](https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct) @ `08b83a6f` | MIT | For `pkg-k2-latepole`: its `configuration_llada.py` and `modeling_llada.py`, fetched by `gpu-tasks/build/fetch_mlsbench_inputs.py`. Not in this repository. |

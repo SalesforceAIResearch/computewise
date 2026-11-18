@@ -1,0 +1,3323 @@
+{
+ "schema": "p006-expected-scores/0.1",
+ "task_id": "pkg-sol-tabular-science-adoption",
+ "speed": 1.0,
+ "lower_bound_makespan_s": 6769.3,
+ "horizon_s": 273600,
+ "horizon_how": "the task's horizon_s",
+ "host_terms": "none: the ideal case",
+ "think_s": 20.0,
+ "delay_s": 300.0,
+ "gpu_mock_daemon_sha256": "b302b632d2e3624a63e5ea131a5ccfe73c732c43f6e884e809e69fde86e2e035",
+ "policies": {
+  "serial": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 27417.17963678934,
+    "makespan_recorded_s": 27417.17963678934,
+    "busy_gpu_wall_s": 27077.169947624192,
+    "utilisation": 0.24689966570532193,
+    "makespan_from_agent_start_wall_s": 27437.17963678934,
+    "makespan_from_agent_start_recorded_s": 27437.17963678934,
+    "before_first_launch_wall_s": 20.0,
+    "utilisation_from_agent_start": 0.24671969118244913,
+    "lower_bound_s": 6769.3,
+    "gap_to_lower_bound_s": 20647.87963678934,
+    "makespan_over_lower_bound": 4.0502237508737,
+    "gap_to_lower_bound_from_agent_start_s": 20667.87963678934,
+    "makespan_from_agent_start_over_lower_bound": 4.053178266111613,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 27437.17963678934,
+     "recorded_s": 27437.17963678934,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.013121235270203438,
+    "whole_box_idle_share_of_wall": 0.013121235270203438,
+    "partial_idle_share_of_gpu_seconds": 0.7401590735473476,
+    "time_to_first_launch_recorded_s": 20.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "model_turn": 340.0,
+     "before_first_launch": 20.0,
+     "wait_or_poll": 0.009689165147847234
+    },
+    "partial_idle_recorded_gpu_s": 81231.50984287259,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "wait_or_poll": 76603.84893250454,
+     "no_work_left": 4627.66091036802
+    },
+    "startup_split_by_job_recorded_s": {
+     "physiochemical-protein--tabpfn3-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 18,
+     "done": 18
+    },
+    "model_turns": 37,
+    "tool_calls": 36,
+    "agent_end_recorded_s": 27437.18,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 27077.169947624192,
+     "lanes_wall": [
+      [
+       20.0,
+       1493.2078263759613
+      ],
+      [
+       1513.208,
+       3066.1332080917373
+      ],
+      [
+       3086.134,
+       4562.326497730254
+      ],
+      [
+       4582.327,
+       6120.958643056868
+      ],
+      [
+       6140.959,
+       7615.908806213386
+      ],
+      [
+       7635.909,
+       9149.846279939655
+      ],
+      [
+       9169.847,
+       10644.164204713812
+      ],
+      [
+       10664.165,
+       12158.408238449081
+      ],
+      [
+       12178.409,
+       13653.75561412239
+      ],
+      [
+       13673.756,
+       15213.990256505947
+      ],
+      [
+       15233.991,
+       16709.921095195787
+      ],
+      [
+       16729.922,
+       18262.176679918288
+      ],
+      [
+       18282.177,
+       19755.175713493336
+      ],
+      [
+       19775.176,
+       21319.77766430472
+      ],
+      [
+       21339.778,
+       22814.860417964926
+      ],
+      [
+       22834.861,
+       24379.88408464053
+      ],
+      [
+       24399.885,
+       25874.62508011817
+      ],
+      [
+       25894.626,
+       27437.17963678934
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split0-1",
+     "gpus": [
+      0
+     ],
+     "launch": 20.0,
+     "hello": 20.0,
+     "bye": 1493.2078263759613,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1473.2078263759613,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0-1",
+     "gpus": [
+      0
+     ],
+     "launch": 1513.208,
+     "hello": 1513.208,
+     "bye": 3066.1332080917373,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1552.9252080917358,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split1-1",
+     "gpus": [
+      0
+     ],
+     "launch": 3086.134,
+     "hello": 3086.134,
+     "bye": 4562.326497730254,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1476.1924977302554,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1-1",
+     "gpus": [
+      0
+     ],
+     "launch": 4582.327,
+     "hello": 4582.327,
+     "bye": 6120.958643056868,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1538.6316430568693,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 6140.959,
+     "hello": 6140.959,
+     "bye": 7615.908806213386,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.949806213379,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 7635.909,
+     "hello": 7635.909,
+     "bye": 9149.846279939655,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1513.9372799396515,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 9169.847,
+     "hello": 9169.847,
+     "bye": 10644.164204713812,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.3172047138214,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 10664.165,
+     "hello": 10664.165,
+     "bye": 12158.408238449081,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1494.2432384490967,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split4-1",
+     "gpus": [
+      0
+     ],
+     "launch": 12178.409,
+     "hello": 12178.409,
+     "bye": 13653.75561412239,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.3466141223907,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4-1",
+     "gpus": [
+      0
+     ],
+     "launch": 13673.756,
+     "hello": 13673.756,
+     "bye": 15213.990256505947,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1540.2342565059664,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split5-1",
+     "gpus": [
+      0
+     ],
+     "launch": 15233.991,
+     "hello": 15233.991,
+     "bye": 16709.921095195787,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.9300951957703,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5-1",
+     "gpus": [
+      0
+     ],
+     "launch": 16729.922,
+     "hello": 16729.922,
+     "bye": 18262.176679918288,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1532.2546799182892,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split6-1",
+     "gpus": [
+      0
+     ],
+     "launch": 18282.177,
+     "hello": 18282.177,
+     "bye": 19755.175713493336,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1472.9987134933472,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6-1",
+     "gpus": [
+      0
+     ],
+     "launch": 19775.176,
+     "hello": 19775.176,
+     "bye": 21319.77766430472,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1544.6016643047335,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split7-1",
+     "gpus": [
+      0
+     ],
+     "launch": 21339.778,
+     "hello": 21339.778,
+     "bye": 22814.860417964926,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.0824179649353,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7-1",
+     "gpus": [
+      0
+     ],
+     "launch": 22834.861,
+     "hello": 22834.861,
+     "bye": 24379.88408464053,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1545.023084640503,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split8-1",
+     "gpus": [
+      0
+     ],
+     "launch": 24399.885,
+     "hello": 24399.885,
+     "bye": 25874.62508011817,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.7400801181793,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8-1",
+     "gpus": [
+      0
+     ],
+     "launch": 25894.626,
+     "hello": 25894.626,
+     "bye": 27437.17963678934,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1542.553636789322,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8.sh"
+    }
+   ],
+   "never_launched": []
+  },
+  "packed": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 7506.459713493353,
+    "makespan_recorded_s": 7506.459713493353,
+    "busy_gpu_wall_s": 27077.169947624214,
+    "utilisation": 0.9017956194100138,
+    "makespan_from_agent_start_wall_s": 7506.459713493353,
+    "makespan_from_agent_start_recorded_s": 7506.459713493353,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.9017956194100138,
+    "lower_bound_s": 6769.3,
+    "gap_to_lower_bound_s": 737.1597134933527,
+    "makespan_over_lower_bound": 1.1088974803145601,
+    "gap_to_lower_bound_from_agent_start_s": 737.1597134933527,
+    "makespan_from_agent_start_over_lower_bound": 1.1088974803145601,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 7506.459713493353,
+     "recorded_s": 7506.459713493353,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.0,
+    "whole_box_idle_share_of_wall": 0.0,
+    "partial_idle_share_of_gpu_seconds": 0.0982043805899861,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {},
+    "partial_idle_recorded_gpu_s": 2948.6689063491967,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 2948.6603031768946,
+     "wait_or_poll": 0.00860317230194596
+    },
+    "startup_split_by_job_recorded_s": {
+     "physiochemical-protein--tabpfn3-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 18,
+     "done": 18
+    },
+    "model_turns": 37,
+    "tool_calls": 36,
+    "agent_end_recorded_s": 7506.46,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 6035.4229311943045,
+     "lanes_wall": [
+      [
+       0.0,
+       1552.9252080917354
+      ],
+      [
+       1552.926,
+       3066.8632799396523
+      ],
+      [
+       3066.864,
+       4561.107238449096
+      ],
+      [
+       4561.108,
+       6035.425204713821
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 7501.760506629946,
+     "lanes_wall": [
+      [
+       0.0,
+       1545.0230846405022
+      ],
+      [
+       1545.024,
+       3077.278679918289
+      ],
+      [
+       3077.279,
+       4553.471497730254
+      ],
+      [
+       4553.472,
+       6028.554417964943
+      ],
+      [
+       6028.555,
+       7501.762826375957
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 6033.529727697381,
+     "lanes_wall": [
+      [
+       0.0,
+       1544.6016643047335
+      ],
+      [
+       1544.602,
+       3083.23364305687
+      ],
+      [
+       3083.234,
+       4558.580614122391
+      ],
+      [
+       4558.581,
+       6033.530806213386
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 7506.456782102585,
+     "lanes_wall": [
+      [
+       0.0,
+       1542.5536367893214
+      ],
+      [
+       1542.554,
+       3082.7882565059685
+      ],
+      [
+       3082.789,
+       4558.719095195771
+      ],
+      [
+       4558.72,
+       6033.460080118171
+      ],
+      [
+       6033.461,
+       7506.459713493353
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0-1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1552.9252080917354,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1552.9252080917358,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7-1",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1545.0230846405022,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1545.023084640503,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6-1",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1544.6016643047335,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1544.6016643047335,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8-1",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1542.5536367893214,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1542.553636789322,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4-1",
+     "gpus": [
+      3
+     ],
+     "launch": 1542.554,
+     "hello": 1542.554,
+     "bye": 3082.7882565059685,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1540.2342565059664,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1-1",
+     "gpus": [
+      2
+     ],
+     "launch": 1544.602,
+     "hello": 1544.602,
+     "bye": 3083.23364305687,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1538.6316430568693,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5-1",
+     "gpus": [
+      1
+     ],
+     "launch": 1545.024,
+     "hello": 1545.024,
+     "bye": 3077.278679918289,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1532.2546799182892,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 1552.926,
+     "hello": 1552.926,
+     "bye": 3066.8632799396523,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1513.9372799396515,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 3066.864,
+     "hello": 3066.864,
+     "bye": 4561.107238449096,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1494.2432384490967,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split1-1",
+     "gpus": [
+      1
+     ],
+     "launch": 3077.279,
+     "hello": 3077.279,
+     "bye": 4553.471497730254,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1476.1924977302554,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split5-1",
+     "gpus": [
+      3
+     ],
+     "launch": 3082.789,
+     "hello": 3082.789,
+     "bye": 4558.719095195771,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.9300951957703,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split4-1",
+     "gpus": [
+      2
+     ],
+     "launch": 3083.234,
+     "hello": 3083.234,
+     "bye": 4558.580614122391,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.3466141223907,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split7-1",
+     "gpus": [
+      1
+     ],
+     "launch": 4553.472,
+     "hello": 4553.472,
+     "bye": 6028.554417964943,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.0824179649353,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split2-1",
+     "gpus": [
+      2
+     ],
+     "launch": 4558.581,
+     "hello": 4558.581,
+     "bye": 6033.530806213386,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.949806213379,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split8-1",
+     "gpus": [
+      3
+     ],
+     "launch": 4558.72,
+     "hello": 4558.72,
+     "bye": 6033.460080118171,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.7400801181793,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 4561.108,
+     "hello": 4561.108,
+     "bye": 6035.425204713821,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.3172047138214,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split0-1",
+     "gpus": [
+      1
+     ],
+     "launch": 6028.555,
+     "hello": 6028.555,
+     "bye": 7501.762826375957,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1473.2078263759613,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split6-1",
+     "gpus": [
+      3
+     ],
+     "launch": 6033.461,
+     "hello": 6033.461,
+     "bye": 7506.459713493353,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1472.9987134933472,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split6.sh"
+    }
+   ],
+   "never_launched": []
+  },
+  "packed_cp": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 7506.459713493353,
+    "makespan_recorded_s": 7506.459713493353,
+    "busy_gpu_wall_s": 27077.169947624214,
+    "utilisation": 0.9017956194100138,
+    "makespan_from_agent_start_wall_s": 7506.459713493353,
+    "makespan_from_agent_start_recorded_s": 7506.459713493353,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.9017956194100138,
+    "lower_bound_s": 6769.3,
+    "gap_to_lower_bound_s": 737.1597134933527,
+    "makespan_over_lower_bound": 1.1088974803145601,
+    "gap_to_lower_bound_from_agent_start_s": 737.1597134933527,
+    "makespan_from_agent_start_over_lower_bound": 1.1088974803145601,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 7506.459713493353,
+     "recorded_s": 7506.459713493353,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.0,
+    "whole_box_idle_share_of_wall": 0.0,
+    "partial_idle_share_of_gpu_seconds": 0.0982043805899861,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {},
+    "partial_idle_recorded_gpu_s": 2948.6689063491967,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 2948.6603031768946,
+     "wait_or_poll": 0.00860317230194596
+    },
+    "startup_split_by_job_recorded_s": {
+     "physiochemical-protein--tabpfn3-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 18,
+     "done": 18
+    },
+    "model_turns": 37,
+    "tool_calls": 36,
+    "agent_end_recorded_s": 7506.46,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 6035.4229311943045,
+     "lanes_wall": [
+      [
+       0.0,
+       1552.9252080917354
+      ],
+      [
+       1552.926,
+       3066.8632799396523
+      ],
+      [
+       3066.864,
+       4561.107238449096
+      ],
+      [
+       4561.108,
+       6035.425204713821
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 7501.760506629946,
+     "lanes_wall": [
+      [
+       0.0,
+       1545.0230846405022
+      ],
+      [
+       1545.024,
+       3077.278679918289
+      ],
+      [
+       3077.279,
+       4553.471497730254
+      ],
+      [
+       4553.472,
+       6028.554417964943
+      ],
+      [
+       6028.555,
+       7501.762826375957
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 6033.529727697381,
+     "lanes_wall": [
+      [
+       0.0,
+       1544.6016643047335
+      ],
+      [
+       1544.602,
+       3083.23364305687
+      ],
+      [
+       3083.234,
+       4558.580614122391
+      ],
+      [
+       4558.581,
+       6033.530806213386
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 7506.456782102585,
+     "lanes_wall": [
+      [
+       0.0,
+       1542.5536367893214
+      ],
+      [
+       1542.554,
+       3082.7882565059685
+      ],
+      [
+       3082.789,
+       4558.719095195771
+      ],
+      [
+       4558.72,
+       6033.460080118171
+      ],
+      [
+       6033.461,
+       7506.459713493353
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0-1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1552.9252080917354,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1552.9252080917358,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7-1",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1545.0230846405022,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1545.023084640503,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6-1",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1544.6016643047335,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1544.6016643047335,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8-1",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1542.5536367893214,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1542.553636789322,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4-1",
+     "gpus": [
+      3
+     ],
+     "launch": 1542.554,
+     "hello": 1542.554,
+     "bye": 3082.7882565059685,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1540.2342565059664,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1-1",
+     "gpus": [
+      2
+     ],
+     "launch": 1544.602,
+     "hello": 1544.602,
+     "bye": 3083.23364305687,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1538.6316430568693,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5-1",
+     "gpus": [
+      1
+     ],
+     "launch": 1545.024,
+     "hello": 1545.024,
+     "bye": 3077.278679918289,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1532.2546799182892,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 1552.926,
+     "hello": 1552.926,
+     "bye": 3066.8632799396523,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1513.9372799396515,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 3066.864,
+     "hello": 3066.864,
+     "bye": 4561.107238449096,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1494.2432384490967,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split1-1",
+     "gpus": [
+      1
+     ],
+     "launch": 3077.279,
+     "hello": 3077.279,
+     "bye": 4553.471497730254,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1476.1924977302554,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split5-1",
+     "gpus": [
+      3
+     ],
+     "launch": 3082.789,
+     "hello": 3082.789,
+     "bye": 4558.719095195771,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.9300951957703,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split4-1",
+     "gpus": [
+      2
+     ],
+     "launch": 3083.234,
+     "hello": 3083.234,
+     "bye": 4558.580614122391,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.3466141223907,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split7-1",
+     "gpus": [
+      1
+     ],
+     "launch": 4553.472,
+     "hello": 4553.472,
+     "bye": 6028.554417964943,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.0824179649353,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split2-1",
+     "gpus": [
+      2
+     ],
+     "launch": 4558.581,
+     "hello": 4558.581,
+     "bye": 6033.530806213386,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.949806213379,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split8-1",
+     "gpus": [
+      3
+     ],
+     "launch": 4558.72,
+     "hello": 4558.72,
+     "bye": 6033.460080118171,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.7400801181793,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 4561.108,
+     "hello": 4561.108,
+     "bye": 6035.425204713821,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.3172047138214,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split0-1",
+     "gpus": [
+      1
+     ],
+     "launch": 6028.555,
+     "hello": 6028.555,
+     "bye": 7501.762826375957,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1473.2078263759613,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split6-1",
+     "gpus": [
+      3
+     ],
+     "launch": 6033.461,
+     "hello": 6033.461,
+     "bye": 7506.459713493353,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1472.9987134933472,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split6.sh"
+    }
+   ],
+   "never_launched": []
+  },
+  "delayed": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 7506.459713493353,
+    "makespan_recorded_s": 7506.459713493353,
+    "busy_gpu_wall_s": 27077.16994762421,
+    "utilisation": 0.9017956194100137,
+    "makespan_from_agent_start_wall_s": 7806.459713493353,
+    "makespan_from_agent_start_recorded_s": 7806.459713493353,
+    "before_first_launch_wall_s": 300.0,
+    "utilisation_from_agent_start": 0.8671398733033142,
+    "lower_bound_s": 6769.3,
+    "gap_to_lower_bound_s": 737.1597134933527,
+    "makespan_over_lower_bound": 1.1088974803145601,
+    "gap_to_lower_bound_from_agent_start_s": 1037.1597134933527,
+    "makespan_from_agent_start_over_lower_bound": 1.1532152088832452,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 7806.459713493353,
+     "recorded_s": 7806.459713493353,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.03842971218841421,
+    "whole_box_idle_share_of_wall": 0.03842971218841421,
+    "partial_idle_share_of_gpu_seconds": 0.09443041450827155,
+    "time_to_first_launch_recorded_s": 300.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "before_first_launch": 300.0
+    },
+    "partial_idle_recorded_gpu_s": 2948.6689063492004,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 2948.6603031768946,
+     "wait_or_poll": 0.008603172305811313
+    },
+    "startup_split_by_job_recorded_s": {
+     "physiochemical-protein--tabpfn3-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 18,
+     "done": 18
+    },
+    "model_turns": 38,
+    "tool_calls": 37,
+    "agent_end_recorded_s": 7806.46,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 6035.422931194304,
+     "lanes_wall": [
+      [
+       300.0,
+       1852.9252080917358
+      ],
+      [
+       1852.926,
+       3366.8632799396523
+      ],
+      [
+       3366.864,
+       4861.107238449095
+      ],
+      [
+       4861.108,
+       6335.425204713821
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 7501.760506629947,
+     "lanes_wall": [
+      [
+       300.0,
+       1845.0230846405027
+      ],
+      [
+       1845.024,
+       3377.278679918289
+      ],
+      [
+       3377.279,
+       4853.471497730255
+      ],
+      [
+       4853.472,
+       6328.554417964943
+      ],
+      [
+       6328.555,
+       7801.762826375957
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 6033.529727697378,
+     "lanes_wall": [
+      [
+       300.0,
+       1844.6016643047333
+      ],
+      [
+       1844.602,
+       3383.2336430568685
+      ],
+      [
+       3383.234,
+       4858.58061412239
+      ],
+      [
+       4858.581,
+       6333.530806213386
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 7506.456782102582,
+     "lanes_wall": [
+      [
+       300.0,
+       1842.553636789321
+      ],
+      [
+       1842.554,
+       3382.7882565059685
+      ],
+      [
+       3382.789,
+       4858.719095195769
+      ],
+      [
+       4858.72,
+       6333.460080118171
+      ],
+      [
+       6333.461,
+       7806.459713493353
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0-1",
+     "gpus": [
+      0
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 1852.9252080917358,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1552.9252080917358,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7-1",
+     "gpus": [
+      1
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 1845.0230846405027,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1545.023084640503,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6-1",
+     "gpus": [
+      2
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 1844.6016643047333,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1544.6016643047335,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8-1",
+     "gpus": [
+      3
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 1842.553636789321,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1542.553636789322,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4-1",
+     "gpus": [
+      3
+     ],
+     "launch": 1842.554,
+     "hello": 1842.554,
+     "bye": 3382.7882565059685,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1540.2342565059664,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1-1",
+     "gpus": [
+      2
+     ],
+     "launch": 1844.602,
+     "hello": 1844.602,
+     "bye": 3383.2336430568685,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1538.6316430568693,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5-1",
+     "gpus": [
+      1
+     ],
+     "launch": 1845.024,
+     "hello": 1845.024,
+     "bye": 3377.278679918289,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1532.2546799182892,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 1852.926,
+     "hello": 1852.926,
+     "bye": 3366.8632799396523,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1513.9372799396515,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 3366.864,
+     "hello": 3366.864,
+     "bye": 4861.107238449095,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1494.2432384490967,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split1-1",
+     "gpus": [
+      1
+     ],
+     "launch": 3377.279,
+     "hello": 3377.279,
+     "bye": 4853.471497730255,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1476.1924977302554,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split5-1",
+     "gpus": [
+      3
+     ],
+     "launch": 3382.789,
+     "hello": 3382.789,
+     "bye": 4858.719095195769,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.9300951957703,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split4-1",
+     "gpus": [
+      2
+     ],
+     "launch": 3383.234,
+     "hello": 3383.234,
+     "bye": 4858.58061412239,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.3466141223907,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split7-1",
+     "gpus": [
+      1
+     ],
+     "launch": 4853.472,
+     "hello": 4853.472,
+     "bye": 6328.554417964943,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.0824179649353,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split2-1",
+     "gpus": [
+      2
+     ],
+     "launch": 4858.581,
+     "hello": 4858.581,
+     "bye": 6333.530806213386,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.949806213379,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split8-1",
+     "gpus": [
+      3
+     ],
+     "launch": 4858.72,
+     "hello": 4858.72,
+     "bye": 6333.460080118171,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.7400801181793,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 4861.108,
+     "hello": 4861.108,
+     "bye": 6335.425204713821,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.3172047138214,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split0-1",
+     "gpus": [
+      1
+     ],
+     "launch": 6328.555,
+     "hello": 6328.555,
+     "bye": 7801.762826375957,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1473.2078263759613,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split6-1",
+     "gpus": [
+      3
+     ],
+     "launch": 6333.461,
+     "hello": 6333.461,
+     "bye": 7806.459713493353,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1472.9987134933472,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split6.sh"
+    }
+   ],
+   "never_launched": []
+  },
+  "quit_after_first": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 1473.2078263759613,
+    "makespan_recorded_s": 1473.2078263759613,
+    "busy_gpu_wall_s": 1473.2078263759613,
+    "utilisation": 0.25,
+    "makespan_from_agent_start_wall_s": 1473.2078263759613,
+    "makespan_from_agent_start_recorded_s": 1473.2078263759613,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.25,
+    "lower_bound_s": 6769.3,
+    "gap_to_lower_bound_s": -5296.092173624039,
+    "makespan_over_lower_bound": 0.21763074858197468,
+    "gap_to_lower_bound_from_agent_start_s": -5296.092173624039,
+    "makespan_from_agent_start_over_lower_bound": 0.21763074858197468,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 273600.0,
+     "recorded_s": 273600.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.9946154684708481,
+    "whole_box_idle_share_of_wall": 0.9946154684708481,
+    "partial_idle_share_of_gpu_seconds": 0.004038398646863929,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 272126.792,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 272126.792,
+     "wait_or_poll": 0.00017362403877996258
+    },
+    "partial_idle_recorded_gpu_s": 4419.623479127884,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "wait_or_poll": 4419.623479127884
+    },
+    "startup_split_by_job_recorded_s": {
+     "physiochemical-protein--tabpfn3-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 17,
+     "task_jobs": 18,
+     "done": 1
+    },
+    "model_turns": 3,
+    "tool_calls": 2,
+    "agent_end_recorded_s": 1473.208,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 1473.2078263759613,
+     "lanes_wall": [
+      [
+       0.0,
+       1473.2078263759613
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split0-1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1473.2078263759613,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1473.2078263759613,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split0.sh"
+    }
+   ],
+   "never_launched": [
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split1-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split2-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split3-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split4-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split5-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split6-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split7-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split8-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8-1"
+   ]
+  },
+  "quit_while_running": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 1473.2078263759613,
+    "makespan_recorded_s": 1473.2078263759613,
+    "busy_gpu_wall_s": 1473.2078263759613,
+    "utilisation": 0.25,
+    "makespan_from_agent_start_wall_s": 1473.2078263759613,
+    "makespan_from_agent_start_recorded_s": 1473.2078263759613,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.25,
+    "lower_bound_s": 6769.3,
+    "gap_to_lower_bound_s": -5296.092173624039,
+    "makespan_over_lower_bound": 0.21763074858197468,
+    "gap_to_lower_bound_from_agent_start_s": -5296.092173624039,
+    "makespan_from_agent_start_over_lower_bound": 0.21763074858197468,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 273600.0,
+     "recorded_s": 273600.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.9946154684708481,
+    "whole_box_idle_share_of_wall": 0.9946154684708481,
+    "partial_idle_share_of_gpu_seconds": 0.004038398646863929,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 272126.79217362404,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 272126.79217362404
+    },
+    "partial_idle_recorded_gpu_s": 4419.623479127884,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "after_agent_ended": 4419.623479127884
+    },
+    "startup_split_by_job_recorded_s": {
+     "physiochemical-protein--tabpfn3-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 17,
+     "task_jobs": 18,
+     "done": 1
+    },
+    "model_turns": 2,
+    "tool_calls": 1,
+    "agent_end_recorded_s": 0.0,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 1473.2078263759613,
+     "lanes_wall": [
+      [
+       0.0,
+       1473.2078263759613
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split0-1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1473.2078263759613,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1473.2078263759613,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split0.sh"
+    }
+   ],
+   "never_launched": [
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split1-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split2-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split3-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split4-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split5-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split6-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split7-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split8-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8-1"
+   ]
+  },
+  "quit_at_first_completion": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 1552.9252080917354,
+    "makespan_recorded_s": 1552.9252080917354,
+    "busy_gpu_wall_s": 6185.103593826292,
+    "utilisation": 0.9957182035551261,
+    "makespan_from_agent_start_wall_s": 1552.9252080917354,
+    "makespan_from_agent_start_recorded_s": 1552.9252080917354,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.9957182035551261,
+    "lower_bound_s": 6769.3,
+    "gap_to_lower_bound_s": -5216.374791908265,
+    "makespan_over_lower_bound": 0.22940705953226115,
+    "gap_to_lower_bound_from_agent_start_s": -5216.374791908265,
+    "makespan_from_agent_start_over_lower_bound": 0.22940705953226115,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 273600.0,
+     "recorded_s": 273600.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.9943241037715945,
+    "whole_box_idle_share_of_wall": 0.9943241037715945,
+    "partial_idle_share_of_gpu_seconds": 2.4303032292259647e-05,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 272047.07479190826,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 272047.07479190826
+    },
+    "partial_idle_recorded_gpu_s": 26.59723854064896,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "after_agent_ended": 26.596875329970317,
+     "wait_or_poll": 0.0003632106786426448
+    },
+    "startup_split_by_job_recorded_s": {
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 14,
+     "task_jobs": 18,
+     "done": 4
+    },
+    "model_turns": 6,
+    "tool_calls": 5,
+    "agent_end_recorded_s": 1542.554,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 1552.9252080917354,
+     "lanes_wall": [
+      [
+       0.0,
+       1552.9252080917354
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 1545.0230846405022,
+     "lanes_wall": [
+      [
+       0.0,
+       1545.0230846405022
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 1544.6016643047335,
+     "lanes_wall": [
+      [
+       0.0,
+       1544.6016643047335
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 1542.5536367893214,
+     "lanes_wall": [
+      [
+       0.0,
+       1542.5536367893214
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0-1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1552.9252080917354,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1552.9252080917358,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7-1",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1545.0230846405022,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1545.023084640503,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6-1",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1544.6016643047335,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1544.6016643047335,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8-1",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1542.5536367893214,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1542.553636789322,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8.sh"
+    }
+   ],
+   "never_launched": [
+    "physiochemical-protein--tabpfn3-aggregation-96--split0-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split1-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split2-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split3-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split4-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split5-1",
+    "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split6-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split7-1",
+    "physiochemical-protein--tabpfn3-aggregation-96--split8-1"
+   ]
+  },
+  "packed_overlap": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 7506.456782102585,
+    "makespan_recorded_s": 7506.456782102585,
+    "busy_gpu_wall_s": 27077.169947624214,
+    "utilisation": 0.9017959715755468,
+    "makespan_from_agent_start_wall_s": 7506.456782102585,
+    "makespan_from_agent_start_recorded_s": 7506.456782102585,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.9017959715755468,
+    "lower_bound_s": 6769.3,
+    "gap_to_lower_bound_s": 737.1567821025847,
+    "makespan_over_lower_bound": 1.1088970472726256,
+    "gap_to_lower_bound_from_agent_start_s": 737.1567821025847,
+    "makespan_from_agent_start_over_lower_bound": 1.1088970472726256,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 7506.456782102585,
+     "recorded_s": 7506.456782102585,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.0,
+    "whole_box_idle_share_of_wall": 0.0,
+    "partial_idle_share_of_gpu_seconds": 0.0982040284244531,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {},
+    "partial_idle_recorded_gpu_s": 2948.6571807861237,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 2948.6571807861237
+    },
+    "startup_split_by_job_recorded_s": {
+     "physiochemical-protein--tabpfn3-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 18,
+     "done": 18
+    },
+    "model_turns": 34,
+    "tool_calls": 33,
+    "agent_end_recorded_s": 7506.457,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 6035.4229311943045,
+     "lanes_wall": [
+      [
+       0.0,
+       6035.4229311943045
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 7501.760506629946,
+     "lanes_wall": [
+      [
+       0.0,
+       7501.760506629946
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 6033.529727697381,
+     "lanes_wall": [
+      [
+       0.0,
+       6033.529727697381
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 7506.456782102585,
+     "lanes_wall": [
+      [
+       0.0,
+       7506.456782102585
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0-1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1552.9252080917354,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1552.9252080917358,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7-1",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1545.0230846405022,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1545.023084640503,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6-1",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1544.6016643047335,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1544.6016643047335,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8-1",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1542.5536367893214,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1542.553636789322,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4-1",
+     "gpus": [
+      3
+     ],
+     "launch": 1542.5536367893214,
+     "hello": 1542.5536367893214,
+     "bye": 3082.78789329529,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1540.2342565059664,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1-1",
+     "gpus": [
+      2
+     ],
+     "launch": 1544.6016643047335,
+     "hello": 1544.6016643047335,
+     "bye": 3083.2333073616032,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1538.6316430568693,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5-1",
+     "gpus": [
+      1
+     ],
+     "launch": 1545.0230846405022,
+     "hello": 1545.0230846405022,
+     "bye": 3077.2777645587917,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1532.2546799182892,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 1552.9252080917354,
+     "hello": 1552.9252080917354,
+     "bye": 3066.862488031388,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1513.9372799396515,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 3066.862488031388,
+     "hello": 3066.862488031388,
+     "bye": 4561.105726480484,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1494.2432384490967,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split1-1",
+     "gpus": [
+      1
+     ],
+     "launch": 3077.2777645587917,
+     "hello": 3077.2777645587917,
+     "bye": 4553.470262289045,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1476.1924977302554,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split5-1",
+     "gpus": [
+      3
+     ],
+     "launch": 3082.78789329529,
+     "hello": 3082.78789329529,
+     "bye": 4558.717988491061,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.9300951957703,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split4-1",
+     "gpus": [
+      2
+     ],
+     "launch": 3083.2333073616032,
+     "hello": 3083.2333073616032,
+     "bye": 4558.579921483994,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.3466141223907,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split7-1",
+     "gpus": [
+      1
+     ],
+     "launch": 4553.470262289045,
+     "hello": 4553.470262289045,
+     "bye": 6028.552680253989,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1475.0824179649353,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split2-1",
+     "gpus": [
+      2
+     ],
+     "launch": 4558.579921483994,
+     "hello": 4558.579921483994,
+     "bye": 6033.529727697381,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.949806213379,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split8-1",
+     "gpus": [
+      3
+     ],
+     "launch": 4558.717988491061,
+     "hello": 4558.717988491061,
+     "bye": 6033.458068609232,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.7400801181793,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 4561.105726480484,
+     "hello": 4561.105726480484,
+     "bye": 6035.4229311943045,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1474.3172047138214,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split0-1",
+     "gpus": [
+      1
+     ],
+     "launch": 6028.552680253989,
+     "hello": 6028.552680253989,
+     "bye": 7501.760506629946,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1473.2078263759613,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split6-1",
+     "gpus": [
+      3
+     ],
+     "launch": 6033.458068609232,
+     "hello": 6033.458068609232,
+     "bye": 7506.456782102585,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1472.9987134933472,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/physiochemical-protein--tabpfn3-aggregation-96--split6.sh"
+    }
+   ],
+   "never_launched": []
+  }
+ },
+ "known_divergences": []
+}

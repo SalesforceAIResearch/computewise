@@ -1,0 +1,3323 @@
+{
+ "schema": "p006-expected-scores/0.1",
+ "task_id": "pkg-sol-tabular-operations-adoption",
+ "speed": 1.0,
+ "lower_bound_makespan_s": 5902.0,
+ "horizon_s": 698400,
+ "horizon_how": "the task's horizon_s",
+ "host_terms": "none: the ideal case",
+ "think_s": 20.0,
+ "delay_s": 300.0,
+ "gpu_mock_daemon_sha256": "b302b632d2e3624a63e5ea131a5ccfe73c732c43f6e884e809e69fde86e2e035",
+ "policies": {
+  "serial": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 23948.039588422773,
+    "makespan_recorded_s": 23948.039588422773,
+    "busy_gpu_wall_s": 23608.029438734113,
+    "utilisation": 0.2464505429720745,
+    "makespan_from_agent_start_wall_s": 23968.039588422773,
+    "makespan_from_agent_start_recorded_s": 23968.039588422773,
+    "before_first_launch_wall_s": 20.0,
+    "utilisation_from_agent_start": 0.24624489365973684,
+    "lower_bound_s": 5902.0,
+    "gap_to_lower_bound_s": 18046.039588422773,
+    "makespan_over_lower_bound": 4.057614298275631,
+    "gap_to_lower_bound_from_agent_start_s": 18066.039588422773,
+    "makespan_from_agent_start_over_lower_bound": 4.06100298007841,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 23968.039588422773,
+     "recorded_s": 23968.039588422773,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.015020425361052707,
+    "whole_box_idle_share_of_wall": 0.015020425361052707,
+    "partial_idle_share_of_gpu_seconds": 0.7387346809792104,
+    "time_to_first_launch_recorded_s": 20.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "model_turn": 340.0,
+     "before_first_launch": 20.0,
+     "wait_or_poll": 0.01014968866070376
+    },
+    "partial_idle_recorded_gpu_s": 70824.08831620232,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "wait_or_poll": 66800.12955093404,
+     "no_work_left": 4023.958765268315
+    },
+    "startup_split_by_job_recorded_s": {
+     "credit-card-clients-default--tabpfn3-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 18,
+     "done": 18
+    },
+    "model_turns": 37,
+    "tool_calls": 36,
+    "agent_end_recorded_s": 23968.04,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 23608.029438734113,
+     "lanes_wall": [
+      [
+       20.0,
+       1326.4445230960846
+      ],
+      [
+       1346.445,
+       2684.851711578369
+      ],
+      [
+       2704.852,
+       4009.9701058883657
+      ],
+      [
+       4029.971,
+       5355.902841850278
+      ],
+      [
+       5375.903,
+       6682.177016380309
+      ],
+      [
+       6702.178,
+       8045.663178232191
+      ],
+      [
+       8065.664,
+       9367.321216787337
+      ],
+      [
+       9387.322,
+       10695.97186276627
+      ],
+      [
+       10715.972,
+       12013.623819705963
+      ],
+      [
+       12033.624,
+       13334.637225317016
+      ],
+      [
+       13354.638,
+       14653.492110002517
+      ],
+      [
+       14673.493,
+       16008.891629426962
+      ],
+      [
+       16028.892,
+       17327.658117811192
+      ],
+      [
+       17347.659,
+       18645.879418930042
+      ],
+      [
+       18665.88,
+       19963.36602294924
+      ],
+      [
+       19983.367,
+       21289.23752822114
+      ],
+      [
+       21309.238,
+       22606.719521368064
+      ],
+      [
+       22626.72,
+       23968.039588422773
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split0-1",
+     "gpus": [
+      0
+     ],
+     "launch": 20.0,
+     "hello": 20.0,
+     "bye": 1326.4445230960846,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1306.4445230960846,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0-1",
+     "gpus": [
+      0
+     ],
+     "launch": 1346.445,
+     "hello": 1346.445,
+     "bye": 2684.851711578369,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1338.4067115783691,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split1-1",
+     "gpus": [
+      0
+     ],
+     "launch": 2704.852,
+     "hello": 2704.852,
+     "bye": 4009.9701058883657,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1305.1181058883667,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1-1",
+     "gpus": [
+      0
+     ],
+     "launch": 4029.971,
+     "hello": 4029.971,
+     "bye": 5355.902841850278,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1325.9318418502808,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 5375.903,
+     "hello": 5375.903,
+     "bye": 6682.177016380309,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1306.27401638031,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 6702.178,
+     "hello": 6702.178,
+     "bye": 8045.663178232191,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1343.485178232193,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 8065.664,
+     "hello": 8065.664,
+     "bye": 9367.321216787337,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1301.6572167873383,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 9387.322,
+     "hello": 9387.322,
+     "bye": 10695.97186276627,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1308.6498627662659,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split4-1",
+     "gpus": [
+      0
+     ],
+     "launch": 10715.972,
+     "hello": 10715.972,
+     "bye": 12013.623819705963,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.6518197059631,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4-1",
+     "gpus": [
+      0
+     ],
+     "launch": 12033.624,
+     "hello": 12033.624,
+     "bye": 13334.637225317016,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1301.0132253170013,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split5-1",
+     "gpus": [
+      0
+     ],
+     "launch": 13354.638,
+     "hello": 13354.638,
+     "bye": 14653.492110002517,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.8541100025177,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5-1",
+     "gpus": [
+      0
+     ],
+     "launch": 14673.493,
+     "hello": 14673.493,
+     "bye": 16008.891629426962,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1335.3986294269562,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split6-1",
+     "gpus": [
+      0
+     ],
+     "launch": 16028.892,
+     "hello": 16028.892,
+     "bye": 17327.658117811192,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.766117811203,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6-1",
+     "gpus": [
+      0
+     ],
+     "launch": 17347.659,
+     "hello": 17347.659,
+     "bye": 18645.879418930042,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.2204189300537,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split7-1",
+     "gpus": [
+      0
+     ],
+     "launch": 18665.88,
+     "hello": 18665.88,
+     "bye": 19963.36602294924,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.4860229492188,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7-1",
+     "gpus": [
+      0
+     ],
+     "launch": 19983.367,
+     "hello": 19983.367,
+     "bye": 21289.23752822114,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1305.8705282211304,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split8-1",
+     "gpus": [
+      0
+     ],
+     "launch": 21309.238,
+     "hello": 21309.238,
+     "bye": 22606.719521368064,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.4815213680267,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8-1",
+     "gpus": [
+      0
+     ],
+     "launch": 22626.72,
+     "hello": 22626.72,
+     "bye": 23968.039588422773,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1341.3195884227753,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8.sh"
+    }
+   ],
+   "never_launched": []
+  },
+  "packed": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 6548.630521368023,
+    "makespan_recorded_s": 6548.630521368023,
+    "busy_gpu_wall_s": 23608.02943873405,
+    "utilisation": 0.901258261620564,
+    "makespan_from_agent_start_wall_s": 6548.630521368023,
+    "makespan_from_agent_start_recorded_s": 6548.630521368023,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.901258261620564,
+    "lower_bound_s": 5902.0,
+    "gap_to_lower_bound_s": 646.6305213680234,
+    "makespan_over_lower_bound": 1.109561254044057,
+    "gap_to_lower_bound_from_agent_start_s": 646.6305213680234,
+    "makespan_from_agent_start_over_lower_bound": 1.109561254044057,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 6548.630521368023,
+     "recorded_s": 6548.630521368023,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.0,
+    "whole_box_idle_share_of_wall": 0.0,
+    "partial_idle_share_of_gpu_seconds": 0.09874173837943599,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {},
+    "partial_idle_recorded_gpu_s": 2586.4926467380437,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 2586.484603637684,
+     "wait_or_poll": 0.008043100360055178
+    },
+    "startup_split_by_job_recorded_s": {
+     "credit-card-clients-default--tabpfn3-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 18,
+     "done": 18
+    },
+    "model_turns": 37,
+    "tool_calls": 36,
+    "agent_end_recorded_s": 6548.631,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 6547.75654435158,
+     "lanes_wall": [
+      [
+       0.0,
+       1343.4851782321928
+      ],
+      [
+       1343.486,
+       2649.760016380309
+      ],
+      [
+       2649.761,
+       3951.41821678734
+      ],
+      [
+       3951.419,
+       5250.273110002516
+      ],
+      [
+       5250.274,
+       6547.760022949222
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 5251.648335218428,
+     "lanes_wall": [
+      [
+       0.0,
+       1341.319588422775
+      ],
+      [
+       1341.32,
+       2647.764523096085
+      ],
+      [
+       2647.765,
+       3952.8831058883657
+      ],
+      [
+       3952.884,
+       5251.650117811202
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 6548.629042863843,
+     "lanes_wall": [
+      [
+       0.0,
+       1338.4067115783691
+      ],
+      [
+       1338.407,
+       2647.0568627662665
+      ],
+      [
+       2647.057,
+       3952.9275282211274
+      ],
+      [
+       3952.928,
+       5251.148418930056
+      ],
+      [
+       5251.149,
+       6548.630521368023
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 5259.9955163002,
+     "lanes_wall": [
+      [
+       0.0,
+       1335.3986294269566
+      ],
+      [
+       1335.399,
+       2661.330841850281
+      ],
+      [
+       2661.331,
+       3962.344225316999
+      ],
+      [
+       3962.345,
+       5259.9968197059625
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1343.4851782321928,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1343.485178232193,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8-1",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1341.319588422775,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1341.3195884227753,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0-1",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1338.4067115783691,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1338.4067115783691,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5-1",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1335.3986294269566,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1335.3986294269562,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1-1",
+     "gpus": [
+      3
+     ],
+     "launch": 1335.399,
+     "hello": 1335.399,
+     "bye": 2661.330841850281,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1325.9318418502808,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3-1",
+     "gpus": [
+      2
+     ],
+     "launch": 1338.407,
+     "hello": 1338.407,
+     "bye": 2647.0568627662665,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1308.6498627662659,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split0-1",
+     "gpus": [
+      1
+     ],
+     "launch": 1341.32,
+     "hello": 1341.32,
+     "bye": 2647.764523096085,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1306.4445230960846,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 1343.486,
+     "hello": 1343.486,
+     "bye": 2649.760016380309,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1306.27401638031,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7-1",
+     "gpus": [
+      2
+     ],
+     "launch": 2647.057,
+     "hello": 2647.057,
+     "bye": 3952.9275282211274,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1305.8705282211304,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split1-1",
+     "gpus": [
+      1
+     ],
+     "launch": 2647.765,
+     "hello": 2647.765,
+     "bye": 3952.8831058883657,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1305.1181058883667,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 2649.761,
+     "hello": 2649.761,
+     "bye": 3951.41821678734,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1301.6572167873383,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4-1",
+     "gpus": [
+      3
+     ],
+     "launch": 2661.331,
+     "hello": 2661.331,
+     "bye": 3962.344225316999,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1301.0132253170013,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split5-1",
+     "gpus": [
+      0
+     ],
+     "launch": 3951.419,
+     "hello": 3951.419,
+     "bye": 5250.273110002516,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.8541100025177,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split6-1",
+     "gpus": [
+      1
+     ],
+     "launch": 3952.884,
+     "hello": 3952.884,
+     "bye": 5251.650117811202,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.766117811203,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6-1",
+     "gpus": [
+      2
+     ],
+     "launch": 3952.928,
+     "hello": 3952.928,
+     "bye": 5251.148418930056,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.2204189300537,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split4-1",
+     "gpus": [
+      3
+     ],
+     "launch": 3962.345,
+     "hello": 3962.345,
+     "bye": 5259.9968197059625,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.6518197059631,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split7-1",
+     "gpus": [
+      0
+     ],
+     "launch": 5250.274,
+     "hello": 5250.274,
+     "bye": 6547.760022949222,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.4860229492188,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split8-1",
+     "gpus": [
+      2
+     ],
+     "launch": 5251.149,
+     "hello": 5251.149,
+     "bye": 6548.630521368023,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.4815213680267,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split8.sh"
+    }
+   ],
+   "never_launched": []
+  },
+  "packed_cp": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 6548.630521368023,
+    "makespan_recorded_s": 6548.630521368023,
+    "busy_gpu_wall_s": 23608.02943873405,
+    "utilisation": 0.901258261620564,
+    "makespan_from_agent_start_wall_s": 6548.630521368023,
+    "makespan_from_agent_start_recorded_s": 6548.630521368023,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.901258261620564,
+    "lower_bound_s": 5902.0,
+    "gap_to_lower_bound_s": 646.6305213680234,
+    "makespan_over_lower_bound": 1.109561254044057,
+    "gap_to_lower_bound_from_agent_start_s": 646.6305213680234,
+    "makespan_from_agent_start_over_lower_bound": 1.109561254044057,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 6548.630521368023,
+     "recorded_s": 6548.630521368023,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.0,
+    "whole_box_idle_share_of_wall": 0.0,
+    "partial_idle_share_of_gpu_seconds": 0.09874173837943599,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {},
+    "partial_idle_recorded_gpu_s": 2586.4926467380437,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 2586.484603637684,
+     "wait_or_poll": 0.008043100360055178
+    },
+    "startup_split_by_job_recorded_s": {
+     "credit-card-clients-default--tabpfn3-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 18,
+     "done": 18
+    },
+    "model_turns": 37,
+    "tool_calls": 36,
+    "agent_end_recorded_s": 6548.631,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 6547.75654435158,
+     "lanes_wall": [
+      [
+       0.0,
+       1343.4851782321928
+      ],
+      [
+       1343.486,
+       2649.760016380309
+      ],
+      [
+       2649.761,
+       3951.41821678734
+      ],
+      [
+       3951.419,
+       5250.273110002516
+      ],
+      [
+       5250.274,
+       6547.760022949222
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 5251.648335218428,
+     "lanes_wall": [
+      [
+       0.0,
+       1341.319588422775
+      ],
+      [
+       1341.32,
+       2647.764523096085
+      ],
+      [
+       2647.765,
+       3952.8831058883657
+      ],
+      [
+       3952.884,
+       5251.650117811202
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 6548.629042863843,
+     "lanes_wall": [
+      [
+       0.0,
+       1338.4067115783691
+      ],
+      [
+       1338.407,
+       2647.0568627662665
+      ],
+      [
+       2647.057,
+       3952.9275282211274
+      ],
+      [
+       3952.928,
+       5251.148418930056
+      ],
+      [
+       5251.149,
+       6548.630521368023
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 5259.9955163002,
+     "lanes_wall": [
+      [
+       0.0,
+       1335.3986294269566
+      ],
+      [
+       1335.399,
+       2661.330841850281
+      ],
+      [
+       2661.331,
+       3962.344225316999
+      ],
+      [
+       3962.345,
+       5259.9968197059625
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1343.4851782321928,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1343.485178232193,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8-1",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1341.319588422775,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1341.3195884227753,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0-1",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1338.4067115783691,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1338.4067115783691,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5-1",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1335.3986294269566,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1335.3986294269562,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1-1",
+     "gpus": [
+      3
+     ],
+     "launch": 1335.399,
+     "hello": 1335.399,
+     "bye": 2661.330841850281,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1325.9318418502808,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3-1",
+     "gpus": [
+      2
+     ],
+     "launch": 1338.407,
+     "hello": 1338.407,
+     "bye": 2647.0568627662665,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1308.6498627662659,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split0-1",
+     "gpus": [
+      1
+     ],
+     "launch": 1341.32,
+     "hello": 1341.32,
+     "bye": 2647.764523096085,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1306.4445230960846,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 1343.486,
+     "hello": 1343.486,
+     "bye": 2649.760016380309,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1306.27401638031,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7-1",
+     "gpus": [
+      2
+     ],
+     "launch": 2647.057,
+     "hello": 2647.057,
+     "bye": 3952.9275282211274,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1305.8705282211304,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split1-1",
+     "gpus": [
+      1
+     ],
+     "launch": 2647.765,
+     "hello": 2647.765,
+     "bye": 3952.8831058883657,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1305.1181058883667,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 2649.761,
+     "hello": 2649.761,
+     "bye": 3951.41821678734,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1301.6572167873383,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4-1",
+     "gpus": [
+      3
+     ],
+     "launch": 2661.331,
+     "hello": 2661.331,
+     "bye": 3962.344225316999,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1301.0132253170013,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split5-1",
+     "gpus": [
+      0
+     ],
+     "launch": 3951.419,
+     "hello": 3951.419,
+     "bye": 5250.273110002516,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.8541100025177,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split6-1",
+     "gpus": [
+      1
+     ],
+     "launch": 3952.884,
+     "hello": 3952.884,
+     "bye": 5251.650117811202,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.766117811203,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6-1",
+     "gpus": [
+      2
+     ],
+     "launch": 3952.928,
+     "hello": 3952.928,
+     "bye": 5251.148418930056,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.2204189300537,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split4-1",
+     "gpus": [
+      3
+     ],
+     "launch": 3962.345,
+     "hello": 3962.345,
+     "bye": 5259.9968197059625,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.6518197059631,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split7-1",
+     "gpus": [
+      0
+     ],
+     "launch": 5250.274,
+     "hello": 5250.274,
+     "bye": 6547.760022949222,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.4860229492188,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split8-1",
+     "gpus": [
+      2
+     ],
+     "launch": 5251.149,
+     "hello": 5251.149,
+     "bye": 6548.630521368023,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.4815213680267,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split8.sh"
+    }
+   ],
+   "never_launched": []
+  },
+  "delayed": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 6548.630521368023,
+    "makespan_recorded_s": 6548.630521368023,
+    "busy_gpu_wall_s": 23608.02943873405,
+    "utilisation": 0.901258261620564,
+    "makespan_from_agent_start_wall_s": 6848.630521368023,
+    "makespan_from_agent_start_recorded_s": 6848.630521368023,
+    "before_first_launch_wall_s": 300.0,
+    "utilisation_from_agent_start": 0.8617792040713825,
+    "lower_bound_s": 5902.0,
+    "gap_to_lower_bound_s": 646.6305213680234,
+    "makespan_over_lower_bound": 1.109561254044057,
+    "gap_to_lower_bound_from_agent_start_s": 946.6305213680234,
+    "makespan_from_agent_start_over_lower_bound": 1.1603914810857376,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 6848.630521368023,
+     "recorded_s": 6848.630521368023,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.04380437797950802,
+    "whole_box_idle_share_of_wall": 0.04380437797950802,
+    "partial_idle_share_of_gpu_seconds": 0.09441641794910942,
+    "time_to_first_launch_recorded_s": 300.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "before_first_launch": 300.0
+    },
+    "partial_idle_recorded_gpu_s": 2586.492646738042,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 2586.484603637683,
+     "wait_or_poll": 0.008043100359145683
+    },
+    "startup_split_by_job_recorded_s": {
+     "credit-card-clients-default--tabpfn3-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 18,
+     "done": 18
+    },
+    "model_turns": 38,
+    "tool_calls": 37,
+    "agent_end_recorded_s": 6848.631,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 6547.756544351578,
+     "lanes_wall": [
+      [
+       300.0,
+       1643.4851782321928
+      ],
+      [
+       1643.486,
+       2949.760016380309
+      ],
+      [
+       2949.761,
+       4251.418216787339
+      ],
+      [
+       4251.419,
+       5550.273110002516
+      ],
+      [
+       5550.274,
+       6847.760022949222
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 5251.648335218429,
+     "lanes_wall": [
+      [
+       300.0,
+       1641.3195884227748
+      ],
+      [
+       1641.32,
+       2947.7645230960843
+      ],
+      [
+       2947.765,
+       4252.883105888367
+      ],
+      [
+       4252.884,
+       5551.650117811202
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 6548.629042863844,
+     "lanes_wall": [
+      [
+       300.0,
+       1638.4067115783691
+      ],
+      [
+       1638.407,
+       2947.0568627662665
+      ],
+      [
+       2947.057,
+       4252.927528221127
+      ],
+      [
+       4252.928,
+       5551.148418930057
+      ],
+      [
+       5551.149,
+       6848.630521368023
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 5259.995516300201,
+     "lanes_wall": [
+      [
+       300.0,
+       1635.3986294269569
+      ],
+      [
+       1635.399,
+       2961.330841850281
+      ],
+      [
+       2961.331,
+       4262.344225317001
+      ],
+      [
+       4262.345,
+       5559.996819705963
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 1643.4851782321928,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1343.485178232193,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8-1",
+     "gpus": [
+      1
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 1641.3195884227748,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1341.3195884227753,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0-1",
+     "gpus": [
+      2
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 1638.4067115783691,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1338.4067115783691,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5-1",
+     "gpus": [
+      3
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 1635.3986294269569,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1335.3986294269562,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1-1",
+     "gpus": [
+      3
+     ],
+     "launch": 1635.399,
+     "hello": 1635.399,
+     "bye": 2961.330841850281,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1325.9318418502808,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3-1",
+     "gpus": [
+      2
+     ],
+     "launch": 1638.407,
+     "hello": 1638.407,
+     "bye": 2947.0568627662665,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1308.6498627662659,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split0-1",
+     "gpus": [
+      1
+     ],
+     "launch": 1641.32,
+     "hello": 1641.32,
+     "bye": 2947.7645230960843,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1306.4445230960846,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 1643.486,
+     "hello": 1643.486,
+     "bye": 2949.760016380309,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1306.27401638031,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7-1",
+     "gpus": [
+      2
+     ],
+     "launch": 2947.057,
+     "hello": 2947.057,
+     "bye": 4252.927528221127,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1305.8705282211304,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split1-1",
+     "gpus": [
+      1
+     ],
+     "launch": 2947.765,
+     "hello": 2947.765,
+     "bye": 4252.883105888367,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1305.1181058883667,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 2949.761,
+     "hello": 2949.761,
+     "bye": 4251.418216787339,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1301.6572167873383,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4-1",
+     "gpus": [
+      3
+     ],
+     "launch": 2961.331,
+     "hello": 2961.331,
+     "bye": 4262.344225317001,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1301.0132253170013,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split5-1",
+     "gpus": [
+      0
+     ],
+     "launch": 4251.419,
+     "hello": 4251.419,
+     "bye": 5550.273110002516,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.8541100025177,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split6-1",
+     "gpus": [
+      1
+     ],
+     "launch": 4252.884,
+     "hello": 4252.884,
+     "bye": 5551.650117811202,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.766117811203,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6-1",
+     "gpus": [
+      2
+     ],
+     "launch": 4252.928,
+     "hello": 4252.928,
+     "bye": 5551.148418930057,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.2204189300537,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split4-1",
+     "gpus": [
+      3
+     ],
+     "launch": 4262.345,
+     "hello": 4262.345,
+     "bye": 5559.996819705963,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.6518197059631,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split7-1",
+     "gpus": [
+      0
+     ],
+     "launch": 5550.274,
+     "hello": 5550.274,
+     "bye": 6847.760022949222,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.4860229492188,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split8-1",
+     "gpus": [
+      2
+     ],
+     "launch": 5551.149,
+     "hello": 5551.149,
+     "bye": 6848.630521368023,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.4815213680267,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split8.sh"
+    }
+   ],
+   "never_launched": []
+  },
+  "quit_after_first": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 1306.4445230960846,
+    "makespan_recorded_s": 1306.4445230960846,
+    "busy_gpu_wall_s": 1306.4445230960846,
+    "utilisation": 0.25,
+    "makespan_from_agent_start_wall_s": 1306.4445230960846,
+    "makespan_from_agent_start_recorded_s": 1306.4445230960846,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.25,
+    "lower_bound_s": 5902.0,
+    "gap_to_lower_bound_s": -4595.555476903915,
+    "makespan_over_lower_bound": 0.22135623908778118,
+    "gap_to_lower_bound_from_agent_start_s": -4595.555476903915,
+    "makespan_from_agent_start_over_lower_bound": 0.22135623908778118,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 698400.0,
+     "recorded_s": 698400.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.99812937496693,
+    "whole_box_idle_share_of_wall": 0.99812937496693,
+    "partial_idle_share_of_gpu_seconds": 0.0014029687748024963,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 697093.555,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 697093.555,
+     "wait_or_poll": 0.0004769039153416088
+    },
+    "partial_idle_recorded_gpu_s": 3919.333569288254,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "wait_or_poll": 3919.333569288254
+    },
+    "startup_split_by_job_recorded_s": {
+     "credit-card-clients-default--tabpfn3-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 17,
+     "task_jobs": 18,
+     "done": 1
+    },
+    "model_turns": 3,
+    "tool_calls": 2,
+    "agent_end_recorded_s": 1306.445,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 1306.4445230960846,
+     "lanes_wall": [
+      [
+       0.0,
+       1306.4445230960846
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split0-1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1306.4445230960846,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1306.4445230960846,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split0.sh"
+    }
+   ],
+   "never_launched": [
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split1-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split2-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split3-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split4-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split5-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split6-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split7-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split8-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8-1"
+   ]
+  },
+  "quit_while_running": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 1306.4445230960846,
+    "makespan_recorded_s": 1306.4445230960846,
+    "busy_gpu_wall_s": 1306.4445230960846,
+    "utilisation": 0.25,
+    "makespan_from_agent_start_wall_s": 1306.4445230960846,
+    "makespan_from_agent_start_recorded_s": 1306.4445230960846,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.25,
+    "lower_bound_s": 5902.0,
+    "gap_to_lower_bound_s": -4595.555476903915,
+    "makespan_over_lower_bound": 0.22135623908778118,
+    "gap_to_lower_bound_from_agent_start_s": -4595.555476903915,
+    "makespan_from_agent_start_over_lower_bound": 0.22135623908778118,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 698400.0,
+     "recorded_s": 698400.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.99812937496693,
+    "whole_box_idle_share_of_wall": 0.99812937496693,
+    "partial_idle_share_of_gpu_seconds": 0.0014029687748024963,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 697093.5554769039,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 697093.5554769039
+    },
+    "partial_idle_recorded_gpu_s": 3919.333569288254,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "after_agent_ended": 3919.333569288254
+    },
+    "startup_split_by_job_recorded_s": {
+     "credit-card-clients-default--tabpfn3-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 17,
+     "task_jobs": 18,
+     "done": 1
+    },
+    "model_turns": 2,
+    "tool_calls": 1,
+    "agent_end_recorded_s": 0.0,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 1306.4445230960846,
+     "lanes_wall": [
+      [
+       0.0,
+       1306.4445230960846
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split0-1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1306.4445230960846,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1306.4445230960846,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split0.sh"
+    }
+   ],
+   "never_launched": [
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split1-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split2-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split3-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split4-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split5-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split6-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split7-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split8-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8-1"
+   ]
+  },
+  "quit_at_first_completion": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 1343.4851782321928,
+    "makespan_recorded_s": 1343.4851782321928,
+    "busy_gpu_wall_s": 5358.610107660294,
+    "utilisation": 0.997147232154684,
+    "makespan_from_agent_start_wall_s": 1343.4851782321928,
+    "makespan_from_agent_start_recorded_s": 1343.4851782321928,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.997147232154684,
+    "lower_bound_s": 5902.0,
+    "gap_to_lower_bound_s": -4558.514821767807,
+    "makespan_over_lower_bound": 0.22763218878891778,
+    "gap_to_lower_bound_from_agent_start_s": -4558.514821767807,
+    "makespan_from_agent_start_over_lower_bound": 0.22763218878891778,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 698400.0,
+     "recorded_s": 698400.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.9980763385191406,
+    "whole_box_idle_share_of_wall": 0.9980763385191406,
+    "partial_idle_share_of_gpu_seconds": 5.487759617868515e-06,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 697056.5148217678,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 697056.5148217678
+    },
+    "partial_idle_recorded_gpu_s": 15.330605268477484,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "after_agent_ended": 15.330234695434228,
+     "wait_or_poll": 0.0003705730432557175
+    },
+    "startup_split_by_job_recorded_s": {
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 14,
+     "task_jobs": 18,
+     "done": 4
+    },
+    "model_turns": 6,
+    "tool_calls": 5,
+    "agent_end_recorded_s": 1335.399,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 1343.4851782321928,
+     "lanes_wall": [
+      [
+       0.0,
+       1343.4851782321928
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 1341.319588422775,
+     "lanes_wall": [
+      [
+       0.0,
+       1341.319588422775
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 1338.4067115783691,
+     "lanes_wall": [
+      [
+       0.0,
+       1338.4067115783691
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 1335.3986294269566,
+     "lanes_wall": [
+      [
+       0.0,
+       1335.3986294269566
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1343.4851782321928,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1343.485178232193,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8-1",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1341.319588422775,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1341.3195884227753,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0-1",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1338.4067115783691,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1338.4067115783691,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5-1",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1335.3986294269566,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1335.3986294269562,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5.sh"
+    }
+   ],
+   "never_launched": [
+    "credit-card-clients-default--tabpfn3-aggregation-96--split0-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split1-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split2-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split3-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split4-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split5-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split6-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split7-1",
+    "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7-1",
+    "credit-card-clients-default--tabpfn3-aggregation-96--split8-1"
+   ]
+  },
+  "packed_overlap": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 6548.629042863842,
+    "makespan_recorded_s": 6548.629042863842,
+    "busy_gpu_wall_s": 23608.029438734047,
+    "utilisation": 0.901258465100422,
+    "makespan_from_agent_start_wall_s": 6548.629042863842,
+    "makespan_from_agent_start_recorded_s": 6548.629042863842,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.901258465100422,
+    "lower_bound_s": 5902.0,
+    "gap_to_lower_bound_s": 646.6290428638422,
+    "makespan_over_lower_bound": 1.109561003535046,
+    "gap_to_lower_bound_from_agent_start_s": 646.6290428638422,
+    "makespan_from_agent_start_over_lower_bound": 1.109561003535046,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 6548.629042863842,
+     "recorded_s": 6548.629042863842,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.0,
+    "whole_box_idle_share_of_wall": 0.0,
+    "partial_idle_share_of_gpu_seconds": 0.09874153489957796,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {},
+    "partial_idle_recorded_gpu_s": 2586.4867327213196,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 2586.4867327213196
+    },
+    "startup_split_by_job_recorded_s": {
+     "credit-card-clients-default--tabpfn3-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8-1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 18,
+     "done": 18
+    },
+    "model_turns": 34,
+    "tool_calls": 33,
+    "agent_end_recorded_s": 6548.63,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 6547.75654435158,
+     "lanes_wall": [
+      [
+       0.0,
+       6547.75654435158
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 5251.648335218428,
+     "lanes_wall": [
+      [
+       0.0,
+       5251.648335218428
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 6548.629042863842,
+     "lanes_wall": [
+      [
+       0.0,
+       6548.629042863842
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 5259.9955163002,
+     "lanes_wall": [
+      [
+       0.0,
+       5259.9955163002
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1343.4851782321928,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1343.485178232193,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8-1",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1341.319588422775,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1341.3195884227753,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split8.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0-1",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1338.4067115783691,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1338.4067115783691,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5-1",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1335.3986294269566,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1335.3986294269562,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1-1",
+     "gpus": [
+      3
+     ],
+     "launch": 1335.3986294269566,
+     "hello": 1335.3986294269566,
+     "bye": 2661.330471277238,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1325.9318418502808,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3-1",
+     "gpus": [
+      2
+     ],
+     "launch": 1338.4067115783691,
+     "hello": 1338.4067115783691,
+     "bye": 2647.0565743446355,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1308.6498627662659,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split0-1",
+     "gpus": [
+      1
+     ],
+     "launch": 1341.319588422775,
+     "hello": 1341.319588422775,
+     "bye": 2647.7641115188603,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split0",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1306.4445230960846,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split0.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split2-1",
+     "gpus": [
+      0
+     ],
+     "launch": 1343.4851782321928,
+     "hello": 1343.4851782321928,
+     "bye": 2649.759194612502,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split2",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1306.27401638031,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split2.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7-1",
+     "gpus": [
+      2
+     ],
+     "launch": 2647.0565743446355,
+     "hello": 2647.0565743446355,
+     "bye": 3952.927102565763,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1305.8705282211304,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split1-1",
+     "gpus": [
+      1
+     ],
+     "launch": 2647.7641115188603,
+     "hello": 2647.7641115188603,
+     "bye": 3952.882217407226,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split1",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1305.1181058883667,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split1.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split3-1",
+     "gpus": [
+      0
+     ],
+     "launch": 2649.759194612502,
+     "hello": 2649.759194612502,
+     "bye": 3951.416411399842,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split3",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1301.6572167873383,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split3.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4-1",
+     "gpus": [
+      3
+     ],
+     "launch": 2661.330471277238,
+     "hello": 2661.330471277238,
+     "bye": 3962.343696594237,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1301.0132253170013,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split5-1",
+     "gpus": [
+      0
+     ],
+     "launch": 3951.416411399842,
+     "hello": 3951.416411399842,
+     "bye": 5250.270521402358,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split5",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.8541100025177,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split5.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split6-1",
+     "gpus": [
+      1
+     ],
+     "launch": 3952.882217407226,
+     "hello": 3952.882217407226,
+     "bye": 5251.648335218428,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.766117811203,
+     "command": "CUDA_VISIBLE_DEVICES=1 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6-1",
+     "gpus": [
+      2
+     ],
+     "launch": 3952.927102565763,
+     "hello": 3952.927102565763,
+     "bye": 5251.147521495819,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-diagscale-aggregation-96-credit-card-clients-default-split6",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1298.2204189300537,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-diagscale-aggregation-96--split6.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split4-1",
+     "gpus": [
+      3
+     ],
+     "launch": 3962.343696594237,
+     "hello": 3962.343696594237,
+     "bye": 5259.9955163002,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split4",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.6518197059631,
+     "command": "CUDA_VISIBLE_DEVICES=3 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split4.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split7-1",
+     "gpus": [
+      0
+     ],
+     "launch": 5250.270521402358,
+     "hello": 5250.270521402358,
+     "bye": 6547.75654435158,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split7",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.4860229492188,
+     "command": "CUDA_VISIBLE_DEVICES=0 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split7.sh"
+    },
+    {
+     "job_id": "credit-card-clients-default--tabpfn3-aggregation-96--split8-1",
+     "gpus": [
+      2
+     ],
+     "launch": 5251.147521495819,
+     "hello": 5251.147521495819,
+     "bye": 6548.629042863842,
+     "killed": false,
+     "record_id": "sol-ttc-tabpfn3-aggregation-96-credit-card-clients-default-split8",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1297.4815213680267,
+     "command": "CUDA_VISIBLE_DEVICES=2 bash jobs/credit-card-clients-default--tabpfn3-aggregation-96--split8.sh"
+    }
+   ],
+   "never_launched": []
+  }
+ },
+ "known_divergences": []
+}

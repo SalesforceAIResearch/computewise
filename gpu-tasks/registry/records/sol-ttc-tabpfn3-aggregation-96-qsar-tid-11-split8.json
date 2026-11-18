@@ -1,0 +1,229 @@
+{
+ "schema": "p006-gpu-record/0.1",
+ "identity": {
+  "record_id": "sol-ttc-tabpfn3-aggregation-96-qsar-tid-11-split8",
+  "kind": "eval",
+  "entry_hash": "143f69ed11fdc63870203a95247f6c7c50f5be2af78790a009238c2fa9d164f4",
+  "argv": ["single_cell.py", "--dataset", "QSAR-TID-11", "--split", "8", "--arm", "tabpfn3_aggregation_96"],
+  "argv_provenance": "derived",
+  "argv_how": "one prescribed source cell per task-owned launcher process",
+  "argv_exempt": ["--output"],
+  "argv_exempt_how": "result file path only",
+  "env": {},
+  "seed": {
+   "value": null,
+   "provenance": "absent",
+   "how": "split identity is explicit; source arm config fixes its own seed"
+  },
+  "replicate_group": "sol-ttc-6422a19f697b",
+  "match_policy": "exact_only",
+  "trajectory": {
+   "config_hash": "6422a19f697b277e65f0f3d157ee792ff545868763a77fc1943fa68e52b98371",
+   "config_hash_how": "sha256 of [arm, dataset, split]",
+   "environment": {
+    "ttc_commit": "45fb141b2acf15518e70885aa149c8e1898cd15c",
+    "tabarena_commit": "abd24c7f06e4294e86efe069fe1cd057293a17d1"
+   },
+   "lr_schedule": {
+    "identity": null,
+    "source": null,
+    "trace": null
+   },
+   "data": {
+    "dataset": "QSAR-TID-11",
+    "split": 8
+   },
+   "precision": {
+    "value": null,
+    "provenance": "absent",
+    "how": "not recorded per source CSV row"
+   }
+  },
+  "fingerprint": null,
+  "fingerprint_inputs": null,
+  "consumes": []
+ },
+ "mode": "replay",
+ "source": {
+  "name": "Test-Time Compute for Tabular Foundation Models",
+  "repo": "https://github.com/kanghui-learning/test-time-compute-for-tabular-foundation-models",
+  "commit": "45fb141b2acf15518e70885aa149c8e1898cd15c",
+  "results_repo": "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results",
+  "results_revision": "2bbb8ac87c475eaf685c556600090fc153b511c5",
+  "path": "source/hf/raw/tabpfn3_aggregation_96/results_per_split.csv#row=250",
+  "csv_sha256": "d2cfa74c99150effcf582f782f79b3e943b3db75f1e94f8f1089faf6acecdc6e",
+  "licence": "results CC-BY-4.0; code Apache-2.0",
+  "source_row": {
+   "dataset": "QSAR-TID-11",
+   "fold": "8",
+   "method": "Demo_Agg-TabPFN3",
+   "metric_error": "0.7810257906369148",
+   "time_train_s": "2789.990910768509",
+   "time_infer_s": "729.4298620223999",
+   "metric": "rmse",
+   "problem_type": "regression",
+   "metric_error_val": "",
+   "imputed": "False",
+   "impute_method": "",
+   "method_type": "baseline",
+   "method_subtype": "",
+   "config_type": "",
+   "ta_name": "Demo_Agg-TabPFN3",
+   "ta_suite": "Demo_Agg-TabPFN3"
+  }
+ },
+ "reference": {
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "gpu_provenance": "inferred",
+  "gpu_how": "source README explicitly states one 80 GB H100 per run; CSV has no per-row device log",
+  "gpu_count": 1,
+  "gpu_count_provenance": "inferred",
+  "interconnect": null,
+  "precision": null
+ },
+ "launch": {
+  "launcher": "python",
+  "world_size": {
+   "value": 1,
+   "provenance": "derived",
+   "how": "one source cell per single-GPU process"
+  },
+  "per_device_microbatch": {
+   "value": null,
+   "provenance": "absent"
+  },
+  "accumulation_steps": {
+   "value": null,
+   "provenance": "absent"
+  },
+  "global_batch_tokens": {
+   "value": null,
+   "provenance": "absent"
+  },
+  "batch_policy": {
+   "value": null,
+   "provenance": "absent",
+   "how": "no width conversion"
+  },
+  "alternatives": {}
+ },
+ "steps": null,
+ "planned_steps": null,
+ "per_step_gpu_s": null,
+ "timing": {
+  "pacing": "total",
+  "wall_total_s": {
+   "value": 3519.420772790909,
+   "provenance": "derived",
+   "how": "source time_train_s + time_infer_s. Original _run also computes CPU metric_error: that unrecorded CPU scoring is skipped and unpaced. Real CPU input/split loading stays outside the seam."
+  },
+  "setup_s": {
+   "value": null,
+   "provenance": "absent",
+   "how": "data/model setup not separately measured in source; per-job writable cache copy and data loading run for real outside the seam"
+  },
+  "eval_s": {
+   "value": null,
+   "provenance": "absent"
+  },
+  "checkpoint_s": {
+   "value": null,
+   "provenance": "absent"
+  }
+ },
+ "memory": {
+  "peak_allocated_bytes": 5101385807,
+  "peak": {
+   "value": 5101385807,
+   "provenance": "derived",
+   "how": "MODELLED static working-set proxy, not a measured source peak. QSAR-TID-11: N=5742 full raw rows, F=1024; nominal train rows rounded up to 3828. TabPFN v3 source defaults E=128, CLS=4, D=512, ICL layers=24, distribution/column blocks=3/3, inducing points=128. Weights proxy=233289807 B, published serialized tabpfn-v3-regressor-v3_default.ckpt size at HF 24a16a89d245878b846555110985634aa2e656d7; not a device measurement or the original run's checkpoint digest. Assume 2 B activations, 4 B grouped inputs, 8 hidden-width live slots and 314572800 B context/allocator slack. Inference = weights + slack + 141115392 B grouped input (4*N*F*6) + 100663296 B inducing hidden (2*3*F*128*128) + max(4311744512 B column work [2*8*min(N,2048)*(F+4)*128], 47038464 B ICL work [2*8*N*512]). Peak=5101385807 B. The 96 configurations and 2 validation/8 test views do not multiply resident inference weights: configurations and single-device forwards are sequential. Default architecture, raw feature width, mixed precision, live slots and activation checkpointing are explicit proxy assumptions; checkpoint-internal configs, preprocessing/search differences, transient attention/compiler workspaces and allocator peaks were not measured. Inputs/arithmetic: survey/sol-tabular-ttc/memory-model.json sha256 acb358d5b1bbb2dbf664344262fc3f549c0031abd6a86b109ba64762416e0dc7."
+  }
+ },
+ "series": {},
+ "materialisation": {
+  "reads": ["final metric dict"],
+  "needs_series": [],
+  "blockers": [],
+  "replay_evidence": {
+   "source": "survey/sol-tabular-ttc/replay-proof.json",
+   "sha256": "f0538068fd2478079a01d038dec4517584e8af4ac0936f08676bd578b260b067",
+   "entry_hash": "805f54de3901f299316c314fc97244bd0b1511969798dfd57311809be4424a07",
+   "tested_record_id": "sol-ttc-tabpfn3-aggregation-96-bioresponse-split0",
+   "runtime_hashes_reported": {
+    "patch": "4c17e9d5809bab0fdac8a6b151cb9cb59d847678569f7452f754dbd996c115a3",
+    "sidecar": "2da8801c430aafa27d169f005bc6bc3526ce1d778a394de06f515df60263ed8b",
+    "native_image": "9824955423937ad52d769e5c6af5a0bfcc19256bff7d2d130b074e6feecaa9a9"
+   },
+   "scope": "one representative real entry-point replay on native FakeGPU image with r8.1 source mounts; not an installed full box or all144 cells",
+   "docstring_amendment": {
+    "source": "survey/sol-tabular-ttc/replay-docstring-amendment.json",
+    "sha256": "2ba291131453c21a02ec4bc007c0e69d649cf5c091dc9c78eba6657a1015c4d8",
+    "revised_entry_hash": "143f69ed11fdc63870203a95247f6c7c50f5be2af78790a009238c2fa9d164f4",
+    "scope": "Removed the obsolete not-yet-staged/box-tested sentence from the agent-facing module docstring. Exact original bytes are reconstructed by reversing this prefix substitution. Executable AST excluding the module docstring is unchanged; argparse help reflects the corrected docstring. No new runtime execution is claimed. Original replay-proof.json retains the actually tested entry hash and original scope."
+   }
+  },
+  "serving": {
+   "mode": "whole_job",
+   "seam": "tabarena.benchmark.experiment.experiment_runner:ExperimentRunner._run",
+   "n_units": 60,
+   "unit": "subdivision of a measured fit or prediction phase",
+   "unit_shares": [0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.016866840475196064, 0.015942961358906542, 0.015942961358906542, 0.015942961358906542, 0.015942961358906542, 0.015942961358906542, 0.015942961358906542, 0.015942961358906542, 0.015942961358906542, 0.015942961358906542, 0.015942961358906542, 0.015942961358906542, 0.015942961358906542, 0.015942961358906542],
+   "result_key": "final_metrics",
+   "result_kind": "metric dict",
+   "result_shape": "dict",
+   "how": "Original pinned TabArena function; final fields from source CSV. Within-phase equal subdivisions are modelled, each at most 60 s, preserving measured phase totals. No intermediate scores or prediction arrays are invented.",
+   "module_shas": {}
+  }
+ },
+ "result": {
+  "final_metrics": {
+   "value": {
+    "metric": "rmse",
+    "metric_error": 0.7810257906369148,
+    "time_train_s": 2789.990910768509,
+    "time_infer_s": 729.4298620223999
+   },
+   "provenance": "recorded",
+   "how": "source CSV row, numeric timing/metric columns parsed as floats"
+  }
+ },
+ "outcome": {
+  "status": "completed",
+  "provenance": "inferred",
+  "how": "non-imputed source result row with finite measured times and error"
+ },
+ "failures": [],
+ "artefacts": {
+  "produces": []
+ },
+ "host": {
+  "weights_bytes": {
+   "value": null,
+   "provenance": "absent"
+  },
+  "data_bytes": {
+   "value": null,
+   "provenance": "absent"
+  }
+ },
+ "agent_view": {
+  "script": "artifacts/sol-tabular/single_cell.py",
+  "launch_command": "python single_cell.py --dataset QSAR-TID-11 --split 8 --arm tabpfn3_aggregation_96 --output results/cell.json",
+  "inputs": ["QSAR-TID-11 prescribed split 8"],
+  "recognisability": "standard tabular ML experiment code; source code and dataset names visible"
+ },
+ "readiness": {
+  "replay": true,
+  "missing": []
+ },
+ "disclosure": {
+  "duration": {
+   "true_s": 3519.420772790909,
+   "true_how": "timing.wall_total_s",
+   "group_median_s": 3519.421,
+   "group_range_s": [3519.421, 3519.421],
+   "group_n": 1,
+   "group_how": "the same configuration's recorded runs, this one included: what a researcher who had run it before would expect"
+  }
+ }
+}

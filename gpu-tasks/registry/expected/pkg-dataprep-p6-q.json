@@ -1,0 +1,1637 @@
+{
+ "schema": "p006-expected-scores/0.1",
+ "task_id": "pkg-dataprep-p6-q",
+ "speed": 1.0,
+ "lower_bound_makespan_s": 661.6,
+ "horizon_s": 6300,
+ "horizon_how": "the task's horizon_s",
+ "host_terms": "none: the ideal case",
+ "think_s": 20.0,
+ "delay_s": 300.0,
+ "gpu_mock_daemon_sha256": "722bc1c06aff2cb77e0fc2a6226effd6bd3573f11c16be0707160586a1f11441",
+ "policies": {
+  "serial": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 2777.760500000016,
+    "makespan_recorded_s": 2777.760500000016,
+    "busy_gpu_wall_s": 2677.760500000012,
+    "utilisation": 0.24099994401965152,
+    "makespan_from_agent_start_wall_s": 2836.8605000000157,
+    "makespan_from_agent_start_recorded_s": 2836.8605000000157,
+    "before_first_launch_wall_s": 59.1,
+    "utilisation_from_agent_start": 0.2359792189288121,
+    "lower_bound_s": 661.6,
+    "gap_to_lower_bound_s": 2116.160500000016,
+    "makespan_over_lower_bound": 4.198549727932309,
+    "gap_to_lower_bound_from_agent_start_s": 2175.260500000016,
+    "makespan_from_agent_start_over_lower_bound": 4.287878627569552,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 2836.8605000000157,
+     "recorded_s": 2836.8605000000157,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.05608312428475157,
+    "whole_box_idle_share_of_wall": 0.05608312428475157,
+    "partial_idle_share_of_gpu_seconds": 0.7079376567864363,
+    "time_to_first_launch_recorded_s": 59.1,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "model_turn": 99.9999999999838,
+     "before_first_launch": 59.1,
+     "wait_or_poll": 1.9554136088117957e-11
+    },
+    "partial_idle_recorded_gpu_s": 8033.281500000036,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "wait_or_poll": 6769.193999999942,
+     "no_work_left": 1264.087500000047,
+     "model_turn": 4.860112312599085e-11
+    },
+    "startup_split_by_job_recorded_s": {
+     "contra-soft-muon-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "muonh-tuned-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "newton-muon-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "radial-damp-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "soda-fade-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 6,
+     "done": 6
+    },
+    "model_turns": 14,
+    "tool_calls": 13,
+    "agent_end_recorded_s": 2836.861,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 2677.760500000012,
+     "lanes_wall": [
+      [
+       59.1,
+       457.80300000000324
+      ],
+      [
+       477.803,
+       873.0380000000027
+      ],
+      [
+       893.038,
+       1298.5600000000002
+      ],
+      [
+       1318.56,
+       1868.36600000001
+      ],
+      [
+       1888.366,
+       2395.4979999999805
+      ],
+      [
+       2415.498,
+       2836.8605000000157
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "contra-soft-muon-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 59.1,
+     "hello": 59.1,
+     "bye": 457.80300000000324,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 398.70300000000003,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 contra-soft-muon/contra-muon-to-soft-muon.py --seed 0"
+    },
+    {
+     "job_id": "soda-fade-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 477.803,
+     "hello": 477.803,
+     "bye": 873.0380000000027,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-a3341c9d-b2a-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 395.235,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 soda-fade/contra-muon-to-soft-muon.py --seed 0"
+    },
+    {
+     "job_id": "radial-damp-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 893.038,
+     "hello": 893.038,
+     "bye": 1298.5600000000002,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 405.522,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 radial-damp/radial_scale_then_radius_correct.py --seed 0"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 1318.56,
+     "hello": 1318.56,
+     "bye": 1868.36600000001,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-stop125-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 549.8059999999999,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 8"
+    },
+    {
+     "job_id": "muonh-tuned-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 1888.366,
+     "hello": 1888.366,
+     "bye": 2395.4979999999805,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop250-dcheck",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 507.132,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 muonh-tuned/train_gpt_simple_muonh.py"
+    },
+    {
+     "job_id": "newton-muon-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 2415.498,
+     "hello": 2415.498,
+     "bye": 2836.8605000000157,
+     "killed": false,
+     "record_id": "mng3-20260505-newton-muon-h100-nvlx2-012451d9-a8d-stop250-dcheck",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 421.3625,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 newton-muon/train_gpt_simple_newton_muon.py"
+    }
+   ],
+   "never_launched": []
+  },
+  "packed": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 945.0409999999966,
+    "makespan_recorded_s": 945.0409999999966,
+    "busy_gpu_wall_s": 2677.760500000001,
+    "utilisation": 0.7083715150982894,
+    "makespan_from_agent_start_wall_s": 984.1409999999967,
+    "makespan_from_agent_start_recorded_s": 984.1409999999967,
+    "before_first_launch_wall_s": 39.1,
+    "utilisation_from_agent_start": 0.6802278586096936,
+    "lower_bound_s": 661.6,
+    "gap_to_lower_bound_s": 283.4409999999966,
+    "makespan_over_lower_bound": 1.4284174727932235,
+    "gap_to_lower_bound_from_agent_start_s": 322.54099999999664,
+    "makespan_from_agent_start_over_lower_bound": 1.4875166263603334,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 984.1409999999967,
+     "recorded_s": 984.1409999999967,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.0397300793280639,
+    "whole_box_idle_share_of_wall": 0.0397300793280639,
+    "partial_idle_share_of_gpu_seconds": 0.2800420620622424,
+    "time_to_first_launch_recorded_s": 39.1,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "before_first_launch": 39.1
+    },
+    "partial_idle_recorded_gpu_s": 1102.4034999999856,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 1102.4034999999858
+    },
+    "startup_split_by_job_recorded_s": {
+     "contra-soft-muon-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "muonh-tuned-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "newton-muon-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "radial-damp-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "soda-fade-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 6,
+     "done": 6
+    },
+    "model_turns": 14,
+    "tool_calls": 13,
+    "agent_end_recorded_s": 984.141,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 507.13199999999665,
+     "lanes_wall": [
+      [
+       39.1,
+       546.2319999999967
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 421.3625000000008,
+     "lanes_wall": [
+      [
+       39.1,
+       460.46250000000083
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 945.0409999999966,
+     "lanes_wall": [
+      [
+       39.1,
+       984.1409999999967
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 804.2250000000068,
+     "lanes_wall": [
+      [
+       39.1,
+       843.3250000000069
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "muonh-tuned-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 546.2319999999967,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop250-dcheck",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 507.132,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 muonh-tuned/train_gpt_simple_muonh.py"
+    },
+    {
+     "job_id": "newton-muon-run1",
+     "gpus": [
+      1
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 460.46250000000083,
+     "killed": false,
+     "record_id": "mng3-20260505-newton-muon-h100-nvlx2-012451d9-a8d-stop250-dcheck",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 421.3625,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 newton-muon/train_gpt_simple_newton_muon.py"
+    },
+    {
+     "job_id": "soda-fade-run1",
+     "gpus": [
+      2
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 434.3350000000023,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-a3341c9d-b2a-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 395.235,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 soda-fade/contra-muon-to-soft-muon.py --seed 0"
+    },
+    {
+     "job_id": "radial-damp-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 444.6220000000001,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 405.522,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 radial-damp/radial_scale_then_radius_correct.py --seed 0"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-run1",
+     "gpus": [
+      2
+     ],
+     "launch": 434.335,
+     "hello": 434.335,
+     "bye": 984.1409999999967,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-stop125-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 549.8059999999999,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 8"
+    },
+    {
+     "job_id": "contra-soft-muon-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 444.622,
+     "hello": 444.622,
+     "bye": 843.3250000000069,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 398.70300000000003,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 contra-soft-muon/contra-muon-to-soft-muon.py --seed 0"
+    }
+   ],
+   "never_launched": []
+  },
+  "packed_cp": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 945.0409999999966,
+    "makespan_recorded_s": 945.0409999999966,
+    "busy_gpu_wall_s": 2677.760500000001,
+    "utilisation": 0.7083715150982894,
+    "makespan_from_agent_start_wall_s": 984.1409999999967,
+    "makespan_from_agent_start_recorded_s": 984.1409999999967,
+    "before_first_launch_wall_s": 39.1,
+    "utilisation_from_agent_start": 0.6802278586096936,
+    "lower_bound_s": 661.6,
+    "gap_to_lower_bound_s": 283.4409999999966,
+    "makespan_over_lower_bound": 1.4284174727932235,
+    "gap_to_lower_bound_from_agent_start_s": 322.54099999999664,
+    "makespan_from_agent_start_over_lower_bound": 1.4875166263603334,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 984.1409999999967,
+     "recorded_s": 984.1409999999967,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.0397300793280639,
+    "whole_box_idle_share_of_wall": 0.0397300793280639,
+    "partial_idle_share_of_gpu_seconds": 0.2800420620622424,
+    "time_to_first_launch_recorded_s": 39.1,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "before_first_launch": 39.1
+    },
+    "partial_idle_recorded_gpu_s": 1102.4034999999856,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 1102.4034999999858
+    },
+    "startup_split_by_job_recorded_s": {
+     "contra-soft-muon-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "muonh-tuned-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "newton-muon-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "radial-damp-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "soda-fade-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 6,
+     "done": 6
+    },
+    "model_turns": 14,
+    "tool_calls": 13,
+    "agent_end_recorded_s": 984.141,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 507.13199999999665,
+     "lanes_wall": [
+      [
+       39.1,
+       546.2319999999967
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 421.3625000000008,
+     "lanes_wall": [
+      [
+       39.1,
+       460.46250000000083
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 945.0409999999966,
+     "lanes_wall": [
+      [
+       39.1,
+       984.1409999999967
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 804.2250000000068,
+     "lanes_wall": [
+      [
+       39.1,
+       843.3250000000069
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "muonh-tuned-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 546.2319999999967,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop250-dcheck",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 507.132,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 muonh-tuned/train_gpt_simple_muonh.py"
+    },
+    {
+     "job_id": "newton-muon-run1",
+     "gpus": [
+      1
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 460.46250000000083,
+     "killed": false,
+     "record_id": "mng3-20260505-newton-muon-h100-nvlx2-012451d9-a8d-stop250-dcheck",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 421.3625,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 newton-muon/train_gpt_simple_newton_muon.py"
+    },
+    {
+     "job_id": "soda-fade-run1",
+     "gpus": [
+      2
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 434.3350000000023,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-a3341c9d-b2a-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 395.235,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 soda-fade/contra-muon-to-soft-muon.py --seed 0"
+    },
+    {
+     "job_id": "radial-damp-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 444.6220000000001,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 405.522,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 radial-damp/radial_scale_then_radius_correct.py --seed 0"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-run1",
+     "gpus": [
+      2
+     ],
+     "launch": 434.335,
+     "hello": 434.335,
+     "bye": 984.1409999999967,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-stop125-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 549.8059999999999,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 8"
+    },
+    {
+     "job_id": "contra-soft-muon-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 444.622,
+     "hello": 444.622,
+     "bye": 843.3250000000069,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 398.70300000000003,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 contra-soft-muon/contra-muon-to-soft-muon.py --seed 0"
+    }
+   ],
+   "never_launched": []
+  },
+  "delayed": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 945.0410000000026,
+    "makespan_recorded_s": 945.0410000000026,
+    "busy_gpu_wall_s": 2677.7605000000112,
+    "utilisation": 0.7083715150982878,
+    "makespan_from_agent_start_wall_s": 1284.1410000000026,
+    "makespan_from_agent_start_recorded_s": 1284.1410000000026,
+    "before_first_launch_wall_s": 339.1,
+    "utilisation_from_agent_start": 0.5213135668123683,
+    "lower_bound_s": 661.6,
+    "gap_to_lower_bound_s": 283.44100000000253,
+    "makespan_over_lower_bound": 1.4284174727932324,
+    "gap_to_lower_bound_from_agent_start_s": 622.5410000000026,
+    "makespan_from_agent_start_over_lower_bound": 1.9409628174123377,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 1284.1410000000026,
+     "recorded_s": 1284.1410000000026,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.26406757513388274,
+    "whole_box_idle_share_of_wall": 0.26406757513388274,
+    "partial_idle_share_of_gpu_seconds": 0.21461885805374892,
+    "time_to_first_launch_recorded_s": 339.1,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "before_first_launch": 339.1
+    },
+    "partial_idle_recorded_gpu_s": 1102.403499999999,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 1102.403499999999
+    },
+    "startup_split_by_job_recorded_s": {
+     "contra-soft-muon-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "muonh-tuned-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "newton-muon-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "radial-damp-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "soda-fade-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 6,
+     "done": 6
+    },
+    "model_turns": 15,
+    "tool_calls": 14,
+    "agent_end_recorded_s": 1284.141,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 507.13200000000916,
+     "lanes_wall": [
+      [
+       339.1,
+       846.2320000000092
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 421.3624999999927,
+     "lanes_wall": [
+      [
+       339.1,
+       760.4624999999927
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 945.0410000000026,
+     "lanes_wall": [
+      [
+       339.1,
+       1284.1410000000026
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 804.2250000000068,
+     "lanes_wall": [
+      [
+       339.1,
+       1143.3250000000069
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "muonh-tuned-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 339.1,
+     "hello": 339.1,
+     "bye": 846.2320000000092,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop250-dcheck",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 507.132,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 muonh-tuned/train_gpt_simple_muonh.py"
+    },
+    {
+     "job_id": "newton-muon-run1",
+     "gpus": [
+      1
+     ],
+     "launch": 339.1,
+     "hello": 339.1,
+     "bye": 760.4624999999927,
+     "killed": false,
+     "record_id": "mng3-20260505-newton-muon-h100-nvlx2-012451d9-a8d-stop250-dcheck",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 421.3625,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 newton-muon/train_gpt_simple_newton_muon.py"
+    },
+    {
+     "job_id": "soda-fade-run1",
+     "gpus": [
+      2
+     ],
+     "launch": 339.1,
+     "hello": 339.1,
+     "bye": 734.3350000000028,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-a3341c9d-b2a-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 395.235,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 soda-fade/contra-muon-to-soft-muon.py --seed 0"
+    },
+    {
+     "job_id": "radial-damp-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 339.1,
+     "hello": 339.1,
+     "bye": 744.6220000000003,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 405.522,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 radial-damp/radial_scale_then_radius_correct.py --seed 0"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-run1",
+     "gpus": [
+      2
+     ],
+     "launch": 734.335,
+     "hello": 734.335,
+     "bye": 1284.1410000000026,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-stop125-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 549.8059999999999,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 8"
+    },
+    {
+     "job_id": "contra-soft-muon-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 744.622,
+     "hello": 744.622,
+     "bye": 1143.3250000000069,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 398.70300000000003,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 contra-soft-muon/contra-muon-to-soft-muon.py --seed 0"
+    }
+   ],
+   "never_launched": []
+  },
+  "quit_after_first": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 398.70300000000293,
+    "makespan_recorded_s": 398.70300000000293,
+    "busy_gpu_wall_s": 398.70300000000293,
+    "utilisation": 0.25,
+    "makespan_from_agent_start_wall_s": 437.80300000000295,
+    "makespan_from_agent_start_recorded_s": 437.80300000000295,
+    "before_first_launch_wall_s": 39.1,
+    "utilisation_from_agent_start": 0.2276726061721826,
+    "lower_bound_s": 661.6,
+    "gap_to_lower_bound_s": -262.8969999999971,
+    "makespan_over_lower_bound": 0.6026345223700165,
+    "gap_to_lower_bound_from_agent_start_s": -223.79699999999707,
+    "makespan_from_agent_start_over_lower_bound": 0.6617336759371266,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 6300.0,
+     "recorded_s": 6300.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.9367138095238091,
+    "whole_box_idle_share_of_wall": 0.9367138095238091,
+    "partial_idle_share_of_gpu_seconds": 0.047464642857143205,
+    "time_to_first_launch_recorded_s": 39.1,
+    "idle_after_agent_stopped_recorded_s": 5862.196999999997,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 5862.196999999997,
+     "before_first_launch": 39.1
+    },
+    "partial_idle_recorded_gpu_s": 1196.1090000000088,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "wait_or_poll": 1196.109,
+     "after_agent_ended": 8.86757334228605e-12
+    },
+    "startup_split_by_job_recorded_s": {
+     "contra-soft-muon-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 5,
+     "task_jobs": 6,
+     "done": 1
+    },
+    "model_turns": 4,
+    "tool_calls": 3,
+    "agent_end_recorded_s": 437.803,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 398.70300000000293,
+     "lanes_wall": [
+      [
+       39.1,
+       437.80300000000295
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "contra-soft-muon-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 437.80300000000295,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 398.70300000000003,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 contra-soft-muon/contra-muon-to-soft-muon.py --seed 0"
+    }
+   ],
+   "never_launched": [
+    "soda-fade-run1",
+    "radial-damp-run1",
+    "ema-nesterov-aurora-run1",
+    "muonh-tuned-run1",
+    "newton-muon-run1"
+   ]
+  },
+  "quit_while_running": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 398.70300000000293,
+    "makespan_recorded_s": 398.70300000000293,
+    "busy_gpu_wall_s": 398.70300000000293,
+    "utilisation": 0.25,
+    "makespan_from_agent_start_wall_s": 437.80300000000295,
+    "makespan_from_agent_start_recorded_s": 437.80300000000295,
+    "before_first_launch_wall_s": 39.1,
+    "utilisation_from_agent_start": 0.2276726061721826,
+    "lower_bound_s": 661.6,
+    "gap_to_lower_bound_s": -262.8969999999971,
+    "makespan_over_lower_bound": 0.6026345223700165,
+    "gap_to_lower_bound_from_agent_start_s": -223.79699999999707,
+    "makespan_from_agent_start_over_lower_bound": 0.6617336759371266,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 6300.0,
+     "recorded_s": 6300.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.9367138095238091,
+    "whole_box_idle_share_of_wall": 0.9367138095238091,
+    "partial_idle_share_of_gpu_seconds": 0.047464642857143205,
+    "time_to_first_launch_recorded_s": 39.1,
+    "idle_after_agent_stopped_recorded_s": 5862.196999999997,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 5862.196999999997,
+     "before_first_launch": 39.1
+    },
+    "partial_idle_recorded_gpu_s": 1196.1090000000088,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "after_agent_ended": 1196.1090000000088
+    },
+    "startup_split_by_job_recorded_s": {
+     "contra-soft-muon-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 5,
+     "task_jobs": 6,
+     "done": 1
+    },
+    "model_turns": 3,
+    "tool_calls": 2,
+    "agent_end_recorded_s": 39.1,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 398.70300000000293,
+     "lanes_wall": [
+      [
+       39.1,
+       437.80300000000295
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "contra-soft-muon-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 437.80300000000295,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 398.70300000000003,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 contra-soft-muon/contra-muon-to-soft-muon.py --seed 0"
+    }
+   ],
+   "never_launched": [
+    "soda-fade-run1",
+    "radial-damp-run1",
+    "ema-nesterov-aurora-run1",
+    "muonh-tuned-run1",
+    "newton-muon-run1"
+   ]
+  },
+  "quit_at_first_completion": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 507.13199999999665,
+    "makespan_recorded_s": 507.13199999999665,
+    "busy_gpu_wall_s": 1729.2514999999999,
+    "utilisation": 0.8524661725152481,
+    "makespan_from_agent_start_wall_s": 546.2319999999967,
+    "makespan_from_agent_start_recorded_s": 546.2319999999967,
+    "before_first_launch_wall_s": 39.1,
+    "utilisation_from_agent_start": 0.7914455304705741,
+    "lower_bound_s": 661.6,
+    "gap_to_lower_bound_s": -154.46800000000337,
+    "makespan_over_lower_bound": 0.7665235792019296,
+    "gap_to_lower_bound_from_agent_start_s": -115.36800000000335,
+    "makespan_from_agent_start_over_lower_bound": 0.8256227327690396,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 6300.0,
+     "recorded_s": 6300.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.9195028571428577,
+    "whole_box_idle_share_of_wall": 0.9195028571428577,
+    "partial_idle_share_of_gpu_seconds": 0.011876051587301062,
+    "time_to_first_launch_recorded_s": 39.1,
+    "idle_after_agent_stopped_recorded_s": 5753.768000000004,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 5753.768000000004,
+     "before_first_launch": 39.1
+    },
+    "partial_idle_recorded_gpu_s": 299.27649999998675,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "after_agent_ended": 299.27649999998675
+    },
+    "startup_split_by_job_recorded_s": {
+     "muonh-tuned-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "newton-muon-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "radial-damp-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "soda-fade-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 2,
+     "task_jobs": 6,
+     "done": 4
+    },
+    "model_turns": 7,
+    "tool_calls": 6,
+    "agent_end_recorded_s": 434.335,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 507.13199999999665,
+     "lanes_wall": [
+      [
+       39.1,
+       546.2319999999967
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 421.3625000000008,
+     "lanes_wall": [
+      [
+       39.1,
+       460.46250000000083
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 395.2350000000023,
+     "lanes_wall": [
+      [
+       39.1,
+       434.3350000000023
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 405.5220000000001,
+     "lanes_wall": [
+      [
+       39.1,
+       444.6220000000001
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "muonh-tuned-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 546.2319999999967,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop250-dcheck",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 507.132,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 muonh-tuned/train_gpt_simple_muonh.py"
+    },
+    {
+     "job_id": "newton-muon-run1",
+     "gpus": [
+      1
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 460.46250000000083,
+     "killed": false,
+     "record_id": "mng3-20260505-newton-muon-h100-nvlx2-012451d9-a8d-stop250-dcheck",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 421.3625,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 newton-muon/train_gpt_simple_newton_muon.py"
+    },
+    {
+     "job_id": "soda-fade-run1",
+     "gpus": [
+      2
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 434.3350000000023,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-a3341c9d-b2a-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 395.235,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 soda-fade/contra-muon-to-soft-muon.py --seed 0"
+    },
+    {
+     "job_id": "radial-damp-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 444.6220000000001,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 405.522,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 radial-damp/radial_scale_then_radius_correct.py --seed 0"
+    }
+   ],
+   "never_launched": [
+    "contra-soft-muon-run1",
+    "ema-nesterov-aurora-run1"
+   ]
+  },
+  "packed_overlap": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 816.5975000000036,
+    "makespan_recorded_s": 816.5975000000036,
+    "busy_gpu_wall_s": 2677.760500000008,
+    "utilisation": 0.8197920334069099,
+    "makespan_from_agent_start_wall_s": 855.6975000000036,
+    "makespan_from_agent_start_recorded_s": 855.6975000000036,
+    "before_first_launch_wall_s": 39.1,
+    "utilisation_from_agent_start": 0.7823326876612344,
+    "lower_bound_s": 661.6,
+    "gap_to_lower_bound_s": 154.99750000000358,
+    "makespan_over_lower_bound": 1.2342767533252774,
+    "gap_to_lower_bound_from_agent_start_s": 194.0975000000036,
+    "makespan_from_agent_start_over_lower_bound": 1.2933759068923876,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 855.6975000000036,
+     "recorded_s": 855.6975000000036,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.045693717698134954,
+    "whole_box_idle_share_of_wall": 0.045693717698134954,
+    "partial_idle_share_of_gpu_seconds": 0.17197359464063056,
+    "time_to_first_launch_recorded_s": 39.1,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "before_first_launch": 39.1
+    },
+    "partial_idle_recorded_gpu_s": 588.6295000000064,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 588.6295000000064
+    },
+    "startup_split_by_job_recorded_s": {
+     "contra-soft-muon-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "muonh-tuned-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "newton-muon-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "radial-damp-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "soda-fade-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 6,
+     "done": 6
+    },
+    "model_turns": 11,
+    "tool_calls": 10,
+    "agent_end_recorded_s": 855.698,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 549.8060000000008,
+     "lanes_wall": [
+      [
+       39.1,
+       588.9060000000009
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 507.13199999999665,
+     "lanes_wall": [
+      [
+       39.1,
+       546.2319999999967
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 816.5975000000036,
+     "lanes_wall": [
+      [
+       39.1,
+       855.6975000000036
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 804.225000000007,
+     "lanes_wall": [
+      [
+       39.1,
+       843.325000000007
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "ema-nesterov-aurora-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 588.9060000000009,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-stop125-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 549.8059999999999,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 8"
+    },
+    {
+     "job_id": "muonh-tuned-run1",
+     "gpus": [
+      1
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 546.2319999999967,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop250-dcheck",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 507.132,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 muonh-tuned/train_gpt_simple_muonh.py"
+    },
+    {
+     "job_id": "newton-muon-run1",
+     "gpus": [
+      2
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 460.46250000000083,
+     "killed": false,
+     "record_id": "mng3-20260505-newton-muon-h100-nvlx2-012451d9-a8d-stop250-dcheck",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 421.3625,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 newton-muon/train_gpt_simple_newton_muon.py"
+    },
+    {
+     "job_id": "radial-damp-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 39.1,
+     "hello": 39.1,
+     "bye": 444.6220000000001,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 405.522,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 radial-damp/radial_scale_then_radius_correct.py --seed 0"
+    },
+    {
+     "job_id": "contra-soft-muon-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 444.6220000000001,
+     "hello": 444.6220000000001,
+     "bye": 843.325000000007,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 398.70300000000003,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 contra-soft-muon/contra-muon-to-soft-muon.py --seed 0"
+    },
+    {
+     "job_id": "soda-fade-run1",
+     "gpus": [
+      2
+     ],
+     "launch": 460.46250000000083,
+     "hello": 460.46250000000083,
+     "bye": 855.6975000000036,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-a3341c9d-b2a-stop250-dcheck",
+     "draw": "exact_seed",
+     "seed_wanted": 0,
+     "paced_recorded_s": 395.235,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 soda-fade/contra-muon-to-soft-muon.py --seed 0"
+    }
+   ],
+   "never_launched": []
+  }
+ },
+ "known_divergences": []
+}

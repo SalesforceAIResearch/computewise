@@ -1,0 +1,1177 @@
+{
+ "schema": "p006-gpu-task/0.1",
+ "box": {
+  "gpus": 4,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "interconnect": "NVLink",
+  "source": "gpu-mock's default box: experiments/gpu-mock/GPU-COUNT-CONVERSION-NOTE-2026-10-19.md §3"
+ },
+ "task_id": "mng3-optimizer-shootout",
+ "rung": 1,
+ "title": "Five optimizers on the GPT-2-small speedrun setup, five runs each",
+ "brief": {
+  "text": "We're picking the optimizer for our small-GPT pretraining runs. optimizers/ has five training scripts, one per optimizer: baseline-muon, adamh, muonh, normuonh and psgd. They share the model (12 layers, 768 wide), the data (FineWeb, already tokenised under data/fineweb10B/) and the batch size; each sets its own step count. Each script runs on 1, 2 or 4 GPUs with torchrun and keeps the same global batch at any GPU count. Run every optimizer five times; the scripts are not seeded, so each run is a fresh sample. For each optimizer report the mean final validation loss and whether it clears 3.28 reliably: (3.28 - mean) x sqrt(n) >= 0.004. The machine has four H100s.",
+  "provenance": "written by gpu-tasks from modded-nanogpt's records/track_3_optimization/README.md rules; it names no benchmark"
+ },
+ "files": [
+  {
+   "path": "optimizers/baseline-muon/train_gpt_simple.py",
+   "from": "artifacts/mng3/scripts/d39470e5b053/train_gpt_simple.py"
+  },
+  {
+   "path": "optimizers/adamh/train_gpt_simple_adamh.py",
+   "from": "artifacts/mng3/scripts/19ccac6c99d1/train_gpt_simple_adamh.py"
+  },
+  {
+   "path": "optimizers/muonh/train_gpt_simple_muonh.py",
+   "from": "artifacts/mng3/scripts/30f4e406f401/train_gpt_simple_muonh.py"
+  },
+  {
+   "path": "optimizers/normuonh/train_gpt_simple_normuonh.py",
+   "from": "artifacts/mng3/scripts/5c5afa89abd3/train_gpt_simple_normuonh.py"
+  },
+  {
+   "path": "optimizers/psgd/train_gpt_simple.py",
+   "from": "artifacts/mng3/scripts/360ecc74cafd/train_gpt_simple.py"
+  },
+  {
+   "path": "data/fineweb10B/",
+   "from": "kjj0/fineweb10B-gpt2 on the Hugging Face Hub (data/cached_fineweb10B.py)"
+  }
+ ],
+ "jobs": [
+  {
+   "job_id": "baseline-muon-run1",
+   "label": "baseline-muon, run 1",
+   "replicate_group": "mng3-cfg-ef0c79596425",
+   "records": [
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-263ea3c4-2b1",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-556e61b9-efe",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-55cb8434-a6e",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-629ead24-9ba",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-78db13a0-5ec",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-a7c375e8-c0f",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-b199590f-f4a",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-c67512ee-207",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-f0bcca7d-a14",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-fc5b73a0-d67"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/baseline-muon/train_gpt_simple.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 542.5,
+     "range_s": [
+      542.1,
+      543.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "baseline-muon-run2",
+   "label": "baseline-muon, run 2",
+   "replicate_group": "mng3-cfg-ef0c79596425",
+   "records": [
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-263ea3c4-2b1",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-556e61b9-efe",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-55cb8434-a6e",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-629ead24-9ba",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-78db13a0-5ec",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-a7c375e8-c0f",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-b199590f-f4a",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-c67512ee-207",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-f0bcca7d-a14",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-fc5b73a0-d67"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/baseline-muon/train_gpt_simple.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 542.5,
+     "range_s": [
+      542.1,
+      543.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "baseline-muon-run3",
+   "label": "baseline-muon, run 3",
+   "replicate_group": "mng3-cfg-ef0c79596425",
+   "records": [
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-263ea3c4-2b1",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-556e61b9-efe",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-55cb8434-a6e",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-629ead24-9ba",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-78db13a0-5ec",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-a7c375e8-c0f",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-b199590f-f4a",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-c67512ee-207",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-f0bcca7d-a14",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-fc5b73a0-d67"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/baseline-muon/train_gpt_simple.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 542.5,
+     "range_s": [
+      542.1,
+      543.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "baseline-muon-run4",
+   "label": "baseline-muon, run 4",
+   "replicate_group": "mng3-cfg-ef0c79596425",
+   "records": [
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-263ea3c4-2b1",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-556e61b9-efe",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-55cb8434-a6e",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-629ead24-9ba",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-78db13a0-5ec",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-a7c375e8-c0f",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-b199590f-f4a",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-c67512ee-207",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-f0bcca7d-a14",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-fc5b73a0-d67"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/baseline-muon/train_gpt_simple.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 542.5,
+     "range_s": [
+      542.1,
+      543.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "baseline-muon-run5",
+   "label": "baseline-muon, run 5",
+   "replicate_group": "mng3-cfg-ef0c79596425",
+   "records": [
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-263ea3c4-2b1",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-556e61b9-efe",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-55cb8434-a6e",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-629ead24-9ba",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-78db13a0-5ec",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-a7c375e8-c0f",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-b199590f-f4a",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-c67512ee-207",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-f0bcca7d-a14",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-fc5b73a0-d67"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/baseline-muon/train_gpt_simple.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 542.5,
+     "range_s": [
+      542.1,
+      543.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "adamh-run1",
+   "label": "adamh, run 1",
+   "replicate_group": "mng3-cfg-f223ef1531f6",
+   "records": [
+    "mng3-20260430-adamh-h100-sxmx8-6b19a86b-ddf",
+    "mng3-20260430-adamh-h100-sxmx8-6e12f28e-152",
+    "mng3-20260430-adamh-h100-sxmx8-7533dd87-107",
+    "mng3-20260430-adamh-h100-sxmx8-971cd76f-30f",
+    "mng3-20260430-adamh-h100-sxmx8-ab379ce5-8e3"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/adamh/train_gpt_simple_adamh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 779.4,
+     "range_s": [
+      778.7,
+      870.4
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 5
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "adamh-run2",
+   "label": "adamh, run 2",
+   "replicate_group": "mng3-cfg-f223ef1531f6",
+   "records": [
+    "mng3-20260430-adamh-h100-sxmx8-6b19a86b-ddf",
+    "mng3-20260430-adamh-h100-sxmx8-6e12f28e-152",
+    "mng3-20260430-adamh-h100-sxmx8-7533dd87-107",
+    "mng3-20260430-adamh-h100-sxmx8-971cd76f-30f",
+    "mng3-20260430-adamh-h100-sxmx8-ab379ce5-8e3"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/adamh/train_gpt_simple_adamh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 779.4,
+     "range_s": [
+      778.7,
+      870.4
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 5
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "adamh-run3",
+   "label": "adamh, run 3",
+   "replicate_group": "mng3-cfg-f223ef1531f6",
+   "records": [
+    "mng3-20260430-adamh-h100-sxmx8-6b19a86b-ddf",
+    "mng3-20260430-adamh-h100-sxmx8-6e12f28e-152",
+    "mng3-20260430-adamh-h100-sxmx8-7533dd87-107",
+    "mng3-20260430-adamh-h100-sxmx8-971cd76f-30f",
+    "mng3-20260430-adamh-h100-sxmx8-ab379ce5-8e3"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/adamh/train_gpt_simple_adamh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 779.4,
+     "range_s": [
+      778.7,
+      870.4
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 5
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "adamh-run4",
+   "label": "adamh, run 4",
+   "replicate_group": "mng3-cfg-f223ef1531f6",
+   "records": [
+    "mng3-20260430-adamh-h100-sxmx8-6b19a86b-ddf",
+    "mng3-20260430-adamh-h100-sxmx8-6e12f28e-152",
+    "mng3-20260430-adamh-h100-sxmx8-7533dd87-107",
+    "mng3-20260430-adamh-h100-sxmx8-971cd76f-30f",
+    "mng3-20260430-adamh-h100-sxmx8-ab379ce5-8e3"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/adamh/train_gpt_simple_adamh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 779.4,
+     "range_s": [
+      778.7,
+      870.4
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 5
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "adamh-run5",
+   "label": "adamh, run 5",
+   "replicate_group": "mng3-cfg-f223ef1531f6",
+   "records": [
+    "mng3-20260430-adamh-h100-sxmx8-6b19a86b-ddf",
+    "mng3-20260430-adamh-h100-sxmx8-6e12f28e-152",
+    "mng3-20260430-adamh-h100-sxmx8-7533dd87-107",
+    "mng3-20260430-adamh-h100-sxmx8-971cd76f-30f",
+    "mng3-20260430-adamh-h100-sxmx8-ab379ce5-8e3"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/adamh/train_gpt_simple_adamh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 779.4,
+     "range_s": [
+      778.7,
+      870.4
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 5
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "muonh-run1",
+   "label": "muonh, run 1",
+   "replicate_group": "mng3-cfg-b22e0b7ed10e",
+   "records": [
+    "mng3-20260430-muonh-h100-sxmx8-28df77c8-d9e",
+    "mng3-20260430-muonh-h100-sxmx8-4730828a-351",
+    "mng3-20260430-muonh-h100-sxmx8-4e11deec-969",
+    "mng3-20260430-muonh-h100-sxmx8-62e82126-de0",
+    "mng3-20260430-muonh-h100-sxmx8-9319c798-664",
+    "mng3-20260430-muonh-h100-sxmx8-9cff801b-4ff",
+    "mng3-20260430-muonh-h100-sxmx8-be7cc5ed-fb1",
+    "mng3-20260430-muonh-h100-sxmx8-e69fd378-bcc",
+    "mng3-20260430-muonh-h100-sxmx8-ee63188e-b33",
+    "mng3-20260430-muonh-h100-sxmx8-efcac613-8a5"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/muonh/train_gpt_simple_muonh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 532.9,
+     "range_s": [
+      531.6,
+      706.2
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "muonh-run2",
+   "label": "muonh, run 2",
+   "replicate_group": "mng3-cfg-b22e0b7ed10e",
+   "records": [
+    "mng3-20260430-muonh-h100-sxmx8-28df77c8-d9e",
+    "mng3-20260430-muonh-h100-sxmx8-4730828a-351",
+    "mng3-20260430-muonh-h100-sxmx8-4e11deec-969",
+    "mng3-20260430-muonh-h100-sxmx8-62e82126-de0",
+    "mng3-20260430-muonh-h100-sxmx8-9319c798-664",
+    "mng3-20260430-muonh-h100-sxmx8-9cff801b-4ff",
+    "mng3-20260430-muonh-h100-sxmx8-be7cc5ed-fb1",
+    "mng3-20260430-muonh-h100-sxmx8-e69fd378-bcc",
+    "mng3-20260430-muonh-h100-sxmx8-ee63188e-b33",
+    "mng3-20260430-muonh-h100-sxmx8-efcac613-8a5"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/muonh/train_gpt_simple_muonh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 532.9,
+     "range_s": [
+      531.6,
+      706.2
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "muonh-run3",
+   "label": "muonh, run 3",
+   "replicate_group": "mng3-cfg-b22e0b7ed10e",
+   "records": [
+    "mng3-20260430-muonh-h100-sxmx8-28df77c8-d9e",
+    "mng3-20260430-muonh-h100-sxmx8-4730828a-351",
+    "mng3-20260430-muonh-h100-sxmx8-4e11deec-969",
+    "mng3-20260430-muonh-h100-sxmx8-62e82126-de0",
+    "mng3-20260430-muonh-h100-sxmx8-9319c798-664",
+    "mng3-20260430-muonh-h100-sxmx8-9cff801b-4ff",
+    "mng3-20260430-muonh-h100-sxmx8-be7cc5ed-fb1",
+    "mng3-20260430-muonh-h100-sxmx8-e69fd378-bcc",
+    "mng3-20260430-muonh-h100-sxmx8-ee63188e-b33",
+    "mng3-20260430-muonh-h100-sxmx8-efcac613-8a5"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/muonh/train_gpt_simple_muonh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 532.9,
+     "range_s": [
+      531.6,
+      706.2
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "muonh-run4",
+   "label": "muonh, run 4",
+   "replicate_group": "mng3-cfg-b22e0b7ed10e",
+   "records": [
+    "mng3-20260430-muonh-h100-sxmx8-28df77c8-d9e",
+    "mng3-20260430-muonh-h100-sxmx8-4730828a-351",
+    "mng3-20260430-muonh-h100-sxmx8-4e11deec-969",
+    "mng3-20260430-muonh-h100-sxmx8-62e82126-de0",
+    "mng3-20260430-muonh-h100-sxmx8-9319c798-664",
+    "mng3-20260430-muonh-h100-sxmx8-9cff801b-4ff",
+    "mng3-20260430-muonh-h100-sxmx8-be7cc5ed-fb1",
+    "mng3-20260430-muonh-h100-sxmx8-e69fd378-bcc",
+    "mng3-20260430-muonh-h100-sxmx8-ee63188e-b33",
+    "mng3-20260430-muonh-h100-sxmx8-efcac613-8a5"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/muonh/train_gpt_simple_muonh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 532.9,
+     "range_s": [
+      531.6,
+      706.2
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "muonh-run5",
+   "label": "muonh, run 5",
+   "replicate_group": "mng3-cfg-b22e0b7ed10e",
+   "records": [
+    "mng3-20260430-muonh-h100-sxmx8-28df77c8-d9e",
+    "mng3-20260430-muonh-h100-sxmx8-4730828a-351",
+    "mng3-20260430-muonh-h100-sxmx8-4e11deec-969",
+    "mng3-20260430-muonh-h100-sxmx8-62e82126-de0",
+    "mng3-20260430-muonh-h100-sxmx8-9319c798-664",
+    "mng3-20260430-muonh-h100-sxmx8-9cff801b-4ff",
+    "mng3-20260430-muonh-h100-sxmx8-be7cc5ed-fb1",
+    "mng3-20260430-muonh-h100-sxmx8-e69fd378-bcc",
+    "mng3-20260430-muonh-h100-sxmx8-ee63188e-b33",
+    "mng3-20260430-muonh-h100-sxmx8-efcac613-8a5"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/muonh/train_gpt_simple_muonh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 532.9,
+     "range_s": [
+      531.6,
+      706.2
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "normuonh-run1",
+   "label": "normuonh, run 1",
+   "replicate_group": "mng3-cfg-f8d4db97f3d4",
+   "records": [
+    "mng3-20260430-normuonh-h100-sxmx8-15b3e591-24f",
+    "mng3-20260430-normuonh-h100-sxmx8-38e6cabf-f71",
+    "mng3-20260430-normuonh-h100-sxmx8-530f62e2-582",
+    "mng3-20260430-normuonh-h100-sxmx8-54f064dc-17d",
+    "mng3-20260430-normuonh-h100-sxmx8-8b244aea-b98",
+    "mng3-20260430-normuonh-h100-sxmx8-a6251aec-847",
+    "mng3-20260430-normuonh-h100-sxmx8-b27e41ac-f5d",
+    "mng3-20260430-normuonh-h100-sxmx8-f166e3d2-afc",
+    "mng3-20260430-normuonh-h100-sxmx8-f316e57a-213",
+    "mng3-20260430-normuonh-h100-sxmx8-f45b5dcf-16b"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/normuonh/train_gpt_simple_normuonh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 521.3,
+     "range_s": [
+      520.8,
+      703.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "normuonh-run2",
+   "label": "normuonh, run 2",
+   "replicate_group": "mng3-cfg-f8d4db97f3d4",
+   "records": [
+    "mng3-20260430-normuonh-h100-sxmx8-15b3e591-24f",
+    "mng3-20260430-normuonh-h100-sxmx8-38e6cabf-f71",
+    "mng3-20260430-normuonh-h100-sxmx8-530f62e2-582",
+    "mng3-20260430-normuonh-h100-sxmx8-54f064dc-17d",
+    "mng3-20260430-normuonh-h100-sxmx8-8b244aea-b98",
+    "mng3-20260430-normuonh-h100-sxmx8-a6251aec-847",
+    "mng3-20260430-normuonh-h100-sxmx8-b27e41ac-f5d",
+    "mng3-20260430-normuonh-h100-sxmx8-f166e3d2-afc",
+    "mng3-20260430-normuonh-h100-sxmx8-f316e57a-213",
+    "mng3-20260430-normuonh-h100-sxmx8-f45b5dcf-16b"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/normuonh/train_gpt_simple_normuonh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 521.3,
+     "range_s": [
+      520.8,
+      703.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "normuonh-run3",
+   "label": "normuonh, run 3",
+   "replicate_group": "mng3-cfg-f8d4db97f3d4",
+   "records": [
+    "mng3-20260430-normuonh-h100-sxmx8-15b3e591-24f",
+    "mng3-20260430-normuonh-h100-sxmx8-38e6cabf-f71",
+    "mng3-20260430-normuonh-h100-sxmx8-530f62e2-582",
+    "mng3-20260430-normuonh-h100-sxmx8-54f064dc-17d",
+    "mng3-20260430-normuonh-h100-sxmx8-8b244aea-b98",
+    "mng3-20260430-normuonh-h100-sxmx8-a6251aec-847",
+    "mng3-20260430-normuonh-h100-sxmx8-b27e41ac-f5d",
+    "mng3-20260430-normuonh-h100-sxmx8-f166e3d2-afc",
+    "mng3-20260430-normuonh-h100-sxmx8-f316e57a-213",
+    "mng3-20260430-normuonh-h100-sxmx8-f45b5dcf-16b"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/normuonh/train_gpt_simple_normuonh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 521.3,
+     "range_s": [
+      520.8,
+      703.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "normuonh-run4",
+   "label": "normuonh, run 4",
+   "replicate_group": "mng3-cfg-f8d4db97f3d4",
+   "records": [
+    "mng3-20260430-normuonh-h100-sxmx8-15b3e591-24f",
+    "mng3-20260430-normuonh-h100-sxmx8-38e6cabf-f71",
+    "mng3-20260430-normuonh-h100-sxmx8-530f62e2-582",
+    "mng3-20260430-normuonh-h100-sxmx8-54f064dc-17d",
+    "mng3-20260430-normuonh-h100-sxmx8-8b244aea-b98",
+    "mng3-20260430-normuonh-h100-sxmx8-a6251aec-847",
+    "mng3-20260430-normuonh-h100-sxmx8-b27e41ac-f5d",
+    "mng3-20260430-normuonh-h100-sxmx8-f166e3d2-afc",
+    "mng3-20260430-normuonh-h100-sxmx8-f316e57a-213",
+    "mng3-20260430-normuonh-h100-sxmx8-f45b5dcf-16b"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/normuonh/train_gpt_simple_normuonh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 521.3,
+     "range_s": [
+      520.8,
+      703.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "normuonh-run5",
+   "label": "normuonh, run 5",
+   "replicate_group": "mng3-cfg-f8d4db97f3d4",
+   "records": [
+    "mng3-20260430-normuonh-h100-sxmx8-15b3e591-24f",
+    "mng3-20260430-normuonh-h100-sxmx8-38e6cabf-f71",
+    "mng3-20260430-normuonh-h100-sxmx8-530f62e2-582",
+    "mng3-20260430-normuonh-h100-sxmx8-54f064dc-17d",
+    "mng3-20260430-normuonh-h100-sxmx8-8b244aea-b98",
+    "mng3-20260430-normuonh-h100-sxmx8-a6251aec-847",
+    "mng3-20260430-normuonh-h100-sxmx8-b27e41ac-f5d",
+    "mng3-20260430-normuonh-h100-sxmx8-f166e3d2-afc",
+    "mng3-20260430-normuonh-h100-sxmx8-f316e57a-213",
+    "mng3-20260430-normuonh-h100-sxmx8-f45b5dcf-16b"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/normuonh/train_gpt_simple_normuonh.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 521.3,
+     "range_s": [
+      520.8,
+      703.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "psgd-run1",
+   "label": "psgd, run 1",
+   "replicate_group": "mng3-cfg-4608c2cdf1f5",
+   "records": [
+    "mng3-20260527-psgd-h100-sxmx8-0770a040-2b1",
+    "mng3-20260527-psgd-h100-sxmx8-35c082e6-2e2",
+    "mng3-20260527-psgd-h100-sxmx8-799f1179-3b8",
+    "mng3-20260527-psgd-h100-sxmx8-9b84bb73-7b6",
+    "mng3-20260527-psgd-h100-sxmx8-f265c5cb-12c"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/psgd/train_gpt_simple.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 645.6,
+     "range_s": [
+      645.2,
+      646.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 5
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "psgd-run2",
+   "label": "psgd, run 2",
+   "replicate_group": "mng3-cfg-4608c2cdf1f5",
+   "records": [
+    "mng3-20260527-psgd-h100-sxmx8-0770a040-2b1",
+    "mng3-20260527-psgd-h100-sxmx8-35c082e6-2e2",
+    "mng3-20260527-psgd-h100-sxmx8-799f1179-3b8",
+    "mng3-20260527-psgd-h100-sxmx8-9b84bb73-7b6",
+    "mng3-20260527-psgd-h100-sxmx8-f265c5cb-12c"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/psgd/train_gpt_simple.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 645.6,
+     "range_s": [
+      645.2,
+      646.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 5
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "psgd-run3",
+   "label": "psgd, run 3",
+   "replicate_group": "mng3-cfg-4608c2cdf1f5",
+   "records": [
+    "mng3-20260527-psgd-h100-sxmx8-0770a040-2b1",
+    "mng3-20260527-psgd-h100-sxmx8-35c082e6-2e2",
+    "mng3-20260527-psgd-h100-sxmx8-799f1179-3b8",
+    "mng3-20260527-psgd-h100-sxmx8-9b84bb73-7b6",
+    "mng3-20260527-psgd-h100-sxmx8-f265c5cb-12c"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/psgd/train_gpt_simple.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 645.6,
+     "range_s": [
+      645.2,
+      646.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 5
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "psgd-run4",
+   "label": "psgd, run 4",
+   "replicate_group": "mng3-cfg-4608c2cdf1f5",
+   "records": [
+    "mng3-20260527-psgd-h100-sxmx8-0770a040-2b1",
+    "mng3-20260527-psgd-h100-sxmx8-35c082e6-2e2",
+    "mng3-20260527-psgd-h100-sxmx8-799f1179-3b8",
+    "mng3-20260527-psgd-h100-sxmx8-9b84bb73-7b6",
+    "mng3-20260527-psgd-h100-sxmx8-f265c5cb-12c"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/psgd/train_gpt_simple.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 645.6,
+     "range_s": [
+      645.2,
+      646.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 5
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "psgd-run5",
+   "label": "psgd, run 5",
+   "replicate_group": "mng3-cfg-4608c2cdf1f5",
+   "records": [
+    "mng3-20260527-psgd-h100-sxmx8-0770a040-2b1",
+    "mng3-20260527-psgd-h100-sxmx8-35c082e6-2e2",
+    "mng3-20260527-psgd-h100-sxmx8-799f1179-3b8",
+    "mng3-20260527-psgd-h100-sxmx8-9b84bb73-7b6",
+    "mng3-20260527-psgd-h100-sxmx8-f265c5cb-12c"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> optimizers/psgd/train_gpt_simple.py",
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 645.6,
+     "range_s": [
+      645.2,
+      646.3
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 5
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  }
+ ],
+ "sources": [
+  "modded-nanogpt track 3, commit 4ea6b937"
+ ],
+ "notes": [
+  "All five groups were recorded on 8x H100 80GB HBM3; every launch on the 4-GPU box needs gpu-mock's convert() with batch_policy fixed_global_grow_accumulation.",
+  "Under gpu-mock's convert() for grow-accumulation jobs (step time scales with recorded GPUs / launched GPUs), running each job on all four GPUs one after another and running four 1-GPU jobs side by side are both close to the best schedule. What this task exposes is a job left on one GPU while three idle, and idle time between launches.",
+  "The scripts carry no seed, so a relaunch draws a different recorded run of the same script."
+ ],
+ "stats": {
+  "jobs": 25,
+  "recorded_gpu_seconds": 119452.0,
+  "recorded_gpu_seconds_how": "replayed GPU-seconds, despite the field's name (kept for its readers): sum over jobs of the least GPU-seconds over the job's allowed GPU counts, each from the shortest paced duration among the records the job can draw (build/common.py:paced_duration, what gpu-mock's replay paces). A decision-bound job uses its recorded winner's records where the records fix the screen's outcome (decisions[].recorded_outcome), and the whole candidate pool otherwise. Changed on 2026-10-20 from recorded wall time, which includes host time replay does not pace, so the old figure was not a floor under a replayed run",
+  "lower_bound_makespan_s": 29863.0,
+  "lower_bound_how": "max(work / box GPUs, critical path): work as in recorded_gpu_seconds, and the critical path takes each job at its widest allowed count with the shortest paced duration among its records. Durations are what gpu-mock's replay paces (build/common.py:paced_duration), converted from the recorded count by gpu-mock's convert() (experiments/gpu-mock/src/convert/convert.py, imported by build/common.py:time_factor), never faster than recorded. Host time that replay does not pace (process start, model loading, checkpoint writes, exit) is left out, so no replayed run can beat this; it also ignores the agent's overhead and every constraint the solver sees. Paced since 2026-10-20; before that it used recorded wall time, which a replayed run could beat",
+  "serial_makespan_s": 30025.9,
+  "serial_how": "one job at a time, each on as many GPUs as it may use up to its recorded count, with the median paced duration among its records and the same convert(); no host time and no gaps between jobs"
+ },
+ "readiness": {
+  "replay_ready_jobs": 25,
+  "jobs_with_records": 25,
+  "blockers": {}
+ },
+ "shared_state": {
+  "default_shared": [],
+  "by_design": [],
+  "isolation": null,
+  "how": "the script writes logs/<uuid>.txt, unique per run, and reads data only. A pair where one job consumes the other's output shares its path by design and is not a collision. Under the study's ruling (design/IDEA.md, shared-state collisions) both references isolate shared paths, and an agent that leaves them shared pays through the collision class, never through a recorded failure"
+ },
+ "horizon_s": 46800,
+ "horizon_terms": {
+  "serial_makespan_s": 30025.9,
+  "startup_total_s": 0.0,
+  "startup_provenance": "absent",
+  "startup_source_machine_type": null,
+  "startup_by_machine_type": {},
+  "fleet_machine_type": "c3-highmem-44",
+  "provisional": true,
+  "startup_how": "the serial scripted policy's start-ups (launch to the job's first paced step; a script's first job cold, later ones warm), summed over every job, with each measured machine type's host terms (build/expected_scores.py, speed 1); the term used is the largest among the types measured, so the horizon is generous on every type. The fleet's type, c3-highmem-44, is not measured yet, so this is provisional and expected to move when its measuring run lands. No type is measured, so the term is 0"
+ },
+ "environment_floor": {
+  "by_machine_type": {},
+  "provenance": "absent",
+  "fleet_machine_type": "c3-highmem-44",
+  "fleet_measured": false,
+  "how": "per machine type: the overlapping packed policy's makespan from agent start (packed_overlap: each successor's start-up runs during its predecessor's GPU work, the runner rule; build/expected_scores.py, speed 1) with the host terms measured on that type at its box's caps and image (`measured`), minus stats.lower_bound_makespan_s. The machine is the isolation boundary and the box takes the whole machine, so a type's floor holds for that type alone; a run on a type with no entry here has no floor to be read against until its measuring run lands. host-terms files are survey/host-terms/<task_id>.<machine type>.json; the fleet's type today is c3-highmem-44. Nothing is measured yet"
+ },
+ "horizon_how": "colleague_round(1.5 x (stats.serial_makespan_s + horizon_terms.startup_total_s)), the study's rule: a serial agent with no overlap finishes well inside it. Rounded up to 5 minutes under an hour, 15 minutes under six hours, whole hours above. Never shown to the agent: it is the run's hard stop and the end of the scoring window when work remains. In recorded seconds, like stats: a run with the speed knob divides it by the same factor. One value for every machine type, from the largest measured start-up total (horizon_terms). Provisional: c3-highmem-44 is not measured yet. Replaced deadline_s, which the brief stated, on 2026-10-20; runs under a brief that stated a deadline are not pooled with runs under this one",
+ "work_remaining": {
+  "rule": "jobs_not_completed",
+  "how": "at the horizon, every job without a completed run counts as remaining: not launched, still running, or failed and not rerun to completion. A decision-bound job counts once its slot is known; before that, each unfilled slot counts as one job"
+ },
+ "task_class": "width_flexible",
+ "task_class_how": "at least one job can take all 4 GPUs, so running one job at a time at full width is close to optimal under linear conversion; the task can show idle GPUs within a job and gaps between launches, not a failure to fan out",
+ "model_runs": {
+  "allowed": true,
+  "problems": [],
+  "how": "allowed when no two jobs can be served the same recorded run or overlapping steps of one (common.repeated_records): a seed-substituted job, two prefix jobs cut from one parent, or a prefix and its parent's full run all repeat losses an agent can see. Scripted runs read no values, so they may run any task"
+ }
+}

@@ -1,0 +1,3783 @@
+{
+ "schema": "p006-expected-scores/0.1",
+ "task_id": "pkg-h1-study",
+ "speed": 1.0,
+ "lower_bound_makespan_s": 12521.6,
+ "horizon_s": 86400,
+ "horizon_how": "the task's horizon_s",
+ "host_terms": "none: the ideal case",
+ "think_s": 20.0,
+ "delay_s": 300.0,
+ "gpu_mock_daemon_sha256": "8c16e53a6e99c27b4c91784341d8646a43983358eaa070284ba39e8c575cf470",
+ "policies": {
+  "serial": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 52286.46919999913,
+    "makespan_recorded_s": 52286.46919999913,
+    "busy_gpu_wall_s": 50086.465280015436,
+    "utilisation": 0.23948100744970685,
+    "makespan_from_agent_start_wall_s": 52306.46919999913,
+    "makespan_from_agent_start_recorded_s": 52306.46919999913,
+    "before_first_launch_wall_s": 20.0,
+    "utilisation_from_agent_start": 0.23938943904101384,
+    "lower_bound_s": 12521.6,
+    "gap_to_lower_bound_s": 39764.86919999913,
+    "makespan_over_lower_bound": 4.175701923076853,
+    "gap_to_lower_bound_from_agent_start_s": 39784.86919999913,
+    "makespan_from_agent_start_over_lower_bound": 4.177299163046186,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 52306.46919999913,
+     "recorded_s": 52306.46919999913,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.0424422438359446,
+    "whole_box_idle_share_of_wall": 0.0424422438359446,
+    "partial_idle_share_of_gpu_seconds": 0.7181683171230414,
+    "time_to_first_launch_recorded_s": 20.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "model_turn": 2199.9999999993342,
+     "before_first_launch": 20.0,
+     "wait_or_poll": 0.003919984355206907
+    },
+    "partial_idle_recorded_gpu_s": 150259.3958400463,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "wait_or_poll": 135924.1622400494,
+     "no_work_left": 14335.233599994954,
+     "model_turn": 1.9972503650933504e-09
+    },
+    "startup_split_by_job_recorded_s": {
+     "continue-pick1-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 33151.81999999919,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick1-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 33151.81999999919,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick1-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 33151.81999999919,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 33151.81999999919,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 33151.81999999919,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 33151.81999999919,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed11": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed12": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed13": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed10": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed8": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed9": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed10": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed8": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed6": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed7": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 21,
+     "done": 21
+    },
+    "model_turns": 49,
+    "tool_calls": 48,
+    "agent_end_recorded_s": 52306.47,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 50086.465280015436,
+     "lanes_wall": [
+      [
+       20.0,
+       1490.707999999998
+      ],
+      [
+       1510.708,
+       2982.145000000079
+      ],
+      [
+       3002.145,
+       4460.515000000174
+      ],
+      [
+       4480.515,
+       6089.425999999961
+      ],
+      [
+       6109.426,
+       7720.820000000062
+      ],
+      [
+       7740.82,
+       9356.108999999793
+      ],
+      [
+       9376.109,
+       10962.075000000043
+      ],
+      [
+       10982.075,
+       12566.72399999984
+      ],
+      [
+       12586.724,
+       14165.470000000798
+      ],
+      [
+       14485.471,
+       18746.392999999516
+      ],
+      [
+       19066.393,
+       23317.030000000308
+      ],
+      [
+       23637.03,
+       27839.783999998584
+      ],
+      [
+       28159.784,
+       29611.609999999462
+      ],
+      [
+       29931.61,
+       31372.386999999377
+      ],
+      [
+       31692.387,
+       33151.81999999919
+      ],
+      [
+       33171.82,
+       36212.623040004575
+      ],
+      [
+       36232.624,
+       39275.27572000677
+      ],
+      [
+       39295.276,
+       42310.445040004095
+      ],
+      [
+       42330.446,
+       45636.447640001745
+      ],
+      [
+       45656.448,
+       48967.49064000194
+      ],
+      [
+       48987.491,
+       52306.46919999913
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "screen-soda-fade-seed5",
+     "gpus": [
+      0
+     ],
+     "launch": 20.0,
+     "hello": 20.0,
+     "bye": 1490.707999999998,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 5,
+     "paced_recorded_s": 1470.7079999999999,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 5 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed6",
+     "gpus": [
+      0
+     ],
+     "launch": 1510.708,
+     "hello": 1510.708,
+     "bye": 2982.145000000079,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 6,
+     "paced_recorded_s": 1471.4370000000001,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 6 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed7",
+     "gpus": [
+      0
+     ],
+     "launch": 3002.145,
+     "hello": 3002.145,
+     "bye": 4460.515000000174,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 7,
+     "paced_recorded_s": 1458.37,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 7 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-radial-damp-seed2",
+     "gpus": [
+      0
+     ],
+     "launch": 4480.515,
+     "hello": 4480.515,
+     "bye": 6089.425999999961,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 2,
+     "paced_recorded_s": 1608.911,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 2 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-radial-damp-seed8",
+     "gpus": [
+      0
+     ],
+     "launch": 6109.426,
+     "hello": 6109.426,
+     "bye": 7720.820000000062,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 1611.394,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 8 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-radial-damp-seed10",
+     "gpus": [
+      0
+     ],
+     "launch": 7740.82,
+     "hello": 7740.82,
+     "bye": 9356.108999999793,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 1615.289,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 10 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed11",
+     "gpus": [
+      0
+     ],
+     "launch": 9376.109,
+     "hello": 9376.109,
+     "bye": 10962.075000000043,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 1585.9660000000001,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 11 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed12",
+     "gpus": [
+      0
+     ],
+     "launch": 10982.075,
+     "hello": 10982.075,
+     "bye": 12566.72399999984,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 1584.6490000000001,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 12 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed13",
+     "gpus": [
+      0
+     ],
+     "launch": 12586.724,
+     "hello": 12586.724,
+     "bye": 14165.470000000798,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 1578.7459999999999,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 13 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed10",
+     "gpus": [
+      0
+     ],
+     "launch": 14485.471,
+     "hello": 14485.471,
+     "bye": 18746.392999999516,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 4260.9220000000005,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/ema-nesterov-aurora/train_gpt.py --seed 10"
+    },
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed8",
+     "gpus": [
+      0
+     ],
+     "launch": 19066.393,
+     "hello": 19066.393,
+     "bye": 23317.030000000308,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 4250.637,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/ema-nesterov-aurora/train_gpt.py --seed 8"
+    },
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed9",
+     "gpus": [
+      0
+     ],
+     "launch": 23637.03,
+     "hello": 23637.03,
+     "bye": 27839.783999998584,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-2c185b84-fe2-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 9,
+     "paced_recorded_s": 4202.754,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/ema-nesterov-aurora/train_gpt.py --seed 9"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 28159.784,
+     "hello": 28159.784,
+     "bye": 29611.609999999462,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1451.826,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run2",
+     "gpus": [
+      0
+     ],
+     "launch": 29931.61,
+     "hello": 29931.61,
+     "bye": 31372.386999999377,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6a9f2a78-47e-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1440.777,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run3",
+     "gpus": [
+      0
+     ],
+     "launch": 31692.387,
+     "hello": 31692.387,
+     "bye": 33151.81999999919,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6e92fa16-042-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1459.433,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "continue-pick1-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 33171.82,
+     "hello": 33171.82,
+     "bye": 36212.623040004575,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 5,
+     "paced_recorded_s": 3040.80304,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 5 --resume checkpoints/seed5-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick1-run2",
+     "gpus": [
+      0
+     ],
+     "launch": 36232.624,
+     "hello": 36232.624,
+     "bye": 39275.27572000677,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 6,
+     "paced_recorded_s": 3042.65172,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 6 --resume checkpoints/seed6-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick1-run3",
+     "gpus": [
+      0
+     ],
+     "launch": 39295.276,
+     "hello": 39295.276,
+     "bye": 42310.445040004095,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 7,
+     "paced_recorded_s": 3015.1690399999998,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 7 --resume checkpoints/seed7-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick2-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 42330.446,
+     "hello": 42330.446,
+     "bye": 45636.447640001745,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 2,
+     "paced_recorded_s": 3306.00164,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 2 --resume checkpoints/seed2-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick2-run2",
+     "gpus": [
+      0
+     ],
+     "launch": 45656.448,
+     "hello": 45656.448,
+     "bye": 48967.49064000194,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 3311.04264,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 8 --resume checkpoints/seed8-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick2-run3",
+     "gpus": [
+      0
+     ],
+     "launch": 48987.491,
+     "hello": 48987.491,
+     "bye": 52306.46919999913,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 3318.9782,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step1000.pt"
+    }
+   ],
+   "never_launched": []
+  },
+  "packed": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 15351.574199999084,
+    "makespan_recorded_s": 15351.574199999084,
+    "busy_gpu_wall_s": 50086.4652800005,
+    "utilisation": 0.815656828209896,
+    "makespan_from_agent_start_wall_s": 15351.574199999084,
+    "makespan_from_agent_start_recorded_s": 15351.574199999084,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.815656828209896,
+    "lower_bound_s": 12521.6,
+    "gap_to_lower_bound_s": 2829.974199999084,
+    "makespan_over_lower_bound": 1.226007395220985,
+    "gap_to_lower_bound_from_agent_start_s": 2829.974199999084,
+    "makespan_from_agent_start_over_lower_bound": 1.226007395220985,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 15351.574199999084,
+     "recorded_s": 15351.574199999084,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.012032055969870009,
+    "whole_box_idle_share_of_wall": 0.012032055969870009,
+    "partial_idle_share_of_gpu_seconds": 0.17231111582023392,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "model_turn": 184.71100000000138
+    },
+    "partial_idle_recorded_gpu_s": 10580.987519995828,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 10541.38959999698,
+     "model_turn": 39.59599999998591,
+     "wait_or_poll": 0.0019199988619220676
+    },
+    "startup_split_by_job_recorded_s": {
+     "continue-pick1-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8991.792000000296,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick1-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8991.792000000296,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick1-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8991.792000000296,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8991.792000000296,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8991.792000000296,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8991.792000000296,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed11": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed12": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed13": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed10": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed8": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed9": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed10": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed8": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed6": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed7": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 21,
+     "done": 21
+    },
+    "model_turns": 45,
+    "tool_calls": 44,
+    "agent_end_recorded_s": 15351.575,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 13762.473240000196,
+     "lanes_wall": [
+      [
+       0.0,
+       1615.2889999999986
+      ],
+      [
+       1800.0,
+       7587.40300000032
+      ],
+      [
+       8991.792,
+       12032.595040000791
+      ],
+      [
+       12032.596,
+       15351.574199999084
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 10483.428719999663,
+     "lanes_wall": [
+      [
+       0.0,
+       1611.3940000000089
+      ],
+      [
+       1800.0,
+       7629.383000000234
+      ],
+      [
+       8991.792,
+       12034.44371999942
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 15126.91467999859,
+     "lanes_wall": [
+      [
+       0.0,
+       1608.9109999999737
+      ],
+      [
+       1800.0,
+       12006.961040000346
+      ],
+      [
+       12006.962,
+       15318.004639998271
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 10713.648640002051,
+     "lanes_wall": [
+      [
+       0.0,
+       1585.9660000000274
+      ],
+      [
+       1800.0,
+       7621.681000000287
+      ],
+      [
+       8991.792,
+       12297.793640001737
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "screen-radial-damp-seed10",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1615.2889999999986,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 1615.289,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 10 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-radial-damp-seed8",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1611.3940000000089,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 1611.394,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 8 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-radial-damp-seed2",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1608.9109999999737,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 2,
+     "paced_recorded_s": 1608.911,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 2 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed11",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1585.9660000000274,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 1585.9660000000001,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 11 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed12",
+     "gpus": [
+      0
+     ],
+     "launch": 1800.0,
+     "hello": 1800.0,
+     "bye": 3384.6489999998744,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 1584.6490000000001,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 12 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed13",
+     "gpus": [
+      1
+     ],
+     "launch": 1800.0,
+     "hello": 1800.0,
+     "bye": 3378.7459999998923,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 1578.7459999999999,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 13 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed6",
+     "gpus": [
+      2
+     ],
+     "launch": 1800.0,
+     "hello": 1800.0,
+     "bye": 3271.4370000001245,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 6,
+     "paced_recorded_s": 1471.4370000000001,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 6 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed5",
+     "gpus": [
+      3
+     ],
+     "launch": 1800.0,
+     "hello": 1800.0,
+     "bye": 3270.7079999999396,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 5,
+     "paced_recorded_s": 1470.7079999999999,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 5 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed7",
+     "gpus": [
+      3
+     ],
+     "launch": 3270.708,
+     "hello": 3270.708,
+     "bye": 4729.078000000174,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 7,
+     "paced_recorded_s": 1458.37,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 7 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed10",
+     "gpus": [
+      2
+     ],
+     "launch": 3271.437,
+     "hello": 3271.437,
+     "bye": 7532.359000000337,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 4260.9220000000005,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/ema-nesterov-aurora/train_gpt.py --seed 10"
+    },
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed8",
+     "gpus": [
+      1
+     ],
+     "launch": 3378.746,
+     "hello": 3378.746,
+     "bye": 7629.383000000234,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 4250.637,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/ema-nesterov-aurora/train_gpt.py --seed 8"
+    },
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed9",
+     "gpus": [
+      0
+     ],
+     "launch": 3384.649,
+     "hello": 3384.649,
+     "bye": 7587.40300000032,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-2c185b84-fe2-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 9,
+     "paced_recorded_s": 4202.754,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/ema-nesterov-aurora/train_gpt.py --seed 9"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run3",
+     "gpus": [
+      3
+     ],
+     "launch": 4729.078,
+     "hello": 4729.078,
+     "bye": 6180.904000000379,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1451.826,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 6180.904,
+     "hello": 6180.904,
+     "bye": 7621.681000000287,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6a9f2a78-47e-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1440.777,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run2",
+     "gpus": [
+      2
+     ],
+     "launch": 7532.359,
+     "hello": 7532.359,
+     "bye": 8991.792000000296,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6e92fa16-042-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1459.433,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "continue-pick1-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 8991.792,
+     "hello": 8991.792,
+     "bye": 12032.595040000791,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 5,
+     "paced_recorded_s": 3040.80304,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 5 --resume checkpoints/seed5-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick1-run2",
+     "gpus": [
+      1
+     ],
+     "launch": 8991.792,
+     "hello": 8991.792,
+     "bye": 12034.44371999942,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 6,
+     "paced_recorded_s": 3042.65172,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 6 --resume checkpoints/seed6-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick1-run3",
+     "gpus": [
+      2
+     ],
+     "launch": 8991.792,
+     "hello": 8991.792,
+     "bye": 12006.961040000346,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 7,
+     "paced_recorded_s": 3015.1690399999998,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 7 --resume checkpoints/seed7-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick2-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 8991.792,
+     "hello": 8991.792,
+     "bye": 12297.793640001737,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 2,
+     "paced_recorded_s": 3306.00164,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 2 --resume checkpoints/seed2-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick2-run2",
+     "gpus": [
+      2
+     ],
+     "launch": 12006.962,
+     "hello": 12006.962,
+     "bye": 15318.004639998271,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 3311.04264,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 8 --resume checkpoints/seed8-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick2-run3",
+     "gpus": [
+      0
+     ],
+     "launch": 12032.596,
+     "hello": 12032.596,
+     "bye": 15351.574199999084,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 3318.9782,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step1000.pt"
+    }
+   ],
+   "never_launched": []
+  },
+  "packed_cp": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 15351.574199999084,
+    "makespan_recorded_s": 15351.574199999084,
+    "busy_gpu_wall_s": 50086.4652800005,
+    "utilisation": 0.815656828209896,
+    "makespan_from_agent_start_wall_s": 15351.574199999084,
+    "makespan_from_agent_start_recorded_s": 15351.574199999084,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.815656828209896,
+    "lower_bound_s": 12521.6,
+    "gap_to_lower_bound_s": 2829.974199999084,
+    "makespan_over_lower_bound": 1.226007395220985,
+    "gap_to_lower_bound_from_agent_start_s": 2829.974199999084,
+    "makespan_from_agent_start_over_lower_bound": 1.226007395220985,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 15351.574199999084,
+     "recorded_s": 15351.574199999084,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.012032055969870009,
+    "whole_box_idle_share_of_wall": 0.012032055969870009,
+    "partial_idle_share_of_gpu_seconds": 0.17231111582023392,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "model_turn": 184.71100000000138
+    },
+    "partial_idle_recorded_gpu_s": 10580.987519995828,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 10541.38959999698,
+     "model_turn": 39.59599999998591,
+     "wait_or_poll": 0.0019199988619220676
+    },
+    "startup_split_by_job_recorded_s": {
+     "continue-pick1-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8991.792000000296,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick1-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8991.792000000296,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick1-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8991.792000000296,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8991.792000000296,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8991.792000000296,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8991.792000000296,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed11": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed12": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed13": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed10": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed8": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed9": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed10": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed8": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed6": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed7": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 21,
+     "done": 21
+    },
+    "model_turns": 45,
+    "tool_calls": 44,
+    "agent_end_recorded_s": 15351.575,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 13762.473240000196,
+     "lanes_wall": [
+      [
+       0.0,
+       1615.2889999999986
+      ],
+      [
+       1800.0,
+       7587.40300000032
+      ],
+      [
+       8991.792,
+       12032.595040000791
+      ],
+      [
+       12032.596,
+       15351.574199999084
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 10483.428719999663,
+     "lanes_wall": [
+      [
+       0.0,
+       1611.3940000000089
+      ],
+      [
+       1800.0,
+       7629.383000000234
+      ],
+      [
+       8991.792,
+       12034.44371999942
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 15126.91467999859,
+     "lanes_wall": [
+      [
+       0.0,
+       1608.9109999999737
+      ],
+      [
+       1800.0,
+       12006.961040000346
+      ],
+      [
+       12006.962,
+       15318.004639998271
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 10713.648640002051,
+     "lanes_wall": [
+      [
+       0.0,
+       1585.9660000000274
+      ],
+      [
+       1800.0,
+       7621.681000000287
+      ],
+      [
+       8991.792,
+       12297.793640001737
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "screen-radial-damp-seed10",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1615.2889999999986,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 1615.289,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 10 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-radial-damp-seed8",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1611.3940000000089,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 1611.394,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 8 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-radial-damp-seed2",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1608.9109999999737,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 2,
+     "paced_recorded_s": 1608.911,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 2 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed11",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1585.9660000000274,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 1585.9660000000001,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 11 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed12",
+     "gpus": [
+      0
+     ],
+     "launch": 1800.0,
+     "hello": 1800.0,
+     "bye": 3384.6489999998744,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 1584.6490000000001,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 12 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed13",
+     "gpus": [
+      1
+     ],
+     "launch": 1800.0,
+     "hello": 1800.0,
+     "bye": 3378.7459999998923,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 1578.7459999999999,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 13 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed6",
+     "gpus": [
+      2
+     ],
+     "launch": 1800.0,
+     "hello": 1800.0,
+     "bye": 3271.4370000001245,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 6,
+     "paced_recorded_s": 1471.4370000000001,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 6 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed5",
+     "gpus": [
+      3
+     ],
+     "launch": 1800.0,
+     "hello": 1800.0,
+     "bye": 3270.7079999999396,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 5,
+     "paced_recorded_s": 1470.7079999999999,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 5 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed7",
+     "gpus": [
+      3
+     ],
+     "launch": 3270.708,
+     "hello": 3270.708,
+     "bye": 4729.078000000174,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 7,
+     "paced_recorded_s": 1458.37,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 7 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed10",
+     "gpus": [
+      2
+     ],
+     "launch": 3271.437,
+     "hello": 3271.437,
+     "bye": 7532.359000000337,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 4260.9220000000005,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/ema-nesterov-aurora/train_gpt.py --seed 10"
+    },
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed8",
+     "gpus": [
+      1
+     ],
+     "launch": 3378.746,
+     "hello": 3378.746,
+     "bye": 7629.383000000234,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 4250.637,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/ema-nesterov-aurora/train_gpt.py --seed 8"
+    },
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed9",
+     "gpus": [
+      0
+     ],
+     "launch": 3384.649,
+     "hello": 3384.649,
+     "bye": 7587.40300000032,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-2c185b84-fe2-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 9,
+     "paced_recorded_s": 4202.754,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/ema-nesterov-aurora/train_gpt.py --seed 9"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run3",
+     "gpus": [
+      3
+     ],
+     "launch": 4729.078,
+     "hello": 4729.078,
+     "bye": 6180.904000000379,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1451.826,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 6180.904,
+     "hello": 6180.904,
+     "bye": 7621.681000000287,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6a9f2a78-47e-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1440.777,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run2",
+     "gpus": [
+      2
+     ],
+     "launch": 7532.359,
+     "hello": 7532.359,
+     "bye": 8991.792000000296,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6e92fa16-042-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1459.433,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "continue-pick1-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 8991.792,
+     "hello": 8991.792,
+     "bye": 12032.595040000791,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 5,
+     "paced_recorded_s": 3040.80304,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 5 --resume checkpoints/seed5-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick1-run2",
+     "gpus": [
+      1
+     ],
+     "launch": 8991.792,
+     "hello": 8991.792,
+     "bye": 12034.44371999942,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 6,
+     "paced_recorded_s": 3042.65172,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 6 --resume checkpoints/seed6-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick1-run3",
+     "gpus": [
+      2
+     ],
+     "launch": 8991.792,
+     "hello": 8991.792,
+     "bye": 12006.961040000346,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 7,
+     "paced_recorded_s": 3015.1690399999998,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 7 --resume checkpoints/seed7-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick2-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 8991.792,
+     "hello": 8991.792,
+     "bye": 12297.793640001737,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 2,
+     "paced_recorded_s": 3306.00164,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 2 --resume checkpoints/seed2-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick2-run2",
+     "gpus": [
+      2
+     ],
+     "launch": 12006.962,
+     "hello": 12006.962,
+     "bye": 15318.004639998271,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 3311.04264,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 8 --resume checkpoints/seed8-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick2-run3",
+     "gpus": [
+      0
+     ],
+     "launch": 12032.596,
+     "hello": 12032.596,
+     "bye": 15351.574199999084,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 3318.9782,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step1000.pt"
+    }
+   ],
+   "never_launched": []
+  },
+  "delayed": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 15351.574199999084,
+    "makespan_recorded_s": 15351.574199999084,
+    "busy_gpu_wall_s": 50086.46528000058,
+    "utilisation": 0.8156568282098973,
+    "makespan_from_agent_start_wall_s": 15651.574199999084,
+    "makespan_from_agent_start_recorded_s": 15651.574199999084,
+    "before_first_launch_wall_s": 300.0,
+    "utilisation_from_agent_start": 0.8000228066516707,
+    "lower_bound_s": 12521.6,
+    "gap_to_lower_bound_s": 2829.974199999084,
+    "makespan_over_lower_bound": 1.226007395220985,
+    "gap_to_lower_bound_from_agent_start_s": 3129.974199999084,
+    "makespan_from_agent_start_over_lower_bound": 1.2499659947609798,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 15651.574199999084,
+     "recorded_s": 15651.574199999084,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.03096883379309092,
+    "whole_box_idle_share_of_wall": 0.03096883379309092,
+    "partial_idle_share_of_gpu_seconds": 0.16900835955523838,
+    "time_to_first_launch_recorded_s": 300.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "before_first_launch": 300.0,
+     "model_turn": 184.7110000000016
+    },
+    "partial_idle_recorded_gpu_s": 10580.987519995751,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 10541.389599996917,
+     "model_turn": 39.59599999997249,
+     "wait_or_poll": 0.0019199988619220676
+    },
+    "startup_split_by_job_recorded_s": {
+     "continue-pick1-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 9291.792000000298,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick1-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 9291.792000000298,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick1-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 9291.792000000298,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 9291.792000000298,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 9291.792000000298,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 9291.792000000298,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed11": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed12": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed13": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed10": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed8": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed9": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed10": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed8": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed6": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed7": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 21,
+     "done": 21
+    },
+    "model_turns": 46,
+    "tool_calls": 45,
+    "agent_end_recorded_s": 15651.575,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 13762.473240000227,
+     "lanes_wall": [
+      [
+       300.0,
+       1915.2889999999984
+      ],
+      [
+       2100.0,
+       7887.403000000352
+      ],
+      [
+       9291.792,
+       12332.595040000791
+      ],
+      [
+       12332.596,
+       15651.574199999084
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 10483.428719999705,
+     "lanes_wall": [
+      [
+       300.0,
+       1911.3940000000193
+      ],
+      [
+       2100.0,
+       7929.383000000265
+      ],
+      [
+       9291.792,
+       12334.44371999942
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 15126.914679998583,
+     "lanes_wall": [
+      [
+       300.0,
+       1908.9109999999662
+      ],
+      [
+       2100.0,
+       12306.961040000346
+      ],
+      [
+       12306.962,
+       15618.004639998271
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 10713.648640002062,
+     "lanes_wall": [
+      [
+       300.0,
+       1885.9660000000372
+      ],
+      [
+       2100.0,
+       7921.681000000287
+      ],
+      [
+       9291.792,
+       12597.793640001737
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "screen-radial-damp-seed10",
+     "gpus": [
+      0
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 1915.2889999999984,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 1615.289,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 10 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-radial-damp-seed8",
+     "gpus": [
+      1
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 1911.3940000000193,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 1611.394,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 8 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-radial-damp-seed2",
+     "gpus": [
+      2
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 1908.9109999999662,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 2,
+     "paced_recorded_s": 1608.911,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 2 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed11",
+     "gpus": [
+      3
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 1885.9660000000372,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 1585.9660000000001,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 11 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed12",
+     "gpus": [
+      0
+     ],
+     "launch": 2100.0,
+     "hello": 2100.0,
+     "bye": 3684.6489999998385,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 1584.6490000000001,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 12 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed13",
+     "gpus": [
+      1
+     ],
+     "launch": 2100.0,
+     "hello": 2100.0,
+     "bye": 3678.745999999892,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 1578.7459999999999,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 13 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed6",
+     "gpus": [
+      2
+     ],
+     "launch": 2100.0,
+     "hello": 2100.0,
+     "bye": 3571.437000000163,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 6,
+     "paced_recorded_s": 1471.4370000000001,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 6 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed5",
+     "gpus": [
+      3
+     ],
+     "launch": 2100.0,
+     "hello": 2100.0,
+     "bye": 3570.7079999999396,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 5,
+     "paced_recorded_s": 1470.7079999999999,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 5 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed7",
+     "gpus": [
+      3
+     ],
+     "launch": 3570.708,
+     "hello": 3570.708,
+     "bye": 5029.078000000175,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 7,
+     "paced_recorded_s": 1458.37,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 7 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed10",
+     "gpus": [
+      2
+     ],
+     "launch": 3571.437,
+     "hello": 3571.437,
+     "bye": 7832.359000000369,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 4260.9220000000005,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/ema-nesterov-aurora/train_gpt.py --seed 10"
+    },
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed8",
+     "gpus": [
+      1
+     ],
+     "launch": 3678.746,
+     "hello": 3678.746,
+     "bye": 7929.383000000265,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 4250.637,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/ema-nesterov-aurora/train_gpt.py --seed 8"
+    },
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed9",
+     "gpus": [
+      0
+     ],
+     "launch": 3684.649,
+     "hello": 3684.649,
+     "bye": 7887.403000000352,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-2c185b84-fe2-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 9,
+     "paced_recorded_s": 4202.754,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/ema-nesterov-aurora/train_gpt.py --seed 9"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run3",
+     "gpus": [
+      3
+     ],
+     "launch": 5029.078,
+     "hello": 5029.078,
+     "bye": 6480.904000000379,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1451.826,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 6480.904,
+     "hello": 6480.904,
+     "bye": 7921.681000000287,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6a9f2a78-47e-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1440.777,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run2",
+     "gpus": [
+      2
+     ],
+     "launch": 7832.359,
+     "hello": 7832.359,
+     "bye": 9291.792000000298,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6e92fa16-042-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1459.433,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "continue-pick1-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 9291.792,
+     "hello": 9291.792,
+     "bye": 12332.595040000791,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 5,
+     "paced_recorded_s": 3040.80304,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 5 --resume checkpoints/seed5-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick1-run2",
+     "gpus": [
+      1
+     ],
+     "launch": 9291.792,
+     "hello": 9291.792,
+     "bye": 12334.44371999942,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 6,
+     "paced_recorded_s": 3042.65172,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 6 --resume checkpoints/seed6-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick1-run3",
+     "gpus": [
+      2
+     ],
+     "launch": 9291.792,
+     "hello": 9291.792,
+     "bye": 12306.961040000346,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 7,
+     "paced_recorded_s": 3015.1690399999998,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 7 --resume checkpoints/seed7-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick2-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 9291.792,
+     "hello": 9291.792,
+     "bye": 12597.793640001737,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 2,
+     "paced_recorded_s": 3306.00164,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 2 --resume checkpoints/seed2-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick2-run2",
+     "gpus": [
+      2
+     ],
+     "launch": 12306.962,
+     "hello": 12306.962,
+     "bye": 15618.004639998271,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 3311.04264,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 8 --resume checkpoints/seed8-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick2-run3",
+     "gpus": [
+      0
+     ],
+     "launch": 12332.596,
+     "hello": 12332.596,
+     "bye": 15651.574199999084,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 3318.9782,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step1000.pt"
+    }
+   ],
+   "never_launched": []
+  },
+  "quit_after_first": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 1470.707999999999,
+    "makespan_recorded_s": 1470.707999999999,
+    "busy_gpu_wall_s": 1470.707999999999,
+    "utilisation": 0.25,
+    "makespan_from_agent_start_wall_s": 1470.707999999999,
+    "makespan_from_agent_start_recorded_s": 1470.707999999999,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.25,
+    "lower_bound_s": 12521.6,
+    "gap_to_lower_bound_s": -11050.892000000002,
+    "makespan_over_lower_bound": 0.11745368004088926,
+    "gap_to_lower_bound_from_agent_start_s": -11050.892000000002,
+    "makespan_from_agent_start_over_lower_bound": 0.11745368004088926,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 86400.0,
+     "recorded_s": 86400.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.9829779166666667,
+    "whole_box_idle_share_of_wall": 0.9829779166666667,
+    "partial_idle_share_of_gpu_seconds": 0.012766562499999991,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 84929.292,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 84929.292,
+     "wait_or_poll": 1.1368683772161603e-12
+    },
+    "partial_idle_recorded_gpu_s": 4412.123999999997,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "wait_or_poll": 4412.123999999997
+    },
+    "startup_split_by_job_recorded_s": {
+     "screen-soda-fade-seed5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 20,
+     "task_jobs": 21,
+     "done": 1
+    },
+    "model_turns": 3,
+    "tool_calls": 2,
+    "agent_end_recorded_s": 1470.708,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 1470.707999999999,
+     "lanes_wall": [
+      [
+       0.0,
+       1470.707999999999
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "screen-soda-fade-seed5",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1470.707999999999,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 5,
+     "paced_recorded_s": 1470.7079999999999,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 5 --stop-at 1000"
+    }
+   ],
+   "never_launched": [
+    "screen-soda-fade-seed6",
+    "screen-soda-fade-seed7",
+    "screen-radial-damp-seed2",
+    "screen-radial-damp-seed8",
+    "screen-radial-damp-seed10",
+    "screen-contra-soft-muon-seed11",
+    "screen-contra-soft-muon-seed12",
+    "screen-contra-soft-muon-seed13",
+    "screen-ema-nesterov-aurora-seed10",
+    "screen-ema-nesterov-aurora-seed8",
+    "screen-ema-nesterov-aurora-seed9",
+    "screen-muonh-tuned-run1",
+    "screen-muonh-tuned-run2",
+    "screen-muonh-tuned-run3",
+    "continue-pick1-run1",
+    "continue-pick1-run2",
+    "continue-pick1-run3",
+    "continue-pick2-run1",
+    "continue-pick2-run2",
+    "continue-pick2-run3"
+   ]
+  },
+  "quit_while_running": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 1470.707999999999,
+    "makespan_recorded_s": 1470.707999999999,
+    "busy_gpu_wall_s": 1470.707999999999,
+    "utilisation": 0.25,
+    "makespan_from_agent_start_wall_s": 1470.707999999999,
+    "makespan_from_agent_start_recorded_s": 1470.707999999999,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.25,
+    "lower_bound_s": 12521.6,
+    "gap_to_lower_bound_s": -11050.892000000002,
+    "makespan_over_lower_bound": 0.11745368004088926,
+    "gap_to_lower_bound_from_agent_start_s": -11050.892000000002,
+    "makespan_from_agent_start_over_lower_bound": 0.11745368004088926,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 86400.0,
+     "recorded_s": 86400.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.9829779166666667,
+    "whole_box_idle_share_of_wall": 0.9829779166666667,
+    "partial_idle_share_of_gpu_seconds": 0.012766562499999991,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 84929.292,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 84929.292
+    },
+    "partial_idle_recorded_gpu_s": 4412.123999999997,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "after_agent_ended": 4412.123999999997
+    },
+    "startup_split_by_job_recorded_s": {
+     "screen-soda-fade-seed5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 20,
+     "task_jobs": 21,
+     "done": 1
+    },
+    "model_turns": 2,
+    "tool_calls": 1,
+    "agent_end_recorded_s": 0.0,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 1470.707999999999,
+     "lanes_wall": [
+      [
+       0.0,
+       1470.707999999999
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "screen-soda-fade-seed5",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1470.707999999999,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 5,
+     "paced_recorded_s": 1470.7079999999999,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 5 --stop-at 1000"
+    }
+   ],
+   "never_launched": [
+    "screen-soda-fade-seed6",
+    "screen-soda-fade-seed7",
+    "screen-radial-damp-seed2",
+    "screen-radial-damp-seed8",
+    "screen-radial-damp-seed10",
+    "screen-contra-soft-muon-seed11",
+    "screen-contra-soft-muon-seed12",
+    "screen-contra-soft-muon-seed13",
+    "screen-ema-nesterov-aurora-seed10",
+    "screen-ema-nesterov-aurora-seed8",
+    "screen-ema-nesterov-aurora-seed9",
+    "screen-muonh-tuned-run1",
+    "screen-muonh-tuned-run2",
+    "screen-muonh-tuned-run3",
+    "continue-pick1-run1",
+    "continue-pick1-run2",
+    "continue-pick1-run3",
+    "continue-pick2-run1",
+    "continue-pick2-run2",
+    "continue-pick2-run3"
+   ]
+  },
+  "quit_at_first_completion": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 3384.6489999998744,
+    "makespan_recorded_s": 3384.6489999998744,
+    "busy_gpu_wall_s": 12527.099999999838,
+    "utilisation": 0.9252879692990545,
+    "makespan_from_agent_start_wall_s": 3384.6489999998744,
+    "makespan_from_agent_start_recorded_s": 3384.6489999998744,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.9252879692990545,
+    "lower_bound_s": 12521.6,
+    "gap_to_lower_bound_s": -9136.951000000126,
+    "makespan_over_lower_bound": 0.27030483324813714,
+    "gap_to_lower_bound_from_agent_start_s": -9136.951000000126,
+    "makespan_from_agent_start_over_lower_bound": 0.27030483324813714,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 86400.0,
+     "recorded_s": 86400.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.9629636805555569,
+    "whole_box_idle_share_of_wall": 0.9629636805555569,
+    "partial_idle_share_of_gpu_seconds": 0.000788923611110106,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 83015.35100000013,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 83015.35100000013,
+     "model_turn": 184.71100000000138
+    },
+    "partial_idle_recorded_gpu_s": 272.6519999996526,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "after_agent_ended": 233.05599999960623,
+     "model_turn": 39.59599999998591,
+     "wait_or_poll": 6.048139766789973e-11
+    },
+    "startup_split_by_job_recorded_s": {
+     "screen-contra-soft-muon-seed11": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed12": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed13": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed10": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed8": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed6": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 13,
+     "task_jobs": 21,
+     "done": 8
+    },
+    "model_turns": 16,
+    "tool_calls": 15,
+    "agent_end_recorded_s": 3270.708,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 3199.9379999998728,
+     "lanes_wall": [
+      [
+       0.0,
+       1615.2889999999986
+      ],
+      [
+       1800.0,
+       3384.6489999998744
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 3190.139999999901,
+     "lanes_wall": [
+      [
+       0.0,
+       1611.3940000000089
+      ],
+      [
+       1800.0,
+       3378.7459999998923
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 3080.348000000098,
+     "lanes_wall": [
+      [
+       0.0,
+       1608.9109999999737
+      ],
+      [
+       1800.0,
+       3271.4370000001245
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 3056.6739999999672,
+     "lanes_wall": [
+      [
+       0.0,
+       1585.9660000000274
+      ],
+      [
+       1800.0,
+       3270.7079999999396
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "screen-radial-damp-seed10",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1615.2889999999986,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 1615.289,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 10 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-radial-damp-seed8",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1611.3940000000089,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 1611.394,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 8 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-radial-damp-seed2",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1608.9109999999737,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 2,
+     "paced_recorded_s": 1608.911,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 2 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed11",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1585.9660000000274,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 1585.9660000000001,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 11 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed12",
+     "gpus": [
+      0
+     ],
+     "launch": 1800.0,
+     "hello": 1800.0,
+     "bye": 3384.6489999998744,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 1584.6490000000001,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 12 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed13",
+     "gpus": [
+      1
+     ],
+     "launch": 1800.0,
+     "hello": 1800.0,
+     "bye": 3378.7459999998923,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 1578.7459999999999,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 13 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed6",
+     "gpus": [
+      2
+     ],
+     "launch": 1800.0,
+     "hello": 1800.0,
+     "bye": 3271.4370000001245,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 6,
+     "paced_recorded_s": 1471.4370000000001,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 6 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed5",
+     "gpus": [
+      3
+     ],
+     "launch": 1800.0,
+     "hello": 1800.0,
+     "bye": 3270.7079999999396,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 5,
+     "paced_recorded_s": 1470.7079999999999,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 5 --stop-at 1000"
+    }
+   ],
+   "never_launched": [
+    "screen-soda-fade-seed7",
+    "screen-ema-nesterov-aurora-seed10",
+    "screen-ema-nesterov-aurora-seed8",
+    "screen-ema-nesterov-aurora-seed9",
+    "screen-muonh-tuned-run1",
+    "screen-muonh-tuned-run2",
+    "screen-muonh-tuned-run3",
+    "continue-pick1-run1",
+    "continue-pick1-run2",
+    "continue-pick1-run3",
+    "continue-pick2-run1",
+    "continue-pick2-run2",
+    "continue-pick2-run3"
+   ]
+  },
+  "packed_overlap": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 15070.707679999063,
+    "makespan_recorded_s": 15070.707679999063,
+    "busy_gpu_wall_s": 50086.46528000059,
+    "utilisation": 0.8308578857659142,
+    "makespan_from_agent_start_wall_s": 15070.707679999063,
+    "makespan_from_agent_start_recorded_s": 15070.707679999063,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.8308578857659142,
+    "lower_bound_s": 12521.6,
+    "gap_to_lower_bound_s": 2549.1076799990624,
+    "makespan_over_lower_bound": 1.2035768336314099,
+    "gap_to_lower_bound_from_agent_start_s": 2549.1076799990624,
+    "makespan_from_agent_start_over_lower_bound": 1.2035768336314099,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 15070.707679999063,
+     "recorded_s": 15070.707679999063,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 6.63538378999267e-08,
+    "whole_box_idle_share_of_wall": 6.63538378999267e-08,
+    "partial_idle_share_of_gpu_seconds": 0.16914204788024775,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "wait_or_poll": 0.0009999992944358382
+    },
+    "partial_idle_recorded_gpu_s": 10196.361439998476,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 9907.058400001468,
+     "wait_or_poll": 289.3030399970103
+    },
+    "startup_split_by_job_recorded_s": {
+     "continue-pick1-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8718.861000000705,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick1-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8718.861000000705,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick1-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8718.861000000705,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8718.861000000705,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8718.861000000705,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "continue-pick2-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8718.861000000705,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed11": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed12": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-contra-soft-muon-seed13": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed10": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed8": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-ema-nesterov-aurora-seed9": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-muonh-tuned-run3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed10": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-radial-damp-seed8": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed6": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "screen-soda-fade-seed7": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 21,
+     "done": 21
+    },
+    "model_turns": 37,
+    "tool_calls": 36,
+    "agent_end_recorded_s": 15070.708,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 13649.883679999119,
+     "lanes_wall": [
+      [
+       0.0,
+       7298.038000000056
+      ],
+      [
+       8718.862,
+       15070.707679999063
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 13621.259239999603,
+     "lanes_wall": [
+      [
+       0.0,
+       7287.112000000171
+      ],
+      [
+       8718.862,
+       15053.00923999943
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 11761.512720000126,
+     "lanes_wall": [
+      [
+       0.0,
+       8718.861000000705
+      ],
+      [
+       8718.862,
+       11761.51371999942
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 11053.80964000175,
+     "lanes_wall": [
+      [
+       0.0,
+       7747.808000000011
+      ],
+      [
+       8718.862,
+       12024.863640001737
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed10",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 4260.921999999991,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 4260.9220000000005,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/ema-nesterov-aurora/train_gpt.py --seed 10"
+    },
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed8",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 4250.636999999954,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 4250.637,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/ema-nesterov-aurora/train_gpt.py --seed 8"
+    },
+    {
+     "job_id": "screen-ema-nesterov-aurora-seed9",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 4202.753999999973,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-2c185b84-fe2-stop1000-h1prep",
+     "draw": "exact_seed",
+     "seed_wanted": 9,
+     "paced_recorded_s": 4202.754,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/ema-nesterov-aurora/train_gpt.py --seed 9"
+    },
+    {
+     "job_id": "screen-radial-damp-seed10",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 1615.2889999999986,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 1615.289,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 10 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-radial-damp-seed8",
+     "gpus": [
+      3
+     ],
+     "launch": 1615.2889999999986,
+     "hello": 1615.2889999999986,
+     "bye": 3226.6830000000605,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 1611.394,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 8 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-radial-damp-seed2",
+     "gpus": [
+      3
+     ],
+     "launch": 3226.6830000000605,
+     "hello": 3226.6830000000605,
+     "bye": 4835.594000000019,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 2,
+     "paced_recorded_s": 1608.911,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 2 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed11",
+     "gpus": [
+      2
+     ],
+     "launch": 4202.753999999973,
+     "hello": 4202.753999999973,
+     "bye": 5788.720000000016,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 1585.9660000000001,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 11 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed12",
+     "gpus": [
+      1
+     ],
+     "launch": 4250.636999999954,
+     "hello": 4250.636999999954,
+     "bye": 5835.285999999793,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 1584.6490000000001,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 12 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-contra-soft-muon-seed13",
+     "gpus": [
+      0
+     ],
+     "launch": 4260.921999999991,
+     "hello": 4260.921999999991,
+     "bye": 5839.66799999988,
+     "killed": false,
+     "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 1578.7459999999999,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/contra-soft-muon/contra-muon-to-soft-muon.py --seed 13 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed6",
+     "gpus": [
+      3
+     ],
+     "launch": 4835.594000000019,
+     "hello": 4835.594000000019,
+     "bye": 6307.030999999724,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 6,
+     "paced_recorded_s": 1471.4370000000001,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 6 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-soda-fade-seed5",
+     "gpus": [
+      2
+     ],
+     "launch": 5788.720000000016,
+     "hello": 5788.720000000016,
+     "bye": 7259.42800000041,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 5,
+     "paced_recorded_s": 1470.7079999999999,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 5 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run3",
+     "gpus": [
+      1
+     ],
+     "launch": 5835.285999999793,
+     "hello": 5835.285999999793,
+     "bye": 7287.112000000171,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1451.826,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "screen-soda-fade-seed7",
+     "gpus": [
+      0
+     ],
+     "launch": 5839.66799999988,
+     "hello": 5839.66799999988,
+     "bye": 7298.038000000056,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-h1seg0-1000",
+     "draw": "exact_seed",
+     "seed_wanted": 7,
+     "paced_recorded_s": 1458.37,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 7 --stop-at 1000"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 6307.030999999724,
+     "hello": 6307.030999999724,
+     "bye": 7747.808000000011,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6a9f2a78-47e-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1440.777,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "screen-muonh-tuned-run2",
+     "gpus": [
+      2
+     ],
+     "launch": 7259.42800000041,
+     "hello": 7259.42800000041,
+     "bye": 8718.861000000705,
+     "killed": false,
+     "record_id": "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6e92fa16-042-stop1000-h1prep",
+     "draw": "without_replacement",
+     "seed_wanted": null,
+     "paced_recorded_s": 1459.433,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/muonh-tuned/train_gpt.py"
+    },
+    {
+     "job_id": "continue-pick2-run2",
+     "gpus": [
+      0
+     ],
+     "launch": 8718.862,
+     "hello": 8718.862,
+     "bye": 12029.90463999827,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 8,
+     "paced_recorded_s": 3311.04264,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 8 --resume checkpoints/seed8-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick2-run3",
+     "gpus": [
+      1
+     ],
+     "launch": 8718.862,
+     "hello": 8718.862,
+     "bye": 12037.840199999084,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 3318.9782,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick1-run2",
+     "gpus": [
+      2
+     ],
+     "launch": 8718.862,
+     "hello": 8718.862,
+     "bye": 11761.51371999942,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 6,
+     "paced_recorded_s": 3042.65172,
+     "command": "CUDA_VISIBLE_DEVICES=2 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 6 --resume checkpoints/seed6-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick2-run1",
+     "gpus": [
+      3
+     ],
+     "launch": 8718.862,
+     "hello": 8718.862,
+     "bye": 12024.863640001737,
+     "killed": false,
+     "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-h1seg1000-3020",
+     "draw": "exact_seed",
+     "seed_wanted": 2,
+     "paced_recorded_s": 3306.00164,
+     "command": "CUDA_VISIBLE_DEVICES=3 python setups/radial-damp/radial_scale_then_radius_correct.py --seed 2 --resume checkpoints/seed2-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick1-run1",
+     "gpus": [
+      0
+     ],
+     "launch": 12029.90463999827,
+     "hello": 12029.90463999827,
+     "bye": 15070.707679999063,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 5,
+     "paced_recorded_s": 3040.80304,
+     "command": "CUDA_VISIBLE_DEVICES=0 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 5 --resume checkpoints/seed5-step1000.pt"
+    },
+    {
+     "job_id": "continue-pick1-run3",
+     "gpus": [
+      1
+     ],
+     "launch": 12037.840199999084,
+     "hello": 12037.840199999084,
+     "bye": 15053.00923999943,
+     "killed": false,
+     "record_id": "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-h1seg1000-3040",
+     "draw": "exact_seed",
+     "seed_wanted": 7,
+     "paced_recorded_s": 3015.1690399999998,
+     "command": "CUDA_VISIBLE_DEVICES=1 python setups/soda-fade/contra-muon-to-soft-muon.py --seed 7 --resume checkpoints/seed7-step1000.pt"
+    }
+   ],
+   "never_launched": [],
+   "prep_ignored": "packed_overlap launches every job without its preparation (prep.scripted_s is not paid), so for a task with preparation it is a lower bound on a schedule, not a schedule; bar 2 compares the brief-only policy with the best feasible preparation order instead"
+  }
+ },
+ "known_divergences": []
+}

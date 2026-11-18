@@ -1,0 +1,2854 @@
+{
+ "schema": "p006-gpu-task/0.1",
+ "box": {
+  "gpus": 4,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "interconnect": "NVLink",
+  "source": "gpu-mock's default box: experiments/gpu-mock/GPU-COUNT-CONVERSION-NOTE-2026-10-19.md §3"
+ },
+ "task_id": "pkg-sol-tabular-science",
+ "rung": 1,
+ "goal_level": false,
+ "set": "development",
+ "set_how": "Independent Sol search; disjoint scientific and operational source-cell cohorts",
+ "title": "Paired tabular adaptation results table",
+ "brief": {
+  "text": "We are comparing our 96-configuration tabular prediction ensemble with the version that also adapts the backbone using DiagScale. For each of the scientific assay datasets, we need the paired results over the prescribed splits: each cell's prediction error, each version's mean error, and the recommendation for that dataset. Use the dataset's own error metric; errors from different datasets have different units. The machine has four H100s.",
+  "provenance": "Independent Sol: goal and dataset-specific error rule; no schedule or deadline; criterion constructed during source inspection, disclosed"
+ },
+ "files": [
+  {
+   "path": "jobs/bioresponse--tabpfn3-aggregation-96--split0.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-aggregation-96--split0.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split0.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split0.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-aggregation-96--split1.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-aggregation-96--split1.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split1.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split1.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-aggregation-96--split2.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-aggregation-96--split2.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split2.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split2.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-aggregation-96--split3.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-aggregation-96--split3.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split3.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split3.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-aggregation-96--split4.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-aggregation-96--split4.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split4.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split4.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-aggregation-96--split5.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-aggregation-96--split5.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split5.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split5.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-aggregation-96--split6.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-aggregation-96--split6.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split6.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split6.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-aggregation-96--split7.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-aggregation-96--split7.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split7.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split7.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-aggregation-96--split8.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-aggregation-96--split8.sh"
+  },
+  {
+   "path": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split8.sh",
+   "from": "artifacts/sol-tabular/jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split8.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split0.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-aggregation-96--split0.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split0.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split0.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split1.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-aggregation-96--split1.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split1.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split1.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split2.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-aggregation-96--split2.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split2.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split2.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split3.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-aggregation-96--split3.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split3.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split3.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split4.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-aggregation-96--split4.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split4.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split4.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split5.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-aggregation-96--split5.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split5.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split5.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split6.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-aggregation-96--split6.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split6.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split6.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split7.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-aggregation-96--split7.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split7.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split7.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split8.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-aggregation-96--split8.sh"
+  },
+  {
+   "path": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split8.sh",
+   "from": "artifacts/sol-tabular/jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split8.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split0.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-aggregation-96--split0.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split1.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-aggregation-96--split1.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split2.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-aggregation-96--split2.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split3.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-aggregation-96--split3.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split4.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-aggregation-96--split4.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split5.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-aggregation-96--split5.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split6.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-aggregation-96--split6.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split7.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-aggregation-96--split7.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split8.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-aggregation-96--split8.sh"
+  },
+  {
+   "path": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8.sh",
+   "from": "artifacts/sol-tabular/jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8.sh"
+  },
+  {
+   "path": "tools/single_cell.py",
+   "content": "\"\"\"Run one prescribed TTC dataset/split/arm using the pinned project's code.\n\nRequires the original TTC environment and its pinned TabArena dependency. It\ncalls the original runner's _run directly: the process owns one cell and exits\nafter writing the metrics.\n\"\"\"\nimport argparse\nimport json\nimport math\nimport os\nimport pathlib\nimport shutil\nimport tempfile\n\nARMS = {\n    \"tabpfn3_aggregation_96\": \"tabpfn3-agg\",\n    \"tabpfn3_diagscale_aggregation_96\": \"tabpfn3-agg-ft\",\n}\nAGGREGATION = {\"n_configs\": 96, \"seed\": 0, \"n_est_val\": 2, \"n_est_test\": 8,\n               \"val_folds\": 8, \"n_iterations\": 40}\n\n\ndef writable_cache_copy(source, destination):\n    \"\"\"OpenML 0.15.1 rewrites a pickle on read; keep the source snapshot intact.\n\n    Copies and permissions are real CPU/filesystem work before the GPU seam.\n    copytree also copies read-only directory modes, so normalize the owned copy.\n    \"\"\"\n    destination = pathlib.Path(destination)\n    shutil.copytree(source, destination, dirs_exist_ok=True)\n    destination.chmod(0o700)\n    for path in destination.rglob(\"*\"):\n        path.chmod(0o700 if path.is_dir() else 0o600)\n\n\ndef execute(dataset, split, arm):\n    snapshot = os.environ.get(\"OPENML_CACHE_DIR\")\n    if snapshot:\n        with tempfile.TemporaryDirectory(prefix=\"tabular-inputs-\") as cache:\n            writable_cache_copy(snapshot, cache)\n            return execute_on_cache(dataset, split, arm, cache)\n    return execute_on_cache(dataset, split, arm, None)\n\n\ndef execute_on_cache(dataset, split, arm, cache):\n    import openml\n    if cache:\n        openml.config.set_root_cache_directory(cache)\n    from tabarena.benchmark.experiment import AGModelOuterExperiment\n    from tabarena.benchmark.task.openml.task_wrapper import OpenMLTaskWrapper\n    from tabarena.nips2025_utils.tabarena_context import TabArenaContext\n    from ttc.registry import MODELS, resolve_model_class\n\n    model_key = ARMS[arm]\n    spec = MODELS[model_key]\n    context = TabArenaContext()\n    grid = context.task_metadata_collection.task_grid()\n    rows = grid[(grid[\"dataset\"] == dataset) & (grid[\"split\"] == split)]\n    if len(rows) != 1:\n        raise ValueError(f\"expected one prescribed split, found {len(rows)}: {dataset}/{split}\")\n    coordinates = rows.iloc[0]\n    metadata = [x for x in context.task_metadata_collection.tasks if x.tabarena_task_name == dataset]\n    task_ids = {x.task_id_str for x in metadata}\n    if len(task_ids) != 1:\n        raise ValueError(f\"ambiguous OpenML task identity: {task_ids}\")\n    task_id = int(next(iter(task_ids)))\n    task = OpenMLTaskWrapper.from_task_id(task_id)\n    hp = {**spec.hyperparameters, \"aggregation\": dict(AGGREGATION)}\n    if arm == \"tabpfn3_diagscale_aggregation_96\":\n        hp.update(ft_mode=\"diagscale\", ft_lr=1e-2, ft_epochs=30)\n    experiment = AGModelOuterExperiment(name=spec.display, model_cls=resolve_model_class(model_key),\n                                        model_hyperparameters=hp)\n    # This is the original Experiment.run setup, with a one-cell process rather\n    # than a cached whole-suite process. CPU task loading and splitting run here.\n    with experiment.task_cache_scope(task=task, cache_task_key=task_id):\n        fit_args = experiment.init_method_kwargs(task=task)\n        runner = experiment.experiment_cls(method_cls=experiment.method_cls, task=task,\n                                          fold=int(coordinates[\"fold\"]), repeat=int(coordinates[\"repeat\"]),\n                                          sample=0, task_name=dataset, method=spec.display,\n                                          fit_args=fit_args, cleanup=False)\n        # r8's record names this original library method. The seam includes\n        # scoring, whose cost the source did not publish; that omission is\n        # disclosed in the record and candidate specification.\n        result = runner._run()\n    output = {\"dataset\": dataset, \"split\": split, \"arm\": arm,\n              **{key: result[key] for key in (\"metric\", \"metric_error\", \"time_train_s\", \"time_infer_s\")}}\n    if not math.isfinite(float(output[\"metric_error\"])):\n        raise ValueError(\"non-finite measured error\")\n    return output\n\n\ndef main():\n    ap = argparse.ArgumentParser(description=__doc__)\n    ap.add_argument(\"--dataset\", required=True)\n    ap.add_argument(\"--split\", type=int, required=True)\n    ap.add_argument(\"--arm\", choices=sorted(ARMS), required=True)\n    ap.add_argument(\"--output\", type=pathlib.Path, required=True)\n    args = ap.parse_args()\n    output = execute(args.dataset, args.split, args.arm)\n    args.output.parent.mkdir(parents=True, exist_ok=True)\n    args.output.write_text(json.dumps(output, indent=2) + \"\\n\")\n    print(json.dumps(output), flush=True)\n\n\nif __name__ == \"__main__\":\n    main()\n"
+  },
+  {
+   "path": "datasets.json",
+   "content": "{\n  \"datasets\": [\n    \"Bioresponse\",\n    \"QSAR-TID-11\",\n    \"physiochemical_protein\"\n  ],\n  \"arms\": [\n    \"tabpfn3_aggregation_96\",\n    \"tabpfn3_diagscale_aggregation_96\"\n  ],\n  \"splits\": [\n    0,\n    1,\n    2,\n    3,\n    4,\n    5,\n    6,\n    7,\n    8\n  ]\n}\n"
+  },
+  {
+   "path": "cost_profiles.json",
+   "content": "{\n  \"cells\": [\n    {\n      \"job_id\": \"bioresponse--tabpfn3-aggregation-96--split0\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 0,\n      \"script\": \"jobs/bioresponse--tabpfn3-aggregation-96--split0.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-aggregation-96--split0.json\",\n      \"fit_s\": 4018.00941324234,\n      \"predict_s\": 870.3984758853912,\n      \"fit_predict_s\": 4888.407889127731\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-diagscale-aggregation-96--split0\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 0,\n      \"script\": \"jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split0.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-diagscale-aggregation-96--split0.json\",\n      \"fit_s\": 4131.925647497177,\n      \"predict_s\": 872.6889250278473,\n      \"fit_predict_s\": 5004.614572525024\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-aggregation-96--split1\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 1,\n      \"script\": \"jobs/bioresponse--tabpfn3-aggregation-96--split1.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-aggregation-96--split1.json\",\n      \"fit_s\": 4053.696939945221,\n      \"predict_s\": 879.8771498203278,\n      \"fit_predict_s\": 4933.574089765549\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-diagscale-aggregation-96--split1\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 1,\n      \"script\": \"jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split1.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-diagscale-aggregation-96--split1.json\",\n      \"fit_s\": 4127.381292104721,\n      \"predict_s\": 869.537850856781,\n      \"fit_predict_s\": 4996.919142961502\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-aggregation-96--split2\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 2,\n      \"script\": \"jobs/bioresponse--tabpfn3-aggregation-96--split2.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-aggregation-96--split2.json\",\n      \"fit_s\": 4070.233106136322,\n      \"predict_s\": 870.420028924942,\n      \"fit_predict_s\": 4940.653135061264\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-diagscale-aggregation-96--split2\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 2,\n      \"script\": \"jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split2.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-diagscale-aggregation-96--split2.json\",\n      \"fit_s\": 4060.1970891952515,\n      \"predict_s\": 875.4506769180298,\n      \"fit_predict_s\": 4935.647766113281\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-aggregation-96--split3\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 3,\n      \"script\": \"jobs/bioresponse--tabpfn3-aggregation-96--split3.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-aggregation-96--split3.json\",\n      \"fit_s\": 4054.54550242424,\n      \"predict_s\": 885.2479565143585,\n      \"fit_predict_s\": 4939.793458938599\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-diagscale-aggregation-96--split3\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 3,\n      \"script\": \"jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split3.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-diagscale-aggregation-96--split3.json\",\n      \"fit_s\": 4083.4821226596832,\n      \"predict_s\": 873.059268951416,\n      \"fit_predict_s\": 4956.541391611099\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-aggregation-96--split4\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 4,\n      \"script\": \"jobs/bioresponse--tabpfn3-aggregation-96--split4.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-aggregation-96--split4.json\",\n      \"fit_s\": 4058.8567061424255,\n      \"predict_s\": 873.5260338783264,\n      \"fit_predict_s\": 4932.382740020752\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-diagscale-aggregation-96--split4\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 4,\n      \"script\": \"jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split4.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-diagscale-aggregation-96--split4.json\",\n      \"fit_s\": 4076.798717021942,\n      \"predict_s\": 880.6082806587219,\n      \"fit_predict_s\": 4957.406997680664\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-aggregation-96--split5\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 5,\n      \"script\": \"jobs/bioresponse--tabpfn3-aggregation-96--split5.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-aggregation-96--split5.json\",\n      \"fit_s\": 4100.289419174194,\n      \"predict_s\": 887.9086718559265,\n      \"fit_predict_s\": 4988.198091030121\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-diagscale-aggregation-96--split5\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 5,\n      \"script\": \"jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split5.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-diagscale-aggregation-96--split5.json\",\n      \"fit_s\": 4188.2538866996765,\n      \"predict_s\": 885.8965110778809,\n      \"fit_predict_s\": 5074.150397777557\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-aggregation-96--split6\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 6,\n      \"script\": \"jobs/bioresponse--tabpfn3-aggregation-96--split6.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-aggregation-96--split6.json\",\n      \"fit_s\": 4072.0292472839355,\n      \"predict_s\": 885.0317051410675,\n      \"fit_predict_s\": 4957.060952425003\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-diagscale-aggregation-96--split6\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 6,\n      \"script\": \"jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split6.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-diagscale-aggregation-96--split6.json\",\n      \"fit_s\": 4252.473885774612,\n      \"predict_s\": 887.5641238689423,\n      \"fit_predict_s\": 5140.038009643555\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-aggregation-96--split7\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 7,\n      \"script\": \"jobs/bioresponse--tabpfn3-aggregation-96--split7.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-aggregation-96--split7.json\",\n      \"fit_s\": 4061.3217651844025,\n      \"predict_s\": 882.8651502132416,\n      \"fit_predict_s\": 4944.186915397644\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-diagscale-aggregation-96--split7\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 7,\n      \"script\": \"jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split7.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-diagscale-aggregation-96--split7.json\",\n      \"fit_s\": 4218.242597103119,\n      \"predict_s\": 885.7944061756134,\n      \"fit_predict_s\": 5104.037003278732\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-aggregation-96--split8\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 8,\n      \"script\": \"jobs/bioresponse--tabpfn3-aggregation-96--split8.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-aggregation-96--split8.json\",\n      \"fit_s\": 4060.946364879608,\n      \"predict_s\": 860.8752973079681,\n      \"fit_predict_s\": 4921.821662187576\n    },\n    {\n      \"job_id\": \"bioresponse--tabpfn3-diagscale-aggregation-96--split8\",\n      \"dataset\": \"Bioresponse\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 8,\n      \"script\": \"jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split8.sh\",\n      \"result\": \"results/bioresponse--tabpfn3-diagscale-aggregation-96--split8.json\",\n      \"fit_s\": 4261.756951332092,\n      \"predict_s\": 884.8892436027527,\n      \"fit_predict_s\": 5146.646194934845\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-aggregation-96--split0\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 0,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-aggregation-96--split0.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-aggregation-96--split0.json\",\n      \"fit_s\": 2861.0036685466766,\n      \"predict_s\": 737.8299136161804,\n      \"fit_predict_s\": 3598.833582162857\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-diagscale-aggregation-96--split0\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 0,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split0.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split0.json\",\n      \"fit_s\": 2967.9106028079987,\n      \"predict_s\": 753.9452500343323,\n      \"fit_predict_s\": 3721.855852842331\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-aggregation-96--split1\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 1,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-aggregation-96--split1.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-aggregation-96--split1.json\",\n      \"fit_s\": 2834.967471599579,\n      \"predict_s\": 736.4264969825745,\n      \"fit_predict_s\": 3571.3939685821533\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-diagscale-aggregation-96--split1\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 1,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split1.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split1.json\",\n      \"fit_s\": 3076.979578971863,\n      \"predict_s\": 748.0224096775055,\n      \"fit_predict_s\": 3825.0019886493683\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-aggregation-96--split2\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 2,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-aggregation-96--split2.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-aggregation-96--split2.json\",\n      \"fit_s\": 2838.9442772865295,\n      \"predict_s\": 737.4525952339172,\n      \"fit_predict_s\": 3576.396872520447\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-diagscale-aggregation-96--split2\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 2,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split2.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split2.json\",\n      \"fit_s\": 3080.440854549408,\n      \"predict_s\": 763.085287809372,\n      \"fit_predict_s\": 3843.52614235878\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-aggregation-96--split3\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 3,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-aggregation-96--split3.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-aggregation-96--split3.json\",\n      \"fit_s\": 2822.603456735611,\n      \"predict_s\": 728.3171374797821,\n      \"fit_predict_s\": 3550.920594215393\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-diagscale-aggregation-96--split3\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 3,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split3.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split3.json\",\n      \"fit_s\": 2958.400495290756,\n      \"predict_s\": 743.5348451137543,\n      \"fit_predict_s\": 3701.9353404045105\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-aggregation-96--split4\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 4,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-aggregation-96--split4.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-aggregation-96--split4.json\",\n      \"fit_s\": 2818.1271393299103,\n      \"predict_s\": 733.4982619285583,\n      \"fit_predict_s\": 3551.6254012584686\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-diagscale-aggregation-96--split4\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 4,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split4.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split4.json\",\n      \"fit_s\": 2919.6591284275055,\n      \"predict_s\": 753.1913394927979,\n      \"fit_predict_s\": 3672.8504679203033\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-aggregation-96--split5\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 5,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-aggregation-96--split5.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-aggregation-96--split5.json\",\n      \"fit_s\": 2792.2488055229187,\n      \"predict_s\": 726.2076573371887,\n      \"fit_predict_s\": 3518.4564628601074\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-diagscale-aggregation-96--split5\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 5,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split5.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split5.json\",\n      \"fit_s\": 2934.7651896476746,\n      \"predict_s\": 760.1177554130554,\n      \"fit_predict_s\": 3694.88294506073\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-aggregation-96--split6\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 6,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-aggregation-96--split6.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-aggregation-96--split6.json\",\n      \"fit_s\": 2777.983393907547,\n      \"predict_s\": 726.9393570423126,\n      \"fit_predict_s\": 3504.9227509498596\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-diagscale-aggregation-96--split6\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 6,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split6.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split6.json\",\n      \"fit_s\": 2889.5443601608276,\n      \"predict_s\": 744.8680012226105,\n      \"fit_predict_s\": 3634.412361383438\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-aggregation-96--split7\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 7,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-aggregation-96--split7.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-aggregation-96--split7.json\",\n      \"fit_s\": 2779.8940374851227,\n      \"predict_s\": 728.3163504600525,\n      \"fit_predict_s\": 3508.210387945175\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-diagscale-aggregation-96--split7\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 7,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split7.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split7.json\",\n      \"fit_s\": 2888.820529937744,\n      \"predict_s\": 748.5739374160767,\n      \"fit_predict_s\": 3637.394467353821\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-aggregation-96--split8\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 8,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-aggregation-96--split8.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-aggregation-96--split8.json\",\n      \"fit_s\": 2789.990910768509,\n      \"predict_s\": 729.4298620223999,\n      \"fit_predict_s\": 3519.420772790909\n    },\n    {\n      \"job_id\": \"qsar-tid-11--tabpfn3-diagscale-aggregation-96--split8\",\n      \"dataset\": \"QSAR-TID-11\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 8,\n      \"script\": \"jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split8.sh\",\n      \"result\": \"results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split8.json\",\n      \"fit_s\": 3089.0678038597107,\n      \"predict_s\": 754.5742840766907,\n      \"fit_predict_s\": 3843.6420879364014\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-aggregation-96--split0\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 0,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-aggregation-96--split0.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-aggregation-96--split0.json\",\n      \"fit_s\": 977.0692663192749,\n      \"predict_s\": 496.1385600566864,\n      \"fit_predict_s\": 1473.2078263759613\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 0,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0.json\",\n      \"fit_s\": 1051.0772182941437,\n      \"predict_s\": 501.84798979759216,\n      \"fit_predict_s\": 1552.9252080917358\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-aggregation-96--split1\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 1,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-aggregation-96--split1.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-aggregation-96--split1.json\",\n      \"fit_s\": 979.2293400764465,\n      \"predict_s\": 496.9631576538086,\n      \"fit_predict_s\": 1476.1924977302551\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 1,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1.json\",\n      \"fit_s\": 1036.1496987342834,\n      \"predict_s\": 502.48194432258606,\n      \"fit_predict_s\": 1538.6316430568695\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-aggregation-96--split2\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 2,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-aggregation-96--split2.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-aggregation-96--split2.json\",\n      \"fit_s\": 978.9600546360016,\n      \"predict_s\": 495.9897515773773,\n      \"fit_predict_s\": 1474.949806213379\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 2,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2.json\",\n      \"fit_s\": 1012.5247993469238,\n      \"predict_s\": 501.41248059272766,\n      \"fit_predict_s\": 1513.9372799396515\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-aggregation-96--split3\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 3,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-aggregation-96--split3.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-aggregation-96--split3.json\",\n      \"fit_s\": 977.6430671215057,\n      \"predict_s\": 496.6741375923157,\n      \"fit_predict_s\": 1474.3172047138214\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 3,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3.json\",\n      \"fit_s\": 993.4087359905243,\n      \"predict_s\": 500.8345024585724,\n      \"fit_predict_s\": 1494.2432384490967\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-aggregation-96--split4\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 4,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-aggregation-96--split4.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-aggregation-96--split4.json\",\n      \"fit_s\": 978.1409554481506,\n      \"predict_s\": 497.2056586742401,\n      \"fit_predict_s\": 1475.3466141223907\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 4,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4.json\",\n      \"fit_s\": 1037.5867648124695,\n      \"predict_s\": 502.6474916934967,\n      \"fit_predict_s\": 1540.2342565059662\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-aggregation-96--split5\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 5,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-aggregation-96--split5.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-aggregation-96--split5.json\",\n      \"fit_s\": 977.1058399677277,\n      \"predict_s\": 498.8242552280426,\n      \"fit_predict_s\": 1475.9300951957703\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 5,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5.json\",\n      \"fit_s\": 1028.729928970337,\n      \"predict_s\": 503.52475094795227,\n      \"fit_predict_s\": 1532.2546799182892\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-aggregation-96--split6\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 6,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-aggregation-96--split6.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-aggregation-96--split6.json\",\n      \"fit_s\": 976.2596855163574,\n      \"predict_s\": 496.73902797698975,\n      \"fit_predict_s\": 1472.9987134933472\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 6,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6.json\",\n      \"fit_s\": 1042.9854867458344,\n      \"predict_s\": 501.6161775588989,\n      \"fit_predict_s\": 1544.6016643047333\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-aggregation-96--split7\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 7,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-aggregation-96--split7.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-aggregation-96--split7.json\",\n      \"fit_s\": 978.0626704692841,\n      \"predict_s\": 497.01974749565125,\n      \"fit_predict_s\": 1475.0824179649353\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 7,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7.json\",\n      \"fit_s\": 1043.052586555481,\n      \"predict_s\": 501.970498085022,\n      \"fit_predict_s\": 1545.023084640503\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-aggregation-96--split8\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_aggregation_96\",\n      \"split\": 8,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-aggregation-96--split8.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-aggregation-96--split8.json\",\n      \"fit_s\": 977.1826748847961,\n      \"predict_s\": 497.5574052333832,\n      \"fit_predict_s\": 1474.7400801181793\n    },\n    {\n      \"job_id\": \"physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8\",\n      \"dataset\": \"physiochemical_protein\",\n      \"arm\": \"tabpfn3_diagscale_aggregation_96\",\n      \"split\": 8,\n      \"script\": \"jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8.sh\",\n      \"result\": \"results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8.json\",\n      \"fit_s\": 1040.3393065929413,\n      \"predict_s\": 502.2143301963806,\n      \"fit_predict_s\": 1542.553636789322\n    }\n  ],\n  \"provenance\": \"Published fit and prediction measurements for these configurations on one 80GB H100; excludes process startup and data loading. Supplied equally to agent and reference.\"\n}\n"
+  },
+  {
+   "path": "README.md",
+   "content": "# Paired tabular prediction study\n\ndatasets.json lists the datasets, the two versions and the prescribed split IDs. Each jobs/*.sh launch runs one dataset/split/version on one GPU and writes its metric_error, metric and fit/prediction times to its own results/*.json. Split IDs are the source study's flattened fold/repeat indices. Nine splits define each version's mean error on a dataset; lower error is better. Error units differ by dataset. The original code and raw OpenML inputs are installed locally. cost_profiles.json contains the published fit/prediction cost profiles.\n"
+  }
+ ],
+ "jobs": [
+  {
+   "job_id": "bioresponse--tabpfn3-aggregation-96--split0",
+   "label": "Bioresponse, tabpfn3_aggregation_96, prescribed split 0",
+   "replicate_group": "sol-ttc-308241f9ab2c",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-bioresponse-split0"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 0 --arm tabpfn3_aggregation_96 --output results/bioresponse--tabpfn3-aggregation-96--split0.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-aggregation-96--split0.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 4888.4,
+     "range_s": [
+      4888.4,
+      4888.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split0",
+   "label": "Bioresponse, tabpfn3_diagscale_aggregation_96, prescribed split 0",
+   "replicate_group": "sol-ttc-84544944219b",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-bioresponse-split0"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 0 --arm tabpfn3_diagscale_aggregation_96 --output results/bioresponse--tabpfn3-diagscale-aggregation-96--split0.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-diagscale-aggregation-96--split0.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 5004.6,
+     "range_s": [
+      5004.6,
+      5004.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-aggregation-96--split1",
+   "label": "Bioresponse, tabpfn3_aggregation_96, prescribed split 1",
+   "replicate_group": "sol-ttc-b1dfae6bab11",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-bioresponse-split1"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 1 --arm tabpfn3_aggregation_96 --output results/bioresponse--tabpfn3-aggregation-96--split1.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-aggregation-96--split1.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 4933.6,
+     "range_s": [
+      4933.6,
+      4933.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split1",
+   "label": "Bioresponse, tabpfn3_diagscale_aggregation_96, prescribed split 1",
+   "replicate_group": "sol-ttc-98a801cdac40",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-bioresponse-split1"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 1 --arm tabpfn3_diagscale_aggregation_96 --output results/bioresponse--tabpfn3-diagscale-aggregation-96--split1.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-diagscale-aggregation-96--split1.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 4996.9,
+     "range_s": [
+      4996.9,
+      4996.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-aggregation-96--split2",
+   "label": "Bioresponse, tabpfn3_aggregation_96, prescribed split 2",
+   "replicate_group": "sol-ttc-6e7c022e391a",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-bioresponse-split2"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 2 --arm tabpfn3_aggregation_96 --output results/bioresponse--tabpfn3-aggregation-96--split2.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-aggregation-96--split2.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 4940.7,
+     "range_s": [
+      4940.7,
+      4940.7
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split2",
+   "label": "Bioresponse, tabpfn3_diagscale_aggregation_96, prescribed split 2",
+   "replicate_group": "sol-ttc-b058a986afd6",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-bioresponse-split2"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 2 --arm tabpfn3_diagscale_aggregation_96 --output results/bioresponse--tabpfn3-diagscale-aggregation-96--split2.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-diagscale-aggregation-96--split2.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 4935.6,
+     "range_s": [
+      4935.6,
+      4935.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-aggregation-96--split3",
+   "label": "Bioresponse, tabpfn3_aggregation_96, prescribed split 3",
+   "replicate_group": "sol-ttc-52d15e9c6c22",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-bioresponse-split3"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 3 --arm tabpfn3_aggregation_96 --output results/bioresponse--tabpfn3-aggregation-96--split3.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-aggregation-96--split3.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 4939.8,
+     "range_s": [
+      4939.8,
+      4939.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split3",
+   "label": "Bioresponse, tabpfn3_diagscale_aggregation_96, prescribed split 3",
+   "replicate_group": "sol-ttc-f005bf89d95b",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-bioresponse-split3"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 3 --arm tabpfn3_diagscale_aggregation_96 --output results/bioresponse--tabpfn3-diagscale-aggregation-96--split3.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-diagscale-aggregation-96--split3.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 4956.5,
+     "range_s": [
+      4956.5,
+      4956.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-aggregation-96--split4",
+   "label": "Bioresponse, tabpfn3_aggregation_96, prescribed split 4",
+   "replicate_group": "sol-ttc-4ca454272a17",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-bioresponse-split4"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 4 --arm tabpfn3_aggregation_96 --output results/bioresponse--tabpfn3-aggregation-96--split4.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-aggregation-96--split4.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 4932.4,
+     "range_s": [
+      4932.4,
+      4932.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split4",
+   "label": "Bioresponse, tabpfn3_diagscale_aggregation_96, prescribed split 4",
+   "replicate_group": "sol-ttc-5ad27de1c400",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-bioresponse-split4"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 4 --arm tabpfn3_diagscale_aggregation_96 --output results/bioresponse--tabpfn3-diagscale-aggregation-96--split4.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-diagscale-aggregation-96--split4.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 4957.4,
+     "range_s": [
+      4957.4,
+      4957.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-aggregation-96--split5",
+   "label": "Bioresponse, tabpfn3_aggregation_96, prescribed split 5",
+   "replicate_group": "sol-ttc-43b14774132d",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-bioresponse-split5"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 5 --arm tabpfn3_aggregation_96 --output results/bioresponse--tabpfn3-aggregation-96--split5.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-aggregation-96--split5.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 4988.2,
+     "range_s": [
+      4988.2,
+      4988.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split5",
+   "label": "Bioresponse, tabpfn3_diagscale_aggregation_96, prescribed split 5",
+   "replicate_group": "sol-ttc-d3c1ec220113",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-bioresponse-split5"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 5 --arm tabpfn3_diagscale_aggregation_96 --output results/bioresponse--tabpfn3-diagscale-aggregation-96--split5.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-diagscale-aggregation-96--split5.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 5074.2,
+     "range_s": [
+      5074.2,
+      5074.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-aggregation-96--split6",
+   "label": "Bioresponse, tabpfn3_aggregation_96, prescribed split 6",
+   "replicate_group": "sol-ttc-b7355d47f198",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-bioresponse-split6"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 6 --arm tabpfn3_aggregation_96 --output results/bioresponse--tabpfn3-aggregation-96--split6.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-aggregation-96--split6.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 4957.1,
+     "range_s": [
+      4957.1,
+      4957.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split6",
+   "label": "Bioresponse, tabpfn3_diagscale_aggregation_96, prescribed split 6",
+   "replicate_group": "sol-ttc-87c2c91acce3",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-bioresponse-split6"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 6 --arm tabpfn3_diagscale_aggregation_96 --output results/bioresponse--tabpfn3-diagscale-aggregation-96--split6.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-diagscale-aggregation-96--split6.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 5140.0,
+     "range_s": [
+      5140.0,
+      5140.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-aggregation-96--split7",
+   "label": "Bioresponse, tabpfn3_aggregation_96, prescribed split 7",
+   "replicate_group": "sol-ttc-366c23ffa20e",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-bioresponse-split7"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 7 --arm tabpfn3_aggregation_96 --output results/bioresponse--tabpfn3-aggregation-96--split7.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-aggregation-96--split7.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 4944.2,
+     "range_s": [
+      4944.2,
+      4944.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split7",
+   "label": "Bioresponse, tabpfn3_diagscale_aggregation_96, prescribed split 7",
+   "replicate_group": "sol-ttc-bb164921a9e3",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-bioresponse-split7"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 7 --arm tabpfn3_diagscale_aggregation_96 --output results/bioresponse--tabpfn3-diagscale-aggregation-96--split7.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-diagscale-aggregation-96--split7.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 5104.0,
+     "range_s": [
+      5104.0,
+      5104.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-aggregation-96--split8",
+   "label": "Bioresponse, tabpfn3_aggregation_96, prescribed split 8",
+   "replicate_group": "sol-ttc-87b03566403c",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-bioresponse-split8"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 8 --arm tabpfn3_aggregation_96 --output results/bioresponse--tabpfn3-aggregation-96--split8.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-aggregation-96--split8.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 4921.8,
+     "range_s": [
+      4921.8,
+      4921.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split8",
+   "label": "Bioresponse, tabpfn3_diagscale_aggregation_96, prescribed split 8",
+   "replicate_group": "sol-ttc-4863ee995ac7",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-bioresponse-split8"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset Bioresponse --split 8 --arm tabpfn3_diagscale_aggregation_96 --output results/bioresponse--tabpfn3-diagscale-aggregation-96--split8.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/bioresponse--tabpfn3-diagscale-aggregation-96--split8.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 5146.6,
+     "range_s": [
+      5146.6,
+      5146.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split0",
+   "label": "QSAR-TID-11, tabpfn3_aggregation_96, prescribed split 0",
+   "replicate_group": "sol-ttc-40650a02a93e",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-qsar-tid-11-split0"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 0 --arm tabpfn3_aggregation_96 --output results/qsar-tid-11--tabpfn3-aggregation-96--split0.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-aggregation-96--split0.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3598.8,
+     "range_s": [
+      3598.8,
+      3598.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split0",
+   "label": "QSAR-TID-11, tabpfn3_diagscale_aggregation_96, prescribed split 0",
+   "replicate_group": "sol-ttc-127d0a23c91c",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-qsar-tid-11-split0"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 0 --arm tabpfn3_diagscale_aggregation_96 --output results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split0.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split0.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3721.9,
+     "range_s": [
+      3721.9,
+      3721.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split1",
+   "label": "QSAR-TID-11, tabpfn3_aggregation_96, prescribed split 1",
+   "replicate_group": "sol-ttc-a463250df149",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-qsar-tid-11-split1"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 1 --arm tabpfn3_aggregation_96 --output results/qsar-tid-11--tabpfn3-aggregation-96--split1.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-aggregation-96--split1.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3571.4,
+     "range_s": [
+      3571.4,
+      3571.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split1",
+   "label": "QSAR-TID-11, tabpfn3_diagscale_aggregation_96, prescribed split 1",
+   "replicate_group": "sol-ttc-b841ed5843c4",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-qsar-tid-11-split1"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 1 --arm tabpfn3_diagscale_aggregation_96 --output results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split1.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split1.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3825.0,
+     "range_s": [
+      3825.0,
+      3825.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split2",
+   "label": "QSAR-TID-11, tabpfn3_aggregation_96, prescribed split 2",
+   "replicate_group": "sol-ttc-877f3dfc0d51",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-qsar-tid-11-split2"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 2 --arm tabpfn3_aggregation_96 --output results/qsar-tid-11--tabpfn3-aggregation-96--split2.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-aggregation-96--split2.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3576.4,
+     "range_s": [
+      3576.4,
+      3576.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split2",
+   "label": "QSAR-TID-11, tabpfn3_diagscale_aggregation_96, prescribed split 2",
+   "replicate_group": "sol-ttc-44b58c82ea3e",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-qsar-tid-11-split2"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 2 --arm tabpfn3_diagscale_aggregation_96 --output results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split2.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split2.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3843.5,
+     "range_s": [
+      3843.5,
+      3843.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split3",
+   "label": "QSAR-TID-11, tabpfn3_aggregation_96, prescribed split 3",
+   "replicate_group": "sol-ttc-0b8cdd1b6437",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-qsar-tid-11-split3"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 3 --arm tabpfn3_aggregation_96 --output results/qsar-tid-11--tabpfn3-aggregation-96--split3.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-aggregation-96--split3.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3550.9,
+     "range_s": [
+      3550.9,
+      3550.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split3",
+   "label": "QSAR-TID-11, tabpfn3_diagscale_aggregation_96, prescribed split 3",
+   "replicate_group": "sol-ttc-a0fecc79c255",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-qsar-tid-11-split3"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 3 --arm tabpfn3_diagscale_aggregation_96 --output results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split3.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split3.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3701.9,
+     "range_s": [
+      3701.9,
+      3701.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split4",
+   "label": "QSAR-TID-11, tabpfn3_aggregation_96, prescribed split 4",
+   "replicate_group": "sol-ttc-dd24a65dc31a",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-qsar-tid-11-split4"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 4 --arm tabpfn3_aggregation_96 --output results/qsar-tid-11--tabpfn3-aggregation-96--split4.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-aggregation-96--split4.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3551.6,
+     "range_s": [
+      3551.6,
+      3551.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split4",
+   "label": "QSAR-TID-11, tabpfn3_diagscale_aggregation_96, prescribed split 4",
+   "replicate_group": "sol-ttc-595858ff9be3",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-qsar-tid-11-split4"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 4 --arm tabpfn3_diagscale_aggregation_96 --output results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split4.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split4.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3672.9,
+     "range_s": [
+      3672.9,
+      3672.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split5",
+   "label": "QSAR-TID-11, tabpfn3_aggregation_96, prescribed split 5",
+   "replicate_group": "sol-ttc-74e958378745",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-qsar-tid-11-split5"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 5 --arm tabpfn3_aggregation_96 --output results/qsar-tid-11--tabpfn3-aggregation-96--split5.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-aggregation-96--split5.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3518.5,
+     "range_s": [
+      3518.5,
+      3518.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split5",
+   "label": "QSAR-TID-11, tabpfn3_diagscale_aggregation_96, prescribed split 5",
+   "replicate_group": "sol-ttc-743fbbcc6889",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-qsar-tid-11-split5"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 5 --arm tabpfn3_diagscale_aggregation_96 --output results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split5.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split5.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3694.9,
+     "range_s": [
+      3694.9,
+      3694.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split6",
+   "label": "QSAR-TID-11, tabpfn3_aggregation_96, prescribed split 6",
+   "replicate_group": "sol-ttc-b8362035955b",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-qsar-tid-11-split6"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 6 --arm tabpfn3_aggregation_96 --output results/qsar-tid-11--tabpfn3-aggregation-96--split6.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-aggregation-96--split6.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3504.9,
+     "range_s": [
+      3504.9,
+      3504.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split6",
+   "label": "QSAR-TID-11, tabpfn3_diagscale_aggregation_96, prescribed split 6",
+   "replicate_group": "sol-ttc-ce96202172bf",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-qsar-tid-11-split6"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 6 --arm tabpfn3_diagscale_aggregation_96 --output results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split6.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split6.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3634.4,
+     "range_s": [
+      3634.4,
+      3634.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split7",
+   "label": "QSAR-TID-11, tabpfn3_aggregation_96, prescribed split 7",
+   "replicate_group": "sol-ttc-98413bfa2192",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-qsar-tid-11-split7"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 7 --arm tabpfn3_aggregation_96 --output results/qsar-tid-11--tabpfn3-aggregation-96--split7.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-aggregation-96--split7.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3508.2,
+     "range_s": [
+      3508.2,
+      3508.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split7",
+   "label": "QSAR-TID-11, tabpfn3_diagscale_aggregation_96, prescribed split 7",
+   "replicate_group": "sol-ttc-e1dc1bd33f6b",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-qsar-tid-11-split7"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 7 --arm tabpfn3_diagscale_aggregation_96 --output results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split7.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split7.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3637.4,
+     "range_s": [
+      3637.4,
+      3637.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split8",
+   "label": "QSAR-TID-11, tabpfn3_aggregation_96, prescribed split 8",
+   "replicate_group": "sol-ttc-6422a19f697b",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-qsar-tid-11-split8"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 8 --arm tabpfn3_aggregation_96 --output results/qsar-tid-11--tabpfn3-aggregation-96--split8.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-aggregation-96--split8.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3519.4,
+     "range_s": [
+      3519.4,
+      3519.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split8",
+   "label": "QSAR-TID-11, tabpfn3_diagscale_aggregation_96, prescribed split 8",
+   "replicate_group": "sol-ttc-e209d4bdb2a6",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-qsar-tid-11-split8"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset QSAR-TID-11 --split 8 --arm tabpfn3_diagscale_aggregation_96 --output results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split8.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split8.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3843.6,
+     "range_s": [
+      3843.6,
+      3843.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split0",
+   "label": "physiochemical_protein, tabpfn3_aggregation_96, prescribed split 0",
+   "replicate_group": "sol-ttc-6bf6e89675a7",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split0"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 0 --arm tabpfn3_aggregation_96 --output results/physiochemical-protein--tabpfn3-aggregation-96--split0.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-aggregation-96--split0.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1473.2,
+     "range_s": [
+      1473.2,
+      1473.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0",
+   "label": "physiochemical_protein, tabpfn3_diagscale_aggregation_96, prescribed split 0",
+   "replicate_group": "sol-ttc-242a8786d992",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split0"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 0 --arm tabpfn3_diagscale_aggregation_96 --output results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1552.9,
+     "range_s": [
+      1552.9,
+      1552.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split1",
+   "label": "physiochemical_protein, tabpfn3_aggregation_96, prescribed split 1",
+   "replicate_group": "sol-ttc-4b9378d68928",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split1"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 1 --arm tabpfn3_aggregation_96 --output results/physiochemical-protein--tabpfn3-aggregation-96--split1.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-aggregation-96--split1.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1476.2,
+     "range_s": [
+      1476.2,
+      1476.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1",
+   "label": "physiochemical_protein, tabpfn3_diagscale_aggregation_96, prescribed split 1",
+   "replicate_group": "sol-ttc-cbd7749d33a5",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split1"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 1 --arm tabpfn3_diagscale_aggregation_96 --output results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1538.6,
+     "range_s": [
+      1538.6,
+      1538.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split2",
+   "label": "physiochemical_protein, tabpfn3_aggregation_96, prescribed split 2",
+   "replicate_group": "sol-ttc-daee863a4478",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split2"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 2 --arm tabpfn3_aggregation_96 --output results/physiochemical-protein--tabpfn3-aggregation-96--split2.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-aggregation-96--split2.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1474.9,
+     "range_s": [
+      1474.9,
+      1474.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2",
+   "label": "physiochemical_protein, tabpfn3_diagscale_aggregation_96, prescribed split 2",
+   "replicate_group": "sol-ttc-2927909e1eeb",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split2"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 2 --arm tabpfn3_diagscale_aggregation_96 --output results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1513.9,
+     "range_s": [
+      1513.9,
+      1513.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split3",
+   "label": "physiochemical_protein, tabpfn3_aggregation_96, prescribed split 3",
+   "replicate_group": "sol-ttc-6c0cad270bda",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split3"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 3 --arm tabpfn3_aggregation_96 --output results/physiochemical-protein--tabpfn3-aggregation-96--split3.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-aggregation-96--split3.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1474.3,
+     "range_s": [
+      1474.3,
+      1474.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3",
+   "label": "physiochemical_protein, tabpfn3_diagscale_aggregation_96, prescribed split 3",
+   "replicate_group": "sol-ttc-a641e5298648",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split3"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 3 --arm tabpfn3_diagscale_aggregation_96 --output results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1494.2,
+     "range_s": [
+      1494.2,
+      1494.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split4",
+   "label": "physiochemical_protein, tabpfn3_aggregation_96, prescribed split 4",
+   "replicate_group": "sol-ttc-0dedf6fb769c",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split4"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 4 --arm tabpfn3_aggregation_96 --output results/physiochemical-protein--tabpfn3-aggregation-96--split4.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-aggregation-96--split4.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1475.3,
+     "range_s": [
+      1475.3,
+      1475.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4",
+   "label": "physiochemical_protein, tabpfn3_diagscale_aggregation_96, prescribed split 4",
+   "replicate_group": "sol-ttc-a1c7c27dabc7",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split4"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 4 --arm tabpfn3_diagscale_aggregation_96 --output results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1540.2,
+     "range_s": [
+      1540.2,
+      1540.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split5",
+   "label": "physiochemical_protein, tabpfn3_aggregation_96, prescribed split 5",
+   "replicate_group": "sol-ttc-b42e8d3352b6",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split5"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 5 --arm tabpfn3_aggregation_96 --output results/physiochemical-protein--tabpfn3-aggregation-96--split5.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-aggregation-96--split5.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1475.9,
+     "range_s": [
+      1475.9,
+      1475.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5",
+   "label": "physiochemical_protein, tabpfn3_diagscale_aggregation_96, prescribed split 5",
+   "replicate_group": "sol-ttc-6cc4a0667fb1",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split5"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 5 --arm tabpfn3_diagscale_aggregation_96 --output results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1532.3,
+     "range_s": [
+      1532.3,
+      1532.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split6",
+   "label": "physiochemical_protein, tabpfn3_aggregation_96, prescribed split 6",
+   "replicate_group": "sol-ttc-fcf8d4d9a303",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split6"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 6 --arm tabpfn3_aggregation_96 --output results/physiochemical-protein--tabpfn3-aggregation-96--split6.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-aggregation-96--split6.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1473.0,
+     "range_s": [
+      1473.0,
+      1473.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6",
+   "label": "physiochemical_protein, tabpfn3_diagscale_aggregation_96, prescribed split 6",
+   "replicate_group": "sol-ttc-a8f25bf0ed46",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split6"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 6 --arm tabpfn3_diagscale_aggregation_96 --output results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1544.6,
+     "range_s": [
+      1544.6,
+      1544.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split7",
+   "label": "physiochemical_protein, tabpfn3_aggregation_96, prescribed split 7",
+   "replicate_group": "sol-ttc-c3811e1e537b",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split7"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 7 --arm tabpfn3_aggregation_96 --output results/physiochemical-protein--tabpfn3-aggregation-96--split7.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-aggregation-96--split7.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1475.1,
+     "range_s": [
+      1475.1,
+      1475.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7",
+   "label": "physiochemical_protein, tabpfn3_diagscale_aggregation_96, prescribed split 7",
+   "replicate_group": "sol-ttc-67ae143f7d77",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split7"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 7 --arm tabpfn3_diagscale_aggregation_96 --output results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1545.0,
+     "range_s": [
+      1545.0,
+      1545.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split8",
+   "label": "physiochemical_protein, tabpfn3_aggregation_96, prescribed split 8",
+   "replicate_group": "sol-ttc-8c1d48ab3109",
+   "records": [
+    "sol-ttc-tabpfn3-aggregation-96-physiochemical-protein-split8"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 8 --arm tabpfn3_aggregation_96 --output results/physiochemical-protein--tabpfn3-aggregation-96--split8.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-aggregation-96--split8.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1474.7,
+     "range_s": [
+      1474.7,
+      1474.7
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8",
+   "label": "physiochemical_protein, tabpfn3_diagscale_aggregation_96, prescribed split 8",
+   "replicate_group": "sol-ttc-567c1ea5b438",
+   "records": [
+    "sol-ttc-tabpfn3-diagscale-aggregation-96-physiochemical-protein-split8"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "gpu_options": [
+    1
+   ],
+   "recorded_gpus": 1,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": null,
+   "launch": "python tools/single_cell.py --dataset physiochemical_protein --split 8 --arm tabpfn3_diagscale_aggregation_96 --output results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8.json",
+   "after": [],
+   "consumes": [],
+   "produces": [
+    "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8.json"
+   ],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1542.6,
+     "range_s": [
+      1542.6,
+      1542.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  }
+ ],
+ "output_isolation": null,
+ "environment": {
+  "python": {
+   "value": "3.11",
+   "provenance": "inferred",
+   "how": "built from python:3.11-slim-bookworm; resolved exact version in image"
+  },
+  "install": {
+   "packages": [
+    "torch==2.9.1",
+    "autogluon==1.5.0"
+   ],
+   "constraints": "artifacts/sol-tabular/environment/constraints.txt",
+   "how": "Dockerfile.probe and build_environment.py build pinned patched source stack; source imports passed on c3-15 2026-11-02. Includes AutoGluon1.5.0 and torch2.9.1 CPU."
+  },
+  "hub": [],
+  "hub_bytes": 0,
+  "env": {
+   "OPENML_CACHE_DIR": "/opt/cache/openml",
+   "HF_HUB_OFFLINE": "1"
+  },
+  "verified": "source imports and all eight datasets' nine input splits loaded on c3-15; real805f Bioresponse baseline entry served82/82 units and recorded metrics on native FakeGPU/torch2.9.1 with r8.1 source mounts, uid1000 and read-only original cache, actual adapter copy, no cache shim or TabPFN3 weights. Representative fixture only; installed full-box task runs are separate. Evidence: survey/sol-tabular-ttc/replay-proof.json",
+  "image_label": {
+   "value": "sol-tabular-ttc-r8",
+   "how": "experiment label retained; requires tested r8.1 patch4c17e9d5 and sidecar2da8801c. Native-image entry probe passed; full-box build/staging tracked by isolation and gpu-tasks"
+  }
+ },
+ "sources": [
+  "https://github.com/kanghui-learning/test-time-compute-for-tabular-foundation-models@45fb141b2acf15518e70885aa149c8e1898cd15c",
+  "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results@2bbb8ac87c475eaf685c556600090fc153b511c5"
+ ],
+ "recorded_outcome": {
+  "Bioresponse": {
+   "tabpfn3_aggregation_96": {
+    "n": 9,
+    "metric": "roc_auc",
+    "mean_metric_error": 0.12030299626247057,
+    "mean_fit_predict_s": 4938.453214883804
+   },
+   "tabpfn3_diagscale_aggregation_96": {
+    "n": 9,
+    "metric": "roc_auc",
+    "mean_metric_error": 0.12043893999792933,
+    "mean_fit_predict_s": 5035.111275169585
+   },
+   "lower_mean_error_arm": "tabpfn3_aggregation_96"
+  },
+  "QSAR-TID-11": {
+   "tabpfn3_aggregation_96": {
+    "n": 9,
+    "metric": "rmse",
+    "mean_metric_error": 0.7402413395112065,
+    "mean_fit_predict_s": 3544.4645325872634
+   },
+   "tabpfn3_diagscale_aggregation_96": {
+    "n": 9,
+    "metric": "rmse",
+    "mean_metric_error": 0.7394529457862145,
+    "mean_fit_predict_s": 3730.6112948788536
+   },
+   "lower_mean_error_arm": "tabpfn3_diagscale_aggregation_96"
+  },
+  "physiochemical_protein": {
+   "tabpfn3_aggregation_96": {
+    "n": 9,
+    "metric": "rmse",
+    "mean_metric_error": 2.867060552436728,
+    "mean_fit_predict_s": 1474.7516951031155
+   },
+   "tabpfn3_diagscale_aggregation_96": {
+    "n": 9,
+    "metric": "rmse",
+    "mean_metric_error": 2.8446287441356586,
+    "mean_fit_predict_s": 1533.8227435217964
+   },
+   "lower_mean_error_arm": "tabpfn3_diagscale_aggregation_96"
+  }
+ },
+ "notes": [
+  "Original single-H100 source cells, non-imputed, each at least20 minutes fit+predict; no card or width conversion.",
+  "Hardware inferred from explicit author statement; not a per-row device log.",
+  "Original _run seam also performs CPU scoring; its unrecorded time is skipped and unpaced. Input loading and splitting run for real outside seam.",
+  "Complete table controls share source cells with adoption variant, but twins share no source cells.",
+  "All listed source cells are required by the full-table brief; this is a matched control for the adoption decision, not a new source cohort."
+ ],
+ "tabular_table": {
+  "datasets": [
+   "Bioresponse",
+   "QSAR-TID-11",
+   "physiochemical_protein"
+  ],
+  "arms": [
+   "tabpfn3_aggregation_96",
+   "tabpfn3_diagscale_aggregation_96"
+  ],
+  "splits": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ],
+  "cells": [
+   {
+    "job_id": "bioresponse--tabpfn3-aggregation-96--split0",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 0,
+    "script": "jobs/bioresponse--tabpfn3-aggregation-96--split0.sh",
+    "result": "results/bioresponse--tabpfn3-aggregation-96--split0.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split0",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 0,
+    "script": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split0.sh",
+    "result": "results/bioresponse--tabpfn3-diagscale-aggregation-96--split0.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-aggregation-96--split1",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 1,
+    "script": "jobs/bioresponse--tabpfn3-aggregation-96--split1.sh",
+    "result": "results/bioresponse--tabpfn3-aggregation-96--split1.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split1",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 1,
+    "script": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split1.sh",
+    "result": "results/bioresponse--tabpfn3-diagscale-aggregation-96--split1.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-aggregation-96--split2",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 2,
+    "script": "jobs/bioresponse--tabpfn3-aggregation-96--split2.sh",
+    "result": "results/bioresponse--tabpfn3-aggregation-96--split2.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split2",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 2,
+    "script": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split2.sh",
+    "result": "results/bioresponse--tabpfn3-diagscale-aggregation-96--split2.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-aggregation-96--split3",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 3,
+    "script": "jobs/bioresponse--tabpfn3-aggregation-96--split3.sh",
+    "result": "results/bioresponse--tabpfn3-aggregation-96--split3.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split3",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 3,
+    "script": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split3.sh",
+    "result": "results/bioresponse--tabpfn3-diagscale-aggregation-96--split3.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-aggregation-96--split4",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 4,
+    "script": "jobs/bioresponse--tabpfn3-aggregation-96--split4.sh",
+    "result": "results/bioresponse--tabpfn3-aggregation-96--split4.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split4",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 4,
+    "script": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split4.sh",
+    "result": "results/bioresponse--tabpfn3-diagscale-aggregation-96--split4.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-aggregation-96--split5",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 5,
+    "script": "jobs/bioresponse--tabpfn3-aggregation-96--split5.sh",
+    "result": "results/bioresponse--tabpfn3-aggregation-96--split5.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split5",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 5,
+    "script": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split5.sh",
+    "result": "results/bioresponse--tabpfn3-diagscale-aggregation-96--split5.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-aggregation-96--split6",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 6,
+    "script": "jobs/bioresponse--tabpfn3-aggregation-96--split6.sh",
+    "result": "results/bioresponse--tabpfn3-aggregation-96--split6.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split6",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 6,
+    "script": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split6.sh",
+    "result": "results/bioresponse--tabpfn3-diagscale-aggregation-96--split6.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-aggregation-96--split7",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 7,
+    "script": "jobs/bioresponse--tabpfn3-aggregation-96--split7.sh",
+    "result": "results/bioresponse--tabpfn3-aggregation-96--split7.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split7",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 7,
+    "script": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split7.sh",
+    "result": "results/bioresponse--tabpfn3-diagscale-aggregation-96--split7.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-aggregation-96--split8",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 8,
+    "script": "jobs/bioresponse--tabpfn3-aggregation-96--split8.sh",
+    "result": "results/bioresponse--tabpfn3-aggregation-96--split8.json"
+   },
+   {
+    "job_id": "bioresponse--tabpfn3-diagscale-aggregation-96--split8",
+    "dataset": "Bioresponse",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 8,
+    "script": "jobs/bioresponse--tabpfn3-diagscale-aggregation-96--split8.sh",
+    "result": "results/bioresponse--tabpfn3-diagscale-aggregation-96--split8.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split0",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 0,
+    "script": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split0.sh",
+    "result": "results/qsar-tid-11--tabpfn3-aggregation-96--split0.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split0",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 0,
+    "script": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split0.sh",
+    "result": "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split0.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split1",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 1,
+    "script": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split1.sh",
+    "result": "results/qsar-tid-11--tabpfn3-aggregation-96--split1.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split1",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 1,
+    "script": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split1.sh",
+    "result": "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split1.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split2",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 2,
+    "script": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split2.sh",
+    "result": "results/qsar-tid-11--tabpfn3-aggregation-96--split2.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split2",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 2,
+    "script": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split2.sh",
+    "result": "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split2.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split3",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 3,
+    "script": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split3.sh",
+    "result": "results/qsar-tid-11--tabpfn3-aggregation-96--split3.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split3",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 3,
+    "script": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split3.sh",
+    "result": "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split3.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split4",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 4,
+    "script": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split4.sh",
+    "result": "results/qsar-tid-11--tabpfn3-aggregation-96--split4.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split4",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 4,
+    "script": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split4.sh",
+    "result": "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split4.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split5",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 5,
+    "script": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split5.sh",
+    "result": "results/qsar-tid-11--tabpfn3-aggregation-96--split5.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split5",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 5,
+    "script": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split5.sh",
+    "result": "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split5.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split6",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 6,
+    "script": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split6.sh",
+    "result": "results/qsar-tid-11--tabpfn3-aggregation-96--split6.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split6",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 6,
+    "script": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split6.sh",
+    "result": "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split6.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split7",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 7,
+    "script": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split7.sh",
+    "result": "results/qsar-tid-11--tabpfn3-aggregation-96--split7.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split7",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 7,
+    "script": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split7.sh",
+    "result": "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split7.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-aggregation-96--split8",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 8,
+    "script": "jobs/qsar-tid-11--tabpfn3-aggregation-96--split8.sh",
+    "result": "results/qsar-tid-11--tabpfn3-aggregation-96--split8.json"
+   },
+   {
+    "job_id": "qsar-tid-11--tabpfn3-diagscale-aggregation-96--split8",
+    "dataset": "QSAR-TID-11",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 8,
+    "script": "jobs/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split8.sh",
+    "result": "results/qsar-tid-11--tabpfn3-diagscale-aggregation-96--split8.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split0",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 0,
+    "script": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split0.sh",
+    "result": "results/physiochemical-protein--tabpfn3-aggregation-96--split0.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 0,
+    "script": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0.sh",
+    "result": "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split0.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split1",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 1,
+    "script": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split1.sh",
+    "result": "results/physiochemical-protein--tabpfn3-aggregation-96--split1.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 1,
+    "script": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1.sh",
+    "result": "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split1.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split2",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 2,
+    "script": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split2.sh",
+    "result": "results/physiochemical-protein--tabpfn3-aggregation-96--split2.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 2,
+    "script": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2.sh",
+    "result": "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split2.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split3",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 3,
+    "script": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split3.sh",
+    "result": "results/physiochemical-protein--tabpfn3-aggregation-96--split3.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 3,
+    "script": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3.sh",
+    "result": "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split3.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split4",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 4,
+    "script": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split4.sh",
+    "result": "results/physiochemical-protein--tabpfn3-aggregation-96--split4.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 4,
+    "script": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4.sh",
+    "result": "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split4.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split5",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 5,
+    "script": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split5.sh",
+    "result": "results/physiochemical-protein--tabpfn3-aggregation-96--split5.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 5,
+    "script": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5.sh",
+    "result": "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split5.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split6",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 6,
+    "script": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split6.sh",
+    "result": "results/physiochemical-protein--tabpfn3-aggregation-96--split6.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 6,
+    "script": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6.sh",
+    "result": "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split6.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split7",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 7,
+    "script": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split7.sh",
+    "result": "results/physiochemical-protein--tabpfn3-aggregation-96--split7.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 7,
+    "script": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7.sh",
+    "result": "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split7.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-aggregation-96--split8",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_aggregation_96",
+    "split": 8,
+    "script": "jobs/physiochemical-protein--tabpfn3-aggregation-96--split8.sh",
+    "result": "results/physiochemical-protein--tabpfn3-aggregation-96--split8.json"
+   },
+   {
+    "job_id": "physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8",
+    "dataset": "physiochemical_protein",
+    "arm": "tabpfn3_diagscale_aggregation_96",
+    "split": 8,
+    "script": "jobs/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8.sh",
+    "result": "results/physiochemical-protein--tabpfn3-diagscale-aggregation-96--split8.json"
+   }
+  ],
+  "completion_rule": "every prescribed cell completed; report each cell's error and each arm's per-dataset mean",
+  "comparison": "lower mean error is better within each dataset; error units differ between datasets",
+  "work_scope": "all listed cells are owed; an early adoption rejection never makes table work unneeded"
+ },
+ "stats": {
+  "jobs": 54,
+  "recorded_gpu_seconds": 182314.9,
+  "recorded_gpu_seconds_how": "replayed GPU-seconds, despite the field's name (kept for its readers): sum over jobs of the least GPU-seconds over the job's allowed GPU counts, each from the shortest paced duration among the records the job can draw (build/common.py:paced_duration, what gpu-mock's replay paces). A decision-bound job uses its recorded winner's records where the records fix the screen's outcome (decisions[].recorded_outcome), and the whole candidate pool otherwise. Changed on 2026-10-20 from recorded wall time, which includes host time replay does not pace, so the old figure was not a floor under a replayed run",
+  "lower_bound_makespan_s": 45578.7,
+  "lower_bound_how": "max(work / box GPUs, critical path): work as in recorded_gpu_seconds, and the critical path takes each job at its widest allowed count with the shortest paced duration among its records. Durations are what gpu-mock's replay paces (build/common.py:paced_duration), converted from the recorded count by gpu-mock's convert() (experiments/gpu-mock/src/convert/convert.py, imported by build/common.py:time_factor), never faster than recorded. Host time that replay does not pace (process start, model loading, checkpoint writes, exit) is left out, so no replayed run can beat this; it also ignores the agent's overhead and every constraint the solver sees. Paced since 2026-10-20; before that it used recorded wall time, which a replayed run could beat",
+  "serial_makespan_s": 182314.9,
+  "serial_how": "one job at a time, each on as many GPUs as it may use up to its recorded count, with the median paced duration among its records and the same convert(); no host time and no gaps between jobs"
+ },
+ "readiness": {
+  "replay_ready_jobs": 54,
+  "jobs_with_records": 54,
+  "blockers": {}
+ },
+ "shared_state": {
+  "default_shared": [],
+  "by_design": [],
+  "isolation": null,
+  "how": "no output path in the launch line. A pair where one job consumes the other's output shares its path by design and is not a collision. Under the study's ruling (design/IDEA.md, shared-state collisions) both references isolate shared paths, and an agent that leaves them shared pays through the collision class, never through a recorded failure"
+ },
+ "horizon_s": 277200,
+ "horizon_terms": {
+  "serial_makespan_s": 182314.9,
+  "startup_total_s": 288.4,
+  "startup_provenance": "derived",
+  "startup_source_machine_type": "c3-highmem-44",
+  "startup_by_machine_type": {
+   "c3-highmem-44": 288.4
+  },
+  "fleet_machine_type": "c3-highmem-44",
+  "provisional": false,
+  "startup_how": "the serial scripted policy's start-ups (launch to the job's first paced step; a script's first job cold, later ones warm), summed over every job, with each measured machine type's host terms (build/expected_scores.py, speed 1); the term used is the largest among the types measured, so the horizon is generous on every type",
+  "measured": {
+   "machine_type": "c3-highmem-44",
+   "run_dir": "<runs>/W0-tsct-measure",
+   "measured_on": "2026-11-03",
+   "caps": {
+    "cpus": "42",
+    "memory": "346300m",
+    "memory_swap": "346300m",
+    "disk": "40g",
+    "shm": "8g",
+    "pids": 8192,
+    "oom_protect": "on",
+    "source": "machine",
+    "host_reserve_bytes": 8589934592,
+    "cpuset": "2-43",
+    "sidecar_cpuset": "0-1"
+   },
+   "image": {
+    "name": "ml-node:sol-tabular-ttc-r891",
+    "id": "sha256:670ed7123389011b26b9e713907b98d33ee22f1f0d1324944ef8dc46c87fca4a",
+    "sidecar_image_id": "sha256:8a02c0f13bfcdf6f292687ece532a8febeb3ab4b0cfa1731792c9b440d6a4df7",
+    "torch_patch_sha256": "ffaf14f404b1693f3e40554152cf55558e7ad0e9b7e121a92c993c0e35e01622",
+    "gpu_mock_bundle_manifest_sha256": "c8b1db0a0ef4ebd0f8e304e0c8dcb3f2a79af1cc5abceb9a69ce6c0f840ac7b7"
+   },
+   "source": "W0-tsct-measure (worker-19, task c533c980d999, speed 1, packed)"
+  }
+ },
+ "environment_floor": {
+  "by_machine_type": {
+   "c3-highmem-44": {
+    "value": 322.6,
+    "provenance": "derived",
+    "host_terms": "survey/host-terms/pkg-sol-tabular-science.c3-highmem-44.json",
+    "packed_makespan_s": 45901.343,
+    "measured": {
+     "machine_type": "c3-highmem-44",
+     "run_dir": "<runs>/W0-tsct-measure",
+     "measured_on": "2026-11-03",
+     "caps": {
+      "cpus": "42",
+      "memory": "346300m",
+      "memory_swap": "346300m",
+      "disk": "40g",
+      "shm": "8g",
+      "pids": 8192,
+      "oom_protect": "on",
+      "source": "machine",
+      "host_reserve_bytes": 8589934592,
+      "cpuset": "2-43",
+      "sidecar_cpuset": "0-1"
+     },
+     "image": {
+      "name": "ml-node:sol-tabular-ttc-r891",
+      "id": "sha256:670ed7123389011b26b9e713907b98d33ee22f1f0d1324944ef8dc46c87fca4a",
+      "sidecar_image_id": "sha256:8a02c0f13bfcdf6f292687ece532a8febeb3ab4b0cfa1731792c9b440d6a4df7",
+      "torch_patch_sha256": "ffaf14f404b1693f3e40554152cf55558e7ad0e9b7e121a92c993c0e35e01622",
+      "gpu_mock_bundle_manifest_sha256": "c8b1db0a0ef4ebd0f8e304e0c8dcb3f2a79af1cc5abceb9a69ce6c0f840ac7b7"
+     },
+     "source": "W0-tsct-measure (worker-19, task c533c980d999, speed 1, packed)"
+    }
+   }
+  },
+  "provenance": "derived",
+  "fleet_machine_type": "c3-highmem-44",
+  "fleet_measured": true,
+  "how": "per machine type: the overlapping packed policy's makespan from agent start (packed_overlap: each successor's start-up runs during its predecessor's GPU work, the runner rule; build/expected_scores.py, speed 1) with the host terms measured on that type at its box's caps and image (`measured`), minus stats.lower_bound_makespan_s. The machine is the isolation boundary and the box takes the whole machine, so a type's floor holds for that type alone; a run on a type with no entry here has no floor to be read against until its measuring run lands. host-terms files are survey/host-terms/<task_id>.<machine type>.json; the fleet's type today is c3-highmem-44"
+ },
+ "horizon_how": "colleague_round(1.5 x (stats.serial_makespan_s + horizon_terms.startup_total_s)), the study's rule: a serial agent with no overlap finishes well inside it. Rounded up to 5 minutes under an hour, 15 minutes under six hours, whole hours above. Never shown to the agent: it is the run's hard stop and the end of the scoring window when work remains. In recorded seconds, like stats: a run with the speed knob divides it by the same factor. One value for every machine type, from the largest measured start-up total (horizon_terms). c3-highmem-44 is measured; a new machine type, caps or image that moves it makes another task version. Replaced deadline_s, which the brief stated, on 2026-10-20; runs under a brief that stated a deadline are not pooled with runs under this one",
+ "work_remaining": {
+  "rule": "jobs_not_completed",
+  "how": "at the horizon, every job without a completed run counts as remaining: not launched, still running, or failed and not rerun to completion. A decision-bound job counts once its slot is known; before that, each unfilled slot counts as one job"
+ },
+ "task_class": "fan_out_required",
+ "task_class_how": "no job can use more than 1 of the box's 4 GPUs, so filling the box means running several jobs at once",
+ "model_runs": {
+  "allowed": true,
+  "problems": [],
+  "how": "allowed when no two jobs can be served the same recorded run or overlapping steps of one (common.repeated_records): a seed-substituted job, two prefix jobs cut from one parent, or a prefix and its parent's full run all repeat losses an agent can see. Scripted runs read no values, so they may run any task"
+ }
+}

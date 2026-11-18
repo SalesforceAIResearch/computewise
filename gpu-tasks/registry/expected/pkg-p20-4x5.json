@@ -1,0 +1,2856 @@
+{
+ "schema": "p006-expected-scores/0.1",
+ "task_id": "pkg-p20-4x5",
+ "speed": 1.0,
+ "lower_bound_makespan_s": 12947.3,
+ "horizon_s": 79200,
+ "horizon_how": "the task's horizon_s",
+ "host_terms": "none: the ideal case",
+ "think_s": 20.0,
+ "delay_s": 300.0,
+ "gpu_mock_daemon_sha256": "6013a97838fd306fa1cb3d97f783d1870896be288a30399e90e63d476dd076c8",
+ "policies": {
+  "serial": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 51673.70000000083,
+    "makespan_recorded_s": 51673.70000000083,
+    "busy_gpu_wall_s": 51293.69400000062,
+    "utilisation": 0.2481615115619735,
+    "makespan_from_agent_start_wall_s": 51693.70000000083,
+    "makespan_from_agent_start_recorded_s": 51693.70000000083,
+    "before_first_launch_wall_s": 20.0,
+    "utilisation_from_agent_start": 0.24806549927747384,
+    "lower_bound_s": 12947.3,
+    "gap_to_lower_bound_s": 38726.400000000824,
+    "makespan_over_lower_bound": 3.99107922115042,
+    "gap_to_lower_bound_from_agent_start_s": 38746.400000000824,
+    "makespan_from_agent_start_over_lower_bound": 3.992623944760748,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 51693.70000000083,
+     "recorded_s": 51693.70000000083,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.0077380028901046045,
+    "whole_box_idle_share_of_wall": 0.0077380028901046045,
+    "partial_idle_share_of_gpu_seconds": 0.7441964978324214,
+    "time_to_first_launch_recorded_s": 20.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "model_turn": 379.9999999992542,
+     "before_first_launch": 20.0,
+     "wait_or_poll": 0.006000000952553819
+    },
+    "partial_idle_recorded_gpu_s": 153881.08200000183,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "wait_or_poll": 115475.77499998141,
+     "no_work_left": 38405.307000018205,
+     "model_turn": 2.2373569663614035e-09
+    },
+    "startup_split_by_job_recorded_s": {
+     "ema-nesterov-aurora-seed10-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 2690.7389999999873,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 5408.31800000012,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8125.8970000002655,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 10843.475999999697,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 15597.85300000036,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 18352.96799999953,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 21108.08299999922,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 23863.197999999218,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 28608.88699999933,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 31327.38299999931,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 34045.878999999324,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 36764.37499999933,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 41489.318000001294,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 44213.62200000132,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 46937.92600000132,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 49662.23000000132,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 20,
+     "done": 20
+    },
+    "model_turns": 41,
+    "tool_calls": 40,
+    "agent_end_recorded_s": 51693.701,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 51293.69400000062,
+     "lanes_wall": [
+      [
+       20.0,
+       2690.7389999999873
+      ],
+      [
+       2710.739,
+       5408.31800000012
+      ],
+      [
+       5428.318,
+       8125.8970000002655
+      ],
+      [
+       8145.897,
+       10843.475999999697
+      ],
+      [
+       10863.476,
+       12869.96119999981
+      ],
+      [
+       12889.962,
+       15597.85300000036
+      ],
+      [
+       15617.853,
+       18352.96799999953
+      ],
+      [
+       18372.968,
+       21108.08299999922
+      ],
+      [
+       21128.083,
+       23863.197999999218
+      ],
+      [
+       23883.198,
+       25917.222599999528
+      ],
+      [
+       25937.223,
+       28608.88699999933
+      ],
+      [
+       28628.887,
+       31327.38299999931
+      ],
+      [
+       31347.383,
+       34045.878999999324
+      ],
+      [
+       34065.879,
+       36764.37499999933
+      ],
+      [
+       36784.375,
+       38791.92619999952
+      ],
+      [
+       38811.927,
+       41489.318000001294
+      ],
+      [
+       41509.319,
+       44213.62200000132
+      ],
+      [
+       44233.623,
+       46937.92600000132
+      ],
+      [
+       46957.927,
+       49662.23000000132
+      ],
+      [
+       49682.231,
+       51693.70000000083
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part1",
+     "gpus": [
+      0
+     ],
+     "launch": 20.0,
+     "hello": 20.0,
+     "bye": 2690.7389999999873,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2670.739,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part2",
+     "gpus": [
+      0
+     ],
+     "launch": 2710.739,
+     "hello": 2710.739,
+     "bye": 5408.31800000012,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2697.579,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part3",
+     "gpus": [
+      0
+     ],
+     "launch": 5428.318,
+     "hello": 5428.318,
+     "bye": 8125.8970000002655,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2697.579,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part4",
+     "gpus": [
+      0
+     ],
+     "launch": 8145.897,
+     "hello": 8145.897,
+     "bye": 10843.475999999697,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2697.579,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part5",
+     "gpus": [
+      0
+     ],
+     "launch": 10863.476,
+     "hello": 10863.476,
+     "bye": 12869.96119999981,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2006.4852,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step2500.pt"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part1",
+     "gpus": [
+      0
+     ],
+     "launch": 12889.962,
+     "hello": 12889.962,
+     "bye": 15597.85300000036,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2707.8909999999996,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part2",
+     "gpus": [
+      0
+     ],
+     "launch": 15617.853,
+     "hello": 15617.853,
+     "bye": 18352.96799999953,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2735.115,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part3",
+     "gpus": [
+      0
+     ],
+     "launch": 18372.968,
+     "hello": 18372.968,
+     "bye": 21108.08299999922,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2735.115,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part4",
+     "gpus": [
+      0
+     ],
+     "launch": 21128.083,
+     "hello": 21128.083,
+     "bye": 23863.197999999218,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2735.115,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part5",
+     "gpus": [
+      0
+     ],
+     "launch": 23883.198,
+     "hello": 23883.198,
+     "bye": 25917.222599999528,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2034.0246,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step2500.pt"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part1",
+     "gpus": [
+      0
+     ],
+     "launch": 25937.223,
+     "hello": 25937.223,
+     "bye": 28608.88699999933,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2671.664,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part2",
+     "gpus": [
+      0
+     ],
+     "launch": 28628.887,
+     "hello": 28628.887,
+     "bye": 31327.38299999931,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2698.496,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part3",
+     "gpus": [
+      0
+     ],
+     "launch": 31347.383,
+     "hello": 31347.383,
+     "bye": 34045.878999999324,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2698.496,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part4",
+     "gpus": [
+      0
+     ],
+     "launch": 34065.879,
+     "hello": 34065.879,
+     "bye": 36764.37499999933,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2698.496,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part5",
+     "gpus": [
+      0
+     ],
+     "launch": 36784.375,
+     "hello": 36784.375,
+     "bye": 38791.92619999952,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2007.5512,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step2500.pt"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part1",
+     "gpus": [
+      0
+     ],
+     "launch": 38811.927,
+     "hello": 38811.927,
+     "bye": 41489.318000001294,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2677.391,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part2",
+     "gpus": [
+      0
+     ],
+     "launch": 41509.319,
+     "hello": 41509.319,
+     "bye": 44213.62200000132,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2704.303,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part3",
+     "gpus": [
+      0
+     ],
+     "launch": 44233.623,
+     "hello": 44233.623,
+     "bye": 46937.92600000132,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2704.303,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part4",
+     "gpus": [
+      0
+     ],
+     "launch": 46957.927,
+     "hello": 46957.927,
+     "bye": 49662.23000000132,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2704.303,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part5",
+     "gpus": [
+      0
+     ],
+     "launch": 49682.231,
+     "hello": 49682.231,
+     "bye": 51693.70000000083,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2011.469,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step2500.pt"
+    }
+   ],
+   "never_launched": []
+  },
+  "packed": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 12947.26060000023,
+    "makespan_recorded_s": 12947.26060000023,
+    "busy_gpu_wall_s": 51293.69400000044,
+    "utilisation": 0.9904352662832694,
+    "makespan_from_agent_start_wall_s": 12947.26060000023,
+    "makespan_from_agent_start_recorded_s": 12947.26060000023,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.9904352662832694,
+    "lower_bound_s": 12947.3,
+    "gap_to_lower_bound_s": -0.03939999976864783,
+    "makespan_over_lower_bound": 0.9999969568945055,
+    "gap_to_lower_bound_from_agent_start_s": -0.03939999976864783,
+    "makespan_from_agent_start_over_lower_bound": 0.9999969568945055,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 12947.26060000023,
+     "recorded_s": 12947.26060000023,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.0,
+    "whole_box_idle_share_of_wall": 0.0,
+    "partial_idle_share_of_gpu_seconds": 0.009564733716730629,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {},
+    "partial_idle_recorded_gpu_s": 495.348400000481,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 495.348400000481
+    },
+    "startup_split_by_job_recorded_s": {
+     "ema-nesterov-aurora-seed10-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 2670.7389999999878,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 5368.318000000116,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8065.8970000002655,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 10763.475999999715,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 2707.890999999997,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 5443.005999999937,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8178.120999999794,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 10913.236000000366,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 2671.6639999999893,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 5370.159999999886,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8068.655999999884,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 10767.15200000044,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 2677.390999999983,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 5381.694000000015,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8085.997000000163,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 10790.300000000158,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 20,
+     "done": 20
+    },
+    "model_turns": 41,
+    "tool_calls": 40,
+    "agent_end_recorded_s": 12947.261,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 12769.96119999981,
+     "lanes_wall": [
+      [
+       0.0,
+       12769.96119999981
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 12947.26060000023,
+     "lanes_wall": [
+      [
+       0.0,
+       12947.26060000023
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 12774.703200000302,
+     "lanes_wall": [
+      [
+       0.0,
+       12774.703200000302
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 12801.769000000098,
+     "lanes_wall": [
+      [
+       0.0,
+       12801.769000000098
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 2670.7389999999878,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2670.739,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part1",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 2707.890999999997,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2707.8909999999996,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part1",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 2671.6639999999893,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2671.664,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part1",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 2677.390999999983,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2677.391,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part2",
+     "gpus": [
+      0
+     ],
+     "launch": 2670.739,
+     "hello": 2670.739,
+     "bye": 5368.318000000116,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2697.579,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part2",
+     "gpus": [
+      2
+     ],
+     "launch": 2671.664,
+     "hello": 2671.664,
+     "bye": 5370.159999999886,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2698.496,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part2",
+     "gpus": [
+      3
+     ],
+     "launch": 2677.391,
+     "hello": 2677.391,
+     "bye": 5381.694000000015,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2704.303,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part2",
+     "gpus": [
+      1
+     ],
+     "launch": 2707.891,
+     "hello": 2707.891,
+     "bye": 5443.005999999937,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2735.115,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part3",
+     "gpus": [
+      0
+     ],
+     "launch": 5368.318,
+     "hello": 5368.318,
+     "bye": 8065.8970000002655,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2697.579,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part3",
+     "gpus": [
+      2
+     ],
+     "launch": 5370.16,
+     "hello": 5370.16,
+     "bye": 8068.655999999884,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2698.496,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part3",
+     "gpus": [
+      3
+     ],
+     "launch": 5381.694,
+     "hello": 5381.694,
+     "bye": 8085.997000000163,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2704.303,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part3",
+     "gpus": [
+      1
+     ],
+     "launch": 5443.006,
+     "hello": 5443.006,
+     "bye": 8178.120999999794,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2735.115,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part4",
+     "gpus": [
+      0
+     ],
+     "launch": 8065.897,
+     "hello": 8065.897,
+     "bye": 10763.475999999715,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2697.579,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part4",
+     "gpus": [
+      2
+     ],
+     "launch": 8068.656,
+     "hello": 8068.656,
+     "bye": 10767.15200000044,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2698.496,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part4",
+     "gpus": [
+      3
+     ],
+     "launch": 8085.997,
+     "hello": 8085.997,
+     "bye": 10790.300000000158,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2704.303,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part4",
+     "gpus": [
+      1
+     ],
+     "launch": 8178.121,
+     "hello": 8178.121,
+     "bye": 10913.236000000366,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2735.115,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part5",
+     "gpus": [
+      0
+     ],
+     "launch": 10763.476,
+     "hello": 10763.476,
+     "bye": 12769.96119999981,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2006.4852,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step2500.pt"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part5",
+     "gpus": [
+      2
+     ],
+     "launch": 10767.152,
+     "hello": 10767.152,
+     "bye": 12774.703200000302,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2007.5512,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step2500.pt"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part5",
+     "gpus": [
+      3
+     ],
+     "launch": 10790.3,
+     "hello": 10790.3,
+     "bye": 12801.769000000098,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2011.469,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step2500.pt"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part5",
+     "gpus": [
+      1
+     ],
+     "launch": 10913.236,
+     "hello": 10913.236,
+     "bye": 12947.26060000023,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2034.0246,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step2500.pt"
+    }
+   ],
+   "never_launched": []
+  },
+  "delayed": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 12947.26060000023,
+    "makespan_recorded_s": 12947.26060000023,
+    "busy_gpu_wall_s": 51293.69400000044,
+    "utilisation": 0.9904352662832694,
+    "makespan_from_agent_start_wall_s": 13247.26060000023,
+    "makespan_from_agent_start_recorded_s": 13247.26060000023,
+    "before_first_launch_wall_s": 300.0,
+    "utilisation_from_agent_start": 0.9680056796044223,
+    "lower_bound_s": 12947.3,
+    "gap_to_lower_bound_s": -0.03939999976864783,
+    "makespan_over_lower_bound": 0.9999969568945055,
+    "gap_to_lower_bound_from_agent_start_s": 299.96060000023135,
+    "makespan_from_agent_start_over_lower_bound": 1.0231678110494258,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 13247.26060000023,
+     "recorded_s": 13247.26060000023,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.02264619146995529,
+    "whole_box_idle_share_of_wall": 0.02264619146995529,
+    "partial_idle_share_of_gpu_seconds": 0.009348128925622411,
+    "time_to_first_launch_recorded_s": 300.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {
+     "before_first_launch": 300.0
+    },
+    "partial_idle_recorded_gpu_s": 495.348400000481,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "no_work_left": 495.348400000481
+    },
+    "startup_split_by_job_recorded_s": {
+     "ema-nesterov-aurora-seed10-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 2970.738999999985,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 5668.318000000149,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8365.897000000232,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 11063.475999999697,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 3007.8910000000055,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 5743.005999999907,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8478.120999999852,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 11213.236000000366,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 2971.663999999976,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 5670.159999999886,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8368.655999999919,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 11067.152000000458,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 2977.3909999999687,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 5681.694000000049,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8385.997000000161,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 11090.300000000158,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 20,
+     "done": 20
+    },
+    "model_turns": 42,
+    "tool_calls": 41,
+    "agent_end_recorded_s": 13247.261,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 12769.96119999981,
+     "lanes_wall": [
+      [
+       300.0,
+       13069.96119999981
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 12947.26060000023,
+     "lanes_wall": [
+      [
+       300.0,
+       13247.26060000023
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 12774.703200000302,
+     "lanes_wall": [
+      [
+       300.0,
+       13074.703200000302
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 12801.769000000098,
+     "lanes_wall": [
+      [
+       300.0,
+       13101.769000000098
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part1",
+     "gpus": [
+      0
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 2970.738999999985,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2670.739,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part1",
+     "gpus": [
+      1
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 3007.8910000000055,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2707.8909999999996,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part1",
+     "gpus": [
+      2
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 2971.663999999976,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2671.664,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part1",
+     "gpus": [
+      3
+     ],
+     "launch": 300.0,
+     "hello": 300.0,
+     "bye": 2977.3909999999687,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2677.391,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part2",
+     "gpus": [
+      0
+     ],
+     "launch": 2970.739,
+     "hello": 2970.739,
+     "bye": 5668.318000000149,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2697.579,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part2",
+     "gpus": [
+      2
+     ],
+     "launch": 2971.664,
+     "hello": 2971.664,
+     "bye": 5670.159999999886,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2698.496,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part2",
+     "gpus": [
+      3
+     ],
+     "launch": 2977.391,
+     "hello": 2977.391,
+     "bye": 5681.694000000049,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2704.303,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part2",
+     "gpus": [
+      1
+     ],
+     "launch": 3007.891,
+     "hello": 3007.891,
+     "bye": 5743.005999999907,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2735.115,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part3",
+     "gpus": [
+      0
+     ],
+     "launch": 5668.318,
+     "hello": 5668.318,
+     "bye": 8365.897000000232,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2697.579,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part3",
+     "gpus": [
+      2
+     ],
+     "launch": 5670.16,
+     "hello": 5670.16,
+     "bye": 8368.655999999919,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2698.496,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part3",
+     "gpus": [
+      3
+     ],
+     "launch": 5681.694,
+     "hello": 5681.694,
+     "bye": 8385.997000000161,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2704.303,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part3",
+     "gpus": [
+      1
+     ],
+     "launch": 5743.006,
+     "hello": 5743.006,
+     "bye": 8478.120999999852,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2735.115,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part4",
+     "gpus": [
+      0
+     ],
+     "launch": 8365.897,
+     "hello": 8365.897,
+     "bye": 11063.475999999697,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2697.579,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part4",
+     "gpus": [
+      2
+     ],
+     "launch": 8368.656,
+     "hello": 8368.656,
+     "bye": 11067.152000000458,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2698.496,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part4",
+     "gpus": [
+      3
+     ],
+     "launch": 8385.997,
+     "hello": 8385.997,
+     "bye": 11090.300000000158,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2704.303,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part4",
+     "gpus": [
+      1
+     ],
+     "launch": 8478.121,
+     "hello": 8478.121,
+     "bye": 11213.236000000366,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2735.115,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part5",
+     "gpus": [
+      0
+     ],
+     "launch": 11063.476,
+     "hello": 11063.476,
+     "bye": 13069.96119999981,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2006.4852,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step2500.pt"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part5",
+     "gpus": [
+      2
+     ],
+     "launch": 11067.152,
+     "hello": 11067.152,
+     "bye": 13074.703200000302,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2007.5512,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step2500.pt"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part5",
+     "gpus": [
+      3
+     ],
+     "launch": 11090.3,
+     "hello": 11090.3,
+     "bye": 13101.769000000098,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2011.469,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step2500.pt"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part5",
+     "gpus": [
+      1
+     ],
+     "launch": 11213.236,
+     "hello": 11213.236,
+     "bye": 13247.26060000023,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2034.0246,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step2500.pt"
+    }
+   ],
+   "never_launched": []
+  },
+  "quit_after_first": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 2670.7389999999878,
+    "makespan_recorded_s": 2670.7389999999878,
+    "busy_gpu_wall_s": 2670.7389999999878,
+    "utilisation": 0.25,
+    "makespan_from_agent_start_wall_s": 2670.7389999999878,
+    "makespan_from_agent_start_recorded_s": 2670.7389999999878,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.25,
+    "lower_bound_s": 12947.3,
+    "gap_to_lower_bound_s": -10276.561000000012,
+    "makespan_over_lower_bound": 0.20627767951619164,
+    "gap_to_lower_bound_from_agent_start_s": -10276.561000000012,
+    "makespan_from_agent_start_over_lower_bound": 0.20627767951619164,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 79200.0,
+     "recorded_s": 79200.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.9662785479797982,
+    "whole_box_idle_share_of_wall": 0.9662785479797982,
+    "partial_idle_share_of_gpu_seconds": 0.0252910890151514,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 76529.261,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 76529.261,
+     "wait_or_poll": 1.2278178473934531e-11
+    },
+    "partial_idle_recorded_gpu_s": 8012.216999999963,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "wait_or_poll": 8012.216999999963
+    },
+    "startup_split_by_job_recorded_s": {
+     "ema-nesterov-aurora-seed10-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 19,
+     "task_jobs": 20,
+     "done": 1
+    },
+    "model_turns": 3,
+    "tool_calls": 2,
+    "agent_end_recorded_s": 2670.739,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 2670.7389999999878,
+     "lanes_wall": [
+      [
+       0.0,
+       2670.7389999999878
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 2670.7389999999878,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2670.739,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --stop-at 625"
+    }
+   ],
+   "never_launched": [
+    "ema-nesterov-aurora-seed10-part2",
+    "ema-nesterov-aurora-seed10-part3",
+    "ema-nesterov-aurora-seed10-part4",
+    "ema-nesterov-aurora-seed10-part5",
+    "ema-nesterov-aurora-seed11-part1",
+    "ema-nesterov-aurora-seed11-part2",
+    "ema-nesterov-aurora-seed11-part3",
+    "ema-nesterov-aurora-seed11-part4",
+    "ema-nesterov-aurora-seed11-part5",
+    "ema-nesterov-aurora-seed12-part1",
+    "ema-nesterov-aurora-seed12-part2",
+    "ema-nesterov-aurora-seed12-part3",
+    "ema-nesterov-aurora-seed12-part4",
+    "ema-nesterov-aurora-seed12-part5",
+    "ema-nesterov-aurora-seed13-part1",
+    "ema-nesterov-aurora-seed13-part2",
+    "ema-nesterov-aurora-seed13-part3",
+    "ema-nesterov-aurora-seed13-part4",
+    "ema-nesterov-aurora-seed13-part5"
+   ]
+  },
+  "quit_while_running": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 2670.7389999999878,
+    "makespan_recorded_s": 2670.7389999999878,
+    "busy_gpu_wall_s": 2670.7389999999878,
+    "utilisation": 0.25,
+    "makespan_from_agent_start_wall_s": 2670.7389999999878,
+    "makespan_from_agent_start_recorded_s": 2670.7389999999878,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.25,
+    "lower_bound_s": 12947.3,
+    "gap_to_lower_bound_s": -10276.561000000012,
+    "makespan_over_lower_bound": 0.20627767951619164,
+    "gap_to_lower_bound_from_agent_start_s": -10276.561000000012,
+    "makespan_from_agent_start_over_lower_bound": 0.20627767951619164,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 79200.0,
+     "recorded_s": 79200.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.9662785479797982,
+    "whole_box_idle_share_of_wall": 0.9662785479797982,
+    "partial_idle_share_of_gpu_seconds": 0.0252910890151514,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 76529.26100000001,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 76529.26100000001
+    },
+    "partial_idle_recorded_gpu_s": 8012.216999999963,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "after_agent_ended": 8012.216999999963
+    },
+    "startup_split_by_job_recorded_s": {
+     "ema-nesterov-aurora-seed10-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 19,
+     "task_jobs": 20,
+     "done": 1
+    },
+    "model_turns": 2,
+    "tool_calls": 1,
+    "agent_end_recorded_s": 0.0,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 2670.7389999999878,
+     "lanes_wall": [
+      [
+       0.0,
+       2670.7389999999878
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "2": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    },
+    "3": {
+     "busy_recorded_s": 0.0,
+     "lanes_wall": []
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 2670.7389999999878,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2670.739,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --stop-at 625"
+    }
+   ],
+   "never_launched": [
+    "ema-nesterov-aurora-seed10-part2",
+    "ema-nesterov-aurora-seed10-part3",
+    "ema-nesterov-aurora-seed10-part4",
+    "ema-nesterov-aurora-seed10-part5",
+    "ema-nesterov-aurora-seed11-part1",
+    "ema-nesterov-aurora-seed11-part2",
+    "ema-nesterov-aurora-seed11-part3",
+    "ema-nesterov-aurora-seed11-part4",
+    "ema-nesterov-aurora-seed11-part5",
+    "ema-nesterov-aurora-seed12-part1",
+    "ema-nesterov-aurora-seed12-part2",
+    "ema-nesterov-aurora-seed12-part3",
+    "ema-nesterov-aurora-seed12-part4",
+    "ema-nesterov-aurora-seed12-part5",
+    "ema-nesterov-aurora-seed13-part1",
+    "ema-nesterov-aurora-seed13-part2",
+    "ema-nesterov-aurora-seed13-part3",
+    "ema-nesterov-aurora-seed13-part4",
+    "ema-nesterov-aurora-seed13-part5"
+   ]
+  },
+  "quit_at_first_completion": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 2707.890999999997,
+    "makespan_recorded_s": 2707.890999999997,
+    "busy_gpu_wall_s": 10727.684999999958,
+    "utilisation": 0.9904096028976028,
+    "makespan_from_agent_start_wall_s": 2707.890999999997,
+    "makespan_from_agent_start_recorded_s": 2707.890999999997,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.9904096028976028,
+    "lower_bound_s": 12947.3,
+    "gap_to_lower_bound_s": -10239.409000000003,
+    "makespan_over_lower_bound": 0.20914715809473766,
+    "gap_to_lower_bound_from_agent_start_s": -10239.409000000003,
+    "makespan_from_agent_start_over_lower_bound": 0.20914715809473766,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s",
+     "wall_s": 79200.0,
+     "recorded_s": 79200.0,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.965809457070707,
+    "whole_box_idle_share_of_wall": 0.965809457070707,
+    "partial_idle_share_of_gpu_seconds": 0.00032790088383848114,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 76492.109,
+    "whole_box_idle_by_cause_recorded_s": {
+     "after_agent_ended": 76492.109
+    },
+    "partial_idle_recorded_gpu_s": 103.87900000003083,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "after_agent_ended": 103.87900000001855,
+     "wait_or_poll": 1.2278178473934531e-11
+    },
+    "startup_split_by_job_recorded_s": {
+     "ema-nesterov-aurora-seed10-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 16,
+     "task_jobs": 20,
+     "done": 4
+    },
+    "model_turns": 6,
+    "tool_calls": 5,
+    "agent_end_recorded_s": 2670.739,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 2670.7389999999878,
+     "lanes_wall": [
+      [
+       0.0,
+       2670.7389999999878
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 2707.890999999997,
+     "lanes_wall": [
+      [
+       0.0,
+       2707.890999999997
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 2671.6639999999893,
+     "lanes_wall": [
+      [
+       0.0,
+       2671.6639999999893
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 2677.390999999983,
+     "lanes_wall": [
+      [
+       0.0,
+       2677.390999999983
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 2670.7389999999878,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2670.739,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part1",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 2707.890999999997,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2707.8909999999996,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part1",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 2671.6639999999893,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2671.664,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part1",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 2677.390999999983,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2677.391,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --stop-at 625"
+    }
+   ],
+   "never_launched": [
+    "ema-nesterov-aurora-seed10-part2",
+    "ema-nesterov-aurora-seed10-part3",
+    "ema-nesterov-aurora-seed10-part4",
+    "ema-nesterov-aurora-seed10-part5",
+    "ema-nesterov-aurora-seed11-part2",
+    "ema-nesterov-aurora-seed11-part3",
+    "ema-nesterov-aurora-seed11-part4",
+    "ema-nesterov-aurora-seed11-part5",
+    "ema-nesterov-aurora-seed12-part2",
+    "ema-nesterov-aurora-seed12-part3",
+    "ema-nesterov-aurora-seed12-part4",
+    "ema-nesterov-aurora-seed12-part5",
+    "ema-nesterov-aurora-seed13-part2",
+    "ema-nesterov-aurora-seed13-part3",
+    "ema-nesterov-aurora-seed13-part4",
+    "ema-nesterov-aurora-seed13-part5"
+   ]
+  },
+  "packed_overlap": {
+   "score_run": {
+    "gpus": 4,
+    "speed": 1.0,
+    "makespan_wall_s": 12947.26060000023,
+    "makespan_recorded_s": 12947.26060000023,
+    "busy_gpu_wall_s": 51293.69400000113,
+    "utilisation": 0.9904352662832827,
+    "makespan_from_agent_start_wall_s": 12947.26060000023,
+    "makespan_from_agent_start_recorded_s": 12947.26060000023,
+    "before_first_launch_wall_s": 0.0,
+    "utilisation_from_agent_start": 0.9904352662832827,
+    "lower_bound_s": 12947.3,
+    "gap_to_lower_bound_s": -0.03939999976864783,
+    "makespan_over_lower_bound": 0.9999969568945055,
+    "gap_to_lower_bound_from_agent_start_s": -0.03939999976864783,
+    "makespan_from_agent_start_over_lower_bound": 0.9999969568945055,
+    "unfinished_jobs": []
+   },
+   "idle": {
+    "window": {
+     "from": "agent start",
+     "to": "the task's horizon_s; cut at the last job's completion, since no work remained",
+     "wall_s": 12947.26060000023,
+     "recorded_s": 12947.26060000023,
+     "speed": 1.0,
+     "gpus": 4
+    },
+    "whole_box_idle_share_of_gpu_seconds": 0.0,
+    "whole_box_idle_share_of_wall": 0.0,
+    "partial_idle_share_of_gpu_seconds": 0.009564733716717344,
+    "time_to_first_launch_recorded_s": 0.0,
+    "idle_after_agent_stopped_recorded_s": 0.0,
+    "whole_box_idle_by_cause_recorded_s": {},
+    "partial_idle_recorded_gpu_s": 495.34839999979295,
+    "partial_idle_by_cause_recorded_gpu_s": {
+     "wait_or_poll": 312.8959999992194,
+     "no_work_left": 182.4524000002657,
+     "model_turn": 3.078639565501362e-10
+    },
+    "startup_split_by_job_recorded_s": {
+     "ema-nesterov-aurora-seed10-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 2670.7389999999878,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 5405.470000000117,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8140.585000000202,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed10-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 10875.69999999949,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 2707.890999999997,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 5443.005999999937,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8178.120999999794,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed11-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 10913.236000000366,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 2671.6639999999893,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 5375.886999999869,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8103.966000000001,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed12-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 10802.46200000045,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part1": {
+      "startup_s": 0.0,
+      "launchable_from_s": 0.0,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part2": {
+      "startup_s": 0.0,
+      "launchable_from_s": 2677.390999999983,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part3": {
+      "startup_s": 0.0,
+      "launchable_from_s": 5381.694000000015,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part4": {
+      "startup_s": 0.0,
+      "launchable_from_s": 8085.997000000178,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     },
+     "ema-nesterov-aurora-seed13-part5": {
+      "startup_s": 0.0,
+      "launchable_from_s": 10844.88800000036,
+      "whole_box_idle_in_startup_s": 0.0,
+      "startup_not_overlapped_s": 0.0,
+      "partial_startup_not_overlapped_gpu_s": 0.0,
+      "lane_hideable_s": 0.0,
+      "gpus": 1
+     }
+    },
+    "startup_split_how": "build/expected_scores.py startup_split (design/IDEA.md, job host phase; agreed with the runner), whole-box and per GPU lane. Per job: startup_not_overlapped_s, its whole-box share in wall seconds; partial_startup_not_overlapped_gpu_s, its partial share in GPU-seconds, the per-job breakdown of the partial cause; lane_hideable_s, the per-lane counterfactual summed over its GPUs before whole-box instants go to the whole-box rule. Where start-ups share idle the cause totals count each instant once.",
+    "work_remaining_at_window_end": {
+     "remaining": 0,
+     "task_jobs": 20,
+     "done": 20
+    },
+    "model_turns": 33,
+    "tool_calls": 32,
+    "agent_end_recorded_s": 12947.261,
+    "agent_killed_at_horizon": false
+   },
+   "per_gpu": {
+    "0": {
+     "busy_recorded_s": 12836.48660000068,
+     "lanes_wall": [
+      [
+       0.0,
+       10802.46200000045
+      ],
+      [
+       10913.236,
+       12947.26060000023
+      ]
+     ]
+    },
+    "1": {
+     "busy_recorded_s": 12816.13219999966,
+     "lanes_wall": [
+      [
+       0.0,
+       5375.886999999869
+      ],
+      [
+       5443.006,
+       12883.251199999791
+      ]
+     ]
+    },
+    "2": {
+     "busy_recorded_s": 12821.870200000343,
+     "lanes_wall": [
+      [
+       0.0,
+       2671.6639999999893
+      ],
+      [
+       2677.391,
+       8085.997000000178
+      ],
+      [
+       8178.121,
+       12919.721200000176
+      ]
+     ]
+    },
+    "3": {
+     "busy_recorded_s": 12819.205000000446,
+     "lanes_wall": [
+      [
+       0.0,
+       2670.7389999999878
+      ],
+      [
+       2707.891,
+       12856.357000000458
+      ]
+     ]
+    }
+   },
+   "jobs": [
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part1",
+     "gpus": [
+      0
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 2707.890999999997,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2707.8909999999996,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part1",
+     "gpus": [
+      1
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 2677.390999999983,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2677.391,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part1",
+     "gpus": [
+      2
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 2671.6639999999893,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2671.664,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part1",
+     "gpus": [
+      3
+     ],
+     "launch": 0.0,
+     "hello": 0.0,
+     "bye": 2670.7389999999878,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg0-625",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2670.739,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --stop-at 625"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part2",
+     "gpus": [
+      1
+     ],
+     "launch": 2677.390999999983,
+     "hello": 2677.390999999983,
+     "bye": 5375.886999999869,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2698.496,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part2",
+     "gpus": [
+      2
+     ],
+     "launch": 2677.391,
+     "hello": 2677.391,
+     "bye": 5381.694000000015,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2704.303,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part2",
+     "gpus": [
+      0
+     ],
+     "launch": 2707.890999999997,
+     "hello": 2707.890999999997,
+     "bye": 5405.470000000117,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2697.579,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part2",
+     "gpus": [
+      3
+     ],
+     "launch": 2707.891,
+     "hello": 2707.891,
+     "bye": 5443.005999999937,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg625-1250",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2735.115,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step625.pt --stop-at 1250"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part3",
+     "gpus": [
+      2
+     ],
+     "launch": 5381.694000000015,
+     "hello": 5381.694000000015,
+     "bye": 8085.997000000178,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2704.303,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part3",
+     "gpus": [
+      0
+     ],
+     "launch": 5405.470000000117,
+     "hello": 5405.470000000117,
+     "bye": 8103.966000000001,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2698.496,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part3",
+     "gpus": [
+      3
+     ],
+     "launch": 5443.005999999937,
+     "hello": 5443.005999999937,
+     "bye": 8140.585000000202,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2697.579,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part3",
+     "gpus": [
+      1
+     ],
+     "launch": 5443.006,
+     "hello": 5443.006,
+     "bye": 8178.120999999794,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg1250-1875",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2735.115,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step1250.pt --stop-at 1875"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part4",
+     "gpus": [
+      0
+     ],
+     "launch": 8103.966000000001,
+     "hello": 8103.966000000001,
+     "bye": 10802.46200000045,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2698.496,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part4",
+     "gpus": [
+      3
+     ],
+     "launch": 8140.585000000202,
+     "hello": 8140.585000000202,
+     "bye": 10844.88800000036,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2704.303,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part4",
+     "gpus": [
+      1
+     ],
+     "launch": 8178.120999999794,
+     "hello": 8178.120999999794,
+     "bye": 10875.69999999949,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2697.579,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part4",
+     "gpus": [
+      2
+     ],
+     "launch": 8178.121,
+     "hello": 8178.121,
+     "bye": 10913.236000000366,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg1875-2500",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2735.115,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step1875.pt --stop-at 2500"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed13-part5",
+     "gpus": [
+      3
+     ],
+     "launch": 10844.88800000036,
+     "hello": 10844.88800000036,
+     "bye": 12856.357000000458,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 13,
+     "paced_recorded_s": 2011.469,
+     "command": "CUDA_VISIBLE_DEVICES=3 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 13 --resume checkpoints/seed13-step2500.pt"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed12-part5",
+     "gpus": [
+      1
+     ],
+     "launch": 10875.69999999949,
+     "hello": 10875.69999999949,
+     "bye": 12883.251199999791,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 12,
+     "paced_recorded_s": 2007.5512,
+     "command": "CUDA_VISIBLE_DEVICES=1 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 12 --resume checkpoints/seed12-step2500.pt"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed11-part5",
+     "gpus": [
+      0
+     ],
+     "launch": 10913.236,
+     "hello": 10913.236,
+     "bye": 12947.26060000023,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 11,
+     "paced_recorded_s": 2034.0246,
+     "command": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 11 --resume checkpoints/seed11-step2500.pt"
+    },
+    {
+     "job_id": "ema-nesterov-aurora-seed10-part5",
+     "gpus": [
+      2
+     ],
+     "launch": 10913.236000000366,
+     "hello": 10913.236000000366,
+     "bye": 12919.721200000176,
+     "killed": false,
+     "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-seg2500-2900",
+     "draw": "exact_seed",
+     "seed_wanted": 10,
+     "paced_recorded_s": 2006.4852,
+     "command": "CUDA_VISIBLE_DEVICES=2 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 10 --resume checkpoints/seed10-step2500.pt"
+    }
+   ],
+   "never_launched": []
+  }
+ },
+ "known_divergences": []
+}

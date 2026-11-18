@@ -2,7 +2,7 @@
 # Build the paper's four MLS-Bench tasks into gpu-tasks/registry/: mls-kv-gate, mls-kv-report, mls-kv-report-h and
 # pkg-k2-latepole, with their records and expected scores, so they run and read like the other five.
 #
-# usage (from the repository root, after the Hugging Face dataset's registry is in place, gpu-tasks/registry/README.md):
+# usage (from the repository root; the registry it adds to is gpu-tasks/registry/, gpu-tasks/registry/README.md):
 #   bash gpu-tasks/build/add_mlsbench_tasks.sh [scratch dir]          default scratch dir: ~/.cache/computewise-mlsbench
 #
 # Nothing from MLS-Bench ships with this repository. The script clones MLS-Bench (github.com/Imbernoulli/MLS-Bench) at the
@@ -23,7 +23,7 @@ MLS=b873944969c53b01e4ee6e843c77767b8c702485
 TASKS="mls-kv-gate mls-kv-report mls-kv-report-h pkg-k2-latepole"
 export GPU_TASKS_MACHINE_TYPE=${GPU_TASKS_MACHINE_TYPE:-c3-highmem-44}   # the machine type the paper's runs and host terms used
 [ -f "$G/registry/tasks/pkg-g4n-a.json" ] || {
-  echo "put the Hugging Face dataset's registry in place first (gpu-tasks/registry/README.md)" >&2; exit 2; }
+  echo "gpu-tasks/registry/ has no task files: restore it from git, or copy the Hugging Face dataset's data/registry/ there" >&2; exit 2; }
 quiet() { grep -v '^\[gpu_daemon\] task file' || true; }
 
 mkdir -p "$S"

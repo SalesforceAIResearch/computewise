@@ -1,0 +1,3331 @@
+{
+ "schema": "p006-gpu-task/0.1",
+ "box": {
+  "gpus": 4,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "interconnect": "NVLink",
+  "source": "gpu-mock's default box: experiments/gpu-mock/GPU-COUNT-CONVERSION-NOTE-2026-10-19.md §3"
+ },
+ "task_id": "pkg-sf-zero-lr",
+ "rung": 1,
+ "title": "Small-GPT optimizer comparison with a zero-learning-rate misconfiguration",
+ "brief": {
+  "text": "We're comparing small-GPT optimizer recipes. sf_train/runs.txt lists the training runs to launch and their seeds, and each recipe's folder contains its training script. Produce a table of the last reported validation loss for each trained run and explain any configuration repairs. The machine has four H100s.",
+  "provenance": "SF lane, 2026-11-02; goal, no procedure or deadline, GPU count stated"
+ },
+ "files": [
+  {
+   "path": "sf_train/contra-soft-muon/contra-muon-to-soft-muon.py",
+   "from": "artifacts/mng3/scripts/21a10e0cd2bb/contra-muon-to-soft-muon.py"
+  },
+  {
+   "path": "sf_train/radial-damp/radial_scale_then_radius_correct.py",
+   "from": "artifacts/mng3/scripts/2cfc4c0c314e/radial_scale_then_radius_correct.py"
+  },
+  {
+   "path": "sf_train/circuit-muon/train_gpt_circuit_muon.py",
+   "from": "artifacts/mng3/scripts/7a77d53fc1c3/train_gpt_circuit_muon.py"
+  },
+  {
+   "path": "sf_train/runs.txt",
+   "content": "# one single-process GPU run per line; seed-major sweep\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 0 --lr-scale 0\npython sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 0 --lr-scale 1\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 1 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 2 --lr-scale 0\npython sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 2 --lr-scale 1\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 3 --lr-scale 0\npython sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 3 --lr-scale 1\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 4 --lr-scale 0\npython sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 4 --lr-scale 1\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 5 --lr-scale 0\npython sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 5 --lr-scale 1\npython sf_train/circuit-muon/train_gpt_circuit_muon.py --seed 6 --lr-scale 1\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 6 --lr-scale 0\npython sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 6 --lr-scale 1\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 7 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 8 --lr-scale 0\npython sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 8 --lr-scale 1\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 9 --lr-scale 0\npython sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 9 --lr-scale 1\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 10 --lr-scale 0\npython sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 10 --lr-scale 1\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 11 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 12 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 13 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 14 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 15 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 16 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 17 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 18 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 19 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 20 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 21 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 22 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 23 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 24 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 25 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 26 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 27 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 28 --lr-scale 0\npython sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 29 --lr-scale 0\n"
+  },
+  {
+   "path": "data/fineweb10B/",
+   "hub_files": {
+    "repo": "kjj0/fineweb10B-gpt2",
+    "kind": "dataset",
+    "revision": "889765ea1f903759787add96995d81171b632d0c",
+    "files": {
+     "fineweb_val_000000.bin": {
+      "bytes": 200001024,
+      "sha256": "5b95c8e0966f0861685b307b23dc5ae42b228ef74b28cb499784ae021f201640"
+     },
+     "fineweb_train_000001.bin": {
+      "bytes": 200001024,
+      "sha256": "771fa4a99b9fe0946ffb6e848b4ba5c6a9b0fe87860ebf03bc2c1c7e45f8178e"
+     },
+     "fineweb_train_000002.bin": {
+      "bytes": 200001024,
+      "sha256": "d4ba8d2d740905a836a4222d2aff01750560e7d49a51a745a1b3235520aec2cd"
+     },
+     "fineweb_train_000003.bin": {
+      "bytes": 200001024,
+      "sha256": "f70fa272369730fd9e39f1848bfe4daa3289b6e490c1e7762777f00ea8b66246"
+     },
+     "fineweb_train_000004.bin": {
+      "bytes": 200001024,
+      "sha256": "d8d88850f89fe2030e866380e90d544167467d407080403b830b903543925835"
+     },
+     "fineweb_train_000005.bin": {
+      "bytes": 200001024,
+      "sha256": "36cef3fc41863eb6731b41e986edde38e368853ee6deb87b928990bf445a119c"
+     },
+     "fineweb_train_000006.bin": {
+      "bytes": 200001024,
+      "sha256": "d80e5b209983e636655fc738fdf281f0132f0298bf4c0848f7e7a6bea6ca06f0"
+     },
+     "fineweb_train_000007.bin": {
+      "bytes": 200001024,
+      "sha256": "fa9f94dce61686b5467bc6cd3078424203db23ac254d804a6d8d5d440afc1e11"
+     },
+     "fineweb_train_000008.bin": {
+      "bytes": 200001024,
+      "sha256": "308e6937af5d78b7489a8aac3a3951dced5b46103e613f8bc4eb543f5092526c"
+     },
+     "fineweb_train_000009.bin": {
+      "bytes": 200001024,
+      "sha256": "1635300891634346ecff3a78d6e489a69c647885f0dcd249fe3eb76fac683458"
+     },
+     "fineweb_train_000010.bin": {
+      "bytes": 200001024,
+      "sha256": "72e88f66104dacca163eeb3a00fe40a45a821d2ecd4fb9ce343808996e5d2f5e"
+     },
+     "fineweb_train_000011.bin": {
+      "bytes": 200001024,
+      "sha256": "99edff412654ca6e06d4b3ca563acd8937ee6042f49d009526b8f1074f4d7300"
+     }
+    }
+   },
+   "from": "kjj0/fineweb10B-gpt2: validation and first 11 training shards"
+  }
+ ],
+ "jobs": [
+  {
+   "job_id": "contra-soft-muon-s0",
+   "label": "contra-soft-muon-s0",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 0,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 0 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 0 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 201.05,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.89816,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3165.8,
+     "range_s": [
+      3165.8,
+      3165.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-s0",
+   "label": "radial-damp-s0",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-sf1750-lr1",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-sf1750-lr0"
+   ],
+   "replicate_group": "mng3-sf-c0119762ac4b",
+   "draw": "exact_seed",
+   "seed": 0,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 0 --lr-scale 1",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "radial-damp",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": false,
+    "successful_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-sf1750-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-sf1750-lr0"
+    ],
+    "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 0 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 204.2655,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.533548,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2820.6,
+     "range_s": [
+      2820.6,
+      2820.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s1",
+   "label": "contra-soft-muon-s1",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-81540d3b-8dc-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-81540d3b-8dc-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 1,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 1 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-81540d3b-8dc-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-81540d3b-8dc-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 1 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.444,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.552192,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3161.3,
+     "range_s": [
+      3161.3,
+      3161.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s2",
+   "label": "contra-soft-muon-s2",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d8597384-8cd-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d8597384-8cd-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 2,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 2 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-d8597384-8cd-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-d8597384-8cd-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 2 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.51000000000002,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.57944,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3161.9,
+     "range_s": [
+      3161.9,
+      3161.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-s2",
+   "label": "radial-damp-s2",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-sf1750-lr1",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-sf1750-lr0"
+   ],
+   "replicate_group": "mng3-sf-c0119762ac4b",
+   "draw": "exact_seed",
+   "seed": 2,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 2 --lr-scale 1",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "radial-damp",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": false,
+    "successful_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-sf1750-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-sf1750-lr0"
+    ],
+    "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 2 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 203.9885,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.807332,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2813.1,
+     "range_s": [
+      2813.1,
+      2813.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s3",
+   "label": "contra-soft-muon-s3",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-7621883d-366-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-7621883d-366-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 3,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 3 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-7621883d-366-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-7621883d-366-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 3 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.836,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.70896,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3165.2,
+     "range_s": [
+      3165.2,
+      3165.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-s3",
+   "label": "radial-damp-s3",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-sf1750-lr1",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-sf1750-lr0"
+   ],
+   "replicate_group": "mng3-sf-c0119762ac4b",
+   "draw": "exact_seed",
+   "seed": 3,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 3 --lr-scale 1",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "radial-damp",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": false,
+    "successful_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-sf1750-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-sf1750-lr0"
+    ],
+    "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 3 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 204.44949999999997,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.819788,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2819.5,
+     "range_s": [
+      2819.5,
+      2819.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s4",
+   "label": "contra-soft-muon-s4",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-fc1593ad-ebd-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-fc1593ad-ebd-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 4,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 4 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-fc1593ad-ebd-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-fc1593ad-ebd-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 4 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.81300000000002,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.893416,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3162.2,
+     "range_s": [
+      3162.2,
+      3162.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-s4",
+   "label": "radial-damp-s4",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-fcf7a0d1-fdb-sf1750-lr1",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-fcf7a0d1-fdb-sf1750-lr0"
+   ],
+   "replicate_group": "mng3-sf-c0119762ac4b",
+   "draw": "exact_seed",
+   "seed": 4,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 4 --lr-scale 1",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "radial-damp",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": false,
+    "successful_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-fcf7a0d1-fdb-sf1750-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-fcf7a0d1-fdb-sf1750-lr0"
+    ],
+    "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 4 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 235.70749999999998,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 37.81846,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2828.0,
+     "range_s": [
+      2828.0,
+      2828.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s5",
+   "label": "contra-soft-muon-s5",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-66a8cec3-9bb-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-66a8cec3-9bb-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 5,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 5 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-66a8cec3-9bb-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-66a8cec3-9bb-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 5 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.39699999999996,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.490312,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3161.5,
+     "range_s": [
+      3161.5,
+      3161.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-s5",
+   "label": "radial-damp-s5",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-00882c75-914-sf1750-lr1",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-00882c75-914-sf1750-lr0"
+   ],
+   "replicate_group": "mng3-sf-c0119762ac4b",
+   "draw": "exact_seed",
+   "seed": 5,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 5 --lr-scale 1",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "radial-damp",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": false,
+    "successful_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-00882c75-914-sf1750-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-00882c75-914-sf1750-lr0"
+    ],
+    "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 5 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 237.477,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 37.368456,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2858.8,
+     "range_s": [
+      2858.8,
+      2858.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "circuit-muon-s6",
+   "label": "circuit-muon-s6",
+   "records": [
+    "mng3-20260523-circuit-muon-h100-sxmx8-616cccc8-aff-sf1250-lr1",
+    "mng3-20260523-circuit-muon-h100-sxmx8-616cccc8-aff-sf1250-lr0"
+   ],
+   "replicate_group": "mng3-sf-57c2576950dc",
+   "draw": "exact_seed",
+   "seed": 6,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/circuit-muon/train_gpt_circuit_muon.py --seed 6 --lr-scale 1",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "circuit-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": false,
+    "successful_records": [
+     "mng3-20260523-circuit-muon-h100-sxmx8-616cccc8-aff-sf1250-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260523-circuit-muon-h100-sxmx8-616cccc8-aff-sf1250-lr0"
+    ],
+    "fixed_launch": "python sf_train/circuit-muon/train_gpt_circuit_muon.py --seed 6 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 341.574,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 43.215344,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3047.3,
+     "range_s": [
+      3047.3,
+      3047.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 1 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s6",
+   "label": "contra-soft-muon-s6",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c4935f3f-6d4-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c4935f3f-6d4-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 6,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 6 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-c4935f3f-6d4-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-c4935f3f-6d4-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 6 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.677,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.856616,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3160.4,
+     "range_s": [
+      3160.4,
+      3160.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-s6",
+   "label": "radial-damp-s6",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-816f035f-c55-sf1750-lr1",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-816f035f-c55-sf1750-lr0"
+   ],
+   "replicate_group": "mng3-sf-c0119762ac4b",
+   "draw": "exact_seed",
+   "seed": 6,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 6 --lr-scale 1",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "radial-damp",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": false,
+    "successful_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-816f035f-c55-sf1750-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-816f035f-c55-sf1750-lr0"
+    ],
+    "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 6 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 238.57049999999998,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 37.252692,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2875.7,
+     "range_s": [
+      2875.7,
+      2875.7
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s7",
+   "label": "contra-soft-muon-s7",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 7,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 7 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 7 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.96800000000002,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.803264,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3166.0,
+     "range_s": [
+      3166.0,
+      3166.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s8",
+   "label": "contra-soft-muon-s8",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-21827b54-ae4-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-21827b54-ae4-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 8,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 8 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-21827b54-ae4-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-21827b54-ae4-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 8 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.167,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.517304,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3157.3,
+     "range_s": [
+      3157.3,
+      3157.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-s8",
+   "label": "radial-damp-s8",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-sf1750-lr1",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-sf1750-lr0"
+   ],
+   "replicate_group": "mng3-sf-c0119762ac4b",
+   "draw": "exact_seed",
+   "seed": 8,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 8 --lr-scale 1",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "radial-damp",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": false,
+    "successful_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-sf1750-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-sf1750-lr0"
+    ],
+    "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 8 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 204.34699999999998,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.868632,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2817.4,
+     "range_s": [
+      2817.4,
+      2817.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s9",
+   "label": "contra-soft-muon-s9",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 9,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 9 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 9 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.647,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.647,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3163.1,
+     "range_s": [
+      3163.1,
+      3163.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-s9",
+   "label": "radial-damp-s9",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-e6232c5e-479-sf1750-lr1",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-e6232c5e-479-sf1750-lr0"
+   ],
+   "replicate_group": "mng3-sf-c0119762ac4b",
+   "draw": "exact_seed",
+   "seed": 9,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 9 --lr-scale 1",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "radial-damp",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": false,
+    "successful_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-e6232c5e-479-sf1750-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-e6232c5e-479-sf1750-lr0"
+    ],
+    "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 9 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 204.2345,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.8449480000000005,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2816.1,
+     "range_s": [
+      2816.1,
+      2816.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s10",
+   "label": "contra-soft-muon-s10",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-f6d6db35-756-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-f6d6db35-756-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 10,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 10 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-f6d6db35-756-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-f6d6db35-756-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 10 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.651,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.874264,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3159.7,
+     "range_s": [
+      3159.7,
+      3159.7
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "radial-damp-s10",
+   "label": "radial-damp-s10",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-sf1750-lr1",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-sf1750-lr0"
+   ],
+   "replicate_group": "mng3-sf-c0119762ac4b",
+   "draw": "exact_seed",
+   "seed": 10,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 10 --lr-scale 1",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "radial-damp",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": false,
+    "successful_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-sf1750-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-sf1750-lr0"
+    ],
+    "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 10 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 204.8955,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.9432599999999995,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2824.2,
+     "range_s": [
+      2824.2,
+      2824.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 4x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s11",
+   "label": "contra-soft-muon-s11",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 11,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 11 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 11 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 201.155,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.828504000000001,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3168.6,
+     "range_s": [
+      3168.6,
+      3168.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s12",
+   "label": "contra-soft-muon-s12",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 12,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 12 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 12 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 201.09200000000004,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.942144,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3165.8,
+     "range_s": [
+      3165.8,
+      3165.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s13",
+   "label": "contra-soft-muon-s13",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 13,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 13 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 13 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.19099999999997,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.7537199999999995,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3154.2,
+     "range_s": [
+      3154.2,
+      3154.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s14",
+   "label": "contra-soft-muon-s14",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-2aefade8-e52-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-2aefade8-e52-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 14,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 14 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-2aefade8-e52-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-2aefade8-e52-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 14 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.267,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.774104,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3155.1,
+     "range_s": [
+      3155.1,
+      3155.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s15",
+   "label": "contra-soft-muon-s15",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8b87aa90-e7f-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8b87aa90-e7f-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 15,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 15 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-8b87aa90-e7f-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-8b87aa90-e7f-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 15 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.57799999999997,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.788368,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3159.8,
+     "range_s": [
+      3159.8,
+      3159.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s16",
+   "label": "contra-soft-muon-s16",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-18b5ac94-fbe-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-18b5ac94-fbe-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 16,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 16 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-18b5ac94-fbe-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-18b5ac94-fbe-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 16 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.772,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.764063999999999,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3163.4,
+     "range_s": [
+      3163.4,
+      3163.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s17",
+   "label": "contra-soft-muon-s17",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-a182bdc9-0e8-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-a182bdc9-0e8-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 17,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 17 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-a182bdc9-0e8-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-a182bdc9-0e8-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 17 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.65699999999998,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.80388,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3160.9,
+     "range_s": [
+      3160.9,
+      3160.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s18",
+   "label": "contra-soft-muon-s18",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9b15a60b-7cf-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9b15a60b-7cf-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 18,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 18 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-9b15a60b-7cf-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-9b15a60b-7cf-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 18 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.862,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.8560479999999995,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3163.5,
+     "range_s": [
+      3163.5,
+      3163.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s19",
+   "label": "contra-soft-muon-s19",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-58589cfb-aee-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-58589cfb-aee-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 19,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 19 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-58589cfb-aee-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-58589cfb-aee-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 19 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 201.03800000000004,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.887152,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3165.8,
+     "range_s": [
+      3165.8,
+      3165.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s20",
+   "label": "contra-soft-muon-s20",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-38509716-92e-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-38509716-92e-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 20,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 20 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-38509716-92e-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-38509716-92e-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 20 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.24800000000002,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.501088,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3159.0,
+     "range_s": [
+      3159.0,
+      3159.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s21",
+   "label": "contra-soft-muon-s21",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c53f1f7e-427-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c53f1f7e-427-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 21,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 21 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-c53f1f7e-427-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-c53f1f7e-427-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 21 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.429,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.713832,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3158.6,
+     "range_s": [
+      3158.6,
+      3158.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s22",
+   "label": "contra-soft-muon-s22",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-1b5bba11-405-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-1b5bba11-405-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 22,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 22 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-1b5bba11-405-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-1b5bba11-405-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 22 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.77299999999997,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.874248,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3161.8,
+     "range_s": [
+      3161.8,
+      3161.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s23",
+   "label": "contra-soft-muon-s23",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-b78e2987-2cb-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-b78e2987-2cb-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 23,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 23 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-b78e2987-2cb-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-b78e2987-2cb-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 23 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.419,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.642264,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3159.5,
+     "range_s": [
+      3159.5,
+      3159.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s24",
+   "label": "contra-soft-muon-s24",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 24,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 24 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 24 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 201.234,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.824112,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3169.9,
+     "range_s": [
+      3169.9,
+      3169.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s25",
+   "label": "contra-soft-muon-s25",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c3719539-556-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c3719539-556-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 25,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 25 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-c3719539-556-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-c3719539-556-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 25 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.78800000000004,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.629216,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3165.7,
+     "range_s": [
+      3165.7,
+      3165.7
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s26",
+   "label": "contra-soft-muon-s26",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9304dc26-dc9-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9304dc26-dc9-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 26,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 26 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-9304dc26-dc9-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-9304dc26-dc9-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 26 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.89600000000002,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.80864,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3164.7,
+     "range_s": [
+      3164.7,
+      3164.7
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s27",
+   "label": "contra-soft-muon-s27",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-19041821-ef1-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-19041821-ef1-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 27,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 27 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-19041821-ef1-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-19041821-ef1-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 27 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.79799999999997,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.78312,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3163.5,
+     "range_s": [
+      3163.5,
+      3163.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s28",
+   "label": "contra-soft-muon-s28",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-03c36e81-e2e-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-03c36e81-e2e-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 28,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 28 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-03c36e81-e2e-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-03c36e81-e2e-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 28 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.2,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.701152,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3155.1,
+     "range_s": [
+      3155.1,
+      3155.1
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  },
+  {
+   "job_id": "contra-soft-muon-s29",
+   "label": "contra-soft-muon-s29",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-e33e54bd-d3f-sf2000-lr1",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-e33e54bd-d3f-sf2000-lr0"
+   ],
+   "replicate_group": "mng3-sf-e60496a9d02a",
+   "draw": "exact_seed",
+   "seed": 29,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 29 --lr-scale 0",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "contra-soft-muon",
+   "rerun_siblings": [],
+   "silent_failure": {
+    "broken_as_briefed": true,
+    "successful_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-e33e54bd-d3f-sf2000-lr1"
+    ],
+    "broken_records": [
+     "mng3-20260509-contra-soft-muon-h100-sxmx8-e33e54bd-d3f-sf2000-lr0"
+    ],
+    "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 29 --lr-scale 1",
+    "evidence_step": 125,
+    "evidence_s": 200.355,
+    "primary_evidence": "effective_lrs at first completed optimizer update",
+    "first_update_evidence_step": 1,
+    "first_update_evidence_s": 4.8373040000000005,
+    "cause": "effective optimizer learning rates are zero",
+    "fix": "restore --lr-scale 1; the recorded optimizer rates are then used"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 3155.6,
+     "range_s": [
+      3155.6,
+      3155.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 2,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 30 job(s)"
+  }
+ ],
+ "measuring_run": {
+  "harness": "scripted",
+  "policy": "packed",
+  "speed": 1.0,
+  "machine_type": "c3-highmem-44",
+  "writes": "survey/host-terms/<task_id>.c3-highmem-44.json, by build/derive_host_terms.py <run dir>",
+  "how": "packed: every job launched the moment a GPU is free, longest first, as in the DPO, battery and quick tasks' measuring runs, so each start-up is measured under the CPU and disk contention a fan-out agent creates. Speed 1, because host time does not scale with the speed knob and a floor or horizon is set only from a speed-1 run"
+ },
+ "scripted_reference": {
+  "path": "sf_reference/reference_zero_lr.py",
+  "from": "artifacts/sf/91ad3898aa61/reference_zero_lr.py",
+  "how": "brief-only first-update observer; staged only for scripted W0, never in model workspaces"
+ },
+ "silent_failure_design": {
+  "successful_records_by_job": {
+   "contra-soft-muon-s0": "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-sf2000-lr1",
+   "radial-damp-s0": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-sf1750-lr1",
+   "contra-soft-muon-s1": "mng3-20260509-contra-soft-muon-h100-sxmx8-81540d3b-8dc-sf2000-lr1",
+   "contra-soft-muon-s2": "mng3-20260509-contra-soft-muon-h100-sxmx8-d8597384-8cd-sf2000-lr1",
+   "radial-damp-s2": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-sf1750-lr1",
+   "contra-soft-muon-s3": "mng3-20260509-contra-soft-muon-h100-sxmx8-7621883d-366-sf2000-lr1",
+   "radial-damp-s3": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-sf1750-lr1",
+   "contra-soft-muon-s4": "mng3-20260509-contra-soft-muon-h100-sxmx8-fc1593ad-ebd-sf2000-lr1",
+   "radial-damp-s4": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-fcf7a0d1-fdb-sf1750-lr1",
+   "contra-soft-muon-s5": "mng3-20260509-contra-soft-muon-h100-sxmx8-66a8cec3-9bb-sf2000-lr1",
+   "radial-damp-s5": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-00882c75-914-sf1750-lr1",
+   "circuit-muon-s6": "mng3-20260523-circuit-muon-h100-sxmx8-616cccc8-aff-sf1250-lr1",
+   "contra-soft-muon-s6": "mng3-20260509-contra-soft-muon-h100-sxmx8-c4935f3f-6d4-sf2000-lr1",
+   "radial-damp-s6": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-816f035f-c55-sf1750-lr1",
+   "contra-soft-muon-s7": "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-sf2000-lr1",
+   "contra-soft-muon-s8": "mng3-20260509-contra-soft-muon-h100-sxmx8-21827b54-ae4-sf2000-lr1",
+   "radial-damp-s8": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-sf1750-lr1",
+   "contra-soft-muon-s9": "mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea-sf2000-lr1",
+   "radial-damp-s9": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-e6232c5e-479-sf1750-lr1",
+   "contra-soft-muon-s10": "mng3-20260509-contra-soft-muon-h100-sxmx8-f6d6db35-756-sf2000-lr1",
+   "radial-damp-s10": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-sf1750-lr1",
+   "contra-soft-muon-s11": "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-sf2000-lr1",
+   "contra-soft-muon-s12": "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-sf2000-lr1",
+   "contra-soft-muon-s13": "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-sf2000-lr1",
+   "contra-soft-muon-s14": "mng3-20260509-contra-soft-muon-h100-sxmx8-2aefade8-e52-sf2000-lr1",
+   "contra-soft-muon-s15": "mng3-20260509-contra-soft-muon-h100-sxmx8-8b87aa90-e7f-sf2000-lr1",
+   "contra-soft-muon-s16": "mng3-20260509-contra-soft-muon-h100-sxmx8-18b5ac94-fbe-sf2000-lr1",
+   "contra-soft-muon-s17": "mng3-20260509-contra-soft-muon-h100-sxmx8-a182bdc9-0e8-sf2000-lr1",
+   "contra-soft-muon-s18": "mng3-20260509-contra-soft-muon-h100-sxmx8-9b15a60b-7cf-sf2000-lr1",
+   "contra-soft-muon-s19": "mng3-20260509-contra-soft-muon-h100-sxmx8-58589cfb-aee-sf2000-lr1",
+   "contra-soft-muon-s20": "mng3-20260509-contra-soft-muon-h100-sxmx8-38509716-92e-sf2000-lr1",
+   "contra-soft-muon-s21": "mng3-20260509-contra-soft-muon-h100-sxmx8-c53f1f7e-427-sf2000-lr1",
+   "contra-soft-muon-s22": "mng3-20260509-contra-soft-muon-h100-sxmx8-1b5bba11-405-sf2000-lr1",
+   "contra-soft-muon-s23": "mng3-20260509-contra-soft-muon-h100-sxmx8-b78e2987-2cb-sf2000-lr1",
+   "contra-soft-muon-s24": "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c-sf2000-lr1",
+   "contra-soft-muon-s25": "mng3-20260509-contra-soft-muon-h100-sxmx8-c3719539-556-sf2000-lr1",
+   "contra-soft-muon-s26": "mng3-20260509-contra-soft-muon-h100-sxmx8-9304dc26-dc9-sf2000-lr1",
+   "contra-soft-muon-s27": "mng3-20260509-contra-soft-muon-h100-sxmx8-19041821-ef1-sf2000-lr1",
+   "contra-soft-muon-s28": "mng3-20260509-contra-soft-muon-h100-sxmx8-03c36e81-e2e-sf2000-lr1",
+   "contra-soft-muon-s29": "mng3-20260509-contra-soft-muon-h100-sxmx8-e33e54bd-d3f-sf2000-lr1"
+  },
+  "reference": "package-search/lanes/silent-failure/sim_zero_lr.py",
+  "how": "An exit-zero flat run does not satisfy a trained-model job. Score the clean record only."
+ },
+ "candidates_stats": [
+  {
+   "job_id": "contra-soft-muon-s0",
+   "setup": "contra-soft-muon",
+   "seed": 0,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/8634073e-2a35-4cf6-b8c4-c00d441523d8.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3165.837,
+   "evidence_step": 125,
+   "evidence_s": 201.05,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.89816,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 0 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 0 --lr-scale 1",
+   "clean_final_val_loss": 3.43438
+  },
+  {
+   "job_id": "radial-damp-s0",
+   "setup": "radial-damp",
+   "seed": 0,
+   "source_path": "records/track_3_optimization/results/20260511_dampen_radial_gradient_component/d0110280-d17c-47a7-b5bf-79f5900d5711.txt",
+   "parent_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17",
+   "clean_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-sf1750-lr1",
+   "flat_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-sf1750-lr0",
+   "stop_step": 1750,
+   "duration_s": 2820.6279999999997,
+   "evidence_step": 125,
+   "evidence_s": 204.2655,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.533548,
+   "initial_scale": 1,
+   "broken_as_briefed": false,
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 0 --lr-scale 1",
+   "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 0 --lr-scale 1",
+   "clean_final_val_loss": 3.48529
+  },
+  {
+   "job_id": "contra-soft-muon-s1",
+   "setup": "contra-soft-muon",
+   "seed": 1,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/81540d3b-8dc9-4ad3-8d79-10052cca5354.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-81540d3b-8dc",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-81540d3b-8dc-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-81540d3b-8dc-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3161.349,
+   "evidence_step": 125,
+   "evidence_s": 200.444,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.552192,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 1 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 1 --lr-scale 1",
+   "clean_final_val_loss": 3.43444
+  },
+  {
+   "job_id": "contra-soft-muon-s2",
+   "setup": "contra-soft-muon",
+   "seed": 2,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/d8597384-8cdb-40f5-8bfd-bcde460ceea5.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-d8597384-8cd",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-d8597384-8cd-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-d8597384-8cd-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3161.904,
+   "evidence_step": 125,
+   "evidence_s": 200.51000000000002,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.57944,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 2 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 2 --lr-scale 1",
+   "clean_final_val_loss": 3.43665
+  },
+  {
+   "job_id": "radial-damp-s2",
+   "setup": "radial-damp",
+   "seed": 2,
+   "source_path": "records/track_3_optimization/results/20260511_dampen_radial_gradient_component/a4be63d8-39f8-43a8-ab87-f3c7e705f156.txt",
+   "parent_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f",
+   "clean_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-sf1750-lr1",
+   "flat_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-sf1750-lr0",
+   "stop_step": 1750,
+   "duration_s": 2813.136,
+   "evidence_step": 125,
+   "evidence_s": 203.9885,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.807332,
+   "initial_scale": 1,
+   "broken_as_briefed": false,
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 2 --lr-scale 1",
+   "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 2 --lr-scale 1",
+   "clean_final_val_loss": 3.48316
+  },
+  {
+   "job_id": "contra-soft-muon-s3",
+   "setup": "contra-soft-muon",
+   "seed": 3,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/7621883d-366f-49f7-ac0f-e297634b72ed.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-7621883d-366",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-7621883d-366-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-7621883d-366-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3165.232,
+   "evidence_step": 125,
+   "evidence_s": 200.836,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.70896,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 3 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 3 --lr-scale 1",
+   "clean_final_val_loss": 3.43684
+  },
+  {
+   "job_id": "radial-damp-s3",
+   "setup": "radial-damp",
+   "seed": 3,
+   "source_path": "records/track_3_optimization/results/20260511_dampen_radial_gradient_component/1fafaa5c-cfbb-40f7-a19c-791cb14454e7.txt",
+   "parent_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb",
+   "clean_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-sf1750-lr1",
+   "flat_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-sf1750-lr0",
+   "stop_step": 1750,
+   "duration_s": 2819.513,
+   "evidence_step": 125,
+   "evidence_s": 204.44949999999997,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.819788,
+   "initial_scale": 1,
+   "broken_as_briefed": false,
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 3 --lr-scale 1",
+   "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 3 --lr-scale 1",
+   "clean_final_val_loss": 3.48322
+  },
+  {
+   "job_id": "contra-soft-muon-s4",
+   "setup": "contra-soft-muon",
+   "seed": 4,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/fc1593ad-ebd9-4a8a-b695-465180d035a4.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-fc1593ad-ebd",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-fc1593ad-ebd-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-fc1593ad-ebd-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3162.1620000000003,
+   "evidence_step": 125,
+   "evidence_s": 200.81300000000002,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.893416,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 4 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 4 --lr-scale 1",
+   "clean_final_val_loss": 3.43509
+  },
+  {
+   "job_id": "radial-damp-s4",
+   "setup": "radial-damp",
+   "seed": 4,
+   "source_path": "records/track_3_optimization/results/20260511_dampen_radial_gradient_component/fcf7a0d1-fdb6-4856-a7c0-3c762f201f68.txt",
+   "parent_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-fcf7a0d1-fdb",
+   "clean_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-fcf7a0d1-fdb-sf1750-lr1",
+   "flat_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-fcf7a0d1-fdb-sf1750-lr0",
+   "stop_step": 1750,
+   "duration_s": 2827.957,
+   "evidence_step": 125,
+   "evidence_s": 235.70749999999998,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 37.81846,
+   "initial_scale": 1,
+   "broken_as_briefed": false,
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 4 --lr-scale 1",
+   "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 4 --lr-scale 1",
+   "clean_final_val_loss": 3.48562
+  },
+  {
+   "job_id": "contra-soft-muon-s5",
+   "setup": "contra-soft-muon",
+   "seed": 5,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/66a8cec3-9bbe-4a29-adef-0f1c2683a749.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-66a8cec3-9bb",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-66a8cec3-9bb-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-66a8cec3-9bb-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3161.5429999999997,
+   "evidence_step": 125,
+   "evidence_s": 200.39699999999996,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.490312,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 5 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 5 --lr-scale 1",
+   "clean_final_val_loss": 3.4358
+  },
+  {
+   "job_id": "radial-damp-s5",
+   "setup": "radial-damp",
+   "seed": 5,
+   "source_path": "records/track_3_optimization/results/20260511_dampen_radial_gradient_component/00882c75-914d-4340-8e0b-dcffcb18b73d.txt",
+   "parent_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-00882c75-914",
+   "clean_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-00882c75-914-sf1750-lr1",
+   "flat_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-00882c75-914-sf1750-lr0",
+   "stop_step": 1750,
+   "duration_s": 2858.8210000000004,
+   "evidence_step": 125,
+   "evidence_s": 237.477,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 37.368456,
+   "initial_scale": 1,
+   "broken_as_briefed": false,
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 5 --lr-scale 1",
+   "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 5 --lr-scale 1",
+   "clean_final_val_loss": 3.48335
+  },
+  {
+   "job_id": "circuit-muon-s6",
+   "setup": "circuit-muon",
+   "seed": 6,
+   "source_path": "records/track_3_optimization/results/20260523_circuit_muon/616cccc8-affa-46b1-b36d-a832685d8d3c.txt",
+   "parent_record": "mng3-20260523-circuit-muon-h100-sxmx8-616cccc8-aff",
+   "clean_record": "mng3-20260523-circuit-muon-h100-sxmx8-616cccc8-aff-sf1250-lr1",
+   "flat_record": "mng3-20260523-circuit-muon-h100-sxmx8-616cccc8-aff-sf1250-lr0",
+   "stop_step": 1250,
+   "duration_s": 3047.3360000000002,
+   "evidence_step": 125,
+   "evidence_s": 341.574,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 43.215344,
+   "initial_scale": 1,
+   "broken_as_briefed": false,
+   "launch": "python sf_train/circuit-muon/train_gpt_circuit_muon.py --seed 6 --lr-scale 1",
+   "fixed_launch": "python sf_train/circuit-muon/train_gpt_circuit_muon.py --seed 6 --lr-scale 1",
+   "clean_final_val_loss": 3.58837
+  },
+  {
+   "job_id": "contra-soft-muon-s6",
+   "setup": "contra-soft-muon",
+   "seed": 6,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/c4935f3f-6d44-445c-a52d-d119f9f978c7.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-c4935f3f-6d4",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-c4935f3f-6d4-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-c4935f3f-6d4-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3160.446,
+   "evidence_step": 125,
+   "evidence_s": 200.677,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.856616,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 6 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 6 --lr-scale 1",
+   "clean_final_val_loss": 3.43388
+  },
+  {
+   "job_id": "radial-damp-s6",
+   "setup": "radial-damp",
+   "seed": 6,
+   "source_path": "records/track_3_optimization/results/20260511_dampen_radial_gradient_component/816f035f-c55d-4a67-9c1f-855d4d34cf5c.txt",
+   "parent_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-816f035f-c55",
+   "clean_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-816f035f-c55-sf1750-lr1",
+   "flat_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-816f035f-c55-sf1750-lr0",
+   "stop_step": 1750,
+   "duration_s": 2875.723,
+   "evidence_step": 125,
+   "evidence_s": 238.57049999999998,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 37.252692,
+   "initial_scale": 1,
+   "broken_as_briefed": false,
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 6 --lr-scale 1",
+   "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 6 --lr-scale 1",
+   "clean_final_val_loss": 3.48265
+  },
+  {
+   "job_id": "contra-soft-muon-s7",
+   "setup": "contra-soft-muon",
+   "seed": 7,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/480f6098-b753-4ea0-b82a-c9f687a2ca95.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3165.966,
+   "evidence_step": 125,
+   "evidence_s": 200.96800000000002,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.803264,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 7 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 7 --lr-scale 1",
+   "clean_final_val_loss": 3.43355
+  },
+  {
+   "job_id": "contra-soft-muon-s8",
+   "setup": "contra-soft-muon",
+   "seed": 8,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/21827b54-ae4d-40ef-94ab-c005af6f825c.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-21827b54-ae4",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-21827b54-ae4-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-21827b54-ae4-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3157.3399999999997,
+   "evidence_step": 125,
+   "evidence_s": 200.167,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.517304,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 8 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 8 --lr-scale 1",
+   "clean_final_val_loss": 3.43651
+  },
+  {
+   "job_id": "radial-damp-s8",
+   "setup": "radial-damp",
+   "seed": 8,
+   "source_path": "records/track_3_optimization/results/20260511_dampen_radial_gradient_component/5770362e-d11c-4fae-a30d-be3e19c18eef.txt",
+   "parent_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11",
+   "clean_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-sf1750-lr1",
+   "flat_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-sf1750-lr0",
+   "stop_step": 1750,
+   "duration_s": 2817.4320000000002,
+   "evidence_step": 125,
+   "evidence_s": 204.34699999999998,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.868632,
+   "initial_scale": 1,
+   "broken_as_briefed": false,
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 8 --lr-scale 1",
+   "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 8 --lr-scale 1",
+   "clean_final_val_loss": 3.48203
+  },
+  {
+   "job_id": "contra-soft-muon-s9",
+   "setup": "contra-soft-muon",
+   "seed": 9,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/327b14a0-3ea2-457f-9fef-9ee3fc37bccb.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3163.147,
+   "evidence_step": 125,
+   "evidence_s": 200.647,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.647,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 9 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 9 --lr-scale 1",
+   "clean_final_val_loss": 3.43561
+  },
+  {
+   "job_id": "radial-damp-s9",
+   "setup": "radial-damp",
+   "seed": 9,
+   "source_path": "records/track_3_optimization/results/20260511_dampen_radial_gradient_component/e6232c5e-4797-485c-8fba-11630083685d.txt",
+   "parent_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-e6232c5e-479",
+   "clean_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-e6232c5e-479-sf1750-lr1",
+   "flat_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-e6232c5e-479-sf1750-lr0",
+   "stop_step": 1750,
+   "duration_s": 2816.148,
+   "evidence_step": 125,
+   "evidence_s": 204.2345,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.8449480000000005,
+   "initial_scale": 1,
+   "broken_as_briefed": false,
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 9 --lr-scale 1",
+   "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 9 --lr-scale 1",
+   "clean_final_val_loss": 3.48469
+  },
+  {
+   "job_id": "contra-soft-muon-s10",
+   "setup": "contra-soft-muon",
+   "seed": 10,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/f6d6db35-7565-42da-a4d5-57f3b032a90b.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-f6d6db35-756",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-f6d6db35-756-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-f6d6db35-756-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3159.72,
+   "evidence_step": 125,
+   "evidence_s": 200.651,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.874264,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 10 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 10 --lr-scale 1",
+   "clean_final_val_loss": 3.4343
+  },
+  {
+   "job_id": "radial-damp-s10",
+   "setup": "radial-damp",
+   "seed": 10,
+   "source_path": "records/track_3_optimization/results/20260511_dampen_radial_gradient_component/52f5a74c-6e78-4104-8f87-162da37c4933.txt",
+   "parent_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7",
+   "clean_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-sf1750-lr1",
+   "flat_record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-sf1750-lr0",
+   "stop_step": 1750,
+   "duration_s": 2824.192,
+   "evidence_step": 125,
+   "evidence_s": 204.8955,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.9432599999999995,
+   "initial_scale": 1,
+   "broken_as_briefed": false,
+   "launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 10 --lr-scale 1",
+   "fixed_launch": "python sf_train/radial-damp/radial_scale_then_radius_correct.py --seed 10 --lr-scale 1",
+   "clean_final_val_loss": 3.48169
+  },
+  {
+   "job_id": "contra-soft-muon-s11",
+   "setup": "contra-soft-muon",
+   "seed": 11,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/985d5707-129a-4ff0-b842-21a3941ccd5c.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3168.5980000000004,
+   "evidence_step": 125,
+   "evidence_s": 201.155,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.828504000000001,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 11 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 11 --lr-scale 1",
+   "clean_final_val_loss": 3.43501
+  },
+  {
+   "job_id": "contra-soft-muon-s12",
+   "setup": "contra-soft-muon",
+   "seed": 12,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/d600f067-1b4f-4c65-bbc4-a16e788740d9.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3165.849,
+   "evidence_step": 125,
+   "evidence_s": 201.09200000000004,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.942144,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 12 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 12 --lr-scale 1",
+   "clean_final_val_loss": 3.43308
+  },
+  {
+   "job_id": "contra-soft-muon-s13",
+   "setup": "contra-soft-muon",
+   "seed": 13,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/06a3e0e1-8e1b-4474-93bf-c792542a327e.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3154.2419999999997,
+   "evidence_step": 125,
+   "evidence_s": 200.19099999999997,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.7537199999999995,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 13 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 13 --lr-scale 1",
+   "clean_final_val_loss": 3.43642
+  },
+  {
+   "job_id": "contra-soft-muon-s14",
+   "setup": "contra-soft-muon",
+   "seed": 14,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/2aefade8-e52d-42b0-b2a5-318a04fecdab.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-2aefade8-e52",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-2aefade8-e52-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-2aefade8-e52-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3155.07,
+   "evidence_step": 125,
+   "evidence_s": 200.267,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.774104,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 14 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 14 --lr-scale 1",
+   "clean_final_val_loss": 3.43586
+  },
+  {
+   "job_id": "contra-soft-muon-s15",
+   "setup": "contra-soft-muon",
+   "seed": 15,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/8b87aa90-e7fc-42f6-9ef0-6f2fe2342014.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-8b87aa90-e7f",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-8b87aa90-e7f-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-8b87aa90-e7f-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3159.85,
+   "evidence_step": 125,
+   "evidence_s": 200.57799999999997,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.788368,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 15 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 15 --lr-scale 1",
+   "clean_final_val_loss": 3.4349
+  },
+  {
+   "job_id": "contra-soft-muon-s16",
+   "setup": "contra-soft-muon",
+   "seed": 16,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/18b5ac94-fbec-4809-b599-5abf453bb08a.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-18b5ac94-fbe",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-18b5ac94-fbe-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-18b5ac94-fbe-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3163.4,
+   "evidence_step": 125,
+   "evidence_s": 200.772,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.764063999999999,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 16 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 16 --lr-scale 1",
+   "clean_final_val_loss": 3.43429
+  },
+  {
+   "job_id": "contra-soft-muon-s17",
+   "setup": "contra-soft-muon",
+   "seed": 17,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/a182bdc9-0e85-4518-91b3-1f2f59ece258.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-a182bdc9-0e8",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-a182bdc9-0e8-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-a182bdc9-0e8-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3160.945,
+   "evidence_step": 125,
+   "evidence_s": 200.65699999999998,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.80388,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 17 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 17 --lr-scale 1",
+   "clean_final_val_loss": 3.43434
+  },
+  {
+   "job_id": "contra-soft-muon-s18",
+   "setup": "contra-soft-muon",
+   "seed": 18,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/9b15a60b-7cf6-42ec-a5ca-2c2ee33e3619.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-9b15a60b-7cf",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-9b15a60b-7cf-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-9b15a60b-7cf-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3163.46,
+   "evidence_step": 125,
+   "evidence_s": 200.862,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.8560479999999995,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 18 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 18 --lr-scale 1",
+   "clean_final_val_loss": 3.4368
+  },
+  {
+   "job_id": "contra-soft-muon-s19",
+   "setup": "contra-soft-muon",
+   "seed": 19,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/58589cfb-aee6-4e3d-9e2b-4c0c5d918310.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-58589cfb-aee",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-58589cfb-aee-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-58589cfb-aee-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3165.81,
+   "evidence_step": 125,
+   "evidence_s": 201.03800000000004,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.887152,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 19 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 19 --lr-scale 1",
+   "clean_final_val_loss": 3.43567
+  },
+  {
+   "job_id": "contra-soft-muon-s20",
+   "setup": "contra-soft-muon",
+   "seed": 20,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/38509716-92e8-4592-a6b9-3cd92683678a.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-38509716-92e",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-38509716-92e-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-38509716-92e-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3158.971,
+   "evidence_step": 125,
+   "evidence_s": 200.24800000000002,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.501088,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 20 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 20 --lr-scale 1",
+   "clean_final_val_loss": 3.43312
+  },
+  {
+   "job_id": "contra-soft-muon-s21",
+   "setup": "contra-soft-muon",
+   "seed": 21,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/c53f1f7e-427c-4066-b4ed-16f90ea73276.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-c53f1f7e-427",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-c53f1f7e-427-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-c53f1f7e-427-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3158.648,
+   "evidence_step": 125,
+   "evidence_s": 200.429,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.713832,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 21 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 21 --lr-scale 1",
+   "clean_final_val_loss": 3.43507
+  },
+  {
+   "job_id": "contra-soft-muon-s22",
+   "setup": "contra-soft-muon",
+   "seed": 22,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/1b5bba11-4050-486d-9b09-ea4cba74115a.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-1b5bba11-405",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-1b5bba11-405-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-1b5bba11-405-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3161.791,
+   "evidence_step": 125,
+   "evidence_s": 200.77299999999997,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.874248,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 22 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 22 --lr-scale 1",
+   "clean_final_val_loss": 3.43546
+  },
+  {
+   "job_id": "contra-soft-muon-s23",
+   "setup": "contra-soft-muon",
+   "seed": 23,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/b78e2987-2cbc-42cd-a511-28f9720cc53b.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-b78e2987-2cb",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-b78e2987-2cb-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-b78e2987-2cb-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3159.488,
+   "evidence_step": 125,
+   "evidence_s": 200.419,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.642264,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 23 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 23 --lr-scale 1",
+   "clean_final_val_loss": 3.43603
+  },
+  {
+   "job_id": "contra-soft-muon-s24",
+   "setup": "contra-soft-muon",
+   "seed": 24,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/6df65d01-43cb-46bb-84e1-8f972ca7f811.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3169.8809999999994,
+   "evidence_step": 125,
+   "evidence_s": 201.234,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.824112,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 24 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 24 --lr-scale 1",
+   "clean_final_val_loss": 3.43694
+  },
+  {
+   "job_id": "contra-soft-muon-s25",
+   "setup": "contra-soft-muon",
+   "seed": 25,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/c3719539-5569-463e-a426-98236100a098.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-c3719539-556",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-c3719539-556-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-c3719539-556-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3165.688,
+   "evidence_step": 125,
+   "evidence_s": 200.78800000000004,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.629216,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 25 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 25 --lr-scale 1",
+   "clean_final_val_loss": 3.43628
+  },
+  {
+   "job_id": "contra-soft-muon-s26",
+   "setup": "contra-soft-muon",
+   "seed": 26,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/9304dc26-dc96-4074-958b-7f28381d86ca.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-9304dc26-dc9",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-9304dc26-dc9-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-9304dc26-dc9-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3164.6600000000003,
+   "evidence_step": 125,
+   "evidence_s": 200.89600000000002,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.80864,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 26 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 26 --lr-scale 1",
+   "clean_final_val_loss": 3.43536
+  },
+  {
+   "job_id": "contra-soft-muon-s27",
+   "setup": "contra-soft-muon",
+   "seed": 27,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/19041821-ef1e-4cc9-b004-1cea453f9e11.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-19041821-ef1",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-19041821-ef1-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-19041821-ef1-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3163.5389999999998,
+   "evidence_step": 125,
+   "evidence_s": 200.79799999999997,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.78312,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 27 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 27 --lr-scale 1",
+   "clean_final_val_loss": 3.43518
+  },
+  {
+   "job_id": "contra-soft-muon-s28",
+   "setup": "contra-soft-muon",
+   "seed": 28,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/03c36e81-e2e5-4916-bf16-0141999b1dbb.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-03c36e81-e2e",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-03c36e81-e2e-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-03c36e81-e2e-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3155.101,
+   "evidence_step": 125,
+   "evidence_s": 200.2,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.701152,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 28 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 28 --lr-scale 1",
+   "clean_final_val_loss": 3.43329
+  },
+  {
+   "job_id": "contra-soft-muon-s29",
+   "setup": "contra-soft-muon",
+   "seed": 29,
+   "source_path": "records/track_3_optimization/results/20260509_contra_soft_muon/e33e54bd-d3f3-42f3-a18e-26ad67a5c193.txt",
+   "parent_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-e33e54bd-d3f",
+   "clean_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-e33e54bd-d3f-sf2000-lr1",
+   "flat_record": "mng3-20260509-contra-soft-muon-h100-sxmx8-e33e54bd-d3f-sf2000-lr0",
+   "stop_step": 2000,
+   "duration_s": 3155.5570000000002,
+   "evidence_step": 125,
+   "evidence_s": 200.355,
+   "evidence_policy": "first_eval (secondary reference)",
+   "first_update_evidence_step": 1,
+   "first_update_evidence_s": 4.8373040000000005,
+   "initial_scale": 0,
+   "broken_as_briefed": true,
+   "launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 29 --lr-scale 0",
+   "fixed_launch": "python sf_train/contra-soft-muon/contra-muon-to-soft-muon.py --seed 29 --lr-scale 1",
+   "clean_final_val_loss": 3.43562
+  }
+ ],
+ "sources": [
+  "modded-nanogpt track 3; each source_path in candidates_stats; H100 SXM, torch 2.11.0"
+ ],
+ "notes": [
+  "One real cause, zero effective LR; no inference that this survives an agent that repairs a whole queue.",
+  "The --lr-scale flag and the zero values in the run list are our modifications. Every optimizer group is actually multiplied.",
+  "Clean curves and base hardware are recorded. Prefix and one-GPU conversion use existing builders. Zero-LR curves and copied timing are modelled, not observed failed runs.",
+  "Both configuration records belong to one logical job. Only clean completion is useful work; stock expected_scores is not the SF reference.",
+  "No path-bound matching, LR exemption, sleep, slowdown, failure exception, or changed finite-loss guard."
+ ],
+ "stats": {
+  "jobs": 40,
+  "recorded_gpu_seconds": 123376.1,
+  "recorded_gpu_seconds_how": "replayed GPU-seconds, despite the field's name (kept for its readers): sum over jobs of the least GPU-seconds over the job's allowed GPU counts, each from the shortest paced duration among the records the job can draw (build/common.py:paced_duration, what gpu-mock's replay paces). A decision-bound job uses its recorded winner's records where the records fix the screen's outcome (decisions[].recorded_outcome), and the whole candidate pool otherwise. Changed on 2026-10-20 from recorded wall time, which includes host time replay does not pace, so the old figure was not a floor under a replayed run",
+  "lower_bound_makespan_s": 30844.0,
+  "lower_bound_how": "max(work / box GPUs, critical path): work as in recorded_gpu_seconds, and the critical path takes each job at its widest allowed count with the shortest paced duration among its records. Durations are what gpu-mock's replay paces (build/common.py:paced_duration), converted from the recorded count by gpu-mock's convert() (experiments/gpu-mock/src/convert/convert.py, imported by build/common.py:time_factor), never faster than recorded. Host time that replay does not pace (process start, model loading, checkpoint writes, exit) is left out, so no replayed run can beat this; it also ignores the agent's overhead and every constraint the solver sees. Paced since 2026-10-20; before that it used recorded wall time, which a replayed run could beat",
+  "serial_makespan_s": 123376.1,
+  "serial_how": "one job at a time, each on as many GPUs as it may use up to its recorded count, with the median paced duration among its records and the same convert(); no host time and no gaps between jobs"
+ },
+ "readiness": {
+  "replay_ready_jobs": 40,
+  "jobs_with_records": 40,
+  "blockers": {}
+ },
+ "shared_state": {
+  "default_shared": [],
+  "by_design": [],
+  "isolation": null,
+  "how": "no output path in the launch line. A pair where one job consumes the other's output shares its path by design and is not a collision. Under the study's ruling (design/IDEA.md, shared-state collisions) both references isolate shared paths, and an agent that leaves them shared pays through the collision class, never through a recorded failure"
+ },
+ "horizon_s": 327600,
+ "horizon_terms": {
+  "serial_makespan_s": 123376.1,
+  "startup_total_s": 0.0,
+  "startup_provenance": "absent",
+  "startup_source_machine_type": null,
+  "startup_by_machine_type": {},
+  "fleet_machine_type": "c3-highmem-44",
+  "provisional": true,
+  "startup_how": "the serial scripted policy's start-ups (launch to the job's first paced step; a script's first job cold, later ones warm), summed over every job, with each measured machine type's host terms (build/expected_scores.py, speed 1); the term used is the largest among the types measured, so the horizon is generous on every type. The fleet's type, c3-highmem-44, is not measured yet, so this is provisional and expected to move when its measuring run lands. No type is measured, so the term is 0",
+  "sf_broken_serial_s": 94855.194,
+  "sf_extra_startup_allowance_s": 0.0
+ },
+ "environment_floor": {
+  "by_machine_type": {},
+  "provenance": "absent",
+  "fleet_machine_type": "c3-highmem-44",
+  "fleet_measured": false,
+  "how": "per machine type: the overlapping packed policy's makespan from agent start (packed_overlap: each successor's start-up runs during its predecessor's GPU work, the runner rule; build/expected_scores.py, speed 1) with the host terms measured on that type at its box's caps and image (`measured`), minus stats.lower_bound_makespan_s. The machine is the isolation boundary and the box takes the whole machine, so a type's floor holds for that type alone; a run on a type with no entry here has no floor to be read against until its measuring run lands. host-terms files are survey/host-terms/<task_id>.<machine type>.json; the fleet's type today is c3-highmem-44. Nothing is measured yet"
+ },
+ "horizon_how": "override: colleague_round(1.5 x (clean serial makespan + clean start-ups + every initially broken full attempt + proportional extra start-up allowance)). A serial agent may inspect only exits and still repair every listed job within the window. No deadline is shown to the agent; durations and scoring bounds are unchanged.",
+ "work_remaining": {
+  "rule": "jobs_not_completed",
+  "how": "A logical job remains until one of its silent_failure.successful_records completes. Exit-zero completion of a broken_records configuration is not successful training. Runner's SF scorer implements this distinction."
+ },
+ "environment": {
+  "python": {
+   "value": "3.11.9",
+   "provenance": "inferred",
+   "how": "the records carry no Python version; 3.11.9 is one of the two isolation's build.sh pins, torch 2.11.0 has a CPU wheel for it, and the scripts use no version-specific feature (the repo's Dockerfile uses 3.12.7)"
+  },
+  "install": {
+   "packages": [
+    "torch==2.11.0",
+    "numpy==2.4.4",
+    "setuptools==81.0.0"
+   ],
+   "constraints": "artifacts/mng3/env/torch-2.11.0-py3.11/constraints.txt",
+   "line": "pip install -c constraints.txt torch==2.11.0 numpy==2.4.4 setuptools==81.0.0",
+   "cpu_lines": [
+    "pip install --index-url https://download.pytorch.org/whl/cpu --no-deps torch==2.11.0",
+    "pip install -c constraints.txt numpy==2.4.4 setuptools==81.0.0 sympy networkx jinja2 filelock typing-extensions fsspec"
+   ],
+   "how": "torch 2.11.0 matches the records this task draws (their torch: 2.11.0+cu129, 2.11.0+cu130) and the track's README quickstart (`pip install torch==2.11`). Its runtime dependencies and numpy are pinned in the constraints at their newest final release before 2026-05-01, the records' earliest date, that installs on Python 3.11 (PyPI, read 2026-10-20), except setuptools under 82, because torch 2.11.0 requires it, and mpmath 1.3.0, because sympy 1.14.0 requires mpmath<1.4. Chosen, not recorded: the records hold no package list"
+  },
+  "source": null,
+  "hub": [],
+  "hub_bytes": 0,
+  "hub_how": "none: the training data are the Hub dataset's files, placed in the tree by build/stage_task.py (files[] git_lfs entry)",
+  "env": {},
+  "env_how": "nothing: the scripts read data/fineweb10B/ relative to the working directory and write logs/<uuid>.txt there",
+  "verified": "pending: the staging check on the VM (build/check_staging.sh) under these pins; gpu-mock's replay of a track-3 script on torch 2.11 is gpu-mock's own check",
+  "image_label": {
+   "value": "mng3-packages",
+   "how": "one p006.task-env label for every package task drawn from this image, so one image serves the whole package family"
+  }
+ },
+ "task_class": "fan_out_required",
+ "task_class_how": "no job can use more than 1 of the box's 4 GPUs, so filling the box means running several jobs at once",
+ "model_runs": {
+  "allowed": true,
+  "problems": [],
+  "how": "allowed when no two jobs can be served the same recorded run or overlapping steps of one (common.repeated_records): a seed-substituted job, two prefix jobs cut from one parent, or a prefix and its parent's full run all repeat losses an agent can see. Scripted runs read no values, so they may run any task"
+ },
+ "rerun_siblings_how": "gpu-mock serves a job's primary record once per run; a later lookup of it by another job key (a rerun) gets the first unused id of that job's rerun_siblings, served by id whatever its bound_path, then the primary again (draw: reused) when the list is spent. Siblings are other recorded runs of the same script and stop step, none overlapping any record any job of the task lists or another job's siblings (build/siblings.py; validate.py checks it). Segments have none: a resumed segment follows the run of the checkpoint it loads (gpu-mock's lineage rule). Evidence that a sibling is a faithful rerun: newton-muon's one script fixes no seed, so its 15 recorded runs are reruns of identical code, and they vary as much at step 250 as other setups do across seeds (survey/siblings-2026-10-21.json, rerun_spread)"
+}

@@ -1,0 +1,302 @@
+{
+ "schema": "p006-gpu-record/0.1",
+ "identity": {
+  "record_id": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ac25e1b-4df-goalpath",
+  "kind": "train",
+  "entry_hash": "e32eb787a457bb868e791e77170b37c5433f88b35b7bb43cf9e32a6ffb5a1b80",
+  "argv": ["radial_scale_then_radius_correct.py", "--seed", "14"],
+  "argv_provenance": "inferred",
+  "argv_how": "script name: first line of the script's docstring; --seed added when the script parses one and the run's seed is known",
+  "env": {},
+  "seed": {
+   "value": 14,
+   "provenance": "recorded",
+   "how": "printed by the run: `Using seed=N`"
+  },
+  "replicate_group": "mng3-goal-e7ba331b8112",
+  "match_policy": "path_bound",
+  "match_policy_how": "served to a script whose resolved path ends with /candidates/ema-nesterov-aurora/radial_scale_then_radius_correct.py, whatever its bytes: a goal-level task's candidate script as the agent may edit it. An exact match (the unedited prefix script) comes first",
+  "trajectory": {
+   "config_hash": "e7ba331b8112298c2f63c41c7c4aff71781f52e8ad055410078412e2e357a284",
+   "config_hash_how": "sha256 of 'goal', the setup and the parent group: one group per setup",
+   "environment": {
+    "torch": "2.11.0+cu128"
+   },
+   "lr_schedule": {
+    "identity": "sha256:0ff7a90420e491a5",
+    "source": "function `set_hparams` rewrites each param group's lr every step; its constants are in the script",
+    "trace": null,
+    "trace_how": "absent: the script never prints its learning rate"
+   },
+   "data": {
+    "dataset": "kjj0/fineweb10B-gpt2 (GPT-2 tokens of FineWeb 10B)",
+    "train_glob": "data/fineweb10B/fineweb_train_*.bin",
+    "order": "files sorted by name, read sequentially, rank r takes its slice of each global batch",
+    "train_tokens_consumed": 1520435200,
+    "val_file": "data/fineweb10B/fineweb_val_000000.bin",
+    "val_tokens": 10485760
+   },
+   "precision": {
+    "value": "bf16",
+    "provenance": "inferred",
+    "how": "the embedding is cast to bfloat16 and the logits to float32; no autocast"
+   },
+   "global_batch_tokens": 524288
+  },
+  "fingerprint": "fp256:d088d0eaf51556b602338c8e57330dfb77f2d0562d88553f4fae6d2978119988",
+  "fingerprint_inputs": {
+   "model": "gpt",
+   "num_layers": 12,
+   "model_dim": 768,
+   "vocab_size": 50304,
+   "optimizers": ["AdamW", "Muon"],
+   "micro_batch_shape": [64, 1024],
+   "world_size": 8,
+   "global_batch_tokens": 524288,
+   "precision": "fp32",
+   "torch_compile": false,
+   "model_constructor": "GPT(vocab_size=50304, num_layers=12, model_dim=768)",
+   "compiles_functions": false,
+   "num_parameters": null,
+   "num_parameters_how": "fp256/0.3 field 11, null: each track-3 script defines its own GPT class, with variants per script, and no count can be vouched for from the source alone. These records are exact_only, so the structural index never serves them, and a null here matches no runtime count"
+  },
+  "fingerprint_version": "fp256/0.3",
+  "fingerprint_how": "gpu-mock's reference implementation over fingerprint_inputs. model is the root module's class name, lowercased; optimizers are the classes the script assigns to optimizer* variables; precision is fp32 because the script enables no autocast (it casts the embedding to bfloat16 by hand, which trajectory.precision records); torch_compile is whether the script compiles the model itself, not only helper functions",
+  "bound_path": "candidates/ema-nesterov-aurora/radial_scale_then_radius_correct.py",
+  "derived_from": {
+   "kind": "prepared",
+   "record": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ac25e1b-4df",
+   "via": "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ac25e1b-4df",
+   "steps": [1, 2900],
+   "bound_path": "candidates/ema-nesterov-aurora/radial_scale_then_radius_correct.py",
+   "parent_replicate_group": "mng3-cfg-47e82714e8fe",
+   "change": "the recorded full run, served by path to a candidate script the agent may have edited"
+  }
+ },
+ "mode": "replay",
+ "source": {
+  "name": "modded-nanogpt track 3",
+  "repo": "https://github.com/KellerJordan/modded-nanogpt",
+  "commit": "4ea6b937337a4889b8cfe3f38a93d120048d8f71",
+  "path": "records/track_3_optimization/results/20260522_ema_nesterov_aurora_proj/6ac25e1b-4dfc-44b6-ab42-3a2e9ea055cc.txt",
+  "submission": "20260522_ema_nesterov_aurora_proj",
+  "licence": "MIT",
+  "read_on": "2026-10-19",
+  "date": "20260522"
+ },
+ "reference": {
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_provenance": "recorded",
+  "gpu_count": 8,
+  "gpu_count_provenance": "recorded",
+  "interconnect": null,
+  "precision": "bf16"
+ },
+ "launch": {
+  "launcher": "torchrun",
+  "world_size": {
+   "value": 8,
+   "provenance": "recorded"
+  },
+  "per_device_microbatch": {
+   "value": 64,
+   "provenance": "recorded",
+   "how": "sequences per micro-step, constant `mbs` in the script"
+  },
+  "sequence_length": 1024,
+  "accumulation_steps": {
+   "value": 1,
+   "provenance": "derived",
+   "how": "global batch / world size / sequence length / mbs"
+  },
+  "global_batch_tokens": {
+   "value": 524288,
+   "provenance": "recorded",
+   "how": "constant `batch_size` in the script"
+  },
+  "batch_policy": {
+   "value": "fixed_global_grow_accumulation",
+   "provenance": "derived",
+   "how": "global batch and micro-batch are constants; the loop accumulates len(inputs)//mbs micro-steps per step"
+  },
+  "gpu_counts_supported": [1, 2, 4, 8]
+ },
+ "steps": 2900,
+ "planned_steps": 2900,
+ "per_step_gpu_s": 0.501445,
+ "timing": {
+  "pacing": "per_step",
+  "train_time_s": {
+   "value": 1472.84,
+   "provenance": "recorded",
+   "how": "the script's own clock at the last validation; it stops during validation"
+  },
+  "steady_step_s": {
+   "value": 0.501445,
+   "provenance": "derived",
+   "how": "slope of train_time between the first validation at or after step 500 and the last"
+  },
+  "startup_in_train_s": {
+   "value": 20.829,
+   "provenance": "derived",
+   "how": "train_time at the first validation after step 0, minus steady step time x steps; mostly torch.compile"
+  },
+  "first_step_s": {
+   "value": null,
+   "provenance": "absent",
+   "how": "the log has no per-step lines"
+  },
+  "eval_s": {
+   "value": 110.318,
+   "provenance": "modelled",
+   "how": "33 validations x (val_tokens / batch tokens) x steady step / 3, forward only"
+  },
+  "setup_s": {
+   "value": null,
+   "provenance": "absent",
+   "how": "process start to training start is not logged"
+  },
+  "checkpoint_s": {
+   "value": 0,
+   "provenance": "derived",
+   "how": "the script never calls torch.save"
+  },
+  "wall_total_s": {
+   "value": null,
+   "provenance": "absent",
+   "how": "the log has no wall-clock start and end"
+  }
+ },
+ "memory": {
+  "peak_allocated_bytes": 35902193664,
+  "peak": {
+   "value": 35902193664,
+   "provenance": "inferred",
+   "how": "track_1_short/2024-10-10_Muon logs report 34239 MiB peak allocated for the same 12-layer, 768-wide GPT-2 at 64 x 1024 tokens per micro-step on H100; this script does not log memory"
+  }
+ },
+ "series": {
+  "val_loss": {
+   "steps": [125, 250, 375, 500, 625, 750, 875, 1000, 1125, 1250, 1375, 1500, 1625, 1750, 1875, 2000, 2125, 2250, 2375, 2500, 2625, 2750, 2820, 2830, 2840, 2850, 2860, 2870, 2875, 2880, 2890, 2895, 2900],
+   "values": [4.47796, 4.11227, 3.95029, 3.82504, 3.76276, 3.72275, 3.68195, 3.64597, 3.6186, 3.58868, 3.56211, 3.52942, 3.50635, 3.4755, 3.44527, 3.41237, 3.38548, 3.3617, 3.34066, 3.32122, 3.30374, 3.28929, 3.28276, 3.28189, 3.28104, 3.28036, 3.27965, 3.2791, 3.27881, 3.27855, 3.27804, 3.27781, 3.27763],
+   "provenance": "recorded",
+   "how": "every validation line; the reduced value every rank formats"
+  },
+  "train_time_s": {
+   "steps": [125, 250, 375, 500, 625, 750, 875, 1000, 1125, 1250, 1375, 1500, 1625, 1750, 1875, 2000, 2125, 2250, 2375, 2500, 2625, 2750, 2820, 2830, 2840, 2850, 2860, 2870, 2875, 2880, 2890, 2895, 2900],
+   "values": [83.51, 145.728, 207.107, 269.372, 331.595, 393.483, 455.674, 517.938, 580.127, 642.734, 705.794, 768.873, 833.949, 898.769, 960.332, 1021.596, 1082.774, 1143.35, 1205.316, 1268.049, 1333.064, 1397.088, 1432.803, 1437.91, 1443.023, 1448.137, 1453.464, 1458.304, 1460.772, 1463.152, 1467.997, 1470.463, 1472.84],
+   "provenance": "recorded"
+  }
+ },
+ "materialisation": {
+  "serving": {
+   "mode": "per_op",
+   "how": "the job reads only val_loss, which every log records",
+   "module_shas": {}
+  },
+  "needs_series": ["val_loss"],
+  "blockers": [],
+  "reads": ["val_loss every validation, all ranks (f-string before the rank check)", "isfinite(loss) per micro-step, all ranks"],
+  "train_loss": {
+   "value": null,
+   "provenance": "absent",
+   "how": "the script never prints the train loss; serve a finite value"
+  }
+ },
+ "result": {
+  "final_val_loss": {
+   "value": 3.27763,
+   "provenance": "recorded"
+  },
+  "target_val_loss": 3.28,
+  "reached_target": {
+   "value": true,
+   "provenance": "derived",
+   "how": "final val loss below 3.28, the track's target"
+  }
+ },
+ "outcome": {
+  "status": "completed",
+  "provenance": "derived",
+  "how": "the log reaches its last scheduled validation"
+ },
+ "failures": [],
+ "artefacts": {
+  "checkpoint_saves": {
+   "value": 0,
+   "provenance": "derived",
+   "how": "the script never calls torch.save"
+  },
+  "checkpoint_bytes": {
+   "value": null,
+   "provenance": "derived",
+   "null_means": "the run writes no checkpoint",
+   "how": "the script never calls torch.save"
+  },
+  "save_every_steps": {
+   "value": null,
+   "provenance": "derived",
+   "null_means": "the run writes no checkpoint",
+   "how": "the script never calls torch.save"
+  },
+  "save_total_limit": {
+   "value": null,
+   "provenance": "derived",
+   "null_means": "the run writes no checkpoint",
+   "how": "the script never calls torch.save"
+  },
+  "log_bytes": {
+   "value": 48956,
+   "provenance": "derived",
+   "how": "size of the published log; rank 0 writes the same text to logs/<uuid>.txt as it runs"
+  }
+ },
+ "host": {
+  "processes": {
+   "value": 8,
+   "provenance": "recorded",
+   "how": "torchrun starts one process per GPU"
+  },
+  "omp_threads_per_process": {
+   "value": 1,
+   "provenance": "inferred",
+   "how": "torchrun's default OMP_NUM_THREADS=1, as trustlight's stderr shows"
+  },
+  "train_data": {
+   "glob": "data/fineweb10B/fineweb_train_*.bin",
+   "shard_bytes": 200001024,
+   "shards_read": 16,
+   "provenance": "derived",
+   "how": "every rank reads each shard it reaches in full: ceil(steps x batch tokens / 100M)"
+  },
+  "val_data": {
+   "file": "data/fineweb10B/fineweb_val_000000.bin",
+   "tokens_read": 10485760
+  },
+  "pinned_host_bytes_per_rank": {
+   "value": 200000000,
+   "provenance": "derived",
+   "how": "one shard of uint16 tokens in pinned memory"
+  }
+ },
+ "agent_view": {
+  "script": "artifacts/mng3/scripts/e32eb787a457/radial_scale_then_radius_correct.py",
+  "launch_command": "torchrun --standalone --nproc_per_node=<N> radial_scale_then_radius_correct.py --seed 14",
+  "inputs": ["data/fineweb10B/ (download script data/cached_fineweb10B.py)"],
+  "recognisability": "high: a public modded-nanogpt track-3 record, script and log online"
+ },
+ "disclosure": {
+  "duration": {
+   "true_s": 1583.158,
+   "true_how": "timing.train_time_s + timing.eval_s; setup and process start are not included",
+   "group_median_s": 1587.186,
+   "group_range_s": [1560.973, 1608.655],
+   "group_n": 16,
+   "group_how": "the same configuration's recorded runs, this one included: what a researcher who had run it before would expect"
+  }
+ },
+ "readiness": {
+  "replay": true,
+  "missing": []
+ }
+}

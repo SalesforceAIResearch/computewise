@@ -1,0 +1,770 @@
+{
+ "schema": "p006-gpu-task/0.1",
+ "box": {
+  "gpus": 4,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "interconnect": "NVLink",
+  "source": "gpu-mock's default box: experiments/gpu-mock/GPU-COUNT-CONVERSION-NOTE-2026-10-19.md §3"
+ },
+ "wave": "Q",
+ "wave_how": "short jobs to find failures fast; the standard package confirms them",
+ "task_id": "pkg-dataprep-p6-q",
+ "rung": 1,
+ "title": "Package pkg-dataprep-p6-q: 6 independent short jobs on data the agent prepares, one-GPU modded-nanogpt prefix runs of 6-10 minutes",
+ "brief": {
+  "text": "We're comparing six optimizer setups for our small-GPT pretraining, as short runs: each script trains for its first stretch of steps, then stops at a validation. Each directory has one training script: contra-soft-muon/, soda-fade/, radial-damp/, ema-nesterov-aurora/, muonh-tuned/ and newton-muon/. Run, each on one GPU from the task root with torchrun --standalone --nproc_per_node=1 <dir>/<script>: contra-soft-muon with --seed 0; soda-fade with --seed 0; radial-damp with --seed 0; ema-nesterov-aurora with --seed 8; muonh-tuned once (it takes no seed); newton-muon once (it takes no seed). The six runs are independent of one another. The scripts read tokenised FineWeb from data/fineweb10B/, which isn't in the tree yet: data/raw/ holds the documents those files are made from, in order, and data/fineweb.py is the script that made them. Report each run's last validation loss. The machine has four H100s.",
+  "provenance": "written by gpu-tasks for the packages catalog; no deadline or time words; the data sentence by gpu-tasks for the data-preparation arm"
+ },
+ "files": [
+  {
+   "path": "contra-soft-muon/contra-muon-to-soft-muon.py",
+   "from": "artifacts/mng3/scripts/0accdc70f62d/contra-muon-to-soft-muon.py"
+  },
+  {
+   "path": "soda-fade/contra-muon-to-soft-muon.py",
+   "from": "artifacts/mng3/scripts/44b8e63a8ee8/contra-muon-to-soft-muon.py"
+  },
+  {
+   "path": "radial-damp/radial_scale_then_radius_correct.py",
+   "from": "artifacts/mng3/scripts/0d644a1ccca2/radial_scale_then_radius_correct.py"
+  },
+  {
+   "path": "ema-nesterov-aurora/radial_scale_then_radius_correct.py",
+   "from": "artifacts/mng3/scripts/ed55da533b44/radial_scale_then_radius_correct.py"
+  },
+  {
+   "path": "muonh-tuned/train_gpt_simple_muonh.py",
+   "from": "artifacts/mng3/scripts/d4f978f16e70/train_gpt_simple_muonh.py"
+  },
+  {
+   "path": "newton-muon/train_gpt_simple_newton_muon.py",
+   "from": "artifacts/mng3/scripts/b17d2303585d/train_gpt_simple_newton_muon.py"
+  },
+  {
+   "path": "data/fineweb.py",
+   "from": "artifacts/mng3/dataprep/fineweb.py",
+   "how": "modded-nanogpt's data/fineweb.py at commit 4ea6b937, unchanged: the script that made data/fineweb10B/ from the Hub's FineWeb sample-10BT"
+  },
+  {
+   "path": "data/raw/",
+   "generated": {
+    "by": "build/gen_raw_text.py",
+    "args": [
+     "8"
+    ],
+    "inputs": {
+     "shards": {
+      "repo": "kjj0/fineweb10B-gpt2",
+      "kind": "dataset",
+      "revision": "889765ea1f903759787add96995d81171b632d0c",
+      "files": {
+       "fineweb_val_000000.bin": {
+        "bytes": 200001024,
+        "sha256": "5b95c8e0966f0861685b307b23dc5ae42b228ef74b28cb499784ae021f201640"
+       },
+       "fineweb_train_000001.bin": {
+        "bytes": 200001024,
+        "sha256": "771fa4a99b9fe0946ffb6e848b4ba5c6a9b0fe87860ebf03bc2c1c7e45f8178e"
+       },
+       "fineweb_train_000002.bin": {
+        "bytes": 200001024,
+        "sha256": "d4ba8d2d740905a836a4222d2aff01750560e7d49a51a745a1b3235520aec2cd"
+       },
+       "fineweb_train_000003.bin": {
+        "bytes": 200001024,
+        "sha256": "f70fa272369730fd9e39f1848bfe4daa3289b6e490c1e7762777f00ea8b66246"
+       },
+       "fineweb_train_000004.bin": {
+        "bytes": 200001024,
+        "sha256": "d8d88850f89fe2030e866380e90d544167467d407080403b830b903543925835"
+       },
+       "fineweb_train_000005.bin": {
+        "bytes": 200001024,
+        "sha256": "36cef3fc41863eb6731b41e986edde38e368853ee6deb87b928990bf445a119c"
+       },
+       "fineweb_train_000006.bin": {
+        "bytes": 200001024,
+        "sha256": "d80e5b209983e636655fc738fdf281f0132f0298bf4c0848f7e7a6bea6ca06f0"
+       },
+       "fineweb_train_000007.bin": {
+        "bytes": 200001024,
+        "sha256": "fa9f94dce61686b5467bc6cd3078424203db23ac254d804a6d8d5d440afc1e11"
+       },
+       "fineweb_train_000008.bin": {
+        "bytes": 200001024,
+        "sha256": "308e6937af5d78b7489a8aac3a3951dced5b46103e613f8bc4eb543f5092526c"
+       }
+      }
+     },
+     "vocab": {
+      "repo": "openai-community/gpt2",
+      "kind": "model",
+      "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+      "files": {
+       "vocab.json": {
+        "bytes": 1042301,
+        "sha256": "196139668be63f3b5d6574427317ae82f612a97c5d1cdaf36ed2256dbf636783"
+       }
+      }
+     }
+    },
+    "outputs": {
+     "fineweb_docs_000.jsonl": {
+      "bytes": 312254830,
+      "sha256": "a900d5c112042652ead64ae282371dd7ef14f9a092ee1333d2fef6f75de3b47f"
+     },
+     "fineweb_docs_001.jsonl": {
+      "bytes": 313049801,
+      "sha256": "0456bc9a8339886876792de9cf6cb051969b4634863e658e9c9ceef3d262f521"
+     },
+     "fineweb_docs_002.jsonl": {
+      "bytes": 309750893,
+      "sha256": "9d5ecb291a14a73ac3336cfab0b0ebaea690f9634bba423777e07400d1388c08"
+     },
+     "fineweb_docs_003.jsonl": {
+      "bytes": 311190624,
+      "sha256": "3470c5b4cadf4ffb64ac876746fbf92451babfc588b2208c68f53f70e58eaefe"
+     },
+     "fineweb_docs_004.jsonl": {
+      "bytes": 308335877,
+      "sha256": "12c1d141146e5815530234374ffe9433db34426b85dcba52149c78c67f7e2815"
+     },
+     "fineweb_docs_005.jsonl": {
+      "bytes": 310000367,
+      "sha256": "4637f83768cae8ee631f70f7887f3d93b8fdd62186aee2761d56eec195778ecb"
+     },
+     "fineweb_docs_006.jsonl": {
+      "bytes": 310708795,
+      "sha256": "523a6e4d514eda711dde7ccf22d0ca5be1b0670d4f3a8ae0bb78f653455ad252"
+     },
+     "fineweb_docs_007.jsonl": {
+      "bytes": 310367338,
+      "sha256": "cade89f5e26ca47d04aa02dbc8b7bac37fa31adb15f54d4ba45382b997ec45d9"
+     },
+     "fineweb_docs_008.jsonl": {
+      "bytes": 310450524,
+      "sha256": "66e3f710ac1e57d7ae1c9a2bb785e0eec6bff59394b20d36b2d4ea2f719424e3"
+     },
+     "fineweb_docs_009.jsonl": {
+      "bytes": 308436575,
+      "sha256": "9f20de44027abe40fec498822da1b4f3e319f38282bdbae63b659da9636ccf03"
+     },
+     "fineweb_docs_010.jsonl": {
+      "bytes": 311066453,
+      "sha256": "8280eb29d86f1c6c6026ed323138e803cd698eb154cc2d66c463331fe650020d"
+     },
+     "fineweb_docs_011.jsonl": {
+      "bytes": 308961899,
+      "sha256": "8f55dc74b54e1dae25412624b297ed39034a8e5ef06448f698cbc94ceb9ffbe3"
+     },
+     "fineweb_docs_012.jsonl": {
+      "bytes": 306525819,
+      "sha256": "115da99a48f0ed23dda9fa2d33e34dc9e3afacf3d5a0851c8fa7065b5b9566ec"
+     },
+     "fineweb_docs_013.jsonl": {
+      "bytes": 12966821,
+      "sha256": "d409de16905eee30a6b1ac481cee70f68a48c19c82b0e17e4fccbfe916d2edec"
+     }
+    }
+   },
+   "from": "the documents of kjj0/fineweb10B-gpt2's validation shard and train shards 1..8, decoded with GPT-2's vocabulary, 100,000 a file, in order; build/stage_task.py makes them and checks each file's sha256"
+  }
+ ],
+ "jobs": [
+  {
+   "job_id": "contra-soft-muon-run1",
+   "label": "contra-soft-muon, run 1",
+   "replicate_group": "mng3-cfg-6f185fbc4114",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-stop250-dcheck"
+   ],
+   "draw": "exact_seed",
+   "seed": 0,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=1 contra-soft-muon/contra-muon-to-soft-muon.py --seed 0",
+   "prep": {
+    "kind": "data",
+    "paths": [
+     "data/fineweb10B/"
+    ],
+    "produces": [
+     "data/fineweb10B/fineweb_val_000000.bin",
+     "data/fineweb10B/fineweb_train_000001.bin",
+     "data/fineweb10B/fineweb_train_000002.bin"
+    ],
+    "shared": true,
+    "how": "the data files this job's script reads and checks at start-up; one shared step (task.data_prep) makes them all"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 52.9,
+     "range_s": [
+      52.9,
+      52.9
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   },
+   "rerun_siblings": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-03c36e81-e2e-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-18b5ac94-fbe-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-19041821-ef1-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-1b5bba11-405-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-21827b54-ae4-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-2aefade8-e52-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-38509716-92e-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-58589cfb-aee-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-66a8cec3-9bb-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-7621883d-366-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-81540d3b-8dc-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8b87aa90-e7f-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9304dc26-dc9-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9b15a60b-7cf-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-a182bdc9-0e8-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-b78e2987-2cb-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c3719539-556-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c4935f3f-6d4-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c53f1f7e-427-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d8597384-8cd-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-e33e54bd-d3f-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-f6d6db35-756-stop250-dcheck",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-fc1593ad-ebd-stop250-dcheck"
+   ],
+   "rerun_siblings_how": "29 other runs of the same script at the job's stop step, none from a run any job of the task lists; 29 such runs free of 30, dealt to 1 job(s)"
+  },
+  {
+   "job_id": "soda-fade-run1",
+   "label": "soda-fade, run 1",
+   "replicate_group": "mng3-cfg-748896e74d54",
+   "records": [
+    "mng3-20260518-soda-fade-3000-n9-h200x4-a3341c9d-b2a-stop250-dcheck"
+   ],
+   "draw": "exact_seed",
+   "seed": 0,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H200",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=1 soda-fade/contra-muon-to-soft-muon.py --seed 0",
+   "prep": {
+    "kind": "data",
+    "paths": [
+     "data/fineweb10B/"
+    ],
+    "produces": [
+     "data/fineweb10B/fineweb_val_000000.bin",
+     "data/fineweb10B/fineweb_train_000001.bin",
+     "data/fineweb10B/fineweb_train_000002.bin"
+    ],
+    "shared": true,
+    "how": "the data files this job's script reads and checks at start-up; one shared step (task.data_prep) makes them all"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 123.0,
+     "range_s": [
+      123.0,
+      123.0
+     ],
+     "on": "4x NVIDIA H200",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   },
+   "rerun_siblings": [
+    "mng3-20260518-soda-fade-3000-n9-h200x4-0fdbe617-37d-stop250-dcheck",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-stop250-dcheck",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-stop250-dcheck",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-942b4030-ddf-stop250-dcheck",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-ae3f35c8-b83-stop250-dcheck",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-stop250-dcheck",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-d8ed0aa2-4ac-stop250-dcheck",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-e5fd4f26-49e-stop250-dcheck"
+   ],
+   "rerun_siblings_how": "8 other runs of the same script at the job's stop step, none from a run any job of the task lists; 8 such runs free of 9, dealt to 1 job(s)"
+  },
+  {
+   "job_id": "radial-damp-run1",
+   "label": "radial-damp, run 1",
+   "replicate_group": "mng3-cfg-1c44efb47c77",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-stop250-dcheck"
+   ],
+   "draw": "exact_seed",
+   "seed": 0,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=1 radial-damp/radial_scale_then_radius_correct.py --seed 0",
+   "prep": {
+    "kind": "data",
+    "paths": [
+     "data/fineweb10B/"
+    ],
+    "produces": [
+     "data/fineweb10B/fineweb_val_000000.bin",
+     "data/fineweb10B/fineweb_train_000001.bin",
+     "data/fineweb10B/fineweb_train_000002.bin"
+    ],
+    "shared": true,
+    "how": "the data files this job's script reads and checks at start-up; one shared step (task.data_prep) makes them all"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 103.8,
+     "range_s": [
+      103.8,
+      103.8
+     ],
+     "on": "4x NVIDIA H100 80GB HBM3",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   },
+   "rerun_siblings": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-00882c75-914-stop250-dcheck",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-stop250-dcheck",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-stop250-dcheck",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-stop250-dcheck",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-816f035f-c55-stop250-dcheck",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-stop250-dcheck",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-e6232c5e-479-stop250-dcheck",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-fcf7a0d1-fdb-stop250-dcheck"
+   ],
+   "rerun_siblings_how": "8 other runs of the same script at the job's stop step, none from a run any job of the task lists; 8 such runs free of 9, dealt to 1 job(s)"
+  },
+  {
+   "job_id": "ema-nesterov-aurora-run1",
+   "label": "ema-nesterov-aurora, run 1",
+   "replicate_group": "mng3-cfg-1b6c1a7b64fa",
+   "records": [
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-stop125-dcheck"
+   ],
+   "draw": "exact_seed",
+   "seed": 8,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA A100-SXM4-80GB",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 8",
+   "prep": {
+    "kind": "data",
+    "paths": [
+     "data/fineweb10B/"
+    ],
+    "produces": [
+     "data/fineweb10B/fineweb_val_000000.bin",
+     "data/fineweb10B/fineweb_train_000001.bin"
+    ],
+    "shared": true,
+    "how": "the data files this job's script reads and checks at start-up; one shared step (task.data_prep) makes them all"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 87.2,
+     "range_s": [
+      87.2,
+      87.2
+     ],
+     "on": "8x NVIDIA A100-SXM4-80GB",
+     "n_runs": 1
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   },
+   "rerun_siblings": [
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-stop125-dcheck",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-2c185b84-fe2-stop125-dcheck",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-stop125-dcheck",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ac25e1b-4df-stop125-dcheck",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-stop125-dcheck",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-7c356c74-bcb-stop125-dcheck",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-stop125-dcheck"
+   ],
+   "rerun_siblings_how": "7 other runs of the same script at the job's stop step, none from a run any job of the task lists; 7 such runs free of 8, dealt to 1 job(s)"
+  },
+  {
+   "job_id": "muonh-tuned-run1",
+   "label": "muonh-tuned, run 1",
+   "replicate_group": "mng3-cfg-5e299bc6feed",
+   "records": [
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop250-dcheck",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6a9f2a78-47e-stop250-dcheck",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6e92fa16-042-stop250-dcheck",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-8a063d14-af5-stop250-dcheck",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-93140757-20a-stop250-dcheck",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-9e0afb2c-4fb-stop250-dcheck",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-bb99661c-92e-stop250-dcheck",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-eeb36a9a-3a2-stop250-dcheck",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-f02084f1-2e1-stop250-dcheck",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-f6649181-6de-stop250-dcheck"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=1 muonh-tuned/train_gpt_simple_muonh.py",
+   "prep": {
+    "kind": "data",
+    "paths": [
+     "data/fineweb10B/"
+    ],
+    "produces": [
+     "data/fineweb10B/fineweb_val_000000.bin",
+     "data/fineweb10B/fineweb_train_000001.bin",
+     "data/fineweb10B/fineweb_train_000002.bin"
+    ],
+    "shared": true,
+    "how": "the data files this job's script reads and checks at start-up; one shared step (task.data_prep) makes them all"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 220.5,
+     "range_s": [
+      196.8,
+      225.0
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 10
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "newton-muon-run1",
+   "label": "newton-muon, run 1",
+   "replicate_group": "mng3-cfg-56244c87247a",
+   "records": [
+    "mng3-20260505-newton-muon-h100-nvlx2-012451d9-a8d-stop250-dcheck",
+    "mng3-20260505-newton-muon-h100-nvlx2-1e2209a6-95d-stop250-dcheck",
+    "mng3-20260505-newton-muon-h100-nvlx2-47ca3026-766-stop250-dcheck",
+    "mng3-20260505-newton-muon-h100-nvlx2-4ab72a5a-d9e-stop250-dcheck",
+    "mng3-20260505-newton-muon-h100-nvlx2-504191a8-77d-stop250-dcheck",
+    "mng3-20260505-newton-muon-h100-nvlx2-5a4e2561-88a-stop250-dcheck",
+    "mng3-20260505-newton-muon-h100-nvlx2-6e3d3a98-1f6-stop250-dcheck",
+    "mng3-20260505-newton-muon-h100-nvlx2-6fb302c7-d27-stop250-dcheck",
+    "mng3-20260505-newton-muon-h100-nvlx2-721c4e04-677-stop250-dcheck",
+    "mng3-20260505-newton-muon-h100-nvlx2-796dc285-934-stop250-dcheck",
+    "mng3-20260505-newton-muon-h100-nvlx2-adbec91d-e18-stop250-dcheck",
+    "mng3-20260505-newton-muon-h100-nvlx2-c844e66f-2b2-stop250-dcheck",
+    "mng3-20260505-newton-muon-h100-nvlx2-d9d42e73-09d-stop250-dcheck",
+    "mng3-20260505-newton-muon-h100-nvlx2-e53164a8-cf8-stop250-dcheck",
+    "mng3-20260505-newton-muon-h100-nvlx2-fcb92725-9ec-stop250-dcheck"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 2,
+   "recorded_gpu": "NVIDIA H100 NVL",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "gpu_options": [
+    1
+   ],
+   "launch": "torchrun --standalone --nproc_per_node=1 newton-muon/train_gpt_simple_newton_muon.py",
+   "prep": {
+    "kind": "data",
+    "paths": [
+     "data/fineweb10B/"
+    ],
+    "produces": [
+     "data/fineweb10B/fineweb_val_000000.bin",
+     "data/fineweb10B/fineweb_train_000001.bin",
+     "data/fineweb10B/fineweb_train_000002.bin"
+    ],
+    "shared": true,
+    "how": "the data files this job's script reads and checks at start-up; one shared step (task.data_prep) makes them all"
+   },
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 211.7,
+     "range_s": [
+      211.2,
+      212.5
+     ],
+     "on": "2x NVIDIA H100 NVL",
+     "n_runs": 15
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  }
+ ],
+ "measuring_run": {
+  "harness": "scripted",
+  "policy": "packed",
+  "speed": 1.0,
+  "machine_type": "c3-highmem-44",
+  "writes": "survey/host-terms/<task_id>.c3-highmem-44.json, by build/derive_host_terms.py <run dir>",
+  "how": "packed: every job launched the moment a GPU is free, longest first, as in the DPO, battery and quick tasks' measuring runs, so each start-up is measured under the CPU and disk contention a fan-out agent creates. Speed 1, because host time does not scale with the speed knob and a floor or horizon is set only from a speed-1 run"
+ },
+ "sources": [
+  "modded-nanogpt track 3, commit 4ea6b937; records on torch 2.11.0; prefix records by build/gen_prefix.py",
+  "data/fineweb.py from modded-nanogpt at commit 4ea6b937; data/raw/ decoded from kjj0/fineweb10B-gpt2 at 889765ea1f90 (build/gen_raw_text.py)"
+ ],
+ "notes": [
+  "Every job is the first k steps of a recorded run (k in 125, 250), by the recorded script with one documented change: a constant stop_after_step = k, and the loop's end check also breaks there (build/gen_prefix.py). The learning-rate schedule, data order and seed are the parent's, so each served value is the parent run's at that step. k is one of the parent's validation steps, so a job ends on a real validation loss.",
+  "One GPU per job: the recorded runs were on 1, 2, 4 or 8 GPUs, and gpu-mock's convert() under batch_policy fixed_global_grow_accumulation gives the one-GPU time. Nothing is slowed artificially.",
+  "Seeded scripts take --seed, and every seed named has a recorded run of the prefix script (exact_seed). An unseeded script (muonh-tuned, newton-muon, ortho) runs once per package, so every job has its own launch line and the scorer can tie each process to its job.",
+  "Each script is its wave-Q prefix script with one more change: at start-up it checks that every data file it reads (the validation shard and train shards 1..shards_read) is present and complete, and stops with the file's name if not (build/gen_dataprep.py). So a job launched before its data are ready fails at once rather than mid-run.",
+  "data/raw/ holds the documents of the validation shard and train shards 1..8. Tokenised in order with fineweb.py's rule they give back the validation shard and train 1..7 byte for byte. The jobs read the validation shard and train 1..2, so more text is present than the runs need, as with a real corpus.",
+  "fineweb.py loads FineWeb from the Hub, which the box cannot reach; reading data/raw/ instead is the agent's change to make. As written it tokenises with os.cpu_count() - 2 workers; a loop of the agent's own may use one core. On the VM one worker takes about a minute per shard (cpu-tasks), so the step is minutes single-threaded and under a minute in parallel, against 6-10 minute jobs.",
+  "Each script writes logs/<uuid>.txt, unique per run, and reads only data/fineweb10B/, so no two jobs collide."
+ ],
+ "data_prep": {
+  "kind": "tokenise",
+  "raw": "data/raw/",
+  "script": "data/fineweb.py",
+  "produces": "data/fineweb10B/",
+  "reference": "artifacts/mng3/dataprep/fineweb_local.py",
+  "scripted_write": "data/fineweb_local.py",
+  "scripted_command": "python data/fineweb_local.py",
+  "scripted_s": 39.1,
+  "scripted_how": "the scripted preparer writes the reference (data/fineweb.py reading data/raw/*.jsonl in order instead of the Hub, its one change) to data/fineweb_local.py, runs it in the foreground from the task root with fineweb.py's own os.cpu_count() - 2 workers, and launches once it exits. scripted_s is that call's time on the fleet's c3-highmem-44 (42 workers), measured by W0-dataprepP6-q-measure on worker-6, 2026-10-21",
+  "horizon_s": 900.0,
+  "shard_sha256": {
+   "fineweb_val_000000.bin": "5b95c8e0966f0861685b307b23dc5ae42b228ef74b28cb499784ae021f201640",
+   "fineweb_train_000001.bin": "771fa4a99b9fe0946ffb6e848b4ba5c6a9b0fe87860ebf03bc2c1c7e45f8178e",
+   "fineweb_train_000002.bin": "d4ba8d2d740905a836a4222d2aff01750560e7d49a51a745a1b3235520aec2cd",
+   "fineweb_train_000003.bin": "f70fa272369730fd9e39f1848bfe4daa3289b6e490c1e7762777f00ea8b66246",
+   "fineweb_train_000004.bin": "d8d88850f89fe2030e866380e90d544167467d407080403b830b903543925835",
+   "fineweb_train_000005.bin": "36cef3fc41863eb6731b41e986edde38e368853ee6deb87b928990bf445a119c",
+   "fineweb_train_000006.bin": "d80e5b209983e636655fc738fdf281f0132f0298bf4c0848f7e7a6bea6ca06f0",
+   "fineweb_train_000007.bin": "fa9f94dce61686b5467bc6cd3078424203db23ac254d804a6d8d5d440afc1e11"
+  },
+  "label": "each run is labelled with the sha256 of every data file a job read, against shard_sha256: a label, not a void. gpu-mock serves the recorded run whatever the bytes, so the label is the only record of whether the agent's data were the recorded runs' data",
+  "needs": {
+   "contra-soft-muon-run1": [
+    "data/fineweb10B/fineweb_val_000000.bin",
+    "data/fineweb10B/fineweb_train_000001.bin",
+    "data/fineweb10B/fineweb_train_000002.bin"
+   ],
+   "soda-fade-run1": [
+    "data/fineweb10B/fineweb_val_000000.bin",
+    "data/fineweb10B/fineweb_train_000001.bin",
+    "data/fineweb10B/fineweb_train_000002.bin"
+   ],
+   "radial-damp-run1": [
+    "data/fineweb10B/fineweb_val_000000.bin",
+    "data/fineweb10B/fineweb_train_000001.bin",
+    "data/fineweb10B/fineweb_train_000002.bin"
+   ],
+   "ema-nesterov-aurora-run1": [
+    "data/fineweb10B/fineweb_val_000000.bin",
+    "data/fineweb10B/fineweb_train_000001.bin"
+   ],
+   "muonh-tuned-run1": [
+    "data/fineweb10B/fineweb_val_000000.bin",
+    "data/fineweb10B/fineweb_train_000001.bin",
+    "data/fineweb10B/fineweb_train_000002.bin"
+   ],
+   "newton-muon-run1": [
+    "data/fineweb10B/fineweb_val_000000.bin",
+    "data/fineweb10B/fineweb_train_000001.bin",
+    "data/fineweb10B/fineweb_train_000002.bin"
+   ]
+  }
+ },
+ "arm": "data-preparation",
+ "control_task": "pkg-p6-par-q",
+ "stats": {
+  "jobs": 6,
+  "recorded_gpu_seconds": 2646.3,
+  "recorded_gpu_seconds_how": "replayed GPU-seconds, despite the field's name (kept for its readers): sum over jobs of the least GPU-seconds over the job's allowed GPU counts, each from the shortest paced duration among the records the job can draw (build/common.py:paced_duration, what gpu-mock's replay paces). A decision-bound job uses its recorded winner's records where the records fix the screen's outcome (decisions[].recorded_outcome), and the whole candidate pool otherwise. Changed on 2026-10-20 from recorded wall time, which includes host time replay does not pace, so the old figure was not a floor under a replayed run",
+  "lower_bound_makespan_s": 661.6,
+  "lower_bound_how": "max(work / box GPUs, critical path): work as in recorded_gpu_seconds, and the critical path takes each job at its widest allowed count with the shortest paced duration among its records. Durations are what gpu-mock's replay paces (build/common.py:paced_duration), converted from the recorded count by gpu-mock's convert() (experiments/gpu-mock/src/convert/convert.py, imported by build/common.py:time_factor), never faster than recorded. Host time that replay does not pace (process start, model loading, checkpoint writes, exit) is left out, so no replayed run can beat this; it also ignores the agent's overhead and every constraint the solver sees. Paced since 2026-10-20; before that it used recorded wall time, which a replayed run could beat",
+  "serial_makespan_s": 2674.4,
+  "serial_how": "one job at a time, each on as many GPUs as it may use up to its recorded count, with the median paced duration among its records and the same convert(); no host time and no gaps between jobs"
+ },
+ "readiness": {
+  "replay_ready_jobs": 6,
+  "jobs_with_records": 6,
+  "blockers": {}
+ },
+ "shared_state": {
+  "default_shared": [],
+  "by_design": [],
+  "isolation": null,
+  "how": "the script writes logs/<uuid>.txt, unique per run, and reads data only. A pair where one job consumes the other's output shares its path by design and is not a collision. Under the study's ruling (design/IDEA.md, shared-state collisions) both references isolate shared paths, and an agent that leaves them shared pays through the collision class, never through a recorded failure"
+ },
+ "horizon_s": 6300,
+ "horizon_terms": {
+  "serial_makespan_s": 2674.4,
+  "startup_total_s": 38.1,
+  "prep_total_s": 900.0,
+  "prep_how": "the sum of every job's prep.horizon_s, the allowance for preparing it, and data_prep.horizon_s, the shared data step's",
+  "startup_provenance": "derived",
+  "startup_source_machine_type": "c3-highmem-44",
+  "startup_by_machine_type": {
+   "c3-highmem-44": 38.1
+  },
+  "fleet_machine_type": "c3-highmem-44",
+  "provisional": false,
+  "startup_how": "the serial scripted policy's start-ups (launch to the job's first paced step; a script's first job cold, later ones warm), summed over every job, with each measured machine type's host terms (build/expected_scores.py, speed 1); the term used is the largest among the types measured, so the horizon is generous on every type",
+  "measured": {
+   "machine_type": "c3-highmem-44",
+   "run_dir": "<runs>/W0-dataprepP6-q-measure",
+   "measured_on": "2026-10-21",
+   "caps": {
+    "cpus": "42",
+    "memory": "346300m",
+    "memory_swap": "346300m",
+    "disk": "40g",
+    "shm": "8g",
+    "pids": 8192,
+    "oom_protect": "on",
+    "source": "machine",
+    "host_reserve_bytes": 8589934592,
+    "cpuset": "2-43",
+    "sidecar_cpuset": "0-1"
+   },
+   "image": {
+    "name": "ml-node:py311-torch2110-dataprep",
+    "id": "sha256:70821c9f1067fa15fa8896c67c8d59658444d1b27d4bd1934e2075be994e460e",
+    "sidecar_image_id": "sha256:6fe33246a43f25bdd417126b0ede6d699f7600873483cebe4f1eb7e903a6748f",
+    "torch_patch_sha256": "8fe44aa08822c44137de5de09e94dfac8b09abdae8a1cf0d2508ac3e09fda1fa",
+    "gpu_mock_bundle_manifest_sha256": "923e1003050e26e8c799348f972a695b6321cc741e1d68eb3e077d7fbdd6252e"
+   },
+   "source": "scripted packed run <run-tag>, speed 1, caps cpus 42 cpuset 2-43 memory 346300m; status completed, jobs_ended"
+  }
+ },
+ "environment_floor": {
+  "by_machine_type": {
+   "c3-highmem-44": {
+    "value": 213.5,
+    "provenance": "derived",
+    "host_terms": "survey/host-terms/pkg-dataprep-p6-q.c3-highmem-44.json",
+    "packed_makespan_s": 875.1,
+    "measured": {
+     "machine_type": "c3-highmem-44",
+     "run_dir": "<runs>/W0-dataprepP6-q-measure",
+     "measured_on": "2026-10-21",
+     "caps": {
+      "cpus": "42",
+      "memory": "346300m",
+      "memory_swap": "346300m",
+      "disk": "40g",
+      "shm": "8g",
+      "pids": 8192,
+      "oom_protect": "on",
+      "source": "machine",
+      "host_reserve_bytes": 8589934592,
+      "cpuset": "2-43",
+      "sidecar_cpuset": "0-1"
+     },
+     "image": {
+      "name": "ml-node:py311-torch2110-dataprep",
+      "id": "sha256:70821c9f1067fa15fa8896c67c8d59658444d1b27d4bd1934e2075be994e460e",
+      "sidecar_image_id": "sha256:6fe33246a43f25bdd417126b0ede6d699f7600873483cebe4f1eb7e903a6748f",
+      "torch_patch_sha256": "8fe44aa08822c44137de5de09e94dfac8b09abdae8a1cf0d2508ac3e09fda1fa",
+      "gpu_mock_bundle_manifest_sha256": "923e1003050e26e8c799348f972a695b6321cc741e1d68eb3e077d7fbdd6252e"
+     },
+     "source": "scripted packed run <run-tag>, speed 1, caps cpus 42 cpuset 2-43 memory 346300m; status completed, jobs_ended"
+    }
+   }
+  },
+  "provenance": "derived",
+  "fleet_machine_type": "c3-highmem-44",
+  "fleet_measured": true,
+  "how": "per machine type: the overlapping packed policy's makespan from agent start (packed_overlap: each successor's start-up runs during its predecessor's GPU work, the runner rule; build/expected_scores.py, speed 1) with the host terms measured on that type at its box's caps and image (`measured`), minus stats.lower_bound_makespan_s. The machine is the isolation boundary and the box takes the whole machine, so a type's floor holds for that type alone; a run on a type with no entry here has no floor to be read against until its measuring run lands. host-terms files are survey/host-terms/<task_id>.<machine type>.json; the fleet's type today is c3-highmem-44"
+ },
+ "horizon_how": "colleague_round(1.5 x (stats.serial_makespan_s + horizon_terms.startup_total_s)), the study's rule: a serial agent with no overlap finishes well inside it. Rounded up to 5 minutes under an hour, 15 minutes under six hours, whole hours above. Never shown to the agent: it is the run's hard stop and the end of the scoring window when work remains. In recorded seconds, like stats: a run with the speed knob divides it by the same factor. One value for every machine type, from the largest measured start-up total (horizon_terms). c3-highmem-44 is measured; a new machine type, caps or image that moves it makes another task version. Replaced deadline_s, which the brief stated, on 2026-10-20; runs under a brief that stated a deadline are not pooled with runs under this one",
+ "work_remaining": {
+  "rule": "jobs_not_completed",
+  "how": "at the horizon, every job without a completed run counts as remaining: not launched, still running, or failed and not rerun to completion. A decision-bound job counts once its slot is known; before that, each unfilled slot counts as one job"
+ },
+ "environment": {
+  "python": {
+   "value": "3.11.9",
+   "provenance": "inferred",
+   "how": "the records carry no Python version; 3.11.9 is one of the two isolation's build.sh pins, torch 2.11.0 has a CPU wheel for it, and the scripts use no version-specific feature (the repo's Dockerfile uses 3.12.7)"
+  },
+  "install": {
+   "packages": [
+    "torch==2.11.0",
+    "numpy==2.4.4",
+    "setuptools==81.0.0",
+    "tiktoken==0.14.0",
+    "tqdm==4.70.1"
+   ],
+   "constraints": "artifacts/mng3/env/torch-2.11.0-py3.11-dataprep/constraints.txt",
+   "line": "pip install -c constraints.txt torch==2.11.0 numpy==2.4.4 setuptools==81.0.0 tiktoken==0.14.0 tqdm==4.70.1",
+   "cpu_lines": [
+    "pip install --index-url https://download.pytorch.org/whl/cpu --no-deps torch==2.11.0",
+    "pip install -c constraints.txt numpy==2.4.4 setuptools==81.0.0 sympy networkx jinja2 filelock typing-extensions fsspec tiktoken==0.14.0 tqdm==4.70.1"
+   ],
+   "how": "torch 2.11.0 matches the records this task draws (their torch: 2.11.0+cu128, 2.11.0+cu130) and the track's README quickstart (`pip install torch==2.11`). Its runtime dependencies and numpy are pinned in the constraints at their newest final release before 2026-05-01, the records' earliest date, that installs on Python 3.11 (PyPI, read 2026-10-20), except setuptools under 82, because torch 2.11.0 requires it, and mpmath 1.3.0, because sympy 1.14.0 requires mpmath<1.4. Chosen, not recorded: the records hold no package list; tiktoken and tqdm, which data/fineweb.py imports, at the versions that installed beside these pins on the VM on 2026-10-21. datasets, its third import, is left out: it loads from the Hub, which the box cannot reach, and data/raw/ is plain JSONL"
+  },
+  "source": null,
+  "hub": [],
+  "hub_bytes": 0,
+  "hub_how": "none: the training data are the Hub dataset's files, placed in the tree by build/stage_task.py (files[] git_lfs entry)",
+  "env": {
+   "TIKTOKEN_CACHE_DIR": "/usr/local/share/tiktoken"
+  },
+  "env_how": "tiktoken downloads GPT-2's vocab.bpe and encoder.json on first use; the image fetches them at build time (python -c \"import tiktoken; tiktoken.get_encoding('gpt2')\" with TIKTOKEN_CACHE_DIR set), world-readable, and its build.sh checks that get_encoding('gpt2') loads there with no network. The scripts still read data/fineweb10B/ relative to the working directory",
+  "verified": "pending: the staging check on the VM (build/check_staging.sh) under these pins; gpu-mock's replay of a track-3 script on torch 2.11 is gpu-mock's own check",
+  "image_label": {
+   "value": "mng3-dataprep",
+   "how": "the mng3-packages image plus tiktoken, tqdm and the gpt2 cache: its own label, so the packages already measured on mng3-packages keep their image"
+  }
+ },
+ "task_class": "fan_out_required",
+ "task_class_how": "no job can use more than 1 of the box's 4 GPUs, so filling the box means running several jobs at once",
+ "model_runs": {
+  "allowed": true,
+  "problems": [],
+  "how": "allowed when no two jobs can be served the same recorded run or overlapping steps of one (common.repeated_records): a seed-substituted job, two prefix jobs cut from one parent, or a prefix and its parent's full run all repeat losses an agent can see. Scripted runs read no values, so they may run any task"
+ },
+ "rerun_siblings_how": "gpu-mock serves a job's primary record once per run; a later lookup of it by another job key (a rerun) gets the first unused id of that job's rerun_siblings, served by id whatever its bound_path, then the primary again (draw: reused) when the list is spent. Siblings are other recorded runs of the same script and stop step, none overlapping any record any job of the task lists or another job's siblings (build/siblings.py; validate.py checks it). Segments have none: a resumed segment follows the run of the checkpoint it loads (gpu-mock's lineage rule). Evidence that a sibling is a faithful rerun: newton-muon's one script fixes no seed, so its 15 recorded runs are reruns of identical code, and they vary as much at step 250 as other setups do across seeds (survey/siblings-2026-10-21.json, rerun_spread)"
+}

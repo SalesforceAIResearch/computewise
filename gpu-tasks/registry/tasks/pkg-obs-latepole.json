@@ -1,0 +1,2195 @@
+{
+ "schema": "p006-gpu-task/0.1",
+ "box": {
+  "gpus": 8,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "interconnect": "NVLink",
+  "source": "package-search angle F, 8 GPUs: gpu-mock's device-count release and isolation's 8-GPU box image, built from the 4-GPU one with GPUS=8"
+ },
+ "task_id": "pkg-obs-latepole",
+ "rung": 1,
+ "level": "given_plan",
+ "level_how": "given plan: the brief names the deliverable and the files list every run (each budget folder's script and its README's launch lines); no run depends on another's result; the plan is in the files, not the brief's prose",
+ "set": "package-search",
+ "set_how": "lane OBS of the 2026-11-02 lanes (experiments/package-search/AGENTS.md): the late-pole package's twin from a different source (pkg-k2-latepole is MLS-Bench cache and decode jobs; this is modded-nanogpt H100 SXM), built by the analysis's rulings of 15:11 and 15:37 MST",
+ "title": "Late poles in an optimizer sweep: 35 one-GPU nanogpt runs, 21-46 minutes at 1,000 steps and two full runs of about 2.4 hours, every run needed for the table, on eight GPUs",
+ "brief": {
+  "text": "We're comparing optimizer setups for our small-GPT pretraining at a short training budget, and checking one result at full length. latepole/ has one folder per setup and inside each one folder per training budget, named by the step its runs stop at; each budget folder holds the setup's training script and a README listing the runs we use. Every setup has runs at 1,000 steps, and soap-f1-auxb2, which looks strongest there, also has runs of its full schedule. We need the table: for every run, the validation loss it reports at the end of its run, and each setup's mean at each budget; and whether soap-f1-auxb2's lead at 1,000 steps holds at its full schedule. The machine has eight H100s.",
+  "provenance": "written by lane OBS (2026-11-02): the team's question and its table; which runs exist is in the folders and READMEs; no procedure, no deadline or time words; the GPU count stated; nothing names a test. It asks for the loss each run reports, not a 'final' loss, since the 1,000-step runs stop early by their script's stop setting"
+ },
+ "files": [
+  {
+   "path": "latepole/1bd8db7a/steps-1000/train_gpt_simple.py",
+   "from": "artifacts/mng3/scripts/d6f35a4e8432/train_gpt_simple.py"
+  },
+  {
+   "path": "latepole/1bd8db7a/steps-1000/README.md",
+   "content": "# 1bd8db7a, 1,000 steps\n\n`train_gpt_simple.py` here is 1bd8db7a's training script, single-process on one GPU, run from the task root. Each run trains the first 1,000 steps of its 3,350-step schedule, then stops after its validation at step 1,000 (the script's stop setting); the learning-rate schedule is the full one's. One run:\n\n- `python latepole/1bd8db7a/steps-1000/train_gpt_simple.py`\n"
+  },
+  {
+   "path": "latepole/311d7833/steps-1000/train_gpt_simple.py",
+   "from": "artifacts/mng3/scripts/8b020c4b1a12/train_gpt_simple.py"
+  },
+  {
+   "path": "latepole/311d7833/steps-1000/README.md",
+   "content": "# 311d7833, 1,000 steps\n\n`train_gpt_simple.py` here is 311d7833's training script, single-process on one GPU, run from the task root. Each run trains the first 1,000 steps of its 3,500-step schedule, then stops after its validation at step 1,000 (the script's stop setting); the learning-rate schedule is the full one's. One run:\n\n- `python latepole/311d7833/steps-1000/train_gpt_simple.py`\n"
+  },
+  {
+   "path": "latepole/478c0427/steps-1000/train_gpt_simple.py",
+   "from": "artifacts/mng3/scripts/68073ea05df5/train_gpt_simple.py"
+  },
+  {
+   "path": "latepole/478c0427/steps-1000/README.md",
+   "content": "# 478c0427, 1,000 steps\n\n`train_gpt_simple.py` here is 478c0427's training script, single-process on one GPU, run from the task root. Each run trains the first 1,000 steps of its 3,150-step schedule, then stops after its validation at step 1,000 (the script's stop setting); the learning-rate schedule is the full one's. One run:\n\n- `python latepole/478c0427/steps-1000/train_gpt_simple.py`\n"
+  },
+  {
+   "path": "latepole/51ece938/steps-1000/train_gpt_simple.py",
+   "from": "artifacts/mng3/scripts/313da24a70c3/train_gpt_simple.py"
+  },
+  {
+   "path": "latepole/51ece938/steps-1000/README.md",
+   "content": "# 51ece938, 1,000 steps\n\n`train_gpt_simple.py` here is 51ece938's training script, single-process on one GPU, run from the task root. Each run trains the first 1,000 steps of its 3,375-step schedule, then stops after its validation at step 1,000 (the script's stop setting); the learning-rate schedule is the full one's. One run:\n\n- `python latepole/51ece938/steps-1000/train_gpt_simple.py`\n"
+  },
+  {
+   "path": "latepole/7b8270c5/steps-1000/train_gpt_simple.py",
+   "from": "artifacts/mng3/scripts/2473608b066b/train_gpt_simple.py"
+  },
+  {
+   "path": "latepole/7b8270c5/steps-1000/README.md",
+   "content": "# 7b8270c5, 1,000 steps\n\n`train_gpt_simple.py` here is 7b8270c5's training script, single-process on one GPU, run from the task root. Each run trains the first 1,000 steps of its 3,600-step schedule, then stops after its validation at step 1,000 (the script's stop setting); the learning-rate schedule is the full one's. One run:\n\n- `python latepole/7b8270c5/steps-1000/train_gpt_simple.py`\n"
+  },
+  {
+   "path": "latepole/a63a68d1/steps-1000/train_gpt_simple.py",
+   "from": "artifacts/mng3/scripts/e7df408db0fb/train_gpt_simple.py"
+  },
+  {
+   "path": "latepole/a63a68d1/steps-1000/README.md",
+   "content": "# a63a68d1, 1,000 steps\n\n`train_gpt_simple.py` here is a63a68d1's training script, single-process on one GPU, run from the task root. Each run trains the first 1,000 steps of its 5,625-step schedule, then stops after its validation at step 1,000 (the script's stop setting); the learning-rate schedule is the full one's. One run:\n\n- `python latepole/a63a68d1/steps-1000/train_gpt_simple.py`\n"
+  },
+  {
+   "path": "latepole/aurora/steps-1000/train_gpt_simple.py",
+   "from": "artifacts/mng3/scripts/f4571de4795b/train_gpt_simple.py"
+  },
+  {
+   "path": "latepole/aurora/steps-1000/README.md",
+   "content": "# aurora, 1,000 steps\n\n`train_gpt_simple.py` here is aurora's training script, single-process on one GPU, run from the task root. Each run trains the first 1,000 steps of its 3,200-step schedule, then stops after its validation at step 1,000 (the script's stop setting); the learning-rate schedule is the full one's. One run:\n\n- `python latepole/aurora/steps-1000/train_gpt_simple.py`\n"
+  },
+  {
+   "path": "latepole/muonh/steps-1000/train_gpt_simple_muonh.py",
+   "from": "artifacts/mng3/scripts/89859be560f5/train_gpt_simple_muonh.py"
+  },
+  {
+   "path": "latepole/muonh/steps-1000/README.md",
+   "content": "# muonh, 1,000 steps\n\n`train_gpt_simple_muonh.py` here is muonh's training script, single-process on one GPU, run from the task root. Each run trains the first 1,000 steps of its 3,325-step schedule, then stops after its validation at step 1,000 (the script's stop setting); the learning-rate schedule is the full one's. The script takes no seed, so we run it 5 times:\n\n- `python latepole/muonh/steps-1000/train_gpt_simple_muonh.py`\n- `python latepole/muonh/steps-1000/train_gpt_simple_muonh.py`\n- `python latepole/muonh/steps-1000/train_gpt_simple_muonh.py`\n- `python latepole/muonh/steps-1000/train_gpt_simple_muonh.py`\n- `python latepole/muonh/steps-1000/train_gpt_simple_muonh.py`\n"
+  },
+  {
+   "path": "latepole/normuon/steps-1000/train_gpt_simple.py",
+   "from": "artifacts/mng3/scripts/69040f90a261/train_gpt_simple.py"
+  },
+  {
+   "path": "latepole/normuon/steps-1000/README.md",
+   "content": "# normuon, 1,000 steps\n\n`train_gpt_simple.py` here is normuon's training script, single-process on one GPU, run from the task root. Each run trains the first 1,000 steps of its 3,300-step schedule, then stops after its validation at step 1,000 (the script's stop setting); the learning-rate schedule is the full one's. One run:\n\n- `python latepole/normuon/steps-1000/train_gpt_simple.py`\n"
+  },
+  {
+   "path": "latepole/normuonh/steps-1000/train_gpt_simple_normuonh.py",
+   "from": "artifacts/mng3/scripts/94662d18f69e/train_gpt_simple_normuonh.py"
+  },
+  {
+   "path": "latepole/normuonh/steps-1000/README.md",
+   "content": "# normuonh, 1,000 steps\n\n`train_gpt_simple_normuonh.py` here is normuonh's training script, single-process on one GPU, run from the task root. Each run trains the first 1,000 steps of its 3,275-step schedule, then stops after its validation at step 1,000 (the script's stop setting); the learning-rate schedule is the full one's. The script takes no seed, so we run it 5 times:\n\n- `python latepole/normuonh/steps-1000/train_gpt_simple_normuonh.py`\n- `python latepole/normuonh/steps-1000/train_gpt_simple_normuonh.py`\n- `python latepole/normuonh/steps-1000/train_gpt_simple_normuonh.py`\n- `python latepole/normuonh/steps-1000/train_gpt_simple_normuonh.py`\n- `python latepole/normuonh/steps-1000/train_gpt_simple_normuonh.py`\n"
+  },
+  {
+   "path": "latepole/skylight001/steps-1000/train_gpt_simple.py",
+   "from": "artifacts/mng3/scripts/af4e562b6af6/train_gpt_simple.py"
+  },
+  {
+   "path": "latepole/skylight001/steps-1000/README.md",
+   "content": "# skylight001, 1,000 steps\n\n`train_gpt_simple.py` here is skylight001's training script, single-process on one GPU, run from the task root. Each run trains the first 1,000 steps of its 3,250-step schedule, then stops after its validation at step 1,000 (the script's stop setting); the learning-rate schedule is the full one's. The script takes no seed, so we run it 3 times:\n\n- `python latepole/skylight001/steps-1000/train_gpt_simple.py`\n- `python latepole/skylight001/steps-1000/train_gpt_simple.py`\n- `python latepole/skylight001/steps-1000/train_gpt_simple.py`\n"
+  },
+  {
+   "path": "latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py",
+   "from": "artifacts/mng3/scripts/624b64764655/train_gpt_clean.py"
+  },
+  {
+   "path": "latepole/soap-f1-auxb2/steps-1000/README.md",
+   "content": "# soap-f1-auxb2, 1,000 steps\n\n`train_gpt_clean.py` here is soap-f1-auxb2's training script, single-process on one GPU, run from the task root. Each run trains the first 1,000 steps of its 2,900-step schedule, then stops after its validation at step 1,000 (the script's stop setting); the learning-rate schedule is the full one's. We use 7 seeds at this budget:\n\n- `python latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py --seed 11`\n- `python latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py --seed 12`\n- `python latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py --seed 13`\n- `python latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py --seed 14`\n- `python latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py --seed 15`\n- `python latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py --seed 16`\n- `python latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py --seed 17`\n"
+  },
+  {
+   "path": "latepole/soap-f1-auxb2/steps-2900/train_gpt_clean.py",
+   "from": "artifacts/mng3/scripts/386470247cec/train_gpt_clean.py"
+  },
+  {
+   "path": "latepole/soap-f1-auxb2/steps-2900/README.md",
+   "content": "# soap-f1-auxb2, 2,900 steps\n\n`train_gpt_clean.py` here is soap-f1-auxb2's training script, single-process on one GPU, run from the task root. Each run trains its full 2,900-step schedule. We use 2 seeds at this budget:\n\n- `python latepole/soap-f1-auxb2/steps-2900/train_gpt_clean.py --seed 18`\n- `python latepole/soap-f1-auxb2/steps-2900/train_gpt_clean.py --seed 19`\n"
+  },
+  {
+   "path": "latepole/tuned-baseline-3250/steps-1000/train_gpt_simple.py",
+   "from": "artifacts/mng3/scripts/a8330510a858/train_gpt_simple.py"
+  },
+  {
+   "path": "latepole/tuned-baseline-3250/steps-1000/README.md",
+   "content": "# tuned-baseline-3250, 1,000 steps\n\n`train_gpt_simple.py` here is tuned-baseline-3250's training script, single-process on one GPU, run from the task root. Each run trains the first 1,000 steps of its 3,250-step schedule, then stops after its validation at step 1,000 (the script's stop setting); the learning-rate schedule is the full one's. The script takes no seed, so we run it 5 times:\n\n- `python latepole/tuned-baseline-3250/steps-1000/train_gpt_simple.py`\n- `python latepole/tuned-baseline-3250/steps-1000/train_gpt_simple.py`\n- `python latepole/tuned-baseline-3250/steps-1000/train_gpt_simple.py`\n- `python latepole/tuned-baseline-3250/steps-1000/train_gpt_simple.py`\n- `python latepole/tuned-baseline-3250/steps-1000/train_gpt_simple.py`\n"
+  },
+  {
+   "path": "data/fineweb10B/",
+   "hub_files": {
+    "repo": "kjj0/fineweb10B-gpt2",
+    "kind": "dataset",
+    "revision": "889765ea1f903759787add96995d81171b632d0c",
+    "files": {
+     "fineweb_val_000000.bin": {
+      "bytes": 200001024,
+      "sha256": "5b95c8e0966f0861685b307b23dc5ae42b228ef74b28cb499784ae021f201640"
+     },
+     "fineweb_train_000001.bin": {
+      "bytes": 200001024,
+      "sha256": "771fa4a99b9fe0946ffb6e848b4ba5c6a9b0fe87860ebf03bc2c1c7e45f8178e"
+     },
+     "fineweb_train_000002.bin": {
+      "bytes": 200001024,
+      "sha256": "d4ba8d2d740905a836a4222d2aff01750560e7d49a51a745a1b3235520aec2cd"
+     },
+     "fineweb_train_000003.bin": {
+      "bytes": 200001024,
+      "sha256": "f70fa272369730fd9e39f1848bfe4daa3289b6e490c1e7762777f00ea8b66246"
+     },
+     "fineweb_train_000004.bin": {
+      "bytes": 200001024,
+      "sha256": "d8d88850f89fe2030e866380e90d544167467d407080403b830b903543925835"
+     },
+     "fineweb_train_000005.bin": {
+      "bytes": 200001024,
+      "sha256": "36cef3fc41863eb6731b41e986edde38e368853ee6deb87b928990bf445a119c"
+     },
+     "fineweb_train_000006.bin": {
+      "bytes": 200001024,
+      "sha256": "d80e5b209983e636655fc738fdf281f0132f0298bf4c0848f7e7a6bea6ca06f0"
+     },
+     "fineweb_train_000007.bin": {
+      "bytes": 200001024,
+      "sha256": "fa9f94dce61686b5467bc6cd3078424203db23ac254d804a6d8d5d440afc1e11"
+     },
+     "fineweb_train_000008.bin": {
+      "bytes": 200001024,
+      "sha256": "308e6937af5d78b7489a8aac3a3951dced5b46103e613f8bc4eb543f5092526c"
+     },
+     "fineweb_train_000009.bin": {
+      "bytes": 200001024,
+      "sha256": "1635300891634346ecff3a78d6e489a69c647885f0dcd249fe3eb76fac683458"
+     },
+     "fineweb_train_000010.bin": {
+      "bytes": 200001024,
+      "sha256": "72e88f66104dacca163eeb3a00fe40a45a821d2ecd4fb9ce343808996e5d2f5e"
+     },
+     "fineweb_train_000011.bin": {
+      "bytes": 200001024,
+      "sha256": "99edff412654ca6e06d4b3ca563acd8937ee6042f49d009526b8f1074f4d7300"
+     },
+     "fineweb_train_000012.bin": {
+      "bytes": 200001024,
+      "sha256": "92a2dc78e3971ac2a36ef3e9f19c92533bc35ef2dd735bb6759e7b864e301084"
+     },
+     "fineweb_train_000013.bin": {
+      "bytes": 200001024,
+      "sha256": "6cc3884bf19a2d9b4a12d52e4861276da2e3c6614ce97e6bfa0769d701f7a4c5"
+     },
+     "fineweb_train_000014.bin": {
+      "bytes": 200001024,
+      "sha256": "6bc06a838d5a258fb51a3c2a3d14fd784f83b173f408d8d2d3f85b3290094a96"
+     },
+     "fineweb_train_000015.bin": {
+      "bytes": 200001024,
+      "sha256": "09ad252e5d641862f89c31e4f0fa9559933d3e2bc6f657fc05f63166c2d74741"
+     },
+     "fineweb_train_000016.bin": {
+      "bytes": 200001024,
+      "sha256": "56e97975654bb7a1f08f1397dd7894146dd7f8c36bc9fdd71da9675c43ab9a85"
+     }
+    }
+   },
+   "from": "kjj0/fineweb10B-gpt2: the validation shard and the first 16 training shards"
+  }
+ ],
+ "jobs": [
+  {
+   "job_id": "1bd8db7a--1000--run1",
+   "label": "1bd8db7a at 1,000 steps: run 1 of 1",
+   "replicate_group": "mng3-olp-7aaeb3bd4ff9",
+   "records": [
+    "mng3-root-h100-sxmx8-1bd8db7a-f3a-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/1bd8db7a/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "1bd8db7a",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1250.4,
+     "range_s": [
+      1250.4,
+      1250.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "311d7833--1000--run1",
+   "label": "311d7833 at 1,000 steps: run 1 of 1",
+   "replicate_group": "mng3-olp-d89557c6cd0b",
+   "records": [
+    "mng3-root-h100-sxmx8-311d7833-8df-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/311d7833/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "311d7833",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1299.6,
+     "range_s": [
+      1299.6,
+      1299.6
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "478c0427--1000--run1",
+   "label": "478c0427 at 1,000 steps: run 1 of 1",
+   "replicate_group": "mng3-olp-d8f0a2fe9e6f",
+   "records": [
+    "mng3-root-h100-sxmx8-478c0427-06c-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/478c0427/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "478c0427",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1251.3,
+     "range_s": [
+      1251.3,
+      1251.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "51ece938--1000--run1",
+   "label": "51ece938 at 1,000 steps: run 1 of 1",
+   "replicate_group": "mng3-olp-9770ed5bb1b2",
+   "records": [
+    "mng3-root-h100-sxmx8-51ece938-03c-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/51ece938/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "51ece938",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1284.5,
+     "range_s": [
+      1284.5,
+      1284.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "7b8270c5--1000--run1",
+   "label": "7b8270c5 at 1,000 steps: run 1 of 1",
+   "replicate_group": "mng3-olp-c3f9435c9a67",
+   "records": [
+    "mng3-root-h100-sxmx8-7b8270c5-a9c-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/7b8270c5/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "7b8270c5",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1298.8,
+     "range_s": [
+      1298.8,
+      1298.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "a63a68d1--1000--run1",
+   "label": "a63a68d1 at 1,000 steps: run 1 of 1",
+   "replicate_group": "mng3-olp-045f45def96c",
+   "records": [
+    "mng3-root-h100-sxmx8-a63a68d1-24a-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/a63a68d1/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "a63a68d1",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1255.0,
+     "range_s": [
+      1255.0,
+      1255.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "aurora--1000--run1",
+   "label": "aurora at 1,000 steps: run 1 of 1",
+   "replicate_group": "mng3-olp-ef87b5a12917",
+   "records": [
+    "mng3-20260505-aurora-h100-sxmx8-298f02bc-dbb-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/aurora/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "aurora",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1382.5,
+     "range_s": [
+      1382.5,
+      1382.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "muonh--1000--run1",
+   "label": "muonh at 1,000 steps: run 1 of 5",
+   "replicate_group": "mng3-olp-1b4be8bf0a95",
+   "records": [
+    "mng3-20260430-muonh-h100-sxmx8-9cff801b-4ff-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-be7cc5ed-fb1-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-e69fd378-bcc-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-ee63188e-b33-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-efcac613-8a5-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/muonh/steps-1000/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "muonh",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1269.6,
+     "range_s": [
+      1268.8,
+      1271.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "muonh--1000--run2",
+   "label": "muonh at 1,000 steps: run 2 of 5",
+   "replicate_group": "mng3-olp-1b4be8bf0a95",
+   "records": [
+    "mng3-20260430-muonh-h100-sxmx8-9cff801b-4ff-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-be7cc5ed-fb1-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-e69fd378-bcc-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-ee63188e-b33-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-efcac613-8a5-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/muonh/steps-1000/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "muonh",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1269.6,
+     "range_s": [
+      1268.8,
+      1271.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "muonh--1000--run3",
+   "label": "muonh at 1,000 steps: run 3 of 5",
+   "replicate_group": "mng3-olp-1b4be8bf0a95",
+   "records": [
+    "mng3-20260430-muonh-h100-sxmx8-9cff801b-4ff-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-be7cc5ed-fb1-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-e69fd378-bcc-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-ee63188e-b33-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-efcac613-8a5-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/muonh/steps-1000/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "muonh",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1269.6,
+     "range_s": [
+      1268.8,
+      1271.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "muonh--1000--run4",
+   "label": "muonh at 1,000 steps: run 4 of 5",
+   "replicate_group": "mng3-olp-1b4be8bf0a95",
+   "records": [
+    "mng3-20260430-muonh-h100-sxmx8-9cff801b-4ff-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-be7cc5ed-fb1-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-e69fd378-bcc-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-ee63188e-b33-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-efcac613-8a5-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/muonh/steps-1000/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "muonh",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1269.6,
+     "range_s": [
+      1268.8,
+      1271.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "muonh--1000--run5",
+   "label": "muonh at 1,000 steps: run 5 of 5",
+   "replicate_group": "mng3-olp-1b4be8bf0a95",
+   "records": [
+    "mng3-20260430-muonh-h100-sxmx8-9cff801b-4ff-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-be7cc5ed-fb1-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-e69fd378-bcc-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-ee63188e-b33-stop1000-olp",
+    "mng3-20260430-muonh-h100-sxmx8-efcac613-8a5-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/muonh/steps-1000/train_gpt_simple_muonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "muonh",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1269.6,
+     "range_s": [
+      1268.8,
+      1271.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "normuon--1000--run1",
+   "label": "normuon at 1,000 steps: run 1 of 1",
+   "replicate_group": "mng3-olp-568e4e00cb88",
+   "records": [
+    "mng3-20260503-normuon-h100-sxmx8-08ffadff-357-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/normuon/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "normuon",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1251.8,
+     "range_s": [
+      1251.8,
+      1251.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "normuonh--1000--run1",
+   "label": "normuonh at 1,000 steps: run 1 of 5",
+   "replicate_group": "mng3-olp-eda9db122170",
+   "records": [
+    "mng3-20260430-normuonh-h100-sxmx8-a6251aec-847-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-b27e41ac-f5d-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f166e3d2-afc-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f316e57a-213-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f45b5dcf-16b-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/normuonh/steps-1000/train_gpt_simple_normuonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "normuonh",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1257.0,
+     "range_s": [
+      1255.8,
+      1447.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "normuonh--1000--run2",
+   "label": "normuonh at 1,000 steps: run 2 of 5",
+   "replicate_group": "mng3-olp-eda9db122170",
+   "records": [
+    "mng3-20260430-normuonh-h100-sxmx8-a6251aec-847-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-b27e41ac-f5d-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f166e3d2-afc-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f316e57a-213-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f45b5dcf-16b-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/normuonh/steps-1000/train_gpt_simple_normuonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "normuonh",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1257.0,
+     "range_s": [
+      1255.8,
+      1447.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "normuonh--1000--run3",
+   "label": "normuonh at 1,000 steps: run 3 of 5",
+   "replicate_group": "mng3-olp-eda9db122170",
+   "records": [
+    "mng3-20260430-normuonh-h100-sxmx8-a6251aec-847-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-b27e41ac-f5d-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f166e3d2-afc-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f316e57a-213-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f45b5dcf-16b-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/normuonh/steps-1000/train_gpt_simple_normuonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "normuonh",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1257.0,
+     "range_s": [
+      1255.8,
+      1447.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "normuonh--1000--run4",
+   "label": "normuonh at 1,000 steps: run 4 of 5",
+   "replicate_group": "mng3-olp-eda9db122170",
+   "records": [
+    "mng3-20260430-normuonh-h100-sxmx8-a6251aec-847-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-b27e41ac-f5d-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f166e3d2-afc-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f316e57a-213-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f45b5dcf-16b-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/normuonh/steps-1000/train_gpt_simple_normuonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "normuonh",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1257.0,
+     "range_s": [
+      1255.8,
+      1447.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "normuonh--1000--run5",
+   "label": "normuonh at 1,000 steps: run 5 of 5",
+   "replicate_group": "mng3-olp-eda9db122170",
+   "records": [
+    "mng3-20260430-normuonh-h100-sxmx8-a6251aec-847-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-b27e41ac-f5d-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f166e3d2-afc-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f316e57a-213-stop1000-olp",
+    "mng3-20260430-normuonh-h100-sxmx8-f45b5dcf-16b-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/normuonh/steps-1000/train_gpt_simple_normuonh.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "normuonh",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1257.0,
+     "range_s": [
+      1255.8,
+      1447.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "skylight001--1000--run1",
+   "label": "skylight001 at 1,000 steps: run 1 of 3",
+   "replicate_group": "mng3-olp-a519635e2a3b",
+   "records": [
+    "mng3-20260501-skylight001-h100-sxmx8-e9e6f7ec-2ea-stop1000-olp",
+    "mng3-20260501-skylight001-h100-sxmx8-f199a697-541-stop1000-olp",
+    "mng3-20260501-skylight001-h100-sxmx8-f78af80a-2ba-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/skylight001/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "skylight001",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1316.2,
+     "range_s": [
+      1307.5,
+      1325.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 3,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "skylight001--1000--run2",
+   "label": "skylight001 at 1,000 steps: run 2 of 3",
+   "replicate_group": "mng3-olp-a519635e2a3b",
+   "records": [
+    "mng3-20260501-skylight001-h100-sxmx8-e9e6f7ec-2ea-stop1000-olp",
+    "mng3-20260501-skylight001-h100-sxmx8-f199a697-541-stop1000-olp",
+    "mng3-20260501-skylight001-h100-sxmx8-f78af80a-2ba-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/skylight001/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "skylight001",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1316.2,
+     "range_s": [
+      1307.5,
+      1325.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 3,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "skylight001--1000--run3",
+   "label": "skylight001 at 1,000 steps: run 3 of 3",
+   "replicate_group": "mng3-olp-a519635e2a3b",
+   "records": [
+    "mng3-20260501-skylight001-h100-sxmx8-e9e6f7ec-2ea-stop1000-olp",
+    "mng3-20260501-skylight001-h100-sxmx8-f199a697-541-stop1000-olp",
+    "mng3-20260501-skylight001-h100-sxmx8-f78af80a-2ba-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/skylight001/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "skylight001",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1316.2,
+     "range_s": [
+      1307.5,
+      1325.3
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 3,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "soap-f1-auxb2--1000--run1",
+   "label": "soap-f1-auxb2 at 1,000 steps: run 1 of 7, seed 11",
+   "replicate_group": "mng3-olp-9c212d579da0",
+   "records": [
+    "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-f55bd90-stop1000-olp"
+   ],
+   "draw": "exact_seed",
+   "seed": 11,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py --seed 11",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "soap-f1-auxb2",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2750.0,
+     "range_s": [
+      2750.0,
+      2750.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "soap-f1-auxb2--1000--run2",
+   "label": "soap-f1-auxb2 at 1,000 steps: run 2 of 7, seed 12",
+   "replicate_group": "mng3-olp-9c212d579da0",
+   "records": [
+    "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-c0f2fdd-stop1000-olp"
+   ],
+   "draw": "exact_seed",
+   "seed": 12,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py --seed 12",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "soap-f1-auxb2",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2771.8,
+     "range_s": [
+      2771.8,
+      2771.8
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "soap-f1-auxb2--1000--run3",
+   "label": "soap-f1-auxb2 at 1,000 steps: run 3 of 7, seed 13",
+   "replicate_group": "mng3-olp-9c212d579da0",
+   "records": [
+    "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-726744b-stop1000-olp"
+   ],
+   "draw": "exact_seed",
+   "seed": 13,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py --seed 13",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "soap-f1-auxb2",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2765.2,
+     "range_s": [
+      2765.2,
+      2765.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "soap-f1-auxb2--1000--run4",
+   "label": "soap-f1-auxb2 at 1,000 steps: run 4 of 7, seed 14",
+   "replicate_group": "mng3-olp-9c212d579da0",
+   "records": [
+    "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-d156aa8-stop1000-olp"
+   ],
+   "draw": "exact_seed",
+   "seed": 14,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py --seed 14",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "soap-f1-auxb2",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2756.4,
+     "range_s": [
+      2756.4,
+      2756.4
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "soap-f1-auxb2--1000--run5",
+   "label": "soap-f1-auxb2 at 1,000 steps: run 5 of 7, seed 15",
+   "replicate_group": "mng3-olp-9c212d579da0",
+   "records": [
+    "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-2e8ab3b-stop1000-olp"
+   ],
+   "draw": "exact_seed",
+   "seed": 15,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py --seed 15",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "soap-f1-auxb2",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2760.2,
+     "range_s": [
+      2760.2,
+      2760.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "soap-f1-auxb2--1000--run6",
+   "label": "soap-f1-auxb2 at 1,000 steps: run 6 of 7, seed 16",
+   "replicate_group": "mng3-olp-9c212d579da0",
+   "records": [
+    "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-c5f3e5d-stop1000-olp"
+   ],
+   "draw": "exact_seed",
+   "seed": 16,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py --seed 16",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "soap-f1-auxb2",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2758.5,
+     "range_s": [
+      2758.5,
+      2758.5
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "soap-f1-auxb2--1000--run7",
+   "label": "soap-f1-auxb2 at 1,000 steps: run 7 of 7, seed 17",
+   "replicate_group": "mng3-olp-9c212d579da0",
+   "records": [
+    "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-be17439-stop1000-olp"
+   ],
+   "draw": "exact_seed",
+   "seed": 17,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/soap-f1-auxb2/steps-1000/train_gpt_clean.py --seed 17",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "soap-f1-auxb2",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 2758.0,
+     "range_s": [
+      2758.0,
+      2758.0
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "soap-f1-auxb2--2900--run1",
+   "label": "soap-f1-auxb2 at 2,900 steps: run 1 of 2, seed 18",
+   "replicate_group": "mng3-olp-f1b30584720e",
+   "records": [
+    "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-9ccf725-olp"
+   ],
+   "draw": "exact_seed",
+   "seed": 18,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/soap-f1-auxb2/steps-2900/train_gpt_clean.py --seed 18",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "soap-f1-auxb2",
+   "stop_step": 2900,
+   "stated_steps": 2900,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 8544.2,
+     "range_s": [
+      8544.2,
+      8544.2
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "soap-f1-auxb2--2900--run2",
+   "label": "soap-f1-auxb2 at 2,900 steps: run 2 of 2, seed 19",
+   "replicate_group": "mng3-olp-f1b30584720e",
+   "records": [
+    "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-042fe44-olp"
+   ],
+   "draw": "exact_seed",
+   "seed": 19,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/soap-f1-auxb2/steps-2900/train_gpt_clean.py --seed 19",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "soap-f1-auxb2",
+   "stop_step": 2900,
+   "stated_steps": 2900,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 8556.7,
+     "range_s": [
+      8556.7,
+      8556.7
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 1,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   },
+   "rerun_siblings": [],
+   "rerun_siblings_how": "0 other runs of the same script at the job's stop step, none from a run any job of the task lists; 0 such runs free of 0, dealt to 9 job(s)"
+  },
+  {
+   "job_id": "tuned-baseline-3250--1000--run1",
+   "label": "tuned-baseline-3250 at 1,000 steps: run 1 of 5",
+   "replicate_group": "mng3-olp-b5e33d7dceaa",
+   "records": [
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-a7c375e8-c0f-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-b199590f-f4a-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-c67512ee-207-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-f0bcca7d-a14-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-fc5b73a0-d67-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/tuned-baseline-3250/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "tuned-baseline-3250",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1310.8,
+     "range_s": [
+      1308.8,
+      1311.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "tuned-baseline-3250--1000--run2",
+   "label": "tuned-baseline-3250 at 1,000 steps: run 2 of 5",
+   "replicate_group": "mng3-olp-b5e33d7dceaa",
+   "records": [
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-a7c375e8-c0f-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-b199590f-f4a-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-c67512ee-207-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-f0bcca7d-a14-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-fc5b73a0-d67-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/tuned-baseline-3250/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "tuned-baseline-3250",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1310.8,
+     "range_s": [
+      1308.8,
+      1311.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "tuned-baseline-3250--1000--run3",
+   "label": "tuned-baseline-3250 at 1,000 steps: run 3 of 5",
+   "replicate_group": "mng3-olp-b5e33d7dceaa",
+   "records": [
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-a7c375e8-c0f-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-b199590f-f4a-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-c67512ee-207-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-f0bcca7d-a14-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-fc5b73a0-d67-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/tuned-baseline-3250/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "tuned-baseline-3250",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1310.8,
+     "range_s": [
+      1308.8,
+      1311.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "tuned-baseline-3250--1000--run4",
+   "label": "tuned-baseline-3250 at 1,000 steps: run 4 of 5",
+   "replicate_group": "mng3-olp-b5e33d7dceaa",
+   "records": [
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-a7c375e8-c0f-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-b199590f-f4a-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-c67512ee-207-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-f0bcca7d-a14-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-fc5b73a0-d67-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/tuned-baseline-3250/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "tuned-baseline-3250",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1310.8,
+     "range_s": [
+      1308.8,
+      1311.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  },
+  {
+   "job_id": "tuned-baseline-3250--1000--run5",
+   "label": "tuned-baseline-3250 at 1,000 steps: run 5 of 5",
+   "replicate_group": "mng3-olp-b5e33d7dceaa",
+   "records": [
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-a7c375e8-c0f-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-b199590f-f4a-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-c67512ee-207-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-f0bcca7d-a14-stop1000-olp",
+    "mng3-20260610-tuned-baseline-3250-h100-sxmx8-fc5b73a0-d67-stop1000-olp"
+   ],
+   "draw": "without_replacement",
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "gpu_options": [
+    1
+   ],
+   "launch": "python latepole/tuned-baseline-3250/steps-1000/train_gpt_simple.py",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "setup": "tuned-baseline-3250",
+   "stop_step": 1000,
+   "stated_steps": 1000,
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1310.8,
+     "range_s": [
+      1308.8,
+      1311.9
+     ],
+     "on": "1x NVIDIA H100 80GB HBM3 (single-process; recorded on 8x NVIDIA H100 80GB HBM3)",
+     "n_runs": 5,
+     "how": "paced one-GPU duration: the recorded runs converted to one GPU by gpu-mock's convert(), the width a single-process script runs at"
+    },
+    "exact": "computed at launch by gpu-mock's convert() for one GPU, the only width a single-process script runs at"
+   }
+  }
+ ],
+ "latepole": {
+  "jobs": [
+   {
+    "job_id": "1bd8db7a--1000--run1",
+    "setup": "1bd8db7a",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-root-h100-sxmx8-1bd8db7a-f3a-stop1000-olp",
+    "parent": "mng3-root-h100-sxmx8-1bd8db7a-f3a",
+    "source_path": "records/track_3_optimization/results/1bd8db7a-f3a3-4195-856d-cab7e0816443.txt",
+    "val_loss": 3.64527,
+    "paced_1gpu_s": 1250.4,
+    "torch": "2.11.0+cu128"
+   },
+   {
+    "job_id": "311d7833--1000--run1",
+    "setup": "311d7833",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-root-h100-sxmx8-311d7833-8df-stop1000-olp",
+    "parent": "mng3-root-h100-sxmx8-311d7833-8df",
+    "source_path": "records/track_3_optimization/results/311d7833-8dfc-43ea-a55c-fd313a11c4a8.txt",
+    "val_loss": 3.61716,
+    "paced_1gpu_s": 1299.6,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "478c0427--1000--run1",
+    "setup": "478c0427",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-root-h100-sxmx8-478c0427-06c-stop1000-olp",
+    "parent": "mng3-root-h100-sxmx8-478c0427-06c",
+    "source_path": "records/track_3_optimization/results/478c0427-06ce-4952-bc0a-7e2dfaea29b6.txt",
+    "val_loss": 3.63895,
+    "paced_1gpu_s": 1251.3,
+    "torch": "2.11.0+cu128"
+   },
+   {
+    "job_id": "51ece938--1000--run1",
+    "setup": "51ece938",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-root-h100-sxmx8-51ece938-03c-stop1000-olp",
+    "parent": "mng3-root-h100-sxmx8-51ece938-03c",
+    "source_path": "records/track_3_optimization/results/51ece938-03c5-4343-8dcc-3f3336b07008.txt",
+    "val_loss": 3.63309,
+    "paced_1gpu_s": 1284.5,
+    "torch": "2.11.0+cu130"
+   },
+   {
+    "job_id": "7b8270c5--1000--run1",
+    "setup": "7b8270c5",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-root-h100-sxmx8-7b8270c5-a9c-stop1000-olp",
+    "parent": "mng3-root-h100-sxmx8-7b8270c5-a9c",
+    "source_path": "records/track_3_optimization/results/7b8270c5-a9cd-4a73-b7d8-5d86a2d1e428.txt",
+    "val_loss": 3.61194,
+    "paced_1gpu_s": 1298.8,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "a63a68d1--1000--run1",
+    "setup": "a63a68d1",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-root-h100-sxmx8-a63a68d1-24a-stop1000-olp",
+    "parent": "mng3-root-h100-sxmx8-a63a68d1-24a",
+    "source_path": "records/track_3_optimization/results/a63a68d1-24aa-4a22-af9a-224e43209ea4.txt",
+    "val_loss": 3.77288,
+    "paced_1gpu_s": 1255.0,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "aurora--1000--run1",
+    "setup": "aurora",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260505-aurora-h100-sxmx8-298f02bc-dbb-stop1000-olp",
+    "parent": "mng3-20260505-aurora-h100-sxmx8-298f02bc-dbb",
+    "source_path": "records/track_3_optimization/results/20260505_aurora/298f02bc-dbb4-4661-9ad8-f6429d532873.txt",
+    "val_loss": 3.69391,
+    "paced_1gpu_s": 1382.5,
+    "torch": "2.10.0+cu129"
+   },
+   {
+    "job_id": "muonh--1000--run1",
+    "setup": "muonh",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260430-muonh-h100-sxmx8-9cff801b-4ff-stop1000-olp",
+    "parent": "mng3-20260430-muonh-h100-sxmx8-9cff801b-4ff",
+    "source_path": "records/track_3_optimization/results/20260430_muonh/9cff801b-4ff7-4104-b01c-29b2202f2003.txt",
+    "val_loss": 3.68683,
+    "paced_1gpu_s": 1271.0,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "muonh--1000--run2",
+    "setup": "muonh",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260430-muonh-h100-sxmx8-be7cc5ed-fb1-stop1000-olp",
+    "parent": "mng3-20260430-muonh-h100-sxmx8-be7cc5ed-fb1",
+    "source_path": "records/track_3_optimization/results/20260430_muonh/be7cc5ed-fb14-4be6-9806-829ec7549eb8.txt",
+    "val_loss": 3.68635,
+    "paced_1gpu_s": 1269.4,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "muonh--1000--run3",
+    "setup": "muonh",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260430-muonh-h100-sxmx8-e69fd378-bcc-stop1000-olp",
+    "parent": "mng3-20260430-muonh-h100-sxmx8-e69fd378-bcc",
+    "source_path": "records/track_3_optimization/results/20260430_muonh/e69fd378-bccd-4106-9a34-4f7a48883609.txt",
+    "val_loss": 3.6856,
+    "paced_1gpu_s": 1268.8,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "muonh--1000--run4",
+    "setup": "muonh",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260430-muonh-h100-sxmx8-ee63188e-b33-stop1000-olp",
+    "parent": "mng3-20260430-muonh-h100-sxmx8-ee63188e-b33",
+    "source_path": "records/track_3_optimization/results/20260430_muonh/ee63188e-b338-4bf2-845d-1ecc3ccaeafb.txt",
+    "val_loss": 3.68643,
+    "paced_1gpu_s": 1269.6,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "muonh--1000--run5",
+    "setup": "muonh",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260430-muonh-h100-sxmx8-efcac613-8a5-stop1000-olp",
+    "parent": "mng3-20260430-muonh-h100-sxmx8-efcac613-8a5",
+    "source_path": "records/track_3_optimization/results/20260430_muonh/efcac613-8a5d-48a6-84fa-72575f8938d9.txt",
+    "val_loss": 3.68572,
+    "paced_1gpu_s": 1269.6,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "normuon--1000--run1",
+    "setup": "normuon",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260503-normuon-h100-sxmx8-08ffadff-357-stop1000-olp",
+    "parent": "mng3-20260503-normuon-h100-sxmx8-08ffadff-357",
+    "source_path": "records/track_3_optimization/results/20260503_normuon/08ffadff-3576-496b-9795-2dc5cf8f4f46.txt",
+    "val_loss": 3.63274,
+    "paced_1gpu_s": 1251.8,
+    "torch": "2.11.0+cu128"
+   },
+   {
+    "job_id": "normuonh--1000--run1",
+    "setup": "normuonh",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260430-normuonh-h100-sxmx8-a6251aec-847-stop1000-olp",
+    "parent": "mng3-20260430-normuonh-h100-sxmx8-a6251aec-847",
+    "source_path": "records/track_3_optimization/results/20260430_normuonh/a6251aec-847d-480b-afee-78e6b8251a0d.txt",
+    "val_loss": 3.68342,
+    "paced_1gpu_s": 1256.6,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "normuonh--1000--run2",
+    "setup": "normuonh",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260430-normuonh-h100-sxmx8-b27e41ac-f5d-stop1000-olp",
+    "parent": "mng3-20260430-normuonh-h100-sxmx8-b27e41ac-f5d",
+    "source_path": "records/track_3_optimization/results/20260430_normuonh/b27e41ac-f5df-4359-8c8d-5e40a07b0bb3.txt",
+    "val_loss": 3.67597,
+    "paced_1gpu_s": 1257.0,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "normuonh--1000--run3",
+    "setup": "normuonh",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260430-normuonh-h100-sxmx8-f166e3d2-afc-stop1000-olp",
+    "parent": "mng3-20260430-normuonh-h100-sxmx8-f166e3d2-afc",
+    "source_path": "records/track_3_optimization/results/20260430_normuonh/f166e3d2-afce-4145-bd38-137f171c21ac.txt",
+    "val_loss": 3.68137,
+    "paced_1gpu_s": 1257.0,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "normuonh--1000--run4",
+    "setup": "normuonh",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260430-normuonh-h100-sxmx8-f316e57a-213-stop1000-olp",
+    "parent": "mng3-20260430-normuonh-h100-sxmx8-f316e57a-213",
+    "source_path": "records/track_3_optimization/results/20260430_normuonh/f316e57a-213c-4f73-b5a9-a10ea1692e4f.txt",
+    "val_loss": 3.6815,
+    "paced_1gpu_s": 1447.0,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "normuonh--1000--run5",
+    "setup": "normuonh",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260430-normuonh-h100-sxmx8-f45b5dcf-16b-stop1000-olp",
+    "parent": "mng3-20260430-normuonh-h100-sxmx8-f45b5dcf-16b",
+    "source_path": "records/track_3_optimization/results/20260430_normuonh/f45b5dcf-16bb-4e83-b5c7-4ef4981f0e9f.txt",
+    "val_loss": 3.67843,
+    "paced_1gpu_s": 1255.8,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "skylight001--1000--run1",
+    "setup": "skylight001",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260501-skylight001-h100-sxmx8-e9e6f7ec-2ea-stop1000-olp",
+    "parent": "mng3-20260501-skylight001-h100-sxmx8-e9e6f7ec-2ea",
+    "source_path": "records/track_3_optimization/results/20260501_skylight001/e9e6f7ec-2ea3-4771-a112-5210cdd8df8f.txt",
+    "val_loss": 3.69606,
+    "paced_1gpu_s": 1307.5,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "skylight001--1000--run2",
+    "setup": "skylight001",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260501-skylight001-h100-sxmx8-f199a697-541-stop1000-olp",
+    "parent": "mng3-20260501-skylight001-h100-sxmx8-f199a697-541",
+    "source_path": "records/track_3_optimization/results/20260501_skylight001/f199a697-5414-4067-a566-3219d2fd5748.txt",
+    "val_loss": 3.69435,
+    "paced_1gpu_s": 1316.2,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "skylight001--1000--run3",
+    "setup": "skylight001",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260501-skylight001-h100-sxmx8-f78af80a-2ba-stop1000-olp",
+    "parent": "mng3-20260501-skylight001-h100-sxmx8-f78af80a-2ba",
+    "source_path": "records/track_3_optimization/results/20260501_skylight001/f78af80a-2ba3-4cf7-b9f7-e6e56ff2c54d.txt",
+    "val_loss": 3.69531,
+    "paced_1gpu_s": 1325.3,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "soap-f1-auxb2--1000--run1",
+    "setup": "soap-f1-auxb2",
+    "steps": 1000,
+    "seed": 11,
+    "record": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-f55bd90-stop1000-olp",
+    "parent": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-f55bd90",
+    "source_path": "records/track_3_optimization/results/20260609_soap_f1_auxb2_clean/H100_f55bd908-970a-46f5-b2b1-c02d7c875c23.txt",
+    "val_loss": 3.62807,
+    "paced_1gpu_s": 2750.0,
+    "torch": "2.9.0+cu128"
+   },
+   {
+    "job_id": "soap-f1-auxb2--1000--run2",
+    "setup": "soap-f1-auxb2",
+    "steps": 1000,
+    "seed": 12,
+    "record": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-c0f2fdd-stop1000-olp",
+    "parent": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-c0f2fdd",
+    "source_path": "records/track_3_optimization/results/20260609_soap_f1_auxb2_clean/H100_c0f2fdd6-8e5b-49c4-9591-5d6a30746a1e.txt",
+    "val_loss": 3.62859,
+    "paced_1gpu_s": 2771.8,
+    "torch": "2.9.0+cu128"
+   },
+   {
+    "job_id": "soap-f1-auxb2--1000--run3",
+    "setup": "soap-f1-auxb2",
+    "steps": 1000,
+    "seed": 13,
+    "record": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-726744b-stop1000-olp",
+    "parent": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-726744b",
+    "source_path": "records/track_3_optimization/results/20260609_soap_f1_auxb2_clean/H100_726744b9-bc75-49c0-891e-cab29a4d86d3.txt",
+    "val_loss": 3.62733,
+    "paced_1gpu_s": 2765.2,
+    "torch": "2.9.0+cu128"
+   },
+   {
+    "job_id": "soap-f1-auxb2--1000--run4",
+    "setup": "soap-f1-auxb2",
+    "steps": 1000,
+    "seed": 14,
+    "record": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-d156aa8-stop1000-olp",
+    "parent": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-d156aa8",
+    "source_path": "records/track_3_optimization/results/20260609_soap_f1_auxb2_clean/H100_d156aa8e-60c2-4133-b1a5-84a2f5a14a62.txt",
+    "val_loss": 3.62857,
+    "paced_1gpu_s": 2756.4,
+    "torch": "2.9.0+cu128"
+   },
+   {
+    "job_id": "soap-f1-auxb2--1000--run5",
+    "setup": "soap-f1-auxb2",
+    "steps": 1000,
+    "seed": 15,
+    "record": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-2e8ab3b-stop1000-olp",
+    "parent": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-2e8ab3b",
+    "source_path": "records/track_3_optimization/results/20260609_soap_f1_auxb2_clean/H100_2e8ab3b3-c30b-4dd2-8076-a98d0e5b7535.txt",
+    "val_loss": 3.63097,
+    "paced_1gpu_s": 2760.2,
+    "torch": "2.9.0+cu128"
+   },
+   {
+    "job_id": "soap-f1-auxb2--1000--run6",
+    "setup": "soap-f1-auxb2",
+    "steps": 1000,
+    "seed": 16,
+    "record": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-c5f3e5d-stop1000-olp",
+    "parent": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-c5f3e5d",
+    "source_path": "records/track_3_optimization/results/20260609_soap_f1_auxb2_clean/H100_c5f3e5d9-a635-42a1-8ac8-b24ef44a7c7c.txt",
+    "val_loss": 3.6286,
+    "paced_1gpu_s": 2758.5,
+    "torch": "2.9.0+cu128"
+   },
+   {
+    "job_id": "soap-f1-auxb2--1000--run7",
+    "setup": "soap-f1-auxb2",
+    "steps": 1000,
+    "seed": 17,
+    "record": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-be17439-stop1000-olp",
+    "parent": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-be17439",
+    "source_path": "records/track_3_optimization/results/20260609_soap_f1_auxb2_clean/H100_be17439e-9fb2-4b0a-9295-eea14e6adb94.txt",
+    "val_loss": 3.62869,
+    "paced_1gpu_s": 2758.0,
+    "torch": "2.9.0+cu128"
+   },
+   {
+    "job_id": "soap-f1-auxb2--2900--run1",
+    "setup": "soap-f1-auxb2",
+    "steps": 2900,
+    "seed": 18,
+    "record": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-9ccf725-olp",
+    "parent": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-9ccf725",
+    "source_path": "records/track_3_optimization/results/20260609_soap_f1_auxb2_clean/H100_9ccf725e-8746-4602-8e73-e4aa70f0001d.txt",
+    "val_loss": 3.27252,
+    "paced_1gpu_s": 8544.2,
+    "torch": "2.9.0+cu128"
+   },
+   {
+    "job_id": "soap-f1-auxb2--2900--run2",
+    "setup": "soap-f1-auxb2",
+    "steps": 2900,
+    "seed": 19,
+    "record": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-042fe44-olp",
+    "parent": "mng3-20260609-soap-f1-auxb2-clean-h100-sxmx8-h100-042fe44",
+    "source_path": "records/track_3_optimization/results/20260609_soap_f1_auxb2_clean/H100_042fe449-db12-4930-8db0-1b4e2e058e1a.txt",
+    "val_loss": 3.27204,
+    "paced_1gpu_s": 8556.7,
+    "torch": "2.9.0+cu128"
+   },
+   {
+    "job_id": "tuned-baseline-3250--1000--run1",
+    "setup": "tuned-baseline-3250",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260610-tuned-baseline-3250-h100-sxmx8-a7c375e8-c0f-stop1000-olp",
+    "parent": "mng3-20260610-tuned-baseline-3250-h100-sxmx8-a7c375e8-c0f",
+    "source_path": "records/track_3_optimization/results/20260610_tuned_baseline_3250/a7c375e8-c0f3-404b-8522-7b1fd91c7236.txt",
+    "val_loss": 3.65681,
+    "paced_1gpu_s": 1310.8,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "tuned-baseline-3250--1000--run2",
+    "setup": "tuned-baseline-3250",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260610-tuned-baseline-3250-h100-sxmx8-b199590f-f4a-stop1000-olp",
+    "parent": "mng3-20260610-tuned-baseline-3250-h100-sxmx8-b199590f-f4a",
+    "source_path": "records/track_3_optimization/results/20260610_tuned_baseline_3250/b199590f-f4a3-47a6-bc5a-aeef94b92000.txt",
+    "val_loss": 3.65274,
+    "paced_1gpu_s": 1311.9,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "tuned-baseline-3250--1000--run3",
+    "setup": "tuned-baseline-3250",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260610-tuned-baseline-3250-h100-sxmx8-c67512ee-207-stop1000-olp",
+    "parent": "mng3-20260610-tuned-baseline-3250-h100-sxmx8-c67512ee-207",
+    "source_path": "records/track_3_optimization/results/20260610_tuned_baseline_3250/c67512ee-2070-4733-9769-573116e14ad5.txt",
+    "val_loss": 3.655,
+    "paced_1gpu_s": 1311.7,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "tuned-baseline-3250--1000--run4",
+    "setup": "tuned-baseline-3250",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260610-tuned-baseline-3250-h100-sxmx8-f0bcca7d-a14-stop1000-olp",
+    "parent": "mng3-20260610-tuned-baseline-3250-h100-sxmx8-f0bcca7d-a14",
+    "source_path": "records/track_3_optimization/results/20260610_tuned_baseline_3250/f0bcca7d-a146-4cf8-a7c3-ba36733928f4.txt",
+    "val_loss": 3.65381,
+    "paced_1gpu_s": 1309.2,
+    "torch": "2.10.0+cu128"
+   },
+   {
+    "job_id": "tuned-baseline-3250--1000--run5",
+    "setup": "tuned-baseline-3250",
+    "steps": 1000,
+    "seed": null,
+    "record": "mng3-20260610-tuned-baseline-3250-h100-sxmx8-fc5b73a0-d67-stop1000-olp",
+    "parent": "mng3-20260610-tuned-baseline-3250-h100-sxmx8-fc5b73a0-d67",
+    "source_path": "records/track_3_optimization/results/20260610_tuned_baseline_3250/fc5b73a0-d67d-4b00-a5dc-934fa01c1505.txt",
+    "val_loss": 3.65201,
+    "paced_1gpu_s": 1308.8,
+    "torch": "2.10.0+cu128"
+   }
+  ],
+  "how": "per job in the natural order: its recorded run (source.path), budget, seed, the loss its run reports at its last validation, paced one-GPU duration and recorded torch"
+ },
+ "schedule": {
+  "best_s": 9068.5,
+  "best_how": "proved optimum (CP-SAT, OPTIMAL; lane OBS olp_optimum.py)",
+  "lpt_true_lengths": 1.0176,
+  "lower_bound_s": 8752.3,
+  "blind_by_steps": 1.0292,
+  "fcfs_file": 1.529,
+  "lists_round_robin": [
+   1.524,
+   0.002
+  ],
+  "lists_chunked": [
+   2.798,
+   0.36
+  ],
+  "poles_at": [
+   29,
+   30
+  ],
+  "short_min_min": 21,
+  "short_max_min": 46,
+  "pole_h": 2.4,
+  "step_cost_spread": "1.25-2.95 s per step",
+  "spearman_steps_vs_length": 0.402,
+  "how": "Ideal-time schedules over the jobs in natural order (no host terms, no agent turns), as ratios to the proved optimum of the paced one-GPU durations (OPTIMUM_S): bar 2 by stated steps (the files' only length signal), longest first on true lengths, file-order FCFS, and fixed per-GPU lists dealt round-robin or in contiguous chunks of ceil(jobs / GPUs), each with its idle while a released job waited, over GPUs x makespan."
+ },
+ "scripted_reference": {
+  "path": "reference/latepole_reference.py",
+  "from": "artifacts/obs-latepole/latepole_reference.py",
+  "args": [
+   "--root",
+   ".",
+   "--gpus",
+   "8"
+  ],
+  "how": "brief-only controller (lane OBS): reads each run's script for the steps it states it trains and each README's launch line, then launches the most stated steps first as GPUs free; no registry, recorded seconds, losses or table of ours. Staged only for scripted runs, never in a model agent's workspace"
+ },
+ "measuring_run": {
+  "harness": "scripted",
+  "policy": "controller",
+  "speed": 10.0,
+  "role": "check",
+  "how": "brief-only: the task's scripted_reference, the controller plan.py's controller policy writes and runs (pkg-k2-latepole's form); the registry's packed is the informed reference beside it"
+ },
+ "sources": [
+  "modded-nanogpt track 3, commit 4ea6b937; recorded runs on H100 SXM (H100 80GB HBM3) x8, converted to one GPU; 1,000-step runs by build/gen_prefix.py's stop change (soap-f1-auxb2 by its own STOP_STEP)"
+ ],
+ "notes": [
+  "Scripts made single-process (build/single_process.py), as G4n, K, H1, H3' and H4: no torch.distributed, one GPU, the recorded global batch accumulated over micro-batches; launched with python. Timings are the recorded runs converted to one GPU by gpu-mock's convert().",
+  "Every job is its own recorded run (keyed by source.path), never two jobs from one run: soap-f1-auxb2's seeds 11-17 run 1,000 steps and seeds 18-19 its full schedule (common.repeated_records; analysis 15:37 MST).",
+  "Under the selection guard: no run here is served by the paper's packages or by any package-search candidate (the five and their twins and variants, K, K2, SF, C, A, D, filter-yield, the tabular packages and the held matrix; experiments/package-search/lanes/observed/holdings.py). Some are also served by mng3-optimizer-shootout and mng3-screen-then-confirm (development suites, not in the paper), by analysis's ruling of 15:37 MST. The source is the same modded-nanogpt track 3 as K and the G4n twins; the twin is of pkg-k2-latepole, whose source is MLS-Bench.",
+  "The root track-3 records are named as the source names them: their folders are the first 8 characters of the log's uuid (records/track_3_optimization/results/<uuid>.txt). Each is its own script.",
+  "Recorded on other stacks than the box's torch 2.11.0, served on its image: torch 2.10.0+cu128: 311d7833, 7b8270c5, a63a68d1, muonh, normuonh, skylight001, tuned-baseline-3250; torch 2.10.0+cu129: aurora; torch 2.11.0+cu128: 1bd8db7a, 478c0427, normuon; torch 2.11.0+cu130: 51ece938; torch 2.9.0+cu128: soap-f1-auxb2. Whether the agent can see the recorded version is gpu-mock's question, as for K and G4n.",
+  "The lengths are readable from the stated steps: each script's stop setting or schedule length, the folder name and the README state them; per-step cost differs 1.25-2.95 s per step across these scripts, so the stated steps rank the true lengths (Spearman 0.402). An agent that sorts by them reaches the best schedule; the package measures an agent that doesn't.",
+  "The natural order (folders sorted by name, then budget, then seed or record id; the glob order of latepole/*/steps-*/ and each README's list) puts soap-f1-auxb2's two full runs at [29, 30] of 35. Nothing is reordered (analysis 15:11 MST, condition 1).",
+  "Computed before the screen, ideal times on these jobs (schedule, at 8 GPUs): file-order FCFS 1.529x the best, round-robin per-GPU lists 1.524x (idle while work waits 0.002), contiguous chunks of ceil(35/8) 2.798x; brief-only by stated steps 1.0292x; all over the proved optimum, 9068.5 s. These are predictions, not screens."
+ ],
+ "reference_how": "bar 2: the brief-only reference is the scripted_reference controller, which ranks runs by the steps their scripts state; in ideal times it is 1.0292x the proved optimum (schedule.blind_by_steps), against 1.0176x for longest first on true lengths. The registry's packed (longest disclosed estimate first) is the informed reference",
+ "stats": {
+  "jobs": 35,
+  "recorded_gpu_seconds": 69784.4,
+  "recorded_gpu_seconds_how": "replayed GPU-seconds, despite the field's name (kept for its readers): sum over jobs of the least GPU-seconds over the job's allowed GPU counts, each from the shortest paced duration among the records the job can draw (build/common.py:paced_duration, what gpu-mock's replay paces). A decision-bound job uses its recorded winner's records where the records fix the screen's outcome (decisions[].recorded_outcome), and the whole candidate pool otherwise. Changed on 2026-10-20 from recorded wall time, which includes host time replay does not pace, so the old figure was not a floor under a replayed run",
+  "lower_bound_makespan_s": 8723.1,
+  "lower_bound_how": "max(work / box GPUs, critical path): work as in recorded_gpu_seconds, and the critical path takes each job at its widest allowed count with the shortest paced duration among its records. Durations are what gpu-mock's replay paces (build/common.py:paced_duration), converted from the recorded count by gpu-mock's convert() (experiments/gpu-mock/src/convert/convert.py, imported by build/common.py:time_factor), never faster than recorded. Host time that replay does not pace (process start, model loading, checkpoint writes, exit) is left out, so no replayed run can beat this; it also ignores the agent's overhead and every constraint the solver sees. Paced since 2026-10-20; before that it used recorded wall time, which a replayed run could beat",
+  "serial_makespan_s": 69830.5,
+  "serial_how": "one job at a time, each on as many GPUs as it may use up to its recorded count, with the median paced duration among its records and the same convert(); no host time and no gaps between jobs"
+ },
+ "readiness": {
+  "replay_ready_jobs": 35,
+  "jobs_with_records": 35,
+  "blockers": {}
+ },
+ "shared_state": {
+  "default_shared": [],
+  "by_design": [],
+  "isolation": null,
+  "how": "no output path in the launch line. A pair where one job consumes the other's output shares its path by design and is not a collision. Under the study's ruling (design/IDEA.md, shared-state collisions) both references isolate shared paths, and an agent that leaves them shared pays through the collision class, never through a recorded failure"
+ },
+ "horizon_s": 108000,
+ "horizon_terms": {
+  "serial_makespan_s": 69830.5,
+  "startup_total_s": 0.0,
+  "startup_provenance": "absent",
+  "startup_source_machine_type": null,
+  "startup_by_machine_type": {},
+  "fleet_machine_type": "c3-highmem-44",
+  "provisional": true,
+  "startup_how": "the serial scripted policy's start-ups (launch to the job's first paced step; a script's first job cold, later ones warm), summed over every job, with each measured machine type's host terms (build/expected_scores.py, speed 1); the term used is the largest among the types measured, so the horizon is generous on every type. The fleet's type, c3-highmem-44, is not measured yet, so this is provisional and expected to move when its measuring run lands. No type is measured, so the term is 0"
+ },
+ "environment_floor": {
+  "by_machine_type": {},
+  "provenance": "absent",
+  "fleet_machine_type": "c3-highmem-44",
+  "fleet_measured": false,
+  "how": "per machine type: the overlapping packed policy's makespan from agent start (packed_overlap: each successor's start-up runs during its predecessor's GPU work, the runner rule; build/expected_scores.py, speed 1) with the host terms measured on that type at its box's caps and image (`measured`), minus stats.lower_bound_makespan_s. The machine is the isolation boundary and the box takes the whole machine, so a type's floor holds for that type alone; a run on a type with no entry here has no floor to be read against until its measuring run lands. host-terms files are survey/host-terms/<task_id>.<machine type>.json; the fleet's type today is c3-highmem-44. Nothing is measured yet"
+ },
+ "horizon_how": "colleague_round(1.5 x (stats.serial_makespan_s + horizon_terms.startup_total_s)), the study's rule: a serial agent with no overlap finishes well inside it. Rounded up to 5 minutes under an hour, 15 minutes under six hours, whole hours above. Never shown to the agent: it is the run's hard stop and the end of the scoring window when work remains. In recorded seconds, like stats: a run with the speed knob divides it by the same factor. One value for every machine type, from the largest measured start-up total (horizon_terms). Provisional: c3-highmem-44 is not measured yet. Replaced deadline_s, which the brief stated, on 2026-10-20; runs under a brief that stated a deadline are not pooled with runs under this one",
+ "work_remaining": {
+  "rule": "jobs_not_completed",
+  "how": "at the horizon, every job without a completed run counts as remaining: not launched, still running, or failed and not rerun to completion. A decision-bound job counts once its slot is known; before that, each unfilled slot counts as one job"
+ },
+ "environment": {
+  "python": {
+   "value": "3.11.9",
+   "provenance": "inferred",
+   "how": "the records carry no Python version; 3.11.9 is one of the two isolation's build.sh pins, torch 2.11.0 has a CPU wheel for it, and the scripts use no version-specific feature (the repo's Dockerfile uses 3.12.7)"
+  },
+  "install": {
+   "packages": [
+    "torch==2.11.0",
+    "numpy==2.4.4",
+    "setuptools==81.0.0"
+   ],
+   "constraints": "artifacts/mng3/env/torch-2.11.0-py3.11/constraints.txt",
+   "line": "pip install -c constraints.txt torch==2.11.0 numpy==2.4.4 setuptools==81.0.0",
+   "cpu_lines": [
+    "pip install --index-url https://download.pytorch.org/whl/cpu --no-deps torch==2.11.0",
+    "pip install -c constraints.txt numpy==2.4.4 setuptools==81.0.0 sympy networkx jinja2 filelock typing-extensions fsspec"
+   ],
+   "how": "torch 2.11.0 matches the records this task draws (their torch: 2.10.0+cu128, 2.10.0+cu129, 2.11.0+cu128, 2.11.0+cu130, 2.9.0+cu128) and the track's README quickstart (`pip install torch==2.11`). Its runtime dependencies and numpy are pinned in the constraints at their newest final release before 2026-05-01, the records' earliest date, that installs on Python 3.11 (PyPI, read 2026-10-20), except setuptools under 82, because torch 2.11.0 requires it, and mpmath 1.3.0, because sympy 1.14.0 requires mpmath<1.4. Chosen, not recorded: the records hold no package list"
+  },
+  "source": null,
+  "hub": [],
+  "hub_bytes": 0,
+  "hub_how": "none: the training data are the Hub dataset's files, placed in the tree by build/stage_task.py (files[] git_lfs entry)",
+  "env": {},
+  "env_how": "nothing: the scripts read data/fineweb10B/ relative to the working directory and write logs/<uuid>.txt there",
+  "verified": "pending: the staging check on the VM (build/check_staging.sh) under these pins; gpu-mock's replay of a track-3 script on torch 2.11 is gpu-mock's own check",
+  "image_label": {
+   "value": "mng3-packages-8gpu",
+   "how": "one p006.task-env label for every package task drawn from this image, so one image serves the whole package family; the 8-GPU image of the same stack: same packages, built with GPUS=8, a label of its own so a 4-GPU line never draws it"
+  }
+ },
+ "task_class": "fan_out_required",
+ "task_class_how": "no job can use more than 1 of the box's 8 GPUs, so filling the box means running several jobs at once",
+ "model_runs": {
+  "allowed": true,
+  "problems": [],
+  "how": "allowed when no two jobs can be served the same recorded run or overlapping steps of one (common.repeated_records): a seed-substituted job, two prefix jobs cut from one parent, or a prefix and its parent's full run all repeat losses an agent can see. Scripted runs read no values, so they may run any task"
+ },
+ "rerun_siblings_how": "gpu-mock serves a job's primary record once per run; a later lookup of it by another job key (a rerun) gets the first unused id of that job's rerun_siblings, served by id whatever its bound_path, then the primary again (draw: reused) when the list is spent. Siblings are other recorded runs of the same script and stop step, none overlapping any record any job of the task lists or another job's siblings (build/siblings.py; validate.py checks it). Segments have none: a resumed segment follows the run of the checkpoint it loads (gpu-mock's lineage rule). Evidence that a sibling is a faithful rerun: newton-muon's one script fixes no seed, so its 15 recorded runs are reruns of identical code, and they vary as much at step 250 as other setups do across seeds (survey/siblings-2026-10-21.json, rerun_spread)"
+}

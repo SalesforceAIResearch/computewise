@@ -1,0 +1,862 @@
+{
+ "schema": "p006-gpu-task/0.1",
+ "box": {
+  "gpus": 4,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "interconnect": "NVLink",
+  "source": "gpu-mock's default box: experiments/gpu-mock/GPU-COUNT-CONVERSION-NOTE-2026-10-19.md §3"
+ },
+ "task_id": "goal-choose-optimizer-q",
+ "rung": 3,
+ "env_kind": "mng3",
+ "goal_level": true,
+ "title": "Goal-level: which optimizer should we adopt, from runs the agent chooses (step 1,250)",
+ "wave": "Q",
+ "wave_how": "the goal-level question at a screening length, for pilots (GOAL-PACKAGES-2026-10-21.md); its long twin asks it of whole runs",
+ "brief": {
+  "text": "We're choosing the optimizer for our small-GPT pretraining runs and need a recommendation we can defend. candidates/ has one folder per candidate: its training script and NOTES.md, the submission's own description. We compare them at step 1,250 of their own schedules: each script stops after its validation there and prints the loss. Runs vary from seed to seed by about as much as the closest candidates differ, so one run each won't settle it; we need enough runs that our pick is clearly ahead of the runner-up, not just ahead in one draw. The scripts run with torchrun from the task root, each from its own folder (edit a script there if you need to), and read the tokenised data in data/fineweb10B/; the seeded ones take --seed. Report every run you made, each candidate's mean and spread, and your recommendation with how sure you are. The machine has four H100s.",
+  "provenance": "written by gpu-tasks for the goal-level arm: the question, not the runs; no procedure, no deadline or time words; the GPU count stated, as in every brief, so underuse cannot be put down to a hidden machine"
+ },
+ "files": [
+  {
+   "path": "candidates/contra-soft-muon/contra-muon-to-soft-muon.py",
+   "from": "artifacts/mng3/scripts/3c99d520c936/contra-muon-to-soft-muon.py"
+  },
+  {
+   "path": "candidates/contra-soft-muon/NOTES.md",
+   "content": "# contra-soft-muon\n\nStart with contra-muon for diversity/exploration, interpolate through standard muon to soft-muon for exploitation.\nSee https://nilin.github.io/contra-muon-and-soft-muon/\n\nThe run terminates at 3040 steps. The soft-Muon blend is capped at `0.8`.\n\nThe step 3040 values are shown only as the terminal validation losses from the\nsame logs.\n\n_(From the submission's README (20260509_contra_soft_muon/README.md); paragraphs reporting the submission's own measured results are left out.)_\n"
+  },
+  {
+   "path": "candidates/soda-fade/contra-muon-to-soft-muon.py",
+   "from": "artifacts/mng3/scripts/1d6efc67726c/contra-muon-to-soft-muon.py"
+  },
+  {
+   "path": "candidates/soda-fade/NOTES.md",
+   "content": "# soda-fade\n\nThis directory contains the submission bundle for\n`records/track_3_optimization/train_gpt_contra_soft_soda_fade_official.py`.\n\nSubmitted checkpoint: **3000 steps**.\n\nRuns included: seeds **0 through 8**, all completed runs in this result set.\nEach file under `code_logs/` is a self-contained run log containing the full\ntrain script plus validation output. The `stdout/` files are plain stdout\ncaptures used to map seeds to generated code-log filenames.\n\nRun command:\n\n```bash\ntorchrun --standalone --nproc_per_node=4 records/track_3_optimization/train_gpt_contra_soft_soda_fade_official.py --seed <seed>\n```\n\nHardware used for these logs: 4x NVIDIA H200 Vast.ai instances. We tried cheaper\nH100 Vast.ai instances first, but the available H100 hosts failed during\ncontainer/GPU startup or were unhealthy over SSH/network; H200 was used as the\nfirst healthy official-shaped machine. Track 3 is a step-count benchmark; the\ndataset, batch size, architecture, and one forward/backward pass per step are\nunchanged. Total Vast.ai spend for the official H200 runs was $55.95.\n\n_(From the submission's README (20260518_soda_fade_3000_n9/README.md); paragraphs reporting the submission's own measured results are left out.)_\n"
+  },
+  {
+   "path": "candidates/radial-damp/radial_scale_then_radius_correct.py",
+   "from": "artifacts/mng3/scripts/a665ffba06d4/radial_scale_then_radius_correct.py"
+  },
+  {
+   "path": "candidates/radial-damp/NOTES.md",
+   "content": "# radial-damp\n\nThis submission builds on PR291's Contra-Muon to Soft-Muon setup and adds\npost-step radial damping. After applying the optimizer update, the hidden matrix\nparameter norm is rescaled so outward radial movement is dampened while inward\nmovement is preserved according to the constants logged in each run.\n\nThe submitted step count is **2990**. The logs include a fixed validation grid\nat 2990, 2995, 2999, 3000, 3010, and 3020 for all seeds.\n\n_(From the submission's README (20260511_dampen_radial_gradient_component/README.md); paragraphs reporting the submission's own measured results are left out.)_\n"
+  },
+  {
+   "path": "candidates/muonh-tuned/train_gpt_simple_muonh.py",
+   "from": "artifacts/mng3/scripts/76e0ba304e43/train_gpt_simple_muonh.py"
+  },
+  {
+   "path": "candidates/muonh-tuned/NOTES.md",
+   "content": "# muonh-tuned\n\ntrain_gpt_simple_muonh.py\n\nThis file descends from the [NanoGPT speedrun](https://github.com/KellerJordan/modded-nanogpt).\nIt was prepared as a simplified version of the speedrun for use in neural net optimization research.\n\nDiffers from `train_gpt_simple.py` only in the init and the optimizer: the matrix-parameter\nMuon update is replaced by MuonH (the same Newton-Schulz orthogonalised direction, applied\nvia a hyperball projection that preserves the Frobenius norm of every hidden 2D weight\nmatrix at every step), and the residual-side projections / mlp.fc are initialised with\nper-module multipliers on the default Kaiming init so MuonH has non-zero matrices to operate\non from step 0.\n\n_(From the reference script's docstring (the submission has no README); paragraphs reporting the submission's own measured results are left out.)_\n"
+  },
+  {
+   "path": "candidates/ema-nesterov-aurora/radial_scale_then_radius_correct.py",
+   "from": "artifacts/mng3/scripts/e6745f2d7e8d/radial_scale_then_radius_correct.py"
+  },
+  {
+   "path": "candidates/ema-nesterov-aurora/NOTES.md",
+   "content": "# ema-nesterov-aurora\n\nradial_scale_then_radius_correct.py\n\nThis file descends from the [NanoGPT speedrun](https://github.com/KellerJordan/modded-nanogpt).\nIt was prepared as a simplified version of the speedrun for use in neural net optimization research.\n\n---\n\ndampen radial gradient component\n\n---\n\nThis submission incorporates features from the following previous submissions\n\n@nilin PR291\n\n@kumarkrishna PR274 / Skylight-001\n  NorMuon-lite row/column variance normalization\n  u/w floor postprocessing\n  lr=0.0375 style Muon setup\n\n@nilin (me): PR275 / Contra-Muon\n  Introduces Contra-Muon update term\n\n@samacqua: PR278 / MLP SOAP preconditioning \n  SOAP preconditioning machinery / MLP SOAP idea.\n  Our script uses that SOAP machinery and extends the selected SOAP set to MLP+V.\n\n@yash-oai: PR287 / power law LR schedule\n  Power-law LR schedule PowerCool:\n  min(flat_lr, c * (t_end - step)^1.2)\n  PR287-style cooldown constants / schedule tuning.\n\nThe SOAP-like preconditioning from samacqua / PR 278 is also applied to the attention value-projection (V) matrices in this submission.\n\n_(From the reference script's docstring (the submission has no README); paragraphs reporting the submission's own measured results are left out.)_\n"
+  },
+  {
+   "path": "data/fineweb10B/",
+   "hub_files": {
+    "repo": "kjj0/fineweb10B-gpt2",
+    "kind": "dataset",
+    "revision": "889765ea1f903759787add96995d81171b632d0c",
+    "files": {
+     "fineweb_val_000000.bin": {
+      "bytes": 200001024,
+      "sha256": "5b95c8e0966f0861685b307b23dc5ae42b228ef74b28cb499784ae021f201640"
+     },
+     "fineweb_train_000001.bin": {
+      "bytes": 200001024,
+      "sha256": "771fa4a99b9fe0946ffb6e848b4ba5c6a9b0fe87860ebf03bc2c1c7e45f8178e"
+     },
+     "fineweb_train_000002.bin": {
+      "bytes": 200001024,
+      "sha256": "d4ba8d2d740905a836a4222d2aff01750560e7d49a51a745a1b3235520aec2cd"
+     },
+     "fineweb_train_000003.bin": {
+      "bytes": 200001024,
+      "sha256": "f70fa272369730fd9e39f1848bfe4daa3289b6e490c1e7762777f00ea8b66246"
+     },
+     "fineweb_train_000004.bin": {
+      "bytes": 200001024,
+      "sha256": "d8d88850f89fe2030e866380e90d544167467d407080403b830b903543925835"
+     },
+     "fineweb_train_000005.bin": {
+      "bytes": 200001024,
+      "sha256": "36cef3fc41863eb6731b41e986edde38e368853ee6deb87b928990bf445a119c"
+     },
+     "fineweb_train_000006.bin": {
+      "bytes": 200001024,
+      "sha256": "d80e5b209983e636655fc738fdf281f0132f0298bf4c0848f7e7a6bea6ca06f0"
+     },
+     "fineweb_train_000007.bin": {
+      "bytes": 200001024,
+      "sha256": "fa9f94dce61686b5467bc6cd3078424203db23ac254d804a6d8d5d440afc1e11"
+     }
+    }
+   },
+   "from": "kjj0/fineweb10B-gpt2 at 889765ea1f90: the validation shard and the first 7 training shards, the ones these runs read"
+  }
+ ],
+ "jobs": [
+  {
+   "job_id": "contra-soft-muon",
+   "label": "contra-soft-muon: any number of runs of its script, chosen by the agent",
+   "replicate_group": "mng3-cfg-6abda466fd33",
+   "records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-03c36e81-e2e-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-18b5ac94-fbe-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-19041821-ef1-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-1b5bba11-405-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-21827b54-ae4-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-2aefade8-e52-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-38509716-92e-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-58589cfb-aee-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-66a8cec3-9bb-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-7621883d-366-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-81540d3b-8dc-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8b87aa90-e7f-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9304dc26-dc9-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9b15a60b-7cf-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-a182bdc9-0e8-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-b78e2987-2cb-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c3719539-556-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c4935f3f-6d4-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c53f1f7e-427-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d8597384-8cd-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-e33e54bd-d3f-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-f6d6db35-756-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-fc1593ad-ebd-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-03c36e81-e2e-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-18b5ac94-fbe-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-19041821-ef1-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-1b5bba11-405-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-21827b54-ae4-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-2aefade8-e52-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-38509716-92e-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-58589cfb-aee-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-66a8cec3-9bb-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-7621883d-366-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-81540d3b-8dc-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8b87aa90-e7f-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9304dc26-dc9-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9b15a60b-7cf-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-a182bdc9-0e8-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-b78e2987-2cb-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c3719539-556-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c4935f3f-6d4-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c53f1f7e-427-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d8597384-8cd-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-e33e54bd-d3f-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-f6d6db35-756-goalpath",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-fc1593ad-ebd-goalpath"
+   ],
+   "draw": "open",
+   "reference_records": [
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-03c36e81-e2e-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-18b5ac94-fbe-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-19041821-ef1-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-1b5bba11-405-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-21827b54-ae4-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-2aefade8-e52-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-38509716-92e-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-58589cfb-aee-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-66a8cec3-9bb-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-7621883d-366-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-81540d3b-8dc-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8b87aa90-e7f-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9304dc26-dc9-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9b15a60b-7cf-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-a182bdc9-0e8-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-b78e2987-2cb-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c3719539-556-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c4935f3f-6d4-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c53f1f7e-427-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d8597384-8cd-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-e33e54bd-d3f-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-f6d6db35-756-stop1250",
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-fc1593ad-ebd-stop1250"
+   ],
+   "records_how": "each recorded run twice: its prefix record at step 1250 (served to the unedited script by exact match) and its whole run bound to candidates/contra-soft-muon/contra-muon-to-soft-muon.py (served to an edited script by path). gpu-mock keys a run's draws by the parent run, so one run is served once",
+   "instances": {
+    "min": 0,
+    "max": 30,
+    "how": "an open pool: every launch of this candidate's script is one instance, served an unused recorded run of the setup; the agent decides how many"
+   },
+   "script_path": "candidates/contra-soft-muon/contra-muon-to-soft-muon.py",
+   "seeded": true,
+   "seeds_of": {
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-03c36e81-e2e-stop1250": 28,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-06a3e0e1-8e1-stop1250": 13,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-18b5ac94-fbe-stop1250": 16,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-19041821-ef1-stop1250": 27,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-1b5bba11-405-stop1250": 22,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-21827b54-ae4-stop1250": 8,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-2aefade8-e52-stop1250": 14,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea-stop1250": 9,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-38509716-92e-stop1250": 20,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-480f6098-b75-stop1250": 7,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-58589cfb-aee-stop1250": 19,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-66a8cec3-9bb-stop1250": 5,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c-stop1250": 24,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-7621883d-366-stop1250": 3,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-81540d3b-8dc-stop1250": 1,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-stop1250": 0,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-8b87aa90-e7f-stop1250": 15,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9304dc26-dc9-stop1250": 26,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-985d5707-129-stop1250": 11,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-9b15a60b-7cf-stop1250": 18,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-a182bdc9-0e8-stop1250": 17,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-b78e2987-2cb-stop1250": 23,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c3719539-556-stop1250": 25,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c4935f3f-6d4-stop1250": 6,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-c53f1f7e-427-stop1250": 21,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d600f067-1b4-stop1250": 12,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-d8597384-8cd-stop1250": 2,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-e33e54bd-d3f-stop1250": 29,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-f6d6db35-756-stop1250": 10,
+    "mng3-20260509-contra-soft-muon-h100-sxmx8-fc1593ad-ebd-stop1250": 4
+   },
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> candidates/contra-soft-muon/contra-muon-to-soft-muon.py --seed <N>",
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 429.0,
+     "range_s": [
+      249.7,
+      609.8
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 60
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "soda-fade",
+   "label": "soda-fade: any number of runs of its script, chosen by the agent",
+   "replicate_group": "mng3-cfg-71e8285df094",
+   "records": [
+    "mng3-20260518-soda-fade-3000-n9-h200x4-0fdbe617-37d-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-942b4030-ddf-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-a3341c9d-b2a-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-ae3f35c8-b83-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-d8ed0aa2-4ac-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-e5fd4f26-49e-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-0fdbe617-37d-goalpath",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-goalpath",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-goalpath",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-942b4030-ddf-goalpath",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-a3341c9d-b2a-goalpath",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-ae3f35c8-b83-goalpath",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-goalpath",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-d8ed0aa2-4ac-goalpath",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-e5fd4f26-49e-goalpath"
+   ],
+   "draw": "open",
+   "reference_records": [
+    "mng3-20260518-soda-fade-3000-n9-h200x4-0fdbe617-37d-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-942b4030-ddf-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-a3341c9d-b2a-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-ae3f35c8-b83-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-d8ed0aa2-4ac-stop1250",
+    "mng3-20260518-soda-fade-3000-n9-h200x4-e5fd4f26-49e-stop1250"
+   ],
+   "records_how": "each recorded run twice: its prefix record at step 1250 (served to the unedited script by exact match) and its whole run bound to candidates/soda-fade/contra-muon-to-soft-muon.py (served to an edited script by path). gpu-mock keys a run's draws by the parent run, so one run is served once",
+   "instances": {
+    "min": 0,
+    "max": 9,
+    "how": "an open pool: every launch of this candidate's script is one instance, served an unused recorded run of the setup; the agent decides how many"
+   },
+   "script_path": "candidates/soda-fade/contra-muon-to-soft-muon.py",
+   "seeded": true,
+   "seeds_of": {
+    "mng3-20260518-soda-fade-3000-n9-h200x4-0fdbe617-37d-stop1250": 1,
+    "mng3-20260518-soda-fade-3000-n9-h200x4-6d8836b6-7d8-stop1250": 6,
+    "mng3-20260518-soda-fade-3000-n9-h200x4-94252eb3-3b0-stop1250": 5,
+    "mng3-20260518-soda-fade-3000-n9-h200x4-942b4030-ddf-stop1250": 2,
+    "mng3-20260518-soda-fade-3000-n9-h200x4-a3341c9d-b2a-stop1250": 0,
+    "mng3-20260518-soda-fade-3000-n9-h200x4-ae3f35c8-b83-stop1250": 8,
+    "mng3-20260518-soda-fade-3000-n9-h200x4-af8cf7ca-f69-stop1250": 7,
+    "mng3-20260518-soda-fade-3000-n9-h200x4-d8ed0aa2-4ac-stop1250": 4,
+    "mng3-20260518-soda-fade-3000-n9-h200x4-e5fd4f26-49e-stop1250": 3
+   },
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> candidates/soda-fade/contra-muon-to-soft-muon.py --seed <N>",
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "seed": null,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H200",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 801.6,
+     "range_s": [
+      457.5,
+      1157.0
+     ],
+     "on": "4x NVIDIA H200",
+     "n_runs": 18
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "radial-damp",
+   "label": "radial-damp: any number of runs of its script, chosen by the agent",
+   "replicate_group": "mng3-cfg-66b0973c3b5b",
+   "records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-00882c75-914-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-816f035f-c55-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-e6232c5e-479-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-fcf7a0d1-fdb-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-00882c75-914-goalpath",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-goalpath",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-goalpath",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-goalpath",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-816f035f-c55-goalpath",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-goalpath",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-goalpath",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-e6232c5e-479-goalpath",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-fcf7a0d1-fdb-goalpath"
+   ],
+   "draw": "open",
+   "reference_records": [
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-00882c75-914-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-816f035f-c55-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-e6232c5e-479-stop1250",
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-fcf7a0d1-fdb-stop1250"
+   ],
+   "records_how": "each recorded run twice: its prefix record at step 1250 (served to the unedited script by exact match) and its whole run bound to candidates/radial-damp/radial_scale_then_radius_correct.py (served to an edited script by path). gpu-mock keys a run's draws by the parent run, so one run is served once",
+   "instances": {
+    "min": 0,
+    "max": 9,
+    "how": "an open pool: every launch of this candidate's script is one instance, served an unused recorded run of the setup; the agent decides how many"
+   },
+   "script_path": "candidates/radial-damp/radial_scale_then_radius_correct.py",
+   "seeded": true,
+   "seeds_of": {
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-00882c75-914-stop1250": 5,
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-1fafaa5c-cfb-stop1250": 3,
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-52f5a74c-6e7-stop1250": 10,
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-stop1250": 8,
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-816f035f-c55-stop1250": 6,
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-a4be63d8-39f-stop1250": 2,
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-d0110280-d17-stop1250": 0,
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-e6232c5e-479-stop1250": 9,
+    "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-fcf7a0d1-fdb-stop1250": 4
+   },
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> candidates/radial-damp/radial_scale_then_radius_correct.py --seed <N>",
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "seed": null,
+   "recorded_gpus": 4,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 885.1,
+     "range_s": [
+      505.7,
+      1273.2
+     ],
+     "on": "4x NVIDIA H100 80GB HBM3",
+     "n_runs": 18
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "muonh-tuned",
+   "label": "muonh-tuned: any number of runs of its script, chosen by the agent",
+   "replicate_group": "mng3-cfg-df3f0fa702b9",
+   "records": [
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6a9f2a78-47e-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6e92fa16-042-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-8a063d14-af5-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-93140757-20a-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-9e0afb2c-4fb-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-bb99661c-92e-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-eeb36a9a-3a2-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-f02084f1-2e1-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-f6649181-6de-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-goalpath",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6a9f2a78-47e-goalpath",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6e92fa16-042-goalpath",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-8a063d14-af5-goalpath",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-93140757-20a-goalpath",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-9e0afb2c-4fb-goalpath",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-bb99661c-92e-goalpath",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-eeb36a9a-3a2-goalpath",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-f02084f1-2e1-goalpath",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-f6649181-6de-goalpath"
+   ],
+   "draw": "open",
+   "reference_records": [
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6a9f2a78-47e-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6e92fa16-042-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-8a063d14-af5-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-93140757-20a-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-9e0afb2c-4fb-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-bb99661c-92e-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-eeb36a9a-3a2-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-f02084f1-2e1-stop1250",
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-f6649181-6de-stop1250"
+   ],
+   "records_how": "each recorded run twice: its prefix record at step 1250 (served to the unedited script by exact match) and its whole run bound to candidates/muonh-tuned/train_gpt_simple_muonh.py (served to an edited script by path). gpu-mock keys a run's draws by the parent run, so one run is served once",
+   "instances": {
+    "min": 0,
+    "max": 10,
+    "how": "an open pool: every launch of this candidate's script is one instance, served an unused recorded run of the setup; the agent decides how many"
+   },
+   "script_path": "candidates/muonh-tuned/train_gpt_simple_muonh.py",
+   "seeded": false,
+   "seeds_of": {
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-50b78dd2-73f-stop1250": null,
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6a9f2a78-47e-stop1250": null,
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-6e92fa16-042-stop1250": null,
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-8a063d14-af5-stop1250": null,
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-93140757-20a-stop1250": null,
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-9e0afb2c-4fb-stop1250": null,
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-bb99661c-92e-stop1250": null,
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-eeb36a9a-3a2-stop1250": null,
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-f02084f1-2e1-stop1250": null,
+    "mng3-20260611-muonh-tuned-aux-3250-h100-sxmx8-f6649181-6de-stop1250": null
+   },
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> candidates/muonh-tuned/train_gpt_simple_muonh.py",
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA H100 80GB HBM3",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 525.5,
+     "range_s": [
+      353.3,
+      703.5
+     ],
+     "on": "8x NVIDIA H100 80GB HBM3",
+     "n_runs": 20
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  },
+  {
+   "job_id": "ema-nesterov-aurora",
+   "label": "ema-nesterov-aurora: any number of runs of its script, chosen by the agent",
+   "replicate_group": "mng3-cfg-d246d5cbfc5d",
+   "records": [
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-2c185b84-fe2-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ac25e1b-4df-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-7c356c74-bcb-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-goalpath",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-2c185b84-fe2-goalpath",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-goalpath",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-goalpath",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ac25e1b-4df-goalpath",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-goalpath",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-7c356c74-bcb-goalpath",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-goalpath"
+   ],
+   "draw": "open",
+   "reference_records": [
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-2c185b84-fe2-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ac25e1b-4df-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-7c356c74-bcb-stop1250",
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-stop1250"
+   ],
+   "records_how": "each recorded run twice: its prefix record at step 1250 (served to the unedited script by exact match) and its whole run bound to candidates/ema-nesterov-aurora/radial_scale_then_radius_correct.py (served to an edited script by path). gpu-mock keys a run's draws by the parent run, so one run is served once",
+   "instances": {
+    "min": 0,
+    "max": 8,
+    "how": "an open pool: every launch of this candidate's script is one instance, served an unused recorded run of the setup; the agent decides how many"
+   },
+   "script_path": "candidates/ema-nesterov-aurora/radial_scale_then_radius_correct.py",
+   "seeded": true,
+   "seeds_of": {
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-07a1623b-690-stop1250": 13,
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-2c185b84-fe2-stop1250": 9,
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-345b51b2-38e-stop1250": 8,
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-416ae5e5-fd3-stop1250": 10,
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ac25e1b-4df-stop1250": 14,
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-6ff25084-201-stop1250": 12,
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-7c356c74-bcb-stop1250": 15,
+    "mng3-20260522-ema-nesterov-aurora-proj-a100-sxm-80gx8-eeff8b62-4ff-stop1250": 11
+   },
+   "launch": "torchrun --standalone --nproc_per_node=<1|2|4> candidates/ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed <N>",
+   "gpu_options": [
+    1,
+    2,
+    4
+   ],
+   "seed": null,
+   "recorded_gpus": 8,
+   "recorded_gpu": "NVIDIA A100-SXM4-80GB",
+   "batch_policy": "fixed_global_grow_accumulation",
+   "after": [],
+   "consumes": [],
+   "produces": [],
+   "disclosure": {
+    "none": null,
+    "limit_s": null,
+    "estimate": {
+     "median_s": 1129.6,
+     "range_s": [
+      673.9,
+      1608.7
+     ],
+     "on": "8x NVIDIA A100-SXM4-80GB",
+     "n_runs": 16
+    },
+    "exact": "computed at launch by gpu-mock's convert() for the GPU count the agent chooses; at the recorded count it is the drawn record's duration"
+   }
+  }
+ ],
+ "candidates_stats": {
+  "contra-soft-muon": {
+   "mean": 3.59611,
+   "sd": 0.00145,
+   "n": 30,
+   "metric": "val_loss at step 1250",
+   "how": "over every recorded run in the pool",
+   "runs_to_separate_from_best": 1
+  },
+  "soda-fade": {
+   "mean": 3.58567,
+   "sd": 0.00163,
+   "n": 9,
+   "metric": "val_loss at step 1250",
+   "how": "over every recorded run in the pool",
+   "runs_to_separate_from_best": 6
+  },
+  "radial-damp": {
+   "mean": 3.58763,
+   "sd": 0.00163,
+   "n": 9,
+   "metric": "val_loss at step 1250",
+   "how": "over every recorded run in the pool",
+   "runs_to_separate_from_best": 6
+  },
+  "muonh-tuned": {
+   "mean": 3.62051,
+   "sd": 0.0015,
+   "n": 10,
+   "metric": "val_loss at step 1250",
+   "how": "over every recorded run in the pool",
+   "runs_to_separate_from_best": 1
+  },
+  "ema-nesterov-aurora": {
+   "mean": 3.58874,
+   "sd": 0.00149,
+   "n": 8,
+   "metric": "val_loss at step 1250",
+   "how": "over every recorded run in the pool",
+   "runs_to_separate_from_best": 3
+  }
+ },
+ "candidates_stats_how": "from every recorded run in each pool: the validation loss at step 1250; runs_to_separate_from_best is the runs per candidate for its mean to stand 2 standard errors from the best's (soda-fade), from the recorded sds",
+ "reference_plan": {
+  "instances": [
+   {
+    "job_id": "contra-soft-muon",
+    "count": 1,
+    "width": 1,
+    "seeds": [
+     0
+    ]
+   },
+   {
+    "job_id": "soda-fade",
+    "count": 6,
+    "width": 1,
+    "seeds": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "job_id": "radial-damp",
+    "count": 6,
+    "width": 1,
+    "seeds": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "job_id": "muonh-tuned",
+    "count": 1,
+    "width": 1
+   },
+   {
+    "job_id": "ema-nesterov-aurora",
+    "count": 3,
+    "width": 1,
+    "seeds": [
+     8,
+     9,
+     10
+    ]
+   }
+  ],
+  "how": "the scripted reference: for each candidate the runs that separate it from the best at 2 standard errors (candidates_stats), the best as many as its closest rival needs, every run on one GPU, launched packed. Its packed makespan is the oracle the expected file reports; a model run is also read against the hindsight bound of the instances it actually launched (the runner)"
+ },
+ "measuring_run": {
+  "policy": "packed",
+  "speed": 1,
+  "plan": "reference_plan",
+  "how": "a speed-1 scripted packed run of reference_plan measures this task's host terms"
+ },
+ "sources": [
+  "modded-nanogpt track 3, commit 4ea6b937; records on torch 2.11.0; prefix records by build/gen_prefix.py"
+ ],
+ "notes": [
+  "Every launch is served a recorded run of the candidate's script cut at step 1250 (a prefix record), so its values are that run's. The pools hold every replay-ready run on the image's torch; gpu-mock serves the exact seed's record while it is unused, else an unused one of the setup, never one twice in a run.",
+  "Nothing is synthetic. The candidates' recorded means and spreads are in candidates_stats, for the scorer; the agent sees none of them, and NOTES.md leaves out the submissions' measured results.",
+  "The candidates scale differently with GPUs per run (gpu-mock's convert() from each record's recorded GPU count), and one runs about three times slower per step than the rest."
+ ],
+ "stats": {
+  "jobs": 17,
+  "recorded_gpu_seconds": 42776.3,
+  "recorded_gpu_seconds_how": "replayed GPU-seconds, despite the field's name (kept for its readers): sum over jobs of the least GPU-seconds over the job's allowed GPU counts, each from the shortest paced duration among the records the job can draw (build/common.py:paced_duration, what gpu-mock's replay paces). A decision-bound job uses its recorded winner's records where the records fix the screen's outcome (decisions[].recorded_outcome), and the whole candidate pool otherwise. Changed on 2026-10-20 from recorded wall time, which includes host time replay does not pace, so the old figure was not a floor under a replayed run",
+  "lower_bound_makespan_s": 10694.1,
+  "lower_bound_how": "max(work / box GPUs, critical path): work as in recorded_gpu_seconds, and the critical path takes each job at its widest allowed count with the shortest paced duration among its records. Durations are what gpu-mock's replay paces (build/common.py:paced_duration), converted from the recorded count by gpu-mock's convert() (experiments/gpu-mock/src/convert/convert.py, imported by build/common.py:time_factor), never faster than recorded. Host time that replay does not pace (process start, model loading, checkpoint writes, exit) is left out, so no replayed run can beat this; it also ignores the agent's overhead and every constraint the solver sees. Paced since 2026-10-20; before that it used recorded wall time, which a replayed run could beat",
+  "serial_makespan_s": 42816.4,
+  "serial_how": "one job at a time, each on as many GPUs as it may use up to its recorded count, with the median paced duration among its records and the same convert(); no host time and no gaps between jobs",
+  "of": "reference_plan",
+  "of_how": "the instances reference_plan launches; the agent may run more, fewer or other ones"
+ },
+ "readiness": {
+  "replay_ready_jobs": 17,
+  "jobs_with_records": 17,
+  "blockers": {}
+ },
+ "shared_state": {
+  "default_shared": [],
+  "by_design": [],
+  "isolation": null,
+  "how": "the script writes logs/<uuid>.txt, unique per run, and reads data only. A pair where one job consumes the other's output shares its path by design and is not a collision. Under the study's ruling (design/IDEA.md, shared-state collisions) both references isolate shared paths, and an agent that leaves them shared pays through the collision class, never through a recorded failure"
+ },
+ "horizon_s": 64800,
+ "horizon_terms": {
+  "serial_makespan_s": 42816.4,
+  "startup_total_s": 84.8,
+  "startup_provenance": "derived",
+  "startup_source_machine_type": "c3-highmem-44",
+  "startup_by_machine_type": {
+   "c3-highmem-44": 84.8
+  },
+  "fleet_machine_type": "c3-highmem-44",
+  "provisional": false,
+  "startup_how": "the serial scripted policy's start-ups (launch to the job's first paced step; a script's first job cold, later ones warm), summed over every job, with each measured machine type's host terms (build/expected_scores.py, speed 1); the term used is the largest among the types measured, so the horizon is generous on every type",
+  "measured": {
+   "machine_type": "c3-highmem-44",
+   "run_dir": "<runs>/W0-p20par-measure",
+   "measured_on": "2026-10-21",
+   "caps": {
+    "cpus": "42",
+    "memory": "346300m",
+    "memory_swap": "346300m",
+    "disk": "40g",
+    "shm": "8g",
+    "pids": 8192,
+    "oom_protect": "on",
+    "source": "machine",
+    "host_reserve_bytes": 8589934592,
+    "cpuset": "2-43",
+    "sidecar_cpuset": "0-1"
+   },
+   "image": {
+    "name": "ml-node:py311-torch2110",
+    "id": "sha256:d6ab84ffe8b39522baf509a793db3117d2cc3e4bbab82897ad961a52469e9e3c",
+    "sidecar_image_id": "sha256:48659b120db1563d1fd648101381b64b13b33f3e010f5e614d13a9bf51e165cd",
+    "torch_patch_sha256": "b1d050d8b06f6a0d2bc3d73d757faaf0235e2c1fc61377f22cb5e6a9f7b9e267",
+    "gpu_mock_bundle_manifest_sha256": "bba87be667093bc6762613a24cc12d61565bb00daa4924f5cc914e55642ee4dd"
+   },
+   "source": "transferred from pkg-p20-par's measuring runs; per script, matched as transferred_from.matched says"
+  }
+ },
+ "horizon_how": "colleague_round(1.5 x (stats.serial_makespan_s + horizon_terms.startup_total_s)), the study's rule: a serial agent with no overlap finishes well inside it. Rounded up to 5 minutes under an hour, 15 minutes under six hours, whole hours above. Never shown to the agent: it is the run's hard stop and the end of the scoring window when work remains. In recorded seconds, like stats: a run with the speed knob divides it by the same factor. One value for every machine type, from the largest measured start-up total (horizon_terms). c3-highmem-44 is measured; a new machine type, caps or image that moves it makes another task version. Replaced deadline_s, which the brief stated, on 2026-10-20; runs under a brief that stated a deadline are not pooled with runs under this one",
+ "environment_floor": {
+  "by_machine_type": {
+   "c3-highmem-44": {
+    "value": 536.0,
+    "provenance": "derived",
+    "host_terms": "survey/host-terms/goal-choose-optimizer-q.c3-highmem-44.json",
+    "packed_makespan_s": 11230.072,
+    "measured": {
+     "machine_type": "c3-highmem-44",
+     "run_dir": "<runs>/W0-p20par-measure",
+     "measured_on": "2026-10-21",
+     "caps": {
+      "cpus": "42",
+      "memory": "346300m",
+      "memory_swap": "346300m",
+      "disk": "40g",
+      "shm": "8g",
+      "pids": 8192,
+      "oom_protect": "on",
+      "source": "machine",
+      "host_reserve_bytes": 8589934592,
+      "cpuset": "2-43",
+      "sidecar_cpuset": "0-1"
+     },
+     "image": {
+      "name": "ml-node:py311-torch2110",
+      "id": "sha256:d6ab84ffe8b39522baf509a793db3117d2cc3e4bbab82897ad961a52469e9e3c",
+      "sidecar_image_id": "sha256:48659b120db1563d1fd648101381b64b13b33f3e010f5e614d13a9bf51e165cd",
+      "torch_patch_sha256": "b1d050d8b06f6a0d2bc3d73d757faaf0235e2c1fc61377f22cb5e6a9f7b9e267",
+      "gpu_mock_bundle_manifest_sha256": "bba87be667093bc6762613a24cc12d61565bb00daa4924f5cc914e55642ee4dd"
+     },
+     "source": "transferred from pkg-p20-par's measuring runs; per script, matched as transferred_from.matched says"
+    }
+   }
+  },
+  "provenance": "derived",
+  "fleet_machine_type": "c3-highmem-44",
+  "fleet_measured": true,
+  "how": "per machine type: the overlapping packed policy's makespan from agent start (packed_overlap: each successor's start-up runs during its predecessor's GPU work, the runner rule; build/expected_scores.py, speed 1) with the host terms measured on that type at its box's caps and image (`measured`), minus stats.lower_bound_makespan_s. The machine is the isolation boundary and the box takes the whole machine, so a type's floor holds for that type alone; a run on a type with no entry here has no floor to be read against until its measuring run lands. host-terms files are survey/host-terms/<task_id>.<machine type>.json; the fleet's type today is c3-highmem-44"
+ },
+ "work_remaining": {
+  "rule": "open",
+  "how": "no fixed job list: the agent's final report ends the task; every completed instance counts (the runner open-pool scoring)"
+ },
+ "environment": {
+  "python": {
+   "value": "3.11.9",
+   "provenance": "inferred",
+   "how": "the records carry no Python version; 3.11.9 is one of the two isolation's build.sh pins, torch 2.11.0 has a CPU wheel for it, and the scripts use no version-specific feature (the repo's Dockerfile uses 3.12.7)"
+  },
+  "install": {
+   "packages": [
+    "torch==2.11.0",
+    "numpy==2.4.4",
+    "setuptools==81.0.0"
+   ],
+   "constraints": "artifacts/mng3/env/torch-2.11.0-py3.11/constraints.txt",
+   "line": "pip install -c constraints.txt torch==2.11.0 numpy==2.4.4 setuptools==81.0.0",
+   "cpu_lines": [
+    "pip install --index-url https://download.pytorch.org/whl/cpu --no-deps torch==2.11.0",
+    "pip install -c constraints.txt numpy==2.4.4 setuptools==81.0.0 sympy networkx jinja2 filelock typing-extensions fsspec"
+   ],
+   "how": "torch 2.11.0 matches the records this task draws (their torch: 2.11.0+cu128, 2.11.0+cu130) and the track's README quickstart (`pip install torch==2.11`). Its runtime dependencies and numpy are pinned in the constraints at their newest final release before 2026-05-01, the records' earliest date, that installs on Python 3.11 (PyPI, read 2026-10-20), except setuptools under 82, because torch 2.11.0 requires it, and mpmath 1.3.0, because sympy 1.14.0 requires mpmath<1.4. Chosen, not recorded: the records hold no package list"
+  },
+  "source": null,
+  "hub": [],
+  "hub_bytes": 0,
+  "hub_how": "none: the training data are the Hub dataset's files, placed in the tree by build/stage_task.py (files[] git_lfs entry)",
+  "env": {},
+  "env_how": "nothing: the scripts read data/fineweb10B/ relative to the working directory and write logs/<uuid>.txt there",
+  "verified": "pending: the staging check on the VM (build/check_staging.sh) under these pins; gpu-mock's replay of a track-3 script on torch 2.11 is gpu-mock's own check",
+  "image_label": {
+   "value": "mng3-packages",
+   "how": "one p006.task-env label for every package task drawn from this image, so one image serves the whole package family"
+  }
+ },
+ "task_class": "width_flexible",
+ "task_class_how": "at least one job can take all 4 GPUs, so running one job at a time at full width is close to optimal under linear conversion; the task can show idle GPUs within a job and gaps between launches, not a failure to fan out",
+ "model_runs": {
+  "allowed": true,
+  "problems": [],
+  "how": "allowed when no two jobs can be served the same recorded run or overlapping steps of one (common.repeated_records): a seed-substituted job, two prefix jobs cut from one parent, or a prefix and its parent's full run all repeat losses an agent can see. Scripted runs read no values, so they may run any task"
+ }
+}

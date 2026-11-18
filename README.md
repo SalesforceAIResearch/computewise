@@ -11,6 +11,7 @@ benchmark that measures how much GPU time AI agents waste, with the paper's code
 | **Add the gpu-harness to your own Claude Code or Codex** | [Install](#install) |
 | **See it work in five minutes, with or without GPUs** | [The demo](harness/demo/README.md) |
 | **Reproduce or extend the paper's benchmark** | [The benchmark](#the-benchmark) |
+| **Test GPU agents on a machine without GPUs** | [Simulated GPUs](#simulated-gpus) |
 
 ## Use the gpu-harness in your own agent
 
@@ -21,7 +22,7 @@ first, a new job on a GPU the moment one ends, and none for a candidate the agen
 
 ### How much it helps
 
-The paper measured this on a simulated node that replays recorded H100 jobs. Each agent's time to its answer is
+The paper measured this on a simulated node that replays recorded GPU jobs, mostly run on H100s. Each agent's time to its answer is
 compared with a reference schedule of the same work. That schedule follows the task's rule, knows each job's length,
 and is within 10% of the best possible schedule. "Time over the reference" is the extra time: an agent that takes
 14.4 hours where the reference takes 10 has 4.4 hours over it.
@@ -263,15 +264,40 @@ How the scheduler works, and its guarantees, are in
 [`harness/skills/gpu-harness/README.md`](harness/skills/gpu-harness/README.md). The plugin's layout is in
 [`harness/README.md`](harness/README.md).
 
+## Simulated GPUs
+
+The benchmark needs no GPUs. `gpu-mock/` simulates a node of four H100s, or eight for the 8-GPU tasks, inside the
+benchmark's container, on any Linux Docker host:
+
+- `nvidia-smi` and NVML list the GPUs and show each one's utilisation and memory while jobs run.
+- PyTorch sees CUDA devices: `torch.cuda.device_count()`, `torchrun` and distributed launches work as they do on the
+  real node.
+- The agent's own commands run unchanged. Each training or evaluation job takes the time and prints the logs of a
+  recorded run of that job on real GPUs: a training job its losses step by step, an evaluation its scores at the end.
+  A job whose recorded run failed fails the same way.
+
+So a run costs a CPU machine instead of a GPU node, and the same job takes the same time on every run, which keeps
+agents comparable.
+
+It replays recorded jobs; it is not a general GPU emulator. A job is replayed only if it has a record, in the format
+described in `gpu-tasks/RECORD-FORMAT.md`. A job with no record still runs, for real on the CPU, with each operation
+charged its modelled H100 time; that is slow for anything but a small job, and the scorer flags the launch. Most
+records are from H100s, and the rest from other data-centre GPUs. A record is served at its recorded seconds, converted
+only for the number of GPUs the agent gives the job. The registry holds 2,283 records, and
+`gpu-tasks/build/add_mlsbench_tasks.sh` adds 60. `gpu-mock/archive/INDEX.tsv` lists every build of the simulator, and
+each run in the dataset records the build it used.
+
 ## The benchmark
 
 An agent gets a realistic brief: produce a results table, decide which optimizer setups pass an adoption rule, or
 decide which data filter to adopt. It works on a simulated multi-GPU node whose GPUs replay the job times, scores and
-logs of recorded real H100 runs. The run is scored against reference schedules, not raw utilisation, so a GPU that is
+logs of recorded real GPU runs, mostly on H100s. The run is scored against reference schedules, not raw utilisation, so a GPU that is
 busy with work the answer never needed counts as waste, just like an idle one.
 
-- **Dataset:** [Salesforce/computewise](https://huggingface.co/datasets/Salesforce/computewise) on Hugging Face. It
-  holds the benchmark packages, the recorded job runs and the scored agent runs.
+- **Registry:** the benchmark packages, the recorded job runs and the expected scores are in
+  [`gpu-tasks/registry/`](gpu-tasks/registry/README.md), under CC-BY-4.0.
+- **Dataset:** [Salesforce/computewise](https://huggingface.co/datasets/Salesforce/computewise) on Hugging Face holds
+  the same registry files and, in addition, the scored agent runs.
 - **Paper:** TBA
 
 > Status: research release. Interfaces, paths and documentation may change.
@@ -301,9 +327,9 @@ The dataset card gives the condition codes used in the scored runs.
 |---|---|
 | `harness/` | **The gpu-harness plugin** for Claude Code and Codex (see above). The Claude Code skill and its Codex edition are the versions the paper reports. They run the same code; only the agent-facing instructions differ. |
 | `.claude-plugin/`, `.agents/plugins/` | The marketplace files that `claude plugin marketplace add` and `codex plugin marketplace add` read. They point to `harness/`. |
-| `gpu-mock/` | **The simulated GPU node:** a torch patch, an NVML and `nvidia-smi` bridge, and a replay daemon. The agent's real commands run unchanged, and each job's step times, scores and logs come from a recorded H100 run. `archive/INDEX.tsv` lists every simulator build and what changed in it. |
+| `gpu-mock/` | **The simulated GPU node:** a torch patch, an NVML and `nvidia-smi` bridge, and a replay daemon. The agent's real commands run unchanged, and each job's step times, scores and logs come from a recorded GPU run, mostly on H100s. `archive/INDEX.tsv` lists every simulator build and what changed in it. |
 | `scheduler/` | A small SLURM-compatible scheduler (`sbatch`, `squeue`, `srun`, `scancel`, `sacct`, ...) that runs inside the benchmark's container, for the study condition that gives the agent a scheduler. It is not part of the plugin. |
-| `gpu-tasks/` | The task registry tooling. `build/` holds the generators that build each benchmark package from upstream records, and `RECORD-FORMAT.md` is the record contract between the tasks and the simulator. The generated task files and records are in the Hugging Face dataset; [`gpu-tasks/registry/README.md`](gpu-tasks/registry/README.md) says where to put them. `build/add_mlsbench_tasks.sh` builds the four MLS-Bench tasks from a clone of MLS-Bench. |
+| `gpu-tasks/` | The task registry tooling. `build/` holds the generators that build each benchmark package from upstream records, and `RECORD-FORMAT.md` is the record contract between the tasks and the simulator. The generated task files, records, staged artifacts and expected scores are in `registry/` (CC-BY-4.0; [`gpu-tasks/registry/README.md`](gpu-tasks/registry/README.md)), and `build/add_mlsbench_tasks.sh` builds the four MLS-Bench tasks there from a clone of MLS-Bench. |
 | `isolation/` | The sandbox: the container image (`image/`); the single-run launcher `run_one.py`, which runs one task, one coding agent, one model and one seed in a capped container with a read-only root and its own disk; the model-API forwarder; and the cgroup sampler. |
 | `runner/` | The campaign driver, the scorer (`score/`), scripted reference agents (`scripted/`), timelines (`observe/`) and the code that starts and stops each coding agent (`runner/harness/`, not the plugin). |
 | `codex/harness/` | The Codex CLI session driver the launcher uses. It is not the Codex plugin, which is in `harness/codex-skills/`. |
@@ -317,8 +343,8 @@ repository and the dataset on 2026-11-17, and the run they produced is compared 
 
 1. **The host.** Linux x86_64 with Docker CE (cgroup v2), the `loop` kernel module, Python 3.9 or later, `git-lfs`,
    and about 200 GB free under `/srv` for Docker's data, the task caches and the runs. The commands below run as root.
-2. **Code and data.** Clone this repository and put the dataset in place as
-   [`gpu-tasks/registry/README.md`](gpu-tasks/registry/README.md) says. Its check should report 0 contract violations.
+2. **Code and data.** Clone this repository. The registry is already in it, at `gpu-tasks/registry/`, and
+   `(cd gpu-tasks/build && python3 -I validate.py ../registry)` should report 62 tasks and 0 contract violations.
    For the four MLS-Bench tasks, then run `bash gpu-tasks/build/add_mlsbench_tasks.sh`. It clones MLS-Bench, fetches
    the late-pole task's datasets and model files from their own hosts (each checked by sha256), and builds the four
    tasks into the registry in about 4 minutes. Its check should report 66 tasks and 0 contract violations.
@@ -419,7 +445,9 @@ fetched from their own hosts when a run's inputs are prepared, under their own t
 
 ## License
 
-Apache License 2.0; see `LICENSE.txt`.
+The code is under the Apache License 2.0; see `LICENSE.txt`. The benchmark data in `gpu-tasks/registry/` is under
+CC-BY-4.0, the licence of the Hugging Face dataset it is copied from; see `gpu-tasks/registry/LICENSE` and the
+upstream notices in `gpu-tasks/registry/third_party/`.
 
 ## Contributing and security
 

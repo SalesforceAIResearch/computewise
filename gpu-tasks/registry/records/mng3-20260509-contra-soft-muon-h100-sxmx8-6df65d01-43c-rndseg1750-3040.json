@@ -1,0 +1,418 @@
+{
+ "schema": "p006-gpu-record/0.1",
+ "identity": {
+  "record_id": "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c-rndseg1750-3040",
+  "kind": "train",
+  "entry_hash": "d17ecc1a9f6823cb6445c1bb2b8dbaffae1d8a30c64c9d74d3226f60546de850",
+  "argv": [
+   "contra-muon-to-soft-muon.py",
+   "--seed",
+   "24",
+   "--resume",
+   "checkpoints/seed24-step1750.pt"
+  ],
+  "argv_provenance": "inferred",
+  "argv_how": "the segment script's launch: --seed as the parent's, --resume the previous segment's checkpoint, --stop-at the segment's last step (build/gen_segment.py)",
+  "env": {},
+  "seed": {
+   "value": 24,
+   "provenance": "recorded",
+   "how": "printed by the run: `Using seed=N`"
+  },
+  "replicate_group": "mng3-cfg-ebc1c3432648",
+  "match_policy": "exact_only",
+  "match_policy_how": "a segment shares its parent's fingerprint; only the segment script with this segment's arguments matches it",
+  "trajectory": {
+   "config_hash": "ebc1c3432648911b8ef42635743e777f234900b2640c72d5df49730b7a840310",
+   "config_hash_how": "sha256 of the segment script with `SEED = N` blanked, its name, and its arguments",
+   "environment": {
+    "torch": "2.11.0+cu130"
+   },
+   "lr_schedule": {
+    "identity": "sha256:261e9db2c9266eeb",
+    "source": "function `set_hparams` rewrites each param group's lr every step; its constants are in the script",
+    "trace": null,
+    "trace_how": "absent: the script never prints its learning rate"
+   },
+   "data": {
+    "dataset": "kjj0/fineweb10B-gpt2 (GPT-2 tokens of FineWeb 10B)",
+    "train_glob": "data/fineweb10B/fineweb_train_*.bin",
+    "order": "files sorted by name, read sequentially, rank r takes its slice of each global batch",
+    "train_tokens_consumed": 676331520,
+    "val_file": "data/fineweb10B/fineweb_val_000000.bin",
+    "val_tokens": 10485760
+   },
+   "precision": {
+    "value": "bf16",
+    "provenance": "inferred",
+    "how": "the embedding is cast to bfloat16 and the logits to float32; no autocast"
+   },
+   "global_batch_tokens": 524288
+  },
+  "fingerprint": "fp256:d088d0eaf51556b602338c8e57330dfb77f2d0562d88553f4fae6d2978119988",
+  "fingerprint_inputs": {
+   "model": "gpt",
+   "num_layers": 12,
+   "model_dim": 768,
+   "vocab_size": 50304,
+   "optimizers": [
+    "AdamW",
+    "Muon"
+   ],
+   "micro_batch_shape": [
+    64,
+    1024
+   ],
+   "world_size": 8,
+   "global_batch_tokens": 524288,
+   "precision": "fp32",
+   "torch_compile": false,
+   "model_constructor": "GPT(vocab_size=50304, num_layers=12, model_dim=768)",
+   "compiles_functions": false,
+   "num_parameters": null,
+   "num_parameters_how": "fp256/0.3 field 11, null: each track-3 script defines its own GPT class, with variants per script, and no count can be vouched for from the source alone. These records are exact_only, so the structural index never serves them, and a null here matches no runtime count"
+  },
+  "fingerprint_version": "fp256/0.3",
+  "fingerprint_how": "gpu-mock's reference implementation over fingerprint_inputs. model is the root module's class name, lowercased; optimizers are the classes the script assigns to optimizer* variables; precision is fp32 because the script enables no autocast (it casts the embedding to bfloat16 by hand, which trajectory.precision records); torch_compile is whether the script compiles the model itself, not only helper functions",
+  "consumes": [
+   {
+    "path": "checkpoints/seed24-step1750.pt",
+    "from": "the previous segment's --stop-at save"
+   }
+  ],
+  "derived_from": {
+   "kind": "segment",
+   "record": "mng3-20260509-contra-soft-muon-h100-sxmx8-6df65d01-43c",
+   "steps": [
+    1751,
+    3040
+   ],
+   "parent_steps": 3040,
+   "parent_entry_hash": "03dc96ece2c9b40cf36a1e582b9f305e670262dd830501156ac7c3909a58531c",
+   "parent_replicate_group": "mng3-cfg-d649f96e97a1",
+   "change": "save-and-resume (build/gen_segment.py segment_script); steps re-based to the segment"
+  },
+  "process_model": {
+   "value": "single",
+   "how": "build/single_process.py: one GPU, no torch.distributed; launched `python <script>`"
+  }
+ },
+ "mode": "replay",
+ "source": {
+  "name": "modded-nanogpt track 3",
+  "repo": "https://github.com/KellerJordan/modded-nanogpt",
+  "commit": "4ea6b937337a4889b8cfe3f38a93d120048d8f71",
+  "path": "records/track_3_optimization/results/20260509_contra_soft_muon/6df65d01-43cb-46bb-84e1-8f972ca7f811.txt",
+  "submission": "20260509_contra_soft_muon",
+  "licence": "MIT",
+  "read_on": "2026-10-19",
+  "date": "20260509",
+  "derived": "steps 1751-3040 of the run this log records (identity.derived_from)"
+ },
+ "reference": {
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "gpu_provenance": "recorded",
+  "gpu_count": 8,
+  "gpu_count_provenance": "recorded",
+  "interconnect": null,
+  "precision": "bf16"
+ },
+ "launch": {
+  "launcher": "torchrun",
+  "world_size": {
+   "value": 8,
+   "provenance": "recorded"
+  },
+  "per_device_microbatch": {
+   "value": 64,
+   "provenance": "recorded",
+   "how": "sequences per micro-step, constant `mbs` in the script"
+  },
+  "sequence_length": 1024,
+  "accumulation_steps": {
+   "value": 1,
+   "provenance": "derived",
+   "how": "global batch / world size / sequence length / mbs"
+  },
+  "global_batch_tokens": {
+   "value": 524288,
+   "provenance": "recorded",
+   "how": "constant `batch_size` in the script"
+  },
+  "batch_policy": {
+   "value": "fixed_global_grow_accumulation",
+   "provenance": "derived",
+   "how": "global batch and micro-batch are constants; the loop accumulates len(inputs)//mbs micro-steps per step"
+  },
+  "gpu_counts_supported": [
+   1,
+   2,
+   4,
+   8
+  ],
+  "process_model": {
+   "value": "single",
+   "provenance": "derived",
+   "how": "build/single_process.py made the script single-process"
+  }
+ },
+ "steps": 1290,
+ "planned_steps": 1290,
+ "per_step_gpu_s": 0.187889,
+ "timing": {
+  "pacing": "per_step",
+  "train_time_s": {
+   "value": 242.293,
+   "provenance": "derived",
+   "how": "the parent's clock over the segment's steps"
+  },
+  "steady_step_s": {
+   "value": 0.187889,
+   "provenance": "derived",
+   "how": "slope of train_time between the first validation at or after step 500 and the last"
+  },
+  "startup_in_train_s": {
+   "value": 3.321,
+   "provenance": "derived",
+   "how": "train_time at the first validation after step 0, minus steady step time x steps; mostly torch.compile; paid again by a resumed process, which compiles again"
+  },
+  "first_step_s": {
+   "value": null,
+   "provenance": "absent",
+   "how": "the log has no per-step lines"
+  },
+  "eval_s": {
+   "value": 18.789,
+   "provenance": "modelled",
+   "how": "the parent's modelled eval_s x 15/28, the validations this segment runs"
+  },
+  "setup_s": {
+   "value": null,
+   "provenance": "absent",
+   "how": "process start to training start is not logged"
+  },
+  "checkpoint_s": {
+   "value": 0,
+   "provenance": "derived",
+   "how": "the script never calls torch.save"
+  },
+  "wall_total_s": {
+   "value": null,
+   "provenance": "absent",
+   "how": "the log has no wall-clock start and end"
+  }
+ },
+ "memory": {
+  "peak_allocated_bytes": 35902193664,
+  "peak": {
+   "value": 35902193664,
+   "provenance": "inferred",
+   "how": "track_1_short/2024-10-10_Muon logs report 34239 MiB peak allocated for the same 12-layer, 768-wide GPT-2 at 64 x 1024 tokens per micro-step on H100; this script does not log memory"
+  }
+ },
+ "series": {
+  "val_loss": {
+   "provenance": "recorded",
+   "steps": [
+    0,
+    125,
+    250,
+    375,
+    500,
+    625,
+    750,
+    875,
+    1000,
+    1125,
+    1250,
+    1260,
+    1270,
+    1280,
+    1290
+   ],
+   "values": [
+    3.49048,
+    3.46363,
+    3.43694,
+    3.41283,
+    3.38878,
+    3.36706,
+    3.34584,
+    3.32615,
+    3.30863,
+    3.29409,
+    3.28327,
+    3.28257,
+    3.28192,
+    3.28132,
+    3.28081
+   ],
+   "how": "every validation line; the reduced value every rank formats; the parent's steps 1750-3040, re-based to this segment's own count"
+  },
+  "train_time_s": {
+   "provenance": "recorded",
+   "steps": [
+    0,
+    125,
+    250,
+    375,
+    500,
+    625,
+    750,
+    875,
+    1000,
+    1125,
+    1250,
+    1260,
+    1270,
+    1280,
+    1290
+   ],
+   "values": [
+    0.0,
+    23.501,
+    46.922,
+    70.464,
+    93.844,
+    117.379,
+    140.87,
+    164.369,
+    187.801,
+    211.342,
+    234.764,
+    236.644,
+    238.524,
+    240.408,
+    242.293
+   ],
+   "how": "; the parent's steps 1750-3040, re-based to this segment's own count; train_time is the parent's minus its value at the segment's start"
+  }
+ },
+ "materialisation": {
+  "serving": {
+   "mode": "per_op",
+   "how": "the job reads only val_loss, which every log records",
+   "module_shas": {}
+  },
+  "needs_series": [
+   "val_loss"
+  ],
+  "blockers": [],
+  "reads": [
+   "val_loss every validation, all ranks (f-string before the rank check)",
+   "isfinite(loss) per micro-step, all ranks"
+  ],
+  "train_loss": {
+   "value": null,
+   "provenance": "absent",
+   "how": "the script never prints the train loss; serve a finite value"
+  }
+ },
+ "result": {
+  "final_val_loss": {
+   "value": 3.28081,
+   "provenance": "recorded",
+   "how": "the parent's validation loss at step 3040"
+  },
+  "target_val_loss": 3.28,
+  "reached_target": {
+   "value": false,
+   "provenance": "derived",
+   "how": "at the segment's end"
+  },
+  "segment": [
+   1750,
+   3040
+  ]
+ },
+ "outcome": {
+  "status": "completed",
+  "provenance": "derived",
+  "how": "the last segment runs to the parent's end"
+ },
+ "failures": [],
+ "artefacts": {
+  "checkpoint_saves": {
+   "value": 0,
+   "provenance": "derived",
+   "how": "one save at --stop-at; the last segment saves none"
+  },
+  "checkpoint_bytes": {
+   "value": null,
+   "provenance": "derived",
+   "null_means": "the run writes no checkpoint",
+   "how": "the script never calls torch.save"
+  },
+  "save_every_steps": {
+   "value": null,
+   "provenance": "derived",
+   "null_means": "the run writes no checkpoint",
+   "how": "the script never calls torch.save"
+  },
+  "save_total_limit": {
+   "value": null,
+   "provenance": "derived",
+   "null_means": "the run writes no checkpoint",
+   "how": "the script never calls torch.save"
+  },
+  "log_bytes": {
+   "value": 39881,
+   "provenance": "derived",
+   "how": "size of the published log; rank 0 writes the same text to logs/<uuid>.txt as it runs"
+  }
+ },
+ "host": {
+  "processes": {
+   "value": 8,
+   "provenance": "recorded",
+   "how": "torchrun starts one process per GPU"
+  },
+  "omp_threads_per_process": {
+   "value": 1,
+   "provenance": "inferred",
+   "how": "torchrun's default OMP_NUM_THREADS=1, as trustlight's stderr shows"
+  },
+  "train_data": {
+   "glob": "data/fineweb10B/fineweb_train_*.bin",
+   "shard_bytes": 200001024,
+   "shards_read": 16,
+   "provenance": "derived",
+   "how": "the loader reads every shard up to the segment's end: a resumed one skips the earlier batches by reading them",
+   "start_batch": 1750
+  },
+  "val_data": {
+   "file": "data/fineweb10B/fineweb_val_000000.bin",
+   "tokens_read": 10485760
+  },
+  "pinned_host_bytes_per_rank": {
+   "value": 200000000,
+   "provenance": "derived",
+   "how": "one shard of uint16 tokens in pinned memory"
+  }
+ },
+ "agent_view": {
+  "script": "artifacts/mng3/scripts/d17ecc1a9f68/contra-muon-to-soft-muon.py",
+  "launch_command": "python contra-muon-to-soft-muon.py --seed 24 --resume checkpoints/seed24-step1750.pt",
+  "inputs": [
+   "data/fineweb10B/ (download script data/cached_fineweb10B.py)"
+  ],
+  "recognisability": "high: a public modded-nanogpt track-3 record, script and log online"
+ },
+ "disclosure": {
+  "duration": {
+   "true_s": 609.831,
+   "true_how": "timing.train_time_s + timing.eval_s; setup and process start are not included",
+   "group_median_s": 608.214,
+   "group_range_s": [
+    606.811,
+    609.831
+   ],
+   "group_n": 30,
+   "group_how": "the same configuration's recorded runs, this one included: what a researcher who had run it before would expect"
+  }
+ },
+ "readiness": {
+  "replay": true,
+  "missing": []
+ }
+}

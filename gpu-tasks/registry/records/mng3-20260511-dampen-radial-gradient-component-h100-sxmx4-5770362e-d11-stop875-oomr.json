@@ -1,0 +1,421 @@
+{
+ "schema": "p006-gpu-record/0.1",
+ "identity": {
+  "record_id": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-stop875-oomr",
+  "kind": "train",
+  "entry_hash": "2fbd78729ded96599c9f63ce9ed28f3469396f696124a204393c9b0fdd961132",
+  "argv": [
+   "radial_scale_then_radius_correct.py",
+   "--seed",
+   "8"
+  ],
+  "argv_provenance": "inferred",
+  "argv_how": "script name: first line of the script's docstring; --seed added when the script parses one and the run's seed is known",
+  "env": {},
+  "seed": {
+   "value": 8,
+   "provenance": "recorded",
+   "how": "printed by the run: `Using seed=N`"
+  },
+  "replicate_group": "mng3-oomr-5f29a878b60e",
+  "match_policy": "path_bound",
+  "match_policy_how": "exact on the script's bytes and argv (with --seed matched and --micro-batch exempt), else served to any script below sweep/radial-damp/ (gpu-mock's path_bound rule, directory form), drawn by seed: an agent that edits the script stays on its setup's runs",
+  "trajectory": {
+   "config_hash": "5f29a878b60e3da93cf70545aefc27910e49465f8fe07a2ceec02d85b8e42ff3",
+   "config_hash_how": "sha256 of 'oomr' and the sweep folder: one group per setup",
+   "environment": {
+    "torch": "2.11.0+cu130"
+   },
+   "lr_schedule": {
+    "identity": "sha256:261e9db2c9266eeb",
+    "source": "function `set_hparams` rewrites each param group's lr every step; its constants are in the script",
+    "trace": null,
+    "trace_how": "absent: the script never prints its learning rate"
+   },
+   "data": {
+    "dataset": "kjj0/fineweb10B-gpt2 (GPT-2 tokens of FineWeb 10B)",
+    "train_glob": "data/fineweb10B/fineweb_train_*.bin",
+    "order": "files sorted by name, read sequentially, rank r takes its slice of each global batch",
+    "train_tokens_consumed": 458752000,
+    "val_file": "data/fineweb10B/fineweb_val_000000.bin",
+    "val_tokens": 10485760
+   },
+   "precision": {
+    "value": "bf16",
+    "provenance": "inferred",
+    "how": "the embedding is cast to bfloat16 and the logits to float32; no autocast"
+   },
+   "global_batch_tokens": 524288
+  },
+  "fingerprint": "fp256:d231dac5ada961be9833767c5a588325d3760a5a0280c9275ab05223af41260b",
+  "fingerprint_inputs": {
+   "model": "gpt",
+   "num_layers": 12,
+   "model_dim": 768,
+   "vocab_size": 50304,
+   "optimizers": [
+    "AdamW",
+    "Muon"
+   ],
+   "micro_batch_shape": [
+    64,
+    1024
+   ],
+   "world_size": 4,
+   "global_batch_tokens": 524288,
+   "precision": "fp32",
+   "torch_compile": false,
+   "model_constructor": "GPT(vocab_size=50304, num_layers=12, model_dim=768)",
+   "compiles_functions": false,
+   "num_parameters": null,
+   "num_parameters_how": "fp256/0.3 field 11, null: each track-3 script defines its own GPT class, with variants per script, and no count can be vouched for from the source alone. These records are exact_only, so the structural index never serves them, and a null here matches no runtime count"
+  },
+  "fingerprint_version": "fp256/0.3",
+  "fingerprint_how": "gpu-mock's reference implementation over fingerprint_inputs. model is the root module's class name, lowercased; optimizers are the classes the script assigns to optimizer* variables; precision is fp32 because the script enables no autocast (it casts the embedding to bfloat16 by hand, which trajectory.precision records); torch_compile is whether the script compiles the model itself, not only helper functions",
+  "derived_from": {
+   "kind": "oom_relaunch",
+   "record": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11",
+   "via": "mng3-20260511-dampen-radial-gradient-component-h100-sxmx4-5770362e-d11-stop875",
+   "steps": [
+    1,
+    875
+   ],
+   "stop_after_step": 875,
+   "parent_steps": 3020,
+   "parent_replicate_group": "mng3-cfg-f04ccdc1544e",
+   "bound_path": "sweep/radial-damp/",
+   "change": "the registry's prefix record on its script made single-process (build/single_process.py) and given a --micro-batch flag (build/gen_failures.py add_micro_batch: default 64, the recorded constant, so the recorded run is the default launch), served exactly, with one synthesised failure: an OOM armed only above the threshold (failures[0])",
+   "how": "the via record's series, steps and timing exactly: the recorded run's first steps"
+  },
+  "argv_exempt": [
+   "--micro-batch"
+  ],
+  "bound_path": "sweep/radial-damp/",
+  "argv_exempt_how": "--micro-batch sets the micro-step size only: the global batch is a constant and the loop accumulates over micro-steps, so the optimisation and the step count are the recorded run's at any valid value, and gpu-mock paces per optimizer step. It changes memory, which is what the failure's trigger reads (FAILURE-SERVING.md: the triggering flag in argv_exempt, so the failing launch and its relaunch draw one record)",
+  "process_model": {
+   "value": "single",
+   "how": "build/single_process.py: one GPU, no torch.distributed; launched `python <script>`"
+  }
+ },
+ "mode": "replay",
+ "source": {
+  "name": "modded-nanogpt track 3",
+  "repo": "https://github.com/KellerJordan/modded-nanogpt",
+  "commit": "4ea6b937337a4889b8cfe3f38a93d120048d8f71",
+  "path": "records/track_3_optimization/results/20260511_dampen_radial_gradient_component/5770362e-d11c-4fae-a30d-be3e19c18eef.txt",
+  "submission": "20260511_dampen_radial_gradient_component",
+  "licence": "MIT",
+  "read_on": "2026-10-19",
+  "date": "20260511",
+  "derived": "a prefix of the run this log records, single-process, with a micro-batch flag (identity.derived_from)"
+ },
+ "reference": {
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "gpu_provenance": "recorded",
+  "gpu_count": 4,
+  "gpu_count_provenance": "recorded",
+  "interconnect": null,
+  "precision": "bf16"
+ },
+ "launch": {
+  "launcher": "torchrun",
+  "world_size": {
+   "value": 4,
+   "provenance": "recorded"
+  },
+  "per_device_microbatch": {
+   "value": 64,
+   "provenance": "recorded",
+   "how": "sequences per micro-step, constant `mbs` in the script"
+  },
+  "sequence_length": 1024,
+  "accumulation_steps": {
+   "value": 2,
+   "provenance": "derived",
+   "how": "global batch / world size / sequence length / mbs"
+  },
+  "global_batch_tokens": {
+   "value": 524288,
+   "provenance": "recorded",
+   "how": "constant `batch_size` in the script"
+  },
+  "batch_policy": {
+   "value": "fixed_global_grow_accumulation",
+   "provenance": "derived",
+   "how": "global batch and micro-batch are constants; the loop accumulates len(inputs)//mbs micro-steps per step"
+  },
+  "gpu_counts_supported": [
+   1,
+   2,
+   4,
+   8
+  ],
+  "process_model": {
+   "value": "single",
+   "provenance": "derived",
+   "how": "build/single_process.py made the script single-process"
+  },
+  "micro_batch_flag": {
+   "flag": "--micro-batch",
+   "default": 64,
+   "valid": "a divisor of 512 (the scripts assert it)",
+   "how": "build/gen_failures.py add_micro_batch"
+  }
+ },
+ "steps": 875,
+ "planned_steps": 875,
+ "per_step_gpu_s": 0.381658,
+ "timing": {
+  "pacing": "per_step",
+  "train_time_s": {
+   "value": 337.92,
+   "provenance": "recorded",
+   "how": "the parent run's own clock at its validation at step 875"
+  },
+  "steady_step_s": {
+   "value": 0.381658,
+   "provenance": "derived",
+   "how": "slope of train_time between the first validation at or after step 500 and the last; the parent's, carried over"
+  },
+  "startup_in_train_s": {
+   "value": 3.342,
+   "provenance": "derived",
+   "how": "train_time at the first validation after step 0, minus steady step time x steps; mostly torch.compile; the parent's, carried over"
+  },
+  "first_step_s": {
+   "value": null,
+   "provenance": "absent",
+   "how": "the log has no per-step lines"
+  },
+  "eval_s": {
+   "value": 17.811,
+   "provenance": "modelled",
+   "how": "the parent's modelled eval_s x 7/29, the validations kept: each is paced as in the parent (gpu-mock divides eval_s by the length of the val_loss series)"
+  },
+  "setup_s": {
+   "value": null,
+   "provenance": "absent",
+   "how": "process start to training start is not logged"
+  },
+  "checkpoint_s": {
+   "value": 0,
+   "provenance": "derived",
+   "how": "the script never calls torch.save"
+  },
+  "wall_total_s": {
+   "value": null,
+   "provenance": "absent",
+   "how": "the log has no wall-clock start and end"
+  }
+ },
+ "memory": {
+  "peak_allocated_bytes": 35902193664,
+  "peak": {
+   "value": 35902193664,
+   "provenance": "inferred",
+   "how": "track_1_short/2024-10-10_Muon logs report 34239 MiB peak allocated for the same 12-layer, 768-wide GPT-2 at 64 x 1024 tokens per micro-step on H100; this script does not log memory"
+  }
+ },
+ "series": {
+  "val_loss": {
+   "provenance": "recorded",
+   "steps": [
+    125,
+    250,
+    375,
+    500,
+    625,
+    750,
+    875
+   ],
+   "values": [
+    4.49765,
+    4.08513,
+    3.91394,
+    3.8146,
+    3.75782,
+    3.72175,
+    3.68098
+   ],
+   "how": "every validation line; the reduced value every rank formats; cut at step 875, the prefix's stop; the parent's values"
+  },
+  "train_time_s": {
+   "provenance": "recorded",
+   "steps": [
+    125,
+    250,
+    375,
+    500,
+    625,
+    750,
+    875
+   ],
+   "values": [
+    51.049,
+    99.051,
+    146.941,
+    194.573,
+    242.486,
+    290.085,
+    337.92
+   ],
+   "how": "cut at step 875, the prefix's stop; the parent's values"
+  }
+ },
+ "materialisation": {
+  "serving": {
+   "mode": "per_op",
+   "how": "the job reads only val_loss, which every log records",
+   "module_shas": {}
+  },
+  "needs_series": [
+   "val_loss"
+  ],
+  "blockers": [],
+  "reads": [
+   "val_loss every validation, all ranks (f-string before the rank check)",
+   "isfinite(loss) per micro-step, all ranks"
+  ],
+  "train_loss": {
+   "value": null,
+   "provenance": "absent",
+   "how": "the script never prints the train loss; serve a finite value"
+  }
+ },
+ "result": {
+  "final_val_loss": {
+   "value": 3.68098,
+   "provenance": "recorded",
+   "how": "the parent's validation loss at step 875, the last the prefix script prints"
+  },
+  "target_val_loss": 3.28,
+  "reached_target": {
+   "value": false,
+   "provenance": "derived",
+   "how": "the loss at step 875 below the track's target; a prefix is not expected to reach it"
+  },
+  "stopped_at_step": 875
+ },
+ "outcome": {
+  "status": "completed",
+  "provenance": "derived",
+  "how": "the prefix script stops after its validation at step 875, as its one change makes it; at --micro-batch 128 or less. A launch above it fails at its first forward (failures[0], synthesised)"
+ },
+ "failures": [
+  {
+   "mode": "oom",
+   "step": 1,
+   "time_s": 0.0,
+   "at": "during_training",
+   "provenance": "modelled",
+   "how": "synthesised: no recorded run of this script failed. The sweep file's --micro-batch 256 for this run is a misconfiguration we wrote, and this failure is what an 80 GB card does with it: CUDA out of memory at the first forward, before any optimizer step. At --micro-batch 128 or less the launch is not armed and draws this record clean",
+   "cause": {
+    "value": "torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 53.75 GiB. GPU 0 has a total capacity of 80.00 GiB of which 0 bytes is free. Including non-PyTorch memory, this process has 80.00 GiB memory in use. Of the allocated memory 80.00 GiB is allocated by PyTorch, and 0 bytes is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "provenance": "modelled",
+    "how": "synthesised in PyTorch's OOM wording, as gpu-mock's oversubscription OOM words it (the job modelled as having taken the free card and failing on the remainder): this record's peak scaled to --micro-batch 256, 133.75 GiB, against the daemon's 80 GiB card"
+   },
+   "exception": {
+    "type": "torch.OutOfMemoryError",
+    "message": "CUDA out of memory. Tried to allocate 53.75 GiB. GPU 0 has a total capacity of 80.00 GiB of which 0 bytes is free. Including non-PyTorch memory, this process has 80.00 GiB memory in use. Of the allocated memory 80.00 GiB is allocated by PyTorch, and 0 bytes is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)"
+   },
+   "trigger": {
+    "arg": "--micro-batch",
+    "op": "gt",
+    "value": 128
+   },
+   "threshold": {
+    "value": 128,
+    "provenance": "inferred",
+    "how": "the largest micro-batch dividing the global batch's 512 sequences whose peak fits the card (79.19 GiB as torch reports an H100 80GB HBM3, or the daemon's 80 GiB; the same under both). It rests on two assumptions: (1) the base peak, memory.peak = 33.44 GiB at micro-batch 64, provenance inferred: track_1_short/2024-10-10_Muon logs report 34239 MiB peak allocated for the same 12-layer, 768-wide GPT-2 at 64 x 1024 tokens per micro-step on H100; this script does not log memory; (2) that the peak scales linearly in the micro-batch: activations dominate, and weights and optimizer state are about 1.2 GiB, so scaling only the activations gives 65.7 GiB at 128 and 130.1 GiB at 256, the same verdicts. Linear: 66.9 GiB at 128 (fits), 133.7 GiB at 256 (does not)"
+   },
+   "where": "forward",
+   "replay": {
+    "value": "fire",
+    "how": "the run's own failure, armed only for a launch with --micro-batch above 128"
+   }
+  }
+ ],
+ "artefacts": {
+  "checkpoint_saves": {
+   "value": 0,
+   "provenance": "derived",
+   "how": "the script never calls torch.save"
+  },
+  "checkpoint_bytes": {
+   "value": null,
+   "provenance": "derived",
+   "null_means": "the run writes no checkpoint",
+   "how": "the script never calls torch.save"
+  },
+  "save_every_steps": {
+   "value": null,
+   "provenance": "derived",
+   "null_means": "the run writes no checkpoint",
+   "how": "the script never calls torch.save"
+  },
+  "save_total_limit": {
+   "value": null,
+   "provenance": "derived",
+   "null_means": "the run writes no checkpoint",
+   "how": "the script never calls torch.save"
+  },
+  "log_bytes": {
+   "value": 41957,
+   "provenance": "inferred",
+   "how": "at most the parent's log: the same script text and fewer step lines"
+  }
+ },
+ "host": {
+  "processes": {
+   "value": 1,
+   "provenance": "derived",
+   "how": "build/single_process.py: one process on one GPU"
+  },
+  "omp_threads_per_process": {
+   "value": 1,
+   "provenance": "inferred",
+   "how": "torchrun's default OMP_NUM_THREADS=1, as trustlight's stderr shows"
+  },
+  "train_data": {
+   "glob": "data/fineweb10B/fineweb_train_*.bin",
+   "shard_bytes": 200001024,
+   "shards_read": 5,
+   "provenance": "derived",
+   "how": "every rank reads each shard it reaches in full: ceil(k x batch tokens / 100M)"
+  },
+  "val_data": {
+   "file": "data/fineweb10B/fineweb_val_000000.bin",
+   "tokens_read": 10485760
+  },
+  "pinned_host_bytes_per_rank": {
+   "value": 200000000,
+   "provenance": "derived",
+   "how": "one shard of uint16 tokens in pinned memory"
+  }
+ },
+ "agent_view": {
+  "script": "artifacts/mng3/scripts/2fbd78729ded/radial_scale_then_radius_correct.py",
+  "launch_command": "python sweep/radial-damp/radial_scale_then_radius_correct.py --seed 8 --micro-batch 256",
+  "inputs": [
+   "data/fineweb10B/ (download script data/cached_fineweb10B.py)"
+  ],
+  "recognisability": "high: a public modded-nanogpt track-3 record, its script changed in two documented ways"
+ },
+ "disclosure": {
+  "duration": {
+   "true_s": 355.731,
+   "true_how": "timing.train_time_s + timing.eval_s; setup and process start are not included",
+   "group_median_s": 355.661,
+   "group_range_s": [
+    355.314,
+    390.102
+   ],
+   "group_n": 8,
+   "group_how": "the same configuration's recorded runs, this one included: what a researcher who had run it before would expect"
+  }
+ },
+ "readiness": {
+  "replay": true,
+  "missing": []
+ }
+}
