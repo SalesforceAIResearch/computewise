@@ -5,7 +5,9 @@
                                       per run, beside the agent box      controller loopback, one per machine
 
 The upstream is whatever serves the model API for the study: a local model router that records each
-request's cost against a tag, or the provider's API directly. The gate is the only thing that talks to it,
+request's cost against a tag, or the provider's API directly. For the provider's API, give the gate an
+https:// upstream and upstream_key_env, the name of an environment variable holding your API key: the
+gate sends that key upstream, since it never passes on the client's own credentials. The gate is the only thing that talks to it,
 and it lets only model API calls through. The edge runs beside each agent box. It stamps every
 request with its run and a request id, so the two sides' logs line up without synchronised
 clocks.
@@ -40,6 +42,7 @@ import http.server
 import json
 import os
 import re
+import ssl
 import sys
 import threading
 import time
@@ -65,6 +68,9 @@ DEFAULTS = {
     "link_token_file": None,        # both: a file holding a shared secret. The edge sends it as
                                     #   X-Fwd-Key; a gate that has one refuses requests without it
     "upstream_timeout_s": 1800,     # per socket read
+    "upstream_key_env": None,       # gate: name of an environment variable holding the provider's API key, sent
+                                    #   upstream on every request (the client's own credentials are always dropped)
+    "upstream_key_header": "x-api-key",  # gate: "x-api-key" (Anthropic) or "authorization" (sent as Bearer <key>)
     "scrub_errors": True,
     "pin_backend_by_model": {},     # gate: {model id: upstream backend name}. A matching request carries
                                     #   upstream_headers["backend"]: served by that backend or fails
@@ -108,7 +114,8 @@ MODEL_RE = re.compile(rb'"model"\s*:\s*"([^"\\]{1,200})"')
 RID_RE = re.compile(r"^[A-Za-z0-9-]{1,64}$")
 
 CFG = {}
-UPSTREAM = None      # (host, port, path prefix)
+UPSTREAM = None      # (scheme, host, port, path prefix)
+UPSTREAM_KEY = None  # gate: (header, value) from upstream_key_env, or None
 RUN_TAG = None       # compiled run_tag_re
 LINK_KEY = None      # bytes from link_token_file
 LOG_LOCK = threading.Lock()
@@ -337,17 +344,23 @@ class Handler(http.server.BaseHTTPRequestHandler):
             write_log(rec)
 
     def forward(self, u, body, inject, rec, t0, t_body):
-        host, port, prefix = UPSTREAM
-        up = http.client.HTTPConnection(host, port, timeout=CFG["upstream_timeout_s"])
+        scheme, host, port, prefix = UPSTREAM
+        if scheme == "https":
+            up = http.client.HTTPSConnection(host, port, timeout=CFG["upstream_timeout_s"],
+                                             context=ssl.create_default_context())
+        else:
+            up = http.client.HTTPConnection(host, port, timeout=CFG["upstream_timeout_s"])
         try:
             up.putrequest("POST", prefix + self.path, skip_host=True, skip_accept_encoding=True)
-            up.putheader("Host", f"{host}:{port}")
+            up.putheader("Host", host if port == {"https": 443, "http": 80}[scheme] else f"{host}:{port}")
             for k, v in self.headers.items():
                 kl = k.lower()
                 if kl not in DROP_REQUEST and not kl.startswith(DROP_PREFIXES) and kl not in INJECTED:
                     up.putheader(k, v)
             for k, v in inject:
                 up.putheader(k, v)
+            if UPSTREAM_KEY:
+                up.putheader(*UPSTREAM_KEY)
             up.putheader("Content-Length", str(len(body)))
             up.endheaders(body)
             rec["forwarder_wait_ms"] = ms_since(t_body)
@@ -460,11 +473,18 @@ def load_config(path):
         sys.exit("pin_backend_by_model is a gate setting: the gate strips the client's headers from the edge")
     if pins and not hdrs.get("backend"):
         sys.exit("pin_backend_by_model needs upstream_headers.backend: the header the upstream reads a pin from")
+    if cfg["upstream_key_env"] is not None:
+        if mode != "gate":
+            sys.exit("upstream_key_env is a gate setting: only the gate talks to the upstream")
+        if not os.environ.get(cfg["upstream_key_env"], "").strip():
+            sys.exit(f"upstream_key_env names {cfg['upstream_key_env']}, which is not set in the gate's environment")
+    if cfg["upstream_key_header"] not in ("x-api-key", "authorization"):
+        sys.exit("upstream_key_header must be x-api-key or authorization")
     return cfg
 
 
 def main():
-    global CFG, UPSTREAM, RUN_TAG, LINK_KEY, LEAK, ROUTER_PREFIX, DROP_PREFIXES, INJECTED
+    global CFG, UPSTREAM, UPSTREAM_KEY, RUN_TAG, LINK_KEY, LEAK, ROUTER_PREFIX, DROP_PREFIXES, INJECTED
     if len(sys.argv) != 2:
         sys.exit("usage: forwarder.py <config.json>")
     CFG = load_config(sys.argv[1])
@@ -481,16 +501,21 @@ def main():
         if not LINK_KEY or any(c < 33 or c > 126 for c in LINK_KEY):
             sys.exit("link_token_file must hold one line of printable ASCII")
     up = urllib.parse.urlsplit(CFG["upstream"])
-    if up.scheme != "http" or not up.hostname:
-        sys.exit("upstream must be an http:// URL")
-    UPSTREAM = (up.hostname, up.port or 80, up.path.rstrip("/"))
+    if up.scheme not in ("http", "https") or not up.hostname:
+        sys.exit("upstream must be an http:// or https:// URL")
+    UPSTREAM = (up.scheme, up.hostname, up.port or {"https": 443, "http": 80}[up.scheme], up.path.rstrip("/"))
+    if CFG["upstream_key_env"]:
+        key = os.environ[CFG["upstream_key_env"]].strip()
+        UPSTREAM_KEY = ("x-api-key", key) if CFG["upstream_key_header"] == "x-api-key" else \
+            ("Authorization", f"Bearer {key}")
     server = http.server.ThreadingHTTPServer((CFG["listen_host"], CFG["listen_port"]), Handler)
     server.daemon_threads = True
     write_log({"event": "start", "ts_epoch": round(time.time(), 3), "mode": CFG["mode"],
                "run": CFG["cost_tag"], "session": CFG["session_id"], "upstream": CFG["upstream"],
                "listen": f'{CFG["listen_host"]}:{CFG["listen_port"]}', "allowed_models": CFG["allowed_models"],
                "stop_file": CFG["stop_file"], "stop_dir": CFG["stop_dir"], "link_key": bool(LINK_KEY),
-               "pin_backend_by_model": CFG["pin_backend_by_model"]})
+               "pin_backend_by_model": CFG["pin_backend_by_model"],
+               "upstream_key_env": CFG["upstream_key_env"]})
     server.serve_forever()
 
 

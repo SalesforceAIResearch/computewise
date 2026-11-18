@@ -310,23 +310,98 @@ The dataset card gives the condition codes used in the scored runs.
 
 ### Running the benchmark
 
-The full pipeline runs on a Linux Docker host with no GPUs, because every GPU is simulated. A run needs:
-- the container images built from `isolation/image/`;
-- the registry data from the Hugging Face dataset. [`gpu-tasks/registry/README.md`](gpu-tasks/registry/README.md) has
-  the copy and validation commands;
-- for some tasks, public datasets and model weights, which are fetched from their own hosts when the run's inputs are
-  prepared;
-- API access to the model whose agent you are testing.
+Everything runs on one Linux Docker host with no GPUs, because every GPU is simulated. A run uses the whole machine;
+the study used 44-core, 352 GB machines (GCP `c3-highmem-44`). The steps below were run from a fresh clone of this
+repository and the dataset on 2026-11-17, and the run they produced is compared with the paper's at the end.
 
-Setup documentation is in progress. Until it lands, the entry points are:
+1. **The host.** Linux x86_64 with Docker CE (cgroup v2), the `loop` kernel module, Python 3.9 or later, `git-lfs`,
+   and about 200 GB free under `/srv` for Docker's data, the task caches and the runs. The commands below run as root.
+2. **Code and data.** Clone this repository and put the dataset in place as
+   [`gpu-tasks/registry/README.md`](gpu-tasks/registry/README.md) says. Its check should report 0 contract violations.
+3. **Images.** Build the agent's box image and the simulator's image for the task's environment:
+
+   ```bash
+   sudo bash isolation/image/build.sh --task pkg-g4n-a --image ml-node:py311-torch2110 --sidecar-image gpu-daemon:py311-torch2110
+   ```
+
+   This took about 7 minutes. It fetches pinned packages from Debian, PyPI, the PyTorch index and npm. The four
+   modded-nanogpt tasks (`pkg-g4n-a`, `pkg-g4n-b`, `pkg-unneeded-k`, `pkg-k2-precision`) share this image;
+   `pkg-filter-yield` needs its own (`--task pkg-filter-yield --image ml-node:mng3-filter --sidecar-image gpu-daemon:mng3-filter`).
+4. **The model gate.** Every model call leaves the box through a gate on the host. The gate drops whatever credentials
+   the agent sends and adds yours:
+
+   ```bash
+   export ANTHROPIC_API_KEY=sk-ant-...
+   sudo -E CW_UPSTREAM=https://api.anthropic.com CW_UPSTREAM_KEY_ENV=ANTHROPIC_API_KEY sh isolation/forwarder/start_gate.sh
+   ```
+
+   For Codex runs, use `CW_UPSTREAM=https://api.openai.com CW_UPSTREAM_KEY_ENV=OPENAI_API_KEY
+   CW_UPSTREAM_KEY_HEADER=authorization`. A gate serves one upstream; to switch, stop it, delete
+   `/srv/stage/gate/gate.json` and start it again. A local model router that adds its own credentials also works as
+   `CW_UPSTREAM` (an `http://` address, without `CW_UPSTREAM_KEY_ENV`). The study enforced each run's dollar ceiling in
+   its own router; here, set a spending limit on your API key, and pass `--ceiling-confirmed` below.
+5. **Run and score.** The brief is the task's own, plus one sentence for some conditions (table below). The gpu-harness
+   on Haiku:
+
+   ```bash
+   python3 -c 'import json; print(json.load(open("gpu-tasks/registry/tasks/pkg-g4n-a.json"))["brief"]["text"], end="")' > brief.txt
+   printf '\n\nUse the gpu-harness skill.' >> brief.txt
+   sudo python3 -I runner/run_smoke.py --task pkg-g4n-a --harness claude-code --model claude-haiku-5-5 \
+     --budget-usd 144 --max-hours 32.5 --brief-file "$PWD/brief.txt" --ceiling-confirmed \
+     -- --agent-teams --skill="$PWD/harness/skills/gpu-harness" --disk 40g
+   ```
+
+   The run directory is `/srv/runs/<tag>/`. `score.txt` gives the time to the answer and the lower bound, and
+   `timeline.html` shows every job on every GPU. Simulated jobs keep their recorded durations, so a run takes hours.
+
+**The paper's conditions.** Each is the command in step 5 with these changes. The brief sentence goes where step 5
+puts "Use the gpu-harness skill.":
+
+| Condition | Code in the data | Sentence added to the brief | Flags after `--` |
+|---|---|---|---|
+| No help | `L0` | none | `--disk 40g` |
+| One added sentence | `L3` | "Please make sure no GPU sits idle while there is still work to do: have the next run starting up while the current ones are still training, and keep every GPU busy until all the runs are finished." | `--disk 40g` |
+| SLURM-like scheduler | `S1` | "This machine runs SLURM. GPU work runs only inside SLURM jobs: submit with `sbatch` (`--gres=gpu:N` for N GPUs), and see `squeue`, `sacct` and `scancel`." | `--scheduler on --disk 40g` |
+| Written team procedure | `T4` | "Use the gpu-team skill." | `--agent-teams --skill=$PWD/skills/gpu-team --disk 40g` |
+| gpu-harness, Claude Code | `A5` | "Use the gpu-harness skill." | `--agent-teams --skill=$PWD/harness/skills/gpu-harness --disk 40g` |
+| gpu-harness, Codex | `A5-codex` | "Use the gpu-harness skill." | `--skill=$PWD/harness/codex-skills/gpu-harness --disk 40g`, with `--harness codex` and a Codex model |
+
+The models: `claude-haiku-5-5`, `claude-sonnet-5-5` and `claude-opus-5-5` in Claude Code; `gpt-6-astra` and
+`gpt-6.1-sol` in Codex. A scripted agent needs no model and no gate: `--harness scripted --policy packed --speed 20`
+runs every job, longest first, in about 25 minutes, which checks that the box, the simulator and the scorer work (a
+run above speed 1 checks the pipeline only; its numbers are not results).
+
+The simulator here is its final build (r8.9.3 in [`gpu-mock/archive/INDEX.tsv`](gpu-mock/archive/INDEX.tsv)). Each run
+in the dataset records the build it ran on (`gpumock_build`); most ran on r7 or r7.1, and the builds after them
+changed how the excluded MLS-Bench tasks and the tabular task are served.
+
+**Reading a run against the paper.** The paper's figure for a run is `over_ref`: its time to the answer over the
+time of the task's scripted reference run (W0). The dataset ships the W0 runs the paper's readings use, in
+`data/runs/references/`. Put them beside your run and read it with the study's screen:
 
 ```bash
-(cd gpu-tasks/build && python3 -I validate.py ../registry)   # registry contract check, after the data is in place
-(cd scheduler && python3 -I tests/selftest.py)               # scheduler self-test
-python3 -m unittest discover -s harness/skills/gpu-harness/tests   # harness tests (88, about 6 s)
-python3 isolation/run_one.py --help                          # one run: task x coding agent x model x seed
-python3 runner/run_smoke.py --help                           # one run, scored
-python3 runner/score/score_all.py <run_dir>                  # score a run directory
+mkdir -p ~/computewise-runs
+ln -s /path/to/computewise-data/data/runs/references/W0-* ~/computewise-runs/
+sudo cp -r /srv/runs/<tag> ~/computewise-runs/ && sudo chown -R "$USER" ~/computewise-runs
+python3 -I runner/score/screen.py --task pkg-g4n-a --all-validities
+```
+
+`--all-validities` is needed because a run through the gate alone reads `validity UNCHECKED`: the served-model check
+reads the cost ledger of the study's model router. The arm column shows `?` unless the run directory is named the
+study's way (`G-g4na-haiku-A5`).
+
+**The check.** On 2026-11-17, these steps reran the gpu-harness on Haiku on `pkg-g4n-a` from a fresh clone and the
+dataset on a new `c3-highmem-44`. The run took 5 h 42 min and adopted the right setups (aurora-pruned, radial-damp and
+soda-fade). It read `over_ref` 1.021 and `over_best` 1.020, against 1.010 to 1.021 and 1.008 to 1.020 for the paper's
+three runs. Each of its 16 jobs matched its recorded run.
+
+The tests:
+
+```bash
+(cd scheduler && python3 -I tests/selftest.py)                       # scheduler self-test
+python3 -m unittest discover -s harness/skills/gpu-harness/tests      # harness tests (88, about 6 s)
+python3 -I isolation/tests/gate_pin_known_answer.py isolation/forwarder/forwarder.py          # model gate
+python3 -I isolation/tests/gate_upstream_key_known_answer.py isolation/forwarder/forwarder.py # gate's API key
 ```
 
 ## Third-party material
