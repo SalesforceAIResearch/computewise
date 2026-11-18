@@ -1,0 +1,582 @@
+{
+ "mls_bench": {
+  "repo": "https://github.com/Imbernoulli/MLS-Bench",
+  "commit": "b873944969c53b01e4ee6e843c77767b8c702485"
+ },
+ "dest_root": "gpu-tasks/survey/k2-latepole-inputs",
+ "files": [
+  {
+   "dest": "dataset-sizes/HumanEval.jsonl.gz",
+   "sha256": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef",
+   "from": "mls-bench",
+   "path": "tasks/llm-dllm-demask-strategy/data/HumanEval.jsonl.gz"
+  },
+  {
+   "dest": "dataset-sizes/PaulGrahamEssays.jsonl",
+   "sha256": "78ad877447201471578c69dd4fc11e6f489970966329468c5d0ac32292d53056",
+   "from": "url",
+   "url": "https://huggingface.co/datasets/opencompass/NeedleBench/resolve/9f76ad26e7699d914722a41924171ee1022c426f/PaulGrahamEssays.jsonl"
+  },
+  {
+   "dest": "dependency-probes/dLLM-cache/dllm_cache/__init__.py",
+   "sha256": "039679470845145321621fa751f7153ef002d5ff872133691c7102a9dbbe1d73",
+   "from": "tar",
+   "url": "https://codeload.github.com/maomaocun/dLLM-Cache/tar.gz/17235bffc8c5b587a2dc6f7dc76fcd01eab76e3a",
+   "member": "dllm_cache/__init__.py"
+  },
+  {
+   "dest": "dependency-probes/dLLM-cache/dllm_cache/cache/Cache.py",
+   "sha256": "ac61103985bd78e3a7bd58c5f84cf6fd1599b7a2d0acbf5ccf30c5834af6968b",
+   "from": "tar",
+   "url": "https://codeload.github.com/maomaocun/dLLM-Cache/tar.gz/17235bffc8c5b587a2dc6f7dc76fcd01eab76e3a",
+   "member": "dllm_cache/cache/Cache.py"
+  },
+  {
+   "dest": "dependency-probes/dLLM-cache/dllm_cache/cache/Config.py",
+   "sha256": "9a003fd0f6c5399e36d5a74825ad57acf55393be59e301adc5de65da47bca67d",
+   "from": "tar",
+   "url": "https://codeload.github.com/maomaocun/dLLM-Cache/tar.gz/17235bffc8c5b587a2dc6f7dc76fcd01eab76e3a",
+   "member": "dllm_cache/cache/Config.py"
+  },
+  {
+   "dest": "dependency-probes/dLLM-cache/dllm_cache/cache/__init__.py",
+   "sha256": "d6d8f2ec6708bba0e57d7bfca7d0f7fc3a1c3f548cdba7be890e5c3f56f0b9c0",
+   "from": "tar",
+   "url": "https://codeload.github.com/maomaocun/dLLM-Cache/tar.gz/17235bffc8c5b587a2dc6f7dc76fcd01eab76e3a",
+   "member": "dllm_cache/cache/__init__.py"
+  },
+  {
+   "dest": "dependency-probes/dLLM-cache/dllm_cache/hooks/__init__.py",
+   "sha256": "bf57248375e9269c79a54f9867d78303de862b2810f254a5e29bf50047ddf9e2",
+   "from": "tar",
+   "url": "https://codeload.github.com/maomaocun/dLLM-Cache/tar.gz/17235bffc8c5b587a2dc6f7dc76fcd01eab76e3a",
+   "member": "dllm_cache/hooks/__init__.py"
+  },
+  {
+   "dest": "dependency-probes/dLLM-cache/dllm_cache/hooks/cache_hook_Dream.py",
+   "sha256": "03329010e2a2e997c571e858f01af9fe8f6060daa93d7cc37f5cc33490497403",
+   "from": "tar",
+   "url": "https://codeload.github.com/maomaocun/dLLM-Cache/tar.gz/17235bffc8c5b587a2dc6f7dc76fcd01eab76e3a",
+   "member": "dllm_cache/hooks/cache_hook_Dream.py"
+  },
+  {
+   "dest": "dependency-probes/dLLM-cache/dllm_cache/hooks/cache_hook_LLaDA.py",
+   "sha256": "8ae5ff3c7ffbfb52bd80f6fcadafb0124c73a5b267939f54848e884beaa233b9",
+   "from": "tar",
+   "url": "https://codeload.github.com/maomaocun/dLLM-Cache/tar.gz/17235bffc8c5b587a2dc6f7dc76fcd01eab76e3a",
+   "member": "dllm_cache/hooks/cache_hook_LLaDA.py"
+  },
+  {
+   "dest": "dependency-probes/dLLM-cache/dllm_cache/hooks/cache_hook_LLaDA_V.py",
+   "sha256": "0acd256fd8692478ee6a94e8ba5414390b0231975c802b7f5175a9a901da3e44",
+   "from": "tar",
+   "url": "https://codeload.github.com/maomaocun/dLLM-Cache/tar.gz/17235bffc8c5b587a2dc6f7dc76fcd01eab76e3a",
+   "member": "dllm_cache/hooks/cache_hook_LLaDA_V.py"
+  },
+  {
+   "dest": "dependency-probes/dLLM-cache/dllm_cache/hooks/cache_hook_MMaDA.py",
+   "sha256": "1d15746d60d265ff1bd473d128aaeab3b65aca0e510d350ba8d29023023d7b4b",
+   "from": "tar",
+   "url": "https://codeload.github.com/maomaocun/dLLM-Cache/tar.gz/17235bffc8c5b587a2dc6f7dc76fcd01eab76e3a",
+   "member": "dllm_cache/hooks/cache_hook_MMaDA.py"
+  },
+  {
+   "dest": "dependency-probes/tasks/dlm-dkv-policy/third_party/official_dlm_cache_baselines/d2cache/src/__init__.py",
+   "sha256": "2ac23dd308d7a2706233d8adb0df08930976a4d0425983e024f0f57bc61069ba",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/third_party/official_dlm_cache_baselines/d2cache/src/__init__.py"
+  },
+  {
+   "dest": "dependency-probes/tasks/dlm-dkv-policy/third_party/official_dlm_cache_baselines/d2cache/src/models/__init__.py",
+   "sha256": "b88a1f8b178f5a1619faf9ff9fc60555b5a923a621db4582d75d608d8db56d4e",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/third_party/official_dlm_cache_baselines/d2cache/src/models/__init__.py"
+  },
+  {
+   "dest": "dependency-probes/tasks/dlm-dkv-policy/third_party/official_dlm_cache_baselines/d2cache/src/models/llada/__init__.py",
+   "sha256": "1e03551738b5a509556ef4a3b0db1eb6a3747143f318e5ed5d347c544be681d1",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/third_party/official_dlm_cache_baselines/d2cache/src/models/llada/__init__.py"
+  },
+  {
+   "dest": "dependency-probes/tasks/dlm-dkv-policy/third_party/official_dlm_cache_baselines/d2cache/src/models/llada/configuration_llada.py",
+   "sha256": "bc30790973b39e1a810e522aee183b7a55a01e2654e2c5e9e53461f901ad78ea",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/third_party/official_dlm_cache_baselines/d2cache/src/models/llada/configuration_llada.py"
+  },
+  {
+   "dest": "dependency-probes/tasks/dlm-dkv-policy/third_party/official_dlm_cache_baselines/d2cache/src/models/llada/modeling_llada.py",
+   "sha256": "0db8a9ad4a4fb10d4cbe2b07b2357b340859c7eb2f31e482dcd1af262266a32a",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/third_party/official_dlm_cache_baselines/d2cache/src/models/llada/modeling_llada.py"
+  },
+  {
+   "dest": "dependency-probes/tasks/dlm-dkv-policy/third_party/official_dlm_cache_baselines/elastic_cache/llada/model/configuration_llada.py",
+   "sha256": "5a58ffb848ee7fa18c34ca9289d13aaec062d40bae694caa69552689417f7b06",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/third_party/official_dlm_cache_baselines/elastic_cache/llada/model/configuration_llada.py"
+  },
+  {
+   "dest": "dependency-probes/tasks/dlm-dkv-policy/third_party/official_dlm_cache_baselines/elastic_cache/llada/model/modeling_llada.py",
+   "sha256": "c9f592a0758db906472b38ac86e1f6b414aa4a1f6db53aecb1c8f0eb5d0bee88",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/third_party/official_dlm_cache_baselines/elastic_cache/llada/model/modeling_llada.py"
+  },
+  {
+   "dest": "harbor/tasks-docker/mls-bench__dlm-dkv-policy/environment/Dockerfile",
+   "sha256": "75d450b135dd1e8f53ebcfa0e949d3b74c3038c2a642bd3f05e231119f7b6fff",
+   "from": "mls-bench",
+   "path": "harbor/tasks-docker/mls-bench__dlm-dkv-policy/environment/Dockerfile"
+  },
+  {
+   "dest": "harbor/tasks-docker/mls-bench__dlm-dkv-policy/environment/_scaffold/dLLM-cache/custom_dlm_eval.py",
+   "sha256": "4f6a9c71ee763e868af0c28b15afcfd8d5444ab586421352cfc8d7ba9b54571c",
+   "from": "mls-bench",
+   "path": "harbor/tasks-docker/mls-bench__dlm-dkv-policy/environment/_scaffold/dLLM-cache/custom_dlm_eval.py"
+  },
+  {
+   "dest": "harbor/tasks-docker/mls-bench__llm-dllm-demask-strategy/environment/Dockerfile",
+   "sha256": "e132e5eae00c9491f1d9cff0d78e3538bbbf9b4a567a9103d8f4b77e229c84f5",
+   "from": "mls-bench",
+   "path": "harbor/tasks-docker/mls-bench__llm-dllm-demask-strategy/environment/Dockerfile"
+  },
+  {
+   "dest": "harbor/tasks-docker/mls-bench__llm-dllm-demask-strategy/environment/_scaffold/LLaDA/custom_demask_eval.py",
+   "sha256": "db91993bbb643cfb5aeb99425c59be74fb6f0298b614a037a6fbdb08b8a0d20d",
+   "from": "mls-bench",
+   "path": "harbor/tasks-docker/mls-bench__llm-dllm-demask-strategy/environment/_scaffold/LLaDA/custom_demask_eval.py"
+  },
+  {
+   "dest": "harbor/tasks-docker/mls-bench__llm-kv-adaptive-quantization/environment/_scaffold/transformers-kv-lab/custom_quant_eval.py",
+   "sha256": "6129821b9356b2a8ff00938b9153e7d8bc21f6d03e5930ffe9701655bb7760d9",
+   "from": "mls-bench",
+   "path": "harbor/tasks-docker/mls-bench__llm-kv-adaptive-quantization/environment/_scaffold/transformers-kv-lab/custom_quant_eval.py"
+  },
+  {
+   "dest": "harbor/tasks-docker/mls-bench__llm-kv-selection-budgeting/environment/_scaffold/transformers-kv-lab/custom_selection_eval.py",
+   "sha256": "6c562c7ac3adf7de291a536e8a58f55cecdaa1de69142bca0c31e3cadae082a3",
+   "from": "mls-bench",
+   "path": "harbor/tasks-docker/mls-bench__llm-kv-selection-budgeting/environment/_scaffold/transformers-kv-lab/custom_selection_eval.py"
+  },
+  {
+   "dest": "harbor/tasks-docker/mls-bench__mlsys-sparse-attention-inference/environment/Dockerfile",
+   "sha256": "4607cd9337a3531204f284aeaa5a64facb0ad74db92102f1bae3d621998aad63",
+   "from": "mls-bench",
+   "path": "harbor/tasks-docker/mls-bench__mlsys-sparse-attention-inference/environment/Dockerfile"
+  },
+  {
+   "dest": "harbor/tasks-docker/mls-bench__mlsys-sparse-attention-inference/environment/_scaffold/sparse-attn-eval/custom_sparse_attn.py",
+   "sha256": "f01d41bd3713bf7cb3eeb212a069a893983a205c489931bc5067dd502b59ac60",
+   "from": "mls-bench",
+   "path": "harbor/tasks-docker/mls-bench__mlsys-sparse-attention-inference/environment/_scaffold/sparse-attn-eval/custom_sparse_attn.py"
+  },
+  {
+   "dest": "harbor/tasks-docker/mls-bench__mlsys-sparse-attention-inference/environment/_scaffold/sparse-attn-eval/harness.py",
+   "sha256": "c2104936920edc096777dc8dee6824cd460cf1e89e158bbaea10d2bc3a9ea068",
+   "from": "mls-bench",
+   "path": "harbor/tasks-docker/mls-bench__mlsys-sparse-attention-inference/environment/_scaffold/sparse-attn-eval/harness.py"
+  },
+  {
+   "dest": "harbor/tasks-docker/mls-bench__mlsys-sparse-attention-inference/environment/_scaffold/sparse-attn-eval/run_llm.py",
+   "sha256": "d109a0e1e2f32621d4d7199d4ddd5d150fbbc8fc4c665428fcaa5e7c4b673534",
+   "from": "mls-bench",
+   "path": "harbor/tasks-docker/mls-bench__mlsys-sparse-attention-inference/environment/_scaffold/sparse-attn-eval/run_llm.py"
+  },
+  {
+   "dest": "model-metadata/GSAI-ML--LLaDA-8B-Instruct-configuration_llada.py",
+   "sha256": "c947a64d8b735affa69d5adeb416c83ce607c8925270884e4471ae11068e2bfe",
+   "from": "url",
+   "url": "https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct/resolve/08b83a6feb34df1a6011b80c3c00c7563e963b07/configuration_llada.py"
+  },
+  {
+   "dest": "model-metadata/GSAI-ML--LLaDA-8B-Instruct-modeling_llada.py",
+   "sha256": "98bac7e53fef0bb7ca01e3716c11a7f710d183e10dbb9783b88db9dbba2e3766",
+   "from": "url",
+   "url": "https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct/resolve/08b83a6feb34df1a6011b80c3c00c7563e963b07/modeling_llada.py"
+  },
+  {
+   "dest": "raw-inputs/HuggingFaceH4/MATH-500/test.jsonl",
+   "sha256": "35dc41080a3680858b27fa7e0533d2d547825316fc5dafe5d316f4ccc5a06132",
+   "from": "url",
+   "url": "https://huggingface.co/datasets/HuggingFaceH4/MATH-500/resolve/6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be/test.jsonl"
+  },
+  {
+   "dest": "raw-inputs/allenai/ai2_arc/ARC-Challenge/test-00000-of-00001.parquet",
+   "sha256": "62f03257e737aed263f55c6abf87c7bb0028a44a6bdd2a26eb1279eb42c1d1e9",
+   "from": "url",
+   "url": "https://huggingface.co/datasets/allenai/ai2_arc/resolve/210d026faf9955653af8916fad021475a3f00453/ARC-Challenge/test-00000-of-00001.parquet"
+  },
+  {
+   "dest": "raw-inputs/openai/gsm8k/main/test-00000-of-00001.parquet",
+   "sha256": "ee7b8da9e381df27b9e3f7758a159ab2bdaa4dbaa910546cbbc47e0cb44e4f59",
+   "from": "url",
+   "url": "https://huggingface.co/datasets/openai/gsm8k/resolve/740312add88f781978c0658806c59bc2815b9866/main/test-00000-of-00001.parquet"
+  },
+  {
+   "dest": "raw-inputs/openai/openai_humaneval/openai_humaneval/test-00000-of-00001.parquet",
+   "sha256": "2f2871a15fbc95b6c683043359f4ed8e144c5a1c4f24f25f66bc51f598dfcfb6",
+   "from": "url",
+   "url": "https://huggingface.co/datasets/openai/openai_humaneval/resolve/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544/openai_humaneval/test-00000-of-00001.parquet"
+  },
+  {
+   "dest": "raw-inputs/opencompass/NeedleBench/PaulGrahamEssays.jsonl",
+   "sha256": "78ad877447201471578c69dd4fc11e6f489970966329468c5d0ac32292d53056",
+   "from": "url",
+   "url": "https://huggingface.co/datasets/opencompass/NeedleBench/resolve/9f76ad26e7699d914722a41924171ee1022c426f/PaulGrahamEssays.jsonl"
+  },
+  {
+   "dest": "tasks/dlm-dkv-policy/config.json",
+   "sha256": "21a859c5e031a0853cd4202a46d1bcf4a1b7b6c590b38606709a1351931c390b",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/config.json"
+  },
+  {
+   "dest": "tasks/dlm-dkv-policy/edits/_policy_span.py",
+   "sha256": "5ae7b35bdd1e74d7fb9970fe103f01aaf19f9de5ba79919267c3e7e9f74d7c58",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/edits/_policy_span.py"
+  },
+  {
+   "dest": "tasks/dlm-dkv-policy/edits/d2cache.edit.py",
+   "sha256": "a9a026f386c197795a7a13d33617530e4fcdc04c976899464b5332851c5f1898",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/edits/d2cache.edit.py"
+  },
+  {
+   "dest": "tasks/dlm-dkv-policy/edits/dllm_cache.edit.py",
+   "sha256": "88d467cbc6f1fdb494caa3183e460ca8478d2eaa68ba2e06e2bbe3ec981412f0",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/edits/dllm_cache.edit.py"
+  },
+  {
+   "dest": "tasks/dlm-dkv-policy/edits/elastic_cache.edit.py",
+   "sha256": "ce0f9c721381f2a3105cc05af8dd7641ed251fc01fea281d230421e4347dd960",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/edits/elastic_cache.edit.py"
+  },
+  {
+   "dest": "tasks/dlm-dkv-policy/edits/vanilla_uncached.edit.py",
+   "sha256": "6c6318a5875699f988ad0899f301cf60ca0436c829fbc89a36a81f58efa73fd5",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/edits/vanilla_uncached.edit.py"
+  },
+  {
+   "dest": "tasks/dlm-dkv-policy/leaderboard.csv",
+   "sha256": "1b2a414e17361375248186ad6be505b07a8d243ebd92a41206ad9ca709c2ea21",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/leaderboard.csv"
+  },
+  {
+   "dest": "tasks/dlm-dkv-policy/scripts/humaneval.sh",
+   "sha256": "c0347bf5edf275e9ff94851dc47ec72b62ed81964d0b7373f555ac0656b4a3da",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/scripts/humaneval.sh"
+  },
+  {
+   "dest": "tasks/dlm-dkv-policy/scripts/lm_eval.sh",
+   "sha256": "73f47098938326c1ed03d47671f2235ac1b375a77fe5e15a6b2e2581dc69adba",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/scripts/lm_eval.sh"
+  },
+  {
+   "dest": "tasks/dlm-dkv-policy/scripts/math.sh",
+   "sha256": "bd59a707749e21cf9da976a94aaed1b43ee081b0d874504647a26dd05edea092",
+   "from": "mls-bench",
+   "path": "tasks/dlm-dkv-policy/scripts/math.sh"
+  },
+  {
+   "dest": "tasks/llm-dllm-demask-strategy/config.json",
+   "sha256": "b7ee2f3188204fa9cbbc810bfd7a9677d92704fd2583e23bb6e9f0e56075ad36",
+   "from": "mls-bench",
+   "path": "tasks/llm-dllm-demask-strategy/config.json"
+  },
+  {
+   "dest": "tasks/llm-dllm-demask-strategy/data/HumanEval.jsonl.gz",
+   "sha256": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef",
+   "from": "mls-bench",
+   "path": "tasks/llm-dllm-demask-strategy/data/HumanEval.jsonl.gz"
+  },
+  {
+   "dest": "tasks/llm-dllm-demask-strategy/data/math_test.json",
+   "sha256": "87d91ebcd0274bcabf7d18c1998b271f55a38e01ba02e9a4a304a5b129cd1805",
+   "from": "mls-bench",
+   "path": "tasks/llm-dllm-demask-strategy/data/math_test.json"
+  },
+  {
+   "dest": "tasks/llm-dllm-demask-strategy/edits/confidence_greedy.edit.py",
+   "sha256": "3e375eafacca1803bc30b91ec428f96499a5dc1b4e63ec8a35166450bddf867b",
+   "from": "mls-bench",
+   "path": "tasks/llm-dllm-demask-strategy/edits/confidence_greedy.edit.py"
+  },
+  {
+   "dest": "tasks/llm-dllm-demask-strategy/edits/klass_kl.edit.py",
+   "sha256": "236b45e6194091a32b31703c36d3ae3dac06bc8da9404fc19c1e5b1dadf2a31c",
+   "from": "mls-bench",
+   "path": "tasks/llm-dllm-demask-strategy/edits/klass_kl.edit.py"
+  },
+  {
+   "dest": "tasks/llm-dllm-demask-strategy/edits/topk_margin.edit.py",
+   "sha256": "d8e8acf903bd02dd87b28c82c5b84c71ec8f56fd8c6411eb8f3f386eebb9470d",
+   "from": "mls-bench",
+   "path": "tasks/llm-dllm-demask-strategy/edits/topk_margin.edit.py"
+  },
+  {
+   "dest": "tasks/llm-dllm-demask-strategy/leaderboard.csv",
+   "sha256": "d114003fdd4dad2219a519735a83b7c08179cb6811a6318b1b15301a7af65642",
+   "from": "mls-bench",
+   "path": "tasks/llm-dllm-demask-strategy/leaderboard.csv"
+  },
+  {
+   "dest": "tasks/llm-dllm-demask-strategy/scripts/dream_text.sh",
+   "sha256": "eff200cb33a3eb02d597f6746bdf6acc77509e27443cc2fe3544afb632992449",
+   "from": "mls-bench",
+   "path": "tasks/llm-dllm-demask-strategy/scripts/dream_text.sh"
+  },
+  {
+   "dest": "tasks/llm-dllm-demask-strategy/scripts/llada_humaneval.sh",
+   "sha256": "6bf75fc28bdeb8c22e7e657da904291c1e6cd7dda156dc48f30b6376e4fbb1da",
+   "from": "mls-bench",
+   "path": "tasks/llm-dllm-demask-strategy/scripts/llada_humaneval.sh"
+  },
+  {
+   "dest": "tasks/llm-dllm-demask-strategy/scripts/llada_math.sh",
+   "sha256": "0a94145c100f2baa16790a0647c31cb48173d10cdaa6b0c44ccf12b0d5a06b91",
+   "from": "mls-bench",
+   "path": "tasks/llm-dllm-demask-strategy/scripts/llada_math.sh"
+  },
+  {
+   "dest": "tasks/llm-kv-adaptive-quantization/config.json",
+   "sha256": "7f1f2aa41485792d5ba2c1111a43557444995aac5aac01ba442f2b182622a90f",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-adaptive-quantization/config.json"
+  },
+  {
+   "dest": "tasks/llm-kv-adaptive-quantization/edits/kivi_overlap_4bit.edit.py",
+   "sha256": "f81fc7387da1f0d7b7a2455736ada45bd710adc059ed2221a943d748b8f033e5",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-adaptive-quantization/edits/kivi_overlap_4bit.edit.py"
+  },
+  {
+   "dest": "tasks/llm-kv-adaptive-quantization/edits/kvtuner4_kivi_qwen25_3b.edit.py",
+   "sha256": "868c1d4c1850db8b25d999803a5a26c9c644eea464932e2483ff382a6959368c",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-adaptive-quantization/edits/kvtuner4_kivi_qwen25_3b.edit.py"
+  },
+  {
+   "dest": "tasks/llm-kv-adaptive-quantization/edits/kvtuner4_pertoken_qwen25_3b.edit.py",
+   "sha256": "674655db7ac08bdca29157fe15c08a84c930694f4329062f0058f7bf2d9b47ed",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-adaptive-quantization/edits/kvtuner4_pertoken_qwen25_3b.edit.py"
+  },
+  {
+   "dest": "tasks/llm-kv-adaptive-quantization/edits/squat_subspace_4bit.edit.py",
+   "sha256": "f9a884589fd4ed60c54118acfc49881caa288fdeba46de590f55b419e9ba030e",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-adaptive-quantization/edits/squat_subspace_4bit.edit.py"
+  },
+  {
+   "dest": "tasks/llm-kv-adaptive-quantization/leaderboard.csv",
+   "sha256": "099266db2bcde876a9808232c4789ce26b26f5e835d8f9677175d8b3d83b5c66",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-adaptive-quantization/leaderboard.csv"
+  },
+  {
+   "dest": "tasks/llm-kv-adaptive-quantization/scripts/gsm8k.sh",
+   "sha256": "095d85816b5c33a3b02ae988d93496f81e0c9cacfb1c0edb59a36cf91c621be3",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-adaptive-quantization/scripts/gsm8k.sh"
+  },
+  {
+   "dest": "tasks/llm-kv-adaptive-quantization/scripts/longbench_hotpotqa.sh",
+   "sha256": "d9f8268fd7e4223759cb403652af9cc2a967db5dc8b234907c49378d394c3cc5",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-adaptive-quantization/scripts/longbench_hotpotqa.sh"
+  },
+  {
+   "dest": "tasks/llm-kv-adaptive-quantization/scripts/longbench_passage_retrieval.sh",
+   "sha256": "93c402eaab1232ba6dd0f44bc2aafc55d5b2e50b57db3ad9cec89aac7729909b",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-adaptive-quantization/scripts/longbench_passage_retrieval.sh"
+  },
+  {
+   "dest": "tasks/llm-kv-adaptive-quantization/scripts/longbench_repobench.sh",
+   "sha256": "9a116bea3b8f82bdce8506e11d84bf9f4f0bab23622cf180cb136381349d06e2",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-adaptive-quantization/scripts/longbench_repobench.sh"
+  },
+  {
+   "dest": "tasks/llm-kv-adaptive-quantization/scripts/needlebench_niah.sh",
+   "sha256": "97016c0f480382e0b97173551904f2a65a4cc8f89f1561c681763e46dd8d03c9",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-adaptive-quantization/scripts/needlebench_niah.sh"
+  },
+  {
+   "dest": "tasks/llm-kv-selection-budgeting/config.json",
+   "sha256": "3977e793f474c1ef38d50bd52c6dda4c17d8596443c466bb569e3e3e98ac7960",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-selection-budgeting/config.json"
+  },
+  {
+   "dest": "tasks/llm-kv-selection-budgeting/edits/expected_attention.edit.py",
+   "sha256": "d41272c78693cb0c97b54790069bddbee76815879f1850d6891ea08f8382291b",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-selection-budgeting/edits/expected_attention.edit.py"
+  },
+  {
+   "dest": "tasks/llm-kv-selection-budgeting/edits/full_attention.edit.py",
+   "sha256": "0e21d5b59cf5b04e740b8c93f5daa74ce571ad9fb70f25c8502808c30aa028f3",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-selection-budgeting/edits/full_attention.edit.py"
+  },
+  {
+   "dest": "tasks/llm-kv-selection-budgeting/edits/lagkv.edit.py",
+   "sha256": "2172629ab6a5d05ef261ecece64e5b6737a1621febe04b7207289cc3496006ad",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-selection-budgeting/edits/lagkv.edit.py"
+  },
+  {
+   "dest": "tasks/llm-kv-selection-budgeting/edits/streamingllm.edit.py",
+   "sha256": "3f342ee2d12cf22904f46c349fa9fa4a0843c58d26a34a61e4d05cb96147ec2a",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-selection-budgeting/edits/streamingllm.edit.py"
+  },
+  {
+   "dest": "tasks/llm-kv-selection-budgeting/leaderboard.csv",
+   "sha256": "f71590665bfa8f8a1fe07b4e8c6031c887491a12788a7d19ea9c0c847748d604",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-selection-budgeting/leaderboard.csv"
+  },
+  {
+   "dest": "tasks/llm-kv-selection-budgeting/scripts/gsm8k.sh",
+   "sha256": "c297bd5de44a1538cd21bd143fc5ea420a54ab275146e4a00ee690ed66c6e90a",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-selection-budgeting/scripts/gsm8k.sh"
+  },
+  {
+   "dest": "tasks/llm-kv-selection-budgeting/scripts/longbench_hotpotqa.sh",
+   "sha256": "ba658dadbdea9774abd36533e5754a7f3867e6ceb7d228a9cc71e875cbc1271e",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-selection-budgeting/scripts/longbench_hotpotqa.sh"
+  },
+  {
+   "dest": "tasks/llm-kv-selection-budgeting/scripts/longbench_passage_retrieval.sh",
+   "sha256": "f11f09e213fe34dc120a25021ff223dc436650539ca19d4fbc92c2fedc919348",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-selection-budgeting/scripts/longbench_passage_retrieval.sh"
+  },
+  {
+   "dest": "tasks/llm-kv-selection-budgeting/scripts/longbench_repobench.sh",
+   "sha256": "966a76be8384d749a70a73c27db02f99e7acb06c02a12b538a63b5a7652d2133",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-selection-budgeting/scripts/longbench_repobench.sh"
+  },
+  {
+   "dest": "tasks/llm-kv-selection-budgeting/scripts/longbench_v2.sh",
+   "sha256": "0e4709b9df1f8382a1d58bf199967beef7900811b8199ed16da35e79db113c98",
+   "from": "mls-bench",
+   "path": "tasks/llm-kv-selection-budgeting/scripts/longbench_v2.sh"
+  },
+  {
+   "dest": "tasks/mlsys-sparse-attention-inference/config.json",
+   "sha256": "b7bc27185f5dd83738a8d163c5e865462273cea0fe06b0bbfb811b41ecd574e2",
+   "from": "mls-bench",
+   "path": "tasks/mlsys-sparse-attention-inference/config.json"
+  },
+  {
+   "dest": "tasks/mlsys-sparse-attention-inference/edits/bigbird.edit.py",
+   "sha256": "3970329c74daf4d9c152566cf19c0275f160edbc4e28f1cc41637471a60b5935",
+   "from": "mls-bench",
+   "path": "tasks/mlsys-sparse-attention-inference/edits/bigbird.edit.py"
+  },
+  {
+   "dest": "tasks/mlsys-sparse-attention-inference/edits/block_topk.edit.py",
+   "sha256": "23716e26fc1e993878940e7e4566ecbbcea49e46cd8d1a9570604735907cfc86",
+   "from": "mls-bench",
+   "path": "tasks/mlsys-sparse-attention-inference/edits/block_topk.edit.py"
+  },
+  {
+   "dest": "tasks/mlsys-sparse-attention-inference/edits/dense.edit.py",
+   "sha256": "7fedffbbed14dcdf0c7dda72ec24917dd748384bca341866822434b066bdd181",
+   "from": "mls-bench",
+   "path": "tasks/mlsys-sparse-attention-inference/edits/dense.edit.py"
+  },
+  {
+   "dest": "tasks/mlsys-sparse-attention-inference/edits/streaming_llm.edit.py",
+   "sha256": "b6ae7189aa6c34f1393b9c5a62e3914282fc0e5ff272a3007910b03b65f08e04",
+   "from": "mls-bench",
+   "path": "tasks/mlsys-sparse-attention-inference/edits/streaming_llm.edit.py"
+  },
+  {
+   "dest": "tasks/mlsys-sparse-attention-inference/leaderboard.csv",
+   "sha256": "93854c678d2b8f14eca325e0aafd3eff610e5a6542faa660113789d666cc8b32",
+   "from": "mls-bench",
+   "path": "tasks/mlsys-sparse-attention-inference/leaderboard.csv"
+  },
+  {
+   "dest": "tasks/mlsys-sparse-attention-inference/scripts/longbench_multifieldqa_en.sh",
+   "sha256": "ac2bbd485ecba0b24a72a14dbaea273d720b9ba3029e1c82aa87e19a1ac841de",
+   "from": "mls-bench",
+   "path": "tasks/mlsys-sparse-attention-inference/scripts/longbench_multifieldqa_en.sh"
+  },
+  {
+   "dest": "tasks/mlsys-sparse-attention-inference/scripts/longbench_qasper.sh",
+   "sha256": "67a8b8b1c8eb25bc3c57149870b709561c7ef173bd4fb5609ad26c9cb1dbd650",
+   "from": "mls-bench",
+   "path": "tasks/mlsys-sparse-attention-inference/scripts/longbench_qasper.sh"
+  },
+  {
+   "dest": "tasks/mlsys-sparse-attention-inference/scripts/niah_8k.sh",
+   "sha256": "d892f5fd684059698fe179991663ed2d8396fd49221a0626360cbbe5e6d320df",
+   "from": "mls-bench",
+   "path": "tasks/mlsys-sparse-attention-inference/scripts/niah_8k.sh"
+  },
+  {
+   "dest": "vendor/data_scripts/dLLM-cache/prepare_hf_datasets.py",
+   "sha256": "6aba5086ca179b2f6e26a7366ebec7263d126a4c628ea75d0e5de2454de473f9",
+   "from": "mls-bench",
+   "path": "vendor/data_scripts/dLLM-cache/prepare_hf_datasets.py"
+  },
+  {
+   "dest": "vendor/data_scripts/sparse-attn-eval/prepare_longbench.py",
+   "sha256": "d01a23129881bfd71c9e5c2698187bb476dcc4da34acc87d299c41cd0fad1bf6",
+   "from": "mls-bench",
+   "path": "vendor/data_scripts/sparse-attn-eval/prepare_longbench.py"
+  },
+  {
+   "dest": "vendor/data_scripts/sparse-attn-eval/prepare_longctx.py",
+   "sha256": "238535426ee30ec101c775a95d078c5100ac8e4997325adf1ff04e8ebce785bc",
+   "from": "mls-bench",
+   "path": "vendor/data_scripts/sparse-attn-eval/prepare_longctx.py"
+  },
+  {
+   "dest": "vendor/data_scripts/sparse-attn-eval/prepare_niah.py",
+   "sha256": "dea0c65c215a800b5389637192bf397df47bf8d7dd22b348f512cb699095d8b5",
+   "from": "mls-bench",
+   "path": "vendor/data_scripts/sparse-attn-eval/prepare_niah.py"
+  },
+  {
+   "dest": "vendor/packages.yaml",
+   "sha256": "5b049485760840740cbb7416cc554ca4cb13ae06c70bd7c021f42a7afdc318ed",
+   "from": "mls-bench",
+   "path": "vendor/packages.yaml"
+  },
+  {
+   "dest": "vendor/pkg_configs/LLaDA/config.json",
+   "sha256": "aec4684b65062fd51986d8e4a87e2ac860cdb4d0d12898ff0468db9333169973",
+   "from": "mls-bench",
+   "path": "vendor/pkg_configs/LLaDA/config.json"
+  },
+  {
+   "dest": "vendor/pkg_configs/dLLM-cache/config.json",
+   "sha256": "68e69e91eb19ff16ae8e912e128bb2414512404b60c55a8af926d417a1453fd7",
+   "from": "mls-bench",
+   "path": "vendor/pkg_configs/dLLM-cache/config.json"
+  },
+  {
+   "dest": "vendor/pkg_configs/sparse-attn-eval/config.json",
+   "sha256": "a8ca8cc1d097e7171b4d5c43554138d0509326f1665170a521916294ad3822a9",
+   "from": "mls-bench",
+   "path": "vendor/pkg_configs/sparse-attn-eval/config.json"
+  }
+ ]
+}

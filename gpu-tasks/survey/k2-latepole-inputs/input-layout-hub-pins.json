@@ -1,0 +1,44 @@
+[
+  {
+    "kind": "dataset",
+    "repo": "HuggingFaceH4/MATH-500",
+    "revision": "6e4ed1a2a79af7d8630a6b768ec859cb5af4d3be",
+    "files": {
+      ".gitattributes": null,
+      "README.md": null,
+      "eval.yaml": null,
+      "test.jsonl": null
+    },
+    "metadata_sha256": "c6d552735de408a23c074423d2cb27832b5c22c8e44c409c176e26440018dd1a",
+    "source_url": "https://huggingface.co/api/datasets/HuggingFaceH4/MATH-500"
+  },
+  {
+    "kind": "dataset",
+    "repo": "openai/openai_humaneval",
+    "revision": "7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544",
+    "files": {
+      ".gitattributes": null,
+      "README.md": null,
+      "openai_humaneval/test-00000-of-00001.parquet": null
+    },
+    "metadata_sha256": "32de2aee454e9d79c2427cce81c6bbba48587626e16ffa04d2f5102659c1781a",
+    "source_url": "https://huggingface.co/api/datasets/openai/openai_humaneval"
+  },
+  {
+    "kind": "dataset",
+    "repo": "allenai/ai2_arc",
+    "revision": "210d026faf9955653af8916fad021475a3f00453",
+    "files": {
+      ".gitattributes": null,
+      "ARC-Challenge/test-00000-of-00001.parquet": null,
+      "ARC-Challenge/train-00000-of-00001.parquet": null,
+      "ARC-Challenge/validation-00000-of-00001.parquet": null,
+      "ARC-Easy/test-00000-of-00001.parquet": null,
+      "ARC-Easy/train-00000-of-00001.parquet": null,
+      "ARC-Easy/validation-00000-of-00001.parquet": null,
+      "README.md": null
+    },
+    "metadata_sha256": "66d3f53fa23b6c410c05d0b66e47657033cdc3286799fab12ff49d9dd6ac3e83",
+    "source_url": "https://huggingface.co/api/datasets/allenai/ai2_arc"
+  }
+]

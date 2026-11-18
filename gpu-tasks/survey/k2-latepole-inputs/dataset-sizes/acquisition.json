@@ -1,0 +1,117 @@
+[
+ {
+  "repo": "openai/gsm8k",
+  "url": "https://datasets-server.huggingface.co/size?dataset=openai%2Fgsm8k",
+  "sha256": "a9bf445fa38f44777a96d8ed8ff966c90a302668c4ec72d5a4fca3f03a71cadf",
+  "splits": [
+   {
+    "config": "main",
+    "split": "train",
+    "num_rows": 7473
+   },
+   {
+    "config": "main",
+    "split": "test",
+    "num_rows": 1319
+   },
+   {
+    "config": "socratic",
+    "split": "train",
+    "num_rows": 7473
+   },
+   {
+    "config": "socratic",
+    "split": "test",
+    "num_rows": 1319
+   }
+  ]
+ },
+ {
+  "repo": "HuggingFaceH4/MATH-500",
+  "url": "https://datasets-server.huggingface.co/size?dataset=HuggingFaceH4%2FMATH-500",
+  "sha256": "6309b525dbe601c7a643faf9809e04d2de4d13637aa129fddbe0f83a25b65f3e",
+  "splits": [
+   {
+    "config": "default",
+    "split": "test",
+    "num_rows": 500
+   }
+  ]
+ },
+ {
+  "repo": "openai_humaneval",
+  "url": "https://datasets-server.huggingface.co/size?dataset=openai_humaneval",
+  "error": "HTTP Error 404: Not Found"
+ },
+ {
+  "repo": "allenai/ai2_arc",
+  "url": "https://datasets-server.huggingface.co/size?dataset=allenai%2Fai2_arc",
+  "sha256": "5bcd35557b2062ffaf06f4d16a082bb9e690458275cddf23e467bb27be5cc74a",
+  "splits": [
+   {
+    "config": "ARC-Challenge",
+    "split": "train",
+    "num_rows": 1119
+   },
+   {
+    "config": "ARC-Challenge",
+    "split": "test",
+    "num_rows": 1172
+   },
+   {
+    "config": "ARC-Challenge",
+    "split": "validation",
+    "num_rows": 299
+   },
+   {
+    "config": "ARC-Easy",
+    "split": "train",
+    "num_rows": 2251
+   },
+   {
+    "config": "ARC-Easy",
+    "split": "test",
+    "num_rows": 2376
+   },
+   {
+    "config": "ARC-Easy",
+    "split": "validation",
+    "num_rows": 570
+   }
+  ]
+ },
+ {
+  "repo": "THUDM/LongBench-v2",
+  "url": "https://datasets-server.huggingface.co/size?dataset=THUDM%2FLongBench-v2",
+  "error": "HTTP Error 404: Not Found"
+ },
+ {
+  "file": "HumanEval.jsonl.gz",
+  "url": "https://raw.githubusercontent.com/openai/human-eval/master/data/HumanEval.jsonl.gz",
+  "sha256": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef",
+  "bytes": 44877,
+  "rows": 164
+ },
+ {
+  "file": "LongBench-v2-data.json",
+  "url": "https://huggingface.co/datasets/THUDM/LongBench-v2/resolve/main/data.json",
+  "sha256": "15d61c22d92c96900b3c4948b6aeea218d3214b676a65df48e7b8555604c7fe2",
+  "bytes": 465490535,
+  "rows": 503,
+  "retention": "payload removed after source-row count; hash and count retained, existing KV cache supplies actual workspace input"
+ },
+ {
+  "file": "PaulGrahamEssays.jsonl",
+  "url": "https://huggingface.co/datasets/opencompass/NeedleBench/resolve/main/PaulGrahamEssays.jsonl",
+  "sha256": "78ad877447201471578c69dd4fc11e6f489970966329468c5d0ac32292d53056",
+  "bytes": 1968927,
+  "rows": 147
+ },
+ {
+  "file": "LongBench-README.md",
+  "url": "https://huggingface.co/datasets/THUDM/LongBench/resolve/main/README.md",
+  "sha256": "5c648f2d0f5f1953f9361fdd3dcda23077f103b4028599095a31f03b74fe6458",
+  "bytes": 16038,
+  "rows": null
+ }
+]

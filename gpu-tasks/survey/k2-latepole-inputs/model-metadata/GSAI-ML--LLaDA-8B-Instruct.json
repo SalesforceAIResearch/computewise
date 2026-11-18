@@ -1,0 +1,70 @@
+{
+ "id": "GSAI-ML/LLaDA-8B-Instruct",
+ "sha": "08b83a6feb34df1a6011b80c3c00c7563e963b07",
+ "siblings": [
+  {
+   "rfilename": ".gitattributes",
+   "size": 1519
+  },
+  {
+   "rfilename": "README.md",
+   "size": 431
+  },
+  {
+   "rfilename": "config.json",
+   "size": 1385
+  },
+  {
+   "rfilename": "configuration_llada.py",
+   "size": 12000
+  },
+  {
+   "rfilename": "generation_config.json",
+   "size": 128
+  },
+  {
+   "rfilename": "model-00001-of-00006.safetensors",
+   "size": 2109747184
+  },
+  {
+   "rfilename": "model-00002-of-00006.safetensors",
+   "size": 2948598128
+  },
+  {
+   "rfilename": "model-00003-of-00006.safetensors",
+   "size": 2986883656
+  },
+  {
+   "rfilename": "model-00004-of-00006.safetensors",
+   "size": 2952797224
+  },
+  {
+   "rfilename": "model-00005-of-00006.safetensors",
+   "size": 2919239128
+  },
+  {
+   "rfilename": "model-00006-of-00006.safetensors",
+   "size": 2113931792
+  },
+  {
+   "rfilename": "model.safetensors.index.json",
+   "size": 24941
+  },
+  {
+   "rfilename": "modeling_llada.py",
+   "size": 61443
+  },
+  {
+   "rfilename": "special_tokens_map.json",
+   "size": 747
+  },
+  {
+   "rfilename": "tokenizer.json",
+   "size": 6098988
+  },
+  {
+   "rfilename": "tokenizer_config.json",
+   "size": 51692
+  }
+ ]
+}

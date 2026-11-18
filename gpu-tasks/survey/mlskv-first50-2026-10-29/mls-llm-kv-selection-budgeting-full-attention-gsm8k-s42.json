@@ -1,0 +1,359 @@
+{
+ "record_id": "mls-llm-kv-selection-budgeting-full-attention-gsm8k-s42",
+ "evaluator": {
+  "path": "236d78dcda10/custom_selection_eval.py",
+  "sha256": "236d78dcda10f37265892b7be5b8c559d787603484090291343f70c1577beee1"
+ },
+ "argv": [
+  "custom_selection_eval.py",
+  "--workload",
+  "gsm8k",
+  "--model-id",
+  "Qwen/Qwen2.5-3B-Instruct",
+  "--compression-ratio",
+  "0.8",
+  "--seed",
+  "42",
+  "--cpu",
+  "--max-examples",
+  "50"
+ ],
+ "k": 50,
+ "examples": [
+  {
+   "i": 0,
+   "example_id": "gsm8k-0",
+   "key": "6358e6911ae1d1ccaaad1bc73bfac59e71bdc7528349253900564857eac01ffd",
+   "score": 0.0
+  },
+  {
+   "i": 1,
+   "example_id": "gsm8k-1",
+   "key": "a078289118ccd09212552d77bbf7d3b7546759f7b0101ad0064bba1d4d46af66",
+   "score": 100.0
+  },
+  {
+   "i": 2,
+   "example_id": "gsm8k-2",
+   "key": "ff95a3f033b8777e60581e46a7104094902c32d2402b915c82f7c597c88912a1",
+   "score": 0.0
+  },
+  {
+   "i": 3,
+   "example_id": "gsm8k-3",
+   "key": "a64f7732a63f08607d9508597f68ee5f25be82dd9f8525abd495ad282afb381f",
+   "score": 100.0
+  },
+  {
+   "i": 4,
+   "example_id": "gsm8k-4",
+   "key": "f399aa305f177d1c339033d522bd4ccb431ac1d808ca82602fc9d2adb7acf171",
+   "score": 0.0
+  },
+  {
+   "i": 5,
+   "example_id": "gsm8k-5",
+   "key": "402a940b9a221e8ae35ce2b85b929f4b2cc265ce9354f617eac7bd2810bef59f",
+   "score": 0.0
+  },
+  {
+   "i": 6,
+   "example_id": "gsm8k-6",
+   "key": "1fef1748602bd75ef1c59dbc76df67aa10aa042272108641230e6a0c2621849e",
+   "score": 0.0
+  },
+  {
+   "i": 7,
+   "example_id": "gsm8k-7",
+   "key": "a2f3a1752de4f151e95ba5b7813a490535a2532575665e5ae11f57eb5ebb3966",
+   "score": 0.0
+  },
+  {
+   "i": 8,
+   "example_id": "gsm8k-8",
+   "key": "3c7578b40431581ca93e4ef9ef823bdd56d7f4e5a4b7ef65f5779df7478bc067",
+   "score": 0.0
+  },
+  {
+   "i": 9,
+   "example_id": "gsm8k-9",
+   "key": "97411b63cd19ca4b81c100587bb9b7e23fd62f90e4c2f5beb3b57685c96febf7",
+   "score": 0.0
+  },
+  {
+   "i": 10,
+   "example_id": "gsm8k-10",
+   "key": "4d73c5de84c7615a526928ae3311428650e838fe89c1e28e7a5f0730fcc83f5a",
+   "score": 0.0
+  },
+  {
+   "i": 11,
+   "example_id": "gsm8k-11",
+   "key": "38416a998658ade3bbb7b720e65fd437dcc1d2fc9b162271900407e29c5adba8",
+   "score": 0.0
+  },
+  {
+   "i": 12,
+   "example_id": "gsm8k-12",
+   "key": "e120a303ddacb2889b03e48c7dcb3fd06f48d5cfc7aabf8e3fcbc87a894b149b",
+   "score": 0.0
+  },
+  {
+   "i": 13,
+   "example_id": "gsm8k-13",
+   "key": "224f37d21c102e8f2ce4089125c1db0741f9729e54591b3bc00627f48e14eb69",
+   "score": 0.0
+  },
+  {
+   "i": 14,
+   "example_id": "gsm8k-14",
+   "key": "4bdc370d244a89f192d0af65a0e3cc80cb78df557eeb7af2452e91e89d9c5c2c",
+   "score": 0.0
+  },
+  {
+   "i": 15,
+   "example_id": "gsm8k-15",
+   "key": "60ed80661c32d99dd30110f22385372f18d6b7ce5dd99330bf1b65b7f34e6263",
+   "score": 0.0
+  },
+  {
+   "i": 16,
+   "example_id": "gsm8k-16",
+   "key": "445d5e8060a7563bec558d71e4a690a09b926c21c1602031280487b4922b1cc8",
+   "score": 0.0
+  },
+  {
+   "i": 17,
+   "example_id": "gsm8k-17",
+   "key": "39fea70f3740c2e60d6a5539010962c40bb6b587faf889413434059b946e3547",
+   "score": 0.0
+  },
+  {
+   "i": 18,
+   "example_id": "gsm8k-18",
+   "key": "1f31dd313130358fc75ce9a78ea18b07a24cd8dbb7522c3c129e1fb9e0d9a558",
+   "score": 0.0
+  },
+  {
+   "i": 19,
+   "example_id": "gsm8k-19",
+   "key": "0c33cec8273dcaae8cbdfd939e50c0b79fea3a81d1d5847104823466d05c22a8",
+   "score": 0.0
+  },
+  {
+   "i": 20,
+   "example_id": "gsm8k-20",
+   "key": "7db63c26e963b9258b1a2d286a4f900be021ea2b12dcb680f4a409ff46a4bbb4",
+   "score": 0.0
+  },
+  {
+   "i": 21,
+   "example_id": "gsm8k-21",
+   "key": "20c7db956577579a014ba6d6e8f69638a82fa868020640187a041412a6e5d42a",
+   "score": 0.0
+  },
+  {
+   "i": 22,
+   "example_id": "gsm8k-22",
+   "key": "5663def3c214b9a0bd70eff5363f595be68a0c2ed9d3cdc2a986ee510cf5b4e2",
+   "score": 0.0
+  },
+  {
+   "i": 23,
+   "example_id": "gsm8k-23",
+   "key": "4c2ddd0a6ad3fb18a85a712761cad27a2162b67db497664705156f8a6d94a5e0",
+   "score": 100.0
+  },
+  {
+   "i": 24,
+   "example_id": "gsm8k-24",
+   "key": "5255f9a6e38bb413fd15c8c274f88ea17e35a463ac6c31fcf5936f8160b5be8e",
+   "score": 100.0
+  },
+  {
+   "i": 25,
+   "example_id": "gsm8k-25",
+   "key": "7c269f223169c8f9476b5ee829f8f96a6b96295fc4b61ec44e83cb2aebca7680",
+   "score": 0.0
+  },
+  {
+   "i": 26,
+   "example_id": "gsm8k-26",
+   "key": "2d0d671d2a56d3f3e4f591e909b5f50851bfb5f1e68956fec3afa2929bff8ae9",
+   "score": 0.0
+  },
+  {
+   "i": 27,
+   "example_id": "gsm8k-27",
+   "key": "212171e2ffc58f9aeabc7dcba97d7e617b0596d955f6380f0ef7fc7f085cc693",
+   "score": 0.0
+  },
+  {
+   "i": 28,
+   "example_id": "gsm8k-28",
+   "key": "b241311da71350e5c178cf1070360d608d47f523f3b0795dd920f0888cfb5ff0",
+   "score": 100.0
+  },
+  {
+   "i": 29,
+   "example_id": "gsm8k-29",
+   "key": "a1cfed9f20f76584f44d501865f296d51ee9caf65e06e9539cdf3a6d25bbeb06",
+   "score": 100.0
+  },
+  {
+   "i": 30,
+   "example_id": "gsm8k-30",
+   "key": "44e503746e93446268fcee6473cc7810fcb398964895b9f4bdc0858a4467b0db",
+   "score": 0.0
+  },
+  {
+   "i": 31,
+   "example_id": "gsm8k-31",
+   "key": "98c1a597d3c46bfa042513ef1e1d2138d0fdb968cd3fd3d712f776e8a5b5d881",
+   "score": 100.0
+  },
+  {
+   "i": 32,
+   "example_id": "gsm8k-32",
+   "key": "078cc1083f717af7b97d1c48c6269a587636fe2a0e202fdcbbb117527f32299a",
+   "score": 100.0
+  },
+  {
+   "i": 33,
+   "example_id": "gsm8k-33",
+   "key": "2fea95dee3bd526704db671194be315893e3fcd813493e2abc369a1df3b0fe9b",
+   "score": 100.0
+  },
+  {
+   "i": 34,
+   "example_id": "gsm8k-34",
+   "key": "6c09f6c5562a89b8bbe90f6ef6432fcf4d9c26a06da522e91635ef83e4c63096",
+   "score": 100.0
+  },
+  {
+   "i": 35,
+   "example_id": "gsm8k-35",
+   "key": "14304b0dfd46233448da89a36d9b2111df5b11f4519372d8defe0e8edc26f975",
+   "score": 100.0
+  },
+  {
+   "i": 36,
+   "example_id": "gsm8k-36",
+   "key": "26c812cc3bd9eda80f75f8c67d71706aa9b28072c785dc2bd8a5e85c679087a6",
+   "score": 0.0
+  },
+  {
+   "i": 37,
+   "example_id": "gsm8k-37",
+   "key": "45733cb34fed8e89ca3917c3ff8e513f64a9e98a4a2ce20b5274b4942befa094",
+   "score": 0.0
+  },
+  {
+   "i": 38,
+   "example_id": "gsm8k-38",
+   "key": "4f65a9f52c36fe4e440af80725e9b3560a13972325cee60ce5d4fbe7a91f1bd3",
+   "score": 0.0
+  },
+  {
+   "i": 39,
+   "example_id": "gsm8k-39",
+   "key": "e2b92250ddb5311fded14938e86f7aab249c4956ae11914cc50bdcec65c8ff7a",
+   "score": 0.0
+  },
+  {
+   "i": 40,
+   "example_id": "gsm8k-40",
+   "key": "4ad52892a05acdd9734f6167b77c45a8d394c06ed327de5270ee99d6407f1cdc",
+   "score": 100.0
+  },
+  {
+   "i": 41,
+   "example_id": "gsm8k-41",
+   "key": "e77ce967478514331f93472537bf176642ed77fa585aef13159695f69d849411",
+   "score": 100.0
+  },
+  {
+   "i": 42,
+   "example_id": "gsm8k-42",
+   "key": "b0a0e2731b379fb48d177b071fe4394913743114fe35532efdd0b1a9738a5e9c",
+   "score": 100.0
+  },
+  {
+   "i": 43,
+   "example_id": "gsm8k-43",
+   "key": "3aaf2e7127a2e3d9ee3a50fb0b93a1347a3b76b34e7be55696f363ab4e919381",
+   "score": 0.0
+  },
+  {
+   "i": 44,
+   "example_id": "gsm8k-44",
+   "key": "567864c1f6a95ceb6ec49f294a87e58433074b32768b2e7ef35b40a08b20e7ae",
+   "score": 0.0
+  },
+  {
+   "i": 45,
+   "example_id": "gsm8k-45",
+   "key": "8bbc011221b9952f8317ada963721d5afc9559149d25def2e93e58af79672afc",
+   "score": 0.0
+  },
+  {
+   "i": 46,
+   "example_id": "gsm8k-46",
+   "key": "ef4949d46eca9212dfe5d25d7831a4db977ea9e08d9df2ea2dd7ea99f969b3d7",
+   "score": 0.0
+  },
+  {
+   "i": 47,
+   "example_id": "gsm8k-47",
+   "key": "a0b2cbda6a6d77094d47c3f12bf8d9e41435d6f6a5de521d75dc63de589f1efe",
+   "score": 0.0
+  },
+  {
+   "i": 48,
+   "example_id": "gsm8k-48",
+   "key": "0e606e9d2a40c98e299e97be44ea702469b952fc780ff00a52d9aea48162d1f3",
+   "score": 100.0
+  },
+  {
+   "i": 49,
+   "example_id": "gsm8k-49",
+   "key": "a7fec5abe400ca418d7d6fe3fe5b37606ec2aaed2ce232d09fed45d40c0a3442",
+   "score": 100.0
+  }
+ ],
+ "decode": {
+  "device": "cpu",
+  "dtype": "bfloat16",
+  "torch": "2.11.0+cpu",
+  "transformers": "5.3.0",
+  "model_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+  "attn_implementation": "sdpa",
+  "image": "sha256:c7579a3943ec390fa3e12ba56d7faecd866998f9b90dd7f7f9ff932339c6d3b6",
+  "machine": "worker-13",
+  "cpu": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz",
+  "threads": 11,
+  "start": "2026-10-29T16:15:01Z",
+  "end": "2026-10-29T16:55:12Z",
+  "no_replay": true,
+  "how": "NVRT_DISABLE=1: the replay layer is not loaded, so torch is plain CPU torch and nothing is served; the record's own evaluator and argv; the model loaded in bfloat16, the recorded precision (the evaluator picks float32 on a CPU device); examples taken by slicing load_workload(name, 0) to [start, end), the full workload's own order",
+  "invocation": "harness import of the unedited evaluator (sha256 = entry_hash); bf16 set by wrapping from_pretrained at run time; the evaluator's own main() and run_real_eval under the record's argv, on load_workload(name, 0)[start:end]; score_prediction wrapped to record each score",
+  "harness_sha256": "038941561854bb49c90194a21b5e98ff08d6db5d6b222d97434a068839d27daa",
+  "slices": [
+   [
+    0,
+    50
+   ]
+  ],
+  "slice_detail": [
+   {
+    "start": 0,
+    "end": 50,
+    "machine": "worker-13",
+    "wall_s": 2411.5,
+    "decode_start": "2026-10-29T16:15:01Z",
+    "decode_end": "2026-10-29T16:55:12Z",
+    "harness_sha256": "038941561854bb49c90194a21b5e98ff08d6db5d6b222d97434a068839d27daa"
+   }
+  ]
+ }
+}

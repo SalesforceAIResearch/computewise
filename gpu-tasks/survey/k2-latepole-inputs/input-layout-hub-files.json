@@ -1,0 +1,28 @@
+[
+  {
+    "kind": "dataset",
+    "repo": "THUDM/LongBench",
+    "revision": "5e628be450b7e67fb7ae6e201bd6d8f7056f7672",
+    "files": {
+      "data.zip": {
+        "bytes": 113932529,
+        "sha256": "cb45b11a4133c6bc1d6a44b0f8e701335ff1e543195db1103472e575857f7f64"
+      }
+    }
+  },
+  {
+    "kind": "dataset",
+    "repo": "THUDM/LongBench-v2",
+    "revision": "2b48e494f2c7a2f0af81aae178e05c7e1dde0fe9",
+    "files": {
+      "data.json": {
+        "bytes": 465490535,
+        "sha256": "15d61c22d92c96900b3c4948b6aeea218d3214b676a65df48e7b8555604c7fe2"
+      }
+    }
+  },
+  {
+    "repo": "opencompass/NeedleBench",
+    "error": "'lfs'"
+  }
+]

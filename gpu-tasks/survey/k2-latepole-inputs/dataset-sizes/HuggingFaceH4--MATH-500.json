@@ -1,0 +1,12 @@
+{
+ "size": {
+  "splits": [
+   {
+    "dataset": "HuggingFaceH4/MATH-500",
+    "config": "default",
+    "split": "test",
+    "num_rows": 500
+   }
+  ]
+ }
+}

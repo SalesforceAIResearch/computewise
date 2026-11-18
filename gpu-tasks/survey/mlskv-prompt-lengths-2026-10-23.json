@@ -1,0 +1,57 @@
+{
+ "hotpotqa_e": {
+  "n": 300,
+  "max": 17374,
+  "mean": 9947.8,
+  "p50": 9864,
+  "over_selection_limit": 0,
+  "selection_limit": 32735,
+  "max_after_selection_truncation": 17374
+ },
+ "passage_retrieval_en_e": {
+  "n": 300,
+  "max": 15314,
+  "mean": 8483.2,
+  "p50": 8268,
+  "over_selection_limit": 0,
+  "selection_limit": 32735,
+  "max_after_selection_truncation": 15314
+ },
+ "repobench-p_e": {
+  "n": 300,
+  "max": 41161,
+  "mean": 15439.9,
+  "p50": 13753,
+  "over_selection_limit": 15,
+  "selection_limit": 32703,
+  "max_after_selection_truncation": 32703
+ },
+ "longbench_v2": {
+  "n": 503,
+  "max": 4163909,
+  "mean": 260606.3,
+  "p50": 99509,
+  "over_selection_limit": 387,
+  "selection_limit": 32639,
+  "max_after_selection_truncation": 32639
+ },
+ "needlebench_niah": {
+  "n": 441,
+  "max": 17753,
+  "mean": 3120.5,
+  "p50": 2021,
+  "over_selection_limit": 0,
+  "selection_limit": 32735,
+  "max_after_selection_truncation": 17753
+ },
+ "gsm8k": {
+  "n": 1319,
+  "max": 218,
+  "mean": 91.0,
+  "p50": 87,
+  "over_selection_limit": 0,
+  "selection_limit": 32511,
+  "max_after_selection_truncation": 218
+ },
+ "_how": "prompt token lengths with Qwen/Qwen2.5-3B-Instruct's tokenizer.json at aa8e7253, each prompt built by the evaluators' own templates (build/mlskv_prompt_lengths.py; gsm8k by the same template from build_gsm8k_examples, on openai/gsm8k main test at 740312ad). selection_limit is max_position_embeddings (32,768) - max_new_tokens - 1, where the selection evaluator truncates (tokenize_prompt_for_model); the quant evaluator does not truncate. Measured 2026-10-23 on the laptop"
+}

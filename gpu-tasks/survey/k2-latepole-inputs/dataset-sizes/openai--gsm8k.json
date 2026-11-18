@@ -1,0 +1,30 @@
+{
+ "size": {
+  "splits": [
+   {
+    "dataset": "openai/gsm8k",
+    "config": "main",
+    "split": "train",
+    "num_rows": 7473
+   },
+   {
+    "dataset": "openai/gsm8k",
+    "config": "main",
+    "split": "test",
+    "num_rows": 1319
+   },
+   {
+    "dataset": "openai/gsm8k",
+    "config": "socratic",
+    "split": "train",
+    "num_rows": 7473
+   },
+   {
+    "dataset": "openai/gsm8k",
+    "config": "socratic",
+    "split": "test",
+    "num_rows": 1319
+   }
+  ]
+ }
+}

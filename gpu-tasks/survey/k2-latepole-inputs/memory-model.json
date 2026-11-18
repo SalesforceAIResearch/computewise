@@ -1,0 +1,12 @@
+{
+  "dlm-dkv-policy": {
+    "weights_bytes": 16000000000,
+    "peak_bytes": 17746000000,
+    "how": "MODELLED, gpu-mock 2026-11-02 12:20 MST: ~8B parameters x2 bytes BF16 =16e9 weight bytes (vendor LLaDA note ~16GB), plus1.746e9 bytes modeled activations/full-sequence logits. No KV cache. Not a measured source peak or per-example value."
+  },
+  "mlsys-sparse-attention-inference": {
+    "weights_bytes": 3080000000,
+    "peak_bytes": 4380000000,
+    "how": "MODELLED, gpu-mock 2026-11-02 12:20 MST: ~1.54B parameters x2 bytes FP16 =3.08e9 weight bytes (source vendor note ~3GB), plus1.30e9 bytes modeled activations/sparse scratch at8192context,density budget0.25,use_cache=False. Not a measured source peak or per-example value."
+  }
+}

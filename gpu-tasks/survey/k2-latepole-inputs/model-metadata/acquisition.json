@@ -1,0 +1,16 @@
+[
+  {
+    "repo": "GSAI-ML/LLaDA-8B-Instruct",
+    "revision": "08b83a6feb34df1a6011b80c3c00c7563e963b07",
+    "how": "latest repository commit before source cohorts; revision inferred, not a per-run recorded field",
+    "siblings": 16,
+    "config_sha256": "5f99fefe855fdb5100bb6cadb57bdb09fae723ad54811f95c00ecacf29d58a6a"
+  },
+  {
+    "repo": "Qwen/Qwen2.5-1.5B-Instruct",
+    "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+    "how": "latest repository commit before source cohorts; revision inferred, not a per-run recorded field",
+    "siblings": 10,
+    "config_sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670"
+  }
+]

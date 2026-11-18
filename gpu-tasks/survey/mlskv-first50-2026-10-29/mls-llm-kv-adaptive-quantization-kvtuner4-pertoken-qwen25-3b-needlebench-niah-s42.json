@@ -1,0 +1,354 @@
+{
+ "record_id": "mls-llm-kv-adaptive-quantization-kvtuner4-pertoken-qwen25-3b-needlebench-niah-s42",
+ "evaluator": {
+  "path": "05a6d35cead1/custom_quant_eval.py",
+  "sha256": "05a6d35cead11725e9b763f095f42ef41c74eb20396676550f82c17f5ba23905"
+ },
+ "argv": [
+  "custom_quant_eval.py",
+  "--workload",
+  "needlebench_niah",
+  "--budget-bits",
+  "4",
+  "--seed",
+  "42"
+ ],
+ "k": 50,
+ "examples": [
+  {
+   "i": 0,
+   "example_id": "niah-0-0.10",
+   "key": "20ba29b3bffbd3102bf0ca7dcf6f3cd06f2a9aa2ae47c4f7a209c1ebf7c0ea30",
+   "score": 100.0
+  },
+  {
+   "i": 1,
+   "example_id": "niah-0-0.50",
+   "key": "926addf9021d158914a65ec24f3b08d04e2c16a2338ade7313b107c4ecf86e9a",
+   "score": 100.0
+  },
+  {
+   "i": 2,
+   "example_id": "niah-0-0.90",
+   "key": "299d6ef3e0cd9abbca3ec9cb8f2b544783a89bd73d0669a5a7ebea4a6e0110ff",
+   "score": 100.0
+  },
+  {
+   "i": 3,
+   "example_id": "niah-1-0.10",
+   "key": "5f5ae10cdbcfa686dddf5292db1a21a5983dc256ea80053c7b2fbe59038f39e9",
+   "score": 100.0
+  },
+  {
+   "i": 4,
+   "example_id": "niah-1-0.50",
+   "key": "b6bec30f23ce061f51241a60b5f276155d8e42d4da5222f2339c010dabb8ebce",
+   "score": 100.0
+  },
+  {
+   "i": 5,
+   "example_id": "niah-1-0.90",
+   "key": "f956c226d0fafa06aa51fbdcfc19ba7db3b92d07413d992ae459a97a73ca8906",
+   "score": 100.0
+  },
+  {
+   "i": 6,
+   "example_id": "niah-2-0.10",
+   "key": "3912f36ffa84c8ffbc8c829ce0fe0f640d290587e5cbbb64252bd4473b4dd322",
+   "score": 100.0
+  },
+  {
+   "i": 7,
+   "example_id": "niah-2-0.50",
+   "key": "cddd1faa9d477df2e627c4adce224a6979e3e8513d9a77475466cd5032d38e8d",
+   "score": 100.0
+  },
+  {
+   "i": 8,
+   "example_id": "niah-2-0.90",
+   "key": "57bd1e45d04713a0aa6276b0499dd47749e66780bfccdb23f6b9b249cdbabec8",
+   "score": 100.0
+  },
+  {
+   "i": 9,
+   "example_id": "niah-3-0.10",
+   "key": "a47a888885978716a87c1aa69beec5d6410721e18374fab043f8e6a7897782fb",
+   "score": 100.0
+  },
+  {
+   "i": 10,
+   "example_id": "niah-3-0.50",
+   "key": "d9459fbe7bbc2146d06a6bb2f9978292af3ebe821a66b91eab22ecf020fb132d",
+   "score": 100.0
+  },
+  {
+   "i": 11,
+   "example_id": "niah-3-0.90",
+   "key": "373729c060488163f5360eadd3b174b757213c8fe78217d2970ecb25ce2cfb86",
+   "score": 0.0
+  },
+  {
+   "i": 12,
+   "example_id": "niah-4-0.10",
+   "key": "c0a8a8e45f7c27f2eb2bebaa010ae6fd72c221da4079fbbae4a9327426e832a5",
+   "score": 100.0
+  },
+  {
+   "i": 13,
+   "example_id": "niah-4-0.50",
+   "key": "59ff5781d465c5ae7b0b6edbfb449f475a21875abd6a7c92b2f604fa8f5ace7b",
+   "score": 100.0
+  },
+  {
+   "i": 14,
+   "example_id": "niah-4-0.90",
+   "key": "423e54e62f52da679aba2d1416e0dba66d61493b567480c5cb64f67c85d5820f",
+   "score": 0.0
+  },
+  {
+   "i": 15,
+   "example_id": "niah-5-0.10",
+   "key": "4d2f84deb45ceaba3b43cfb44d0c20eb6514e62ff49fdf8b3b0638fc6902ff87",
+   "score": 100.0
+  },
+  {
+   "i": 16,
+   "example_id": "niah-5-0.50",
+   "key": "85c65a8bf5cbd9b2e19bb853ebf116cadccf0de552f047ea95b48a8b7b92a877",
+   "score": 0.0
+  },
+  {
+   "i": 17,
+   "example_id": "niah-5-0.90",
+   "key": "a2cd4e0f9d9e930551f7f213f0acc5639c2bfef0c782dc70a86a7f988e35f52a",
+   "score": 0.0
+  },
+  {
+   "i": 18,
+   "example_id": "niah-6-0.10",
+   "key": "5c4076d2c923ca0aade124154c5f14d551d8d0878259bc54d800cd2f5f6bd97e",
+   "score": 100.0
+  },
+  {
+   "i": 19,
+   "example_id": "niah-6-0.50",
+   "key": "2a2b4783a1c41bf7347e61d72c0df68660afa557dfdf2cff7d2b7d8cf89cd13a",
+   "score": 100.0
+  },
+  {
+   "i": 20,
+   "example_id": "niah-6-0.90",
+   "key": "eb39cbff9650c5f116266454958bb9bd7219f855a02c6250c13d6c045a09b87b",
+   "score": 100.0
+  },
+  {
+   "i": 21,
+   "example_id": "niah-7-0.10",
+   "key": "5984b2550f8866bebfefd8462cb894b0f0c3d4b19017fee392e713ad148b34b9",
+   "score": 0.0
+  },
+  {
+   "i": 22,
+   "example_id": "niah-7-0.50",
+   "key": "9fde4d6cd11857855de01ceef3fa9e53b4a055b6dfc5de2c413db1f13d07aa86",
+   "score": 100.0
+  },
+  {
+   "i": 23,
+   "example_id": "niah-7-0.90",
+   "key": "c950eb3b67cef43a59b97224eaa79f988fd8c6706b1ba73133da0e6db27152c5",
+   "score": 0.0
+  },
+  {
+   "i": 24,
+   "example_id": "niah-8-0.10",
+   "key": "4be945946b5ddc4d72f9719178f84ac3cd5d829b6c254d20d498ed3063095b7c",
+   "score": 100.0
+  },
+  {
+   "i": 25,
+   "example_id": "niah-8-0.50",
+   "key": "4f98a3da0ce1f7bf56fb6bfc4a126a6c5a7be4674637b035c4ef75fb4e104904",
+   "score": 100.0
+  },
+  {
+   "i": 26,
+   "example_id": "niah-8-0.90",
+   "key": "3d8b62efbad32a7337a907274a39235f86343baddd7d9cb1982c51502d24f553",
+   "score": 100.0
+  },
+  {
+   "i": 27,
+   "example_id": "niah-9-0.10",
+   "key": "1e65511963110e869ea8944764107470c8dddbc5e6c6174de114b7ff6012c2ab",
+   "score": 100.0
+  },
+  {
+   "i": 28,
+   "example_id": "niah-9-0.50",
+   "key": "adf6b785f118313d5baabc293c498a7bc43b91654d78d6c2216432687fe29ac3",
+   "score": 0.0
+  },
+  {
+   "i": 29,
+   "example_id": "niah-9-0.90",
+   "key": "e2bdd9bdea45c684223a81b073623941fc656da5cb71f975f088f148106115dd",
+   "score": 100.0
+  },
+  {
+   "i": 30,
+   "example_id": "niah-10-0.10",
+   "key": "6cbc73ac34c1c018a958e282863021a7c831381c317eb79ac773b6e957ae87c3",
+   "score": 0.0
+  },
+  {
+   "i": 31,
+   "example_id": "niah-10-0.50",
+   "key": "7c0cc6e03efa87e94a0c3df3358a5880c6366239ba108ae682b66a2b06016fe1",
+   "score": 0.0
+  },
+  {
+   "i": 32,
+   "example_id": "niah-10-0.90",
+   "key": "53738a1a553e5f130b7c475d9376555c5c9ab903b424c09db03c053b52506ffd",
+   "score": 0.0
+  },
+  {
+   "i": 33,
+   "example_id": "niah-11-0.10",
+   "key": "91bde82499d5ff0658c26fbde7b3ae206ba45fd2b832578d640136daf7950982",
+   "score": 100.0
+  },
+  {
+   "i": 34,
+   "example_id": "niah-11-0.50",
+   "key": "3b78a91cf7884923ada45fdc6d41309e8a59235e36e17cbc49f185ccfe363dac",
+   "score": 100.0
+  },
+  {
+   "i": 35,
+   "example_id": "niah-11-0.90",
+   "key": "c56192361cf202e286ed9192050d1aad7fbb1fbc4a060f65ed8eb2a182711de6",
+   "score": 100.0
+  },
+  {
+   "i": 36,
+   "example_id": "niah-12-0.10",
+   "key": "6044ef65c37d0cd702a5d043cb48c40fe582e9d1ce0250dfe9b9f61f4e9ebe5d",
+   "score": 100.0
+  },
+  {
+   "i": 37,
+   "example_id": "niah-12-0.50",
+   "key": "04edb93943ef9c0f854d2e7d5c5066849067d5a8b318706823b2993a70e113d8",
+   "score": 100.0
+  },
+  {
+   "i": 38,
+   "example_id": "niah-12-0.90",
+   "key": "70dd210dd80febe246e8ca4490e5011721002ea84576037dc3446465a41990f2",
+   "score": 100.0
+  },
+  {
+   "i": 39,
+   "example_id": "niah-13-0.10",
+   "key": "039e07ca07527684dfb474b6ea85d09267931d7142f5cdb55f231e31a7bbf7da",
+   "score": 0.0
+  },
+  {
+   "i": 40,
+   "example_id": "niah-13-0.50",
+   "key": "882c4da509065423db6db19c9c39d57fc724f4af28f96b2dccf9639ae517883e",
+   "score": 0.0
+  },
+  {
+   "i": 41,
+   "example_id": "niah-13-0.90",
+   "key": "f995f8c1bb13231dc5da7fca6d97b408a606b98a04c9fe85e3f0d958c6414b21",
+   "score": 0.0
+  },
+  {
+   "i": 42,
+   "example_id": "niah-14-0.10",
+   "key": "8a51be9d54f1a895fa6eb61c82f85fd17b7ccc442e72ecd5bcce2b19efdaa1b1",
+   "score": 0.0
+  },
+  {
+   "i": 43,
+   "example_id": "niah-14-0.50",
+   "key": "e4dcb4cf74025ce4a37e8fb95cb781e4382b18a7417ed2f991f796491805ec73",
+   "score": 0.0
+  },
+  {
+   "i": 44,
+   "example_id": "niah-14-0.90",
+   "key": "74e784d76d1f8c876a4fc9979888089adf1e80499b64dd7b5fc104f15d883bac",
+   "score": 0.0
+  },
+  {
+   "i": 45,
+   "example_id": "niah-15-0.10",
+   "key": "88da493caa634c778140dcc25f70d55e657b83e22ede6d0f9ee59e43986f23ef",
+   "score": 100.0
+  },
+  {
+   "i": 46,
+   "example_id": "niah-15-0.50",
+   "key": "aa60f11ff7e73ca5c805b77bf869bb4044194dc18c8dee9a370ac6e762ba1652",
+   "score": 100.0
+  },
+  {
+   "i": 47,
+   "example_id": "niah-15-0.90",
+   "key": "69a47bbf1afe15a97398d759f1e7121062881a4e50dd58e4ad58e05c183af181",
+   "score": 0.0
+  },
+  {
+   "i": 48,
+   "example_id": "niah-16-0.10",
+   "key": "44b5afd1a197beebf6c5b131c533b155f715f7e866a4f6b7bb58f6d552f6d008",
+   "score": 100.0
+  },
+  {
+   "i": 49,
+   "example_id": "niah-16-0.50",
+   "key": "1675acd98a26f860daf09120244d04e7816d7ca6b7e9cecdde859399f1cc27a8",
+   "score": 0.0
+  }
+ ],
+ "decode": {
+  "device": "cpu",
+  "dtype": "bfloat16",
+  "torch": "2.11.0+cpu",
+  "transformers": "5.3.0",
+  "model_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+  "attn_implementation": "sdpa",
+  "image": "sha256:c7579a3943ec390fa3e12ba56d7faecd866998f9b90dd7f7f9ff932339c6d3b6",
+  "machine": "worker-13",
+  "cpu": "Intel(R) Xeon(R) Platinum 8481C CPU @ 2.70GHz",
+  "threads": 11,
+  "start": "2026-10-29T17:52:01Z",
+  "end": "2026-10-29T18:04:57Z",
+  "no_replay": true,
+  "harness_sha256": "da13b1a8d8a1048ddca6738024e94756e289b690127ecf3eca3e081c1a3f4633",
+  "how": "NVRT_DISABLE=1: the replay layer is not loaded, so torch is plain CPU torch and nothing is served; the record's own evaluator and argv; the model loaded in bfloat16, the recorded precision (the evaluator picks float32 on a CPU device); examples taken by slicing load_workload(name, 0) to [start, end), the full workload's own order",
+  "invocation": "harness import of the unedited evaluator (sha256 = entry_hash); bf16 set by wrapping from_pretrained at run time; the evaluator's own main() and run_real_eval under the record's argv, on load_workload(name, 0)[start:end]; score_prediction wrapped to record each score",
+  "slices": [
+   [
+    0,
+    50
+   ]
+  ],
+  "slice_detail": [
+   {
+    "start": 0,
+    "end": 50,
+    "machine": "worker-13",
+    "wall_s": 776.1,
+    "decode_start": "2026-10-29T17:52:01Z",
+    "decode_end": "2026-10-29T18:04:57Z",
+    "harness_sha256": "da13b1a8d8a1048ddca6738024e94756e289b690127ecf3eca3e081c1a3f4633"
+   }
+  ]
+ }
+}

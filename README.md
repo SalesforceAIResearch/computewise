@@ -43,9 +43,8 @@ and is within 10% of the best possible schedule. "Time over the reference" is th
 The harness starts each job as an ordinary process with `CUDA_VISIBLE_DEVICES` set. In the paper those processes ran
 on the simulated node. This release has been tried there and on pretend GPUs, not yet on real GPUs.
 
-The scored runs for five of the nine tasks are in the
-[dataset](https://huggingface.co/datasets/Salesforce/computewise). [The benchmark](#the-benchmark) says why the other
-four are not.
+All nine of the paper's tasks can be built and run from this release; [The benchmark](#the-benchmark) says how. The
+[dataset](https://huggingface.co/datasets/Salesforce/computewise) holds the scored runs on the modded-nanogpt tasks.
 
 ### Is it a fit?
 
@@ -277,13 +276,15 @@ busy with work the answer never needed counts as waste, just like an idle one.
 
 > Status: research release. Interfaces, paths and documentation may change.
 
-**The paper's nine tasks.**
-- **In the dataset:** optimizer adoption A and B (`pkg-g4n-a`, `pkg-g4n-b`), many-candidates adoption
-  (`pkg-unneeded-k`), precision stopping (`pkg-k2-precision`) and data filtering (`pkg-filter-yield`), with every run
-  the paper reports on them.
-- **Not in the dataset yet:** the KV-cache results tables (plan given, plan hidden), the KV acceptance gate and the
-  8-GPU cache-and-decoding table. They are built from [MLS-Bench](https://github.com/Imbernoulli/MLS-Bench), which has
-  no licence yet, so they will be added once that is resolved.
+**The paper's nine tasks.** All nine are in this release.
+- **Built from modded-nanogpt, in the dataset:** optimizer adoption A and B (`pkg-g4n-a`, `pkg-g4n-b`),
+  many-candidates adoption (`pkg-unneeded-k`), precision stopping (`pkg-k2-precision`) and data filtering
+  (`pkg-filter-yield`), with every run the paper reports on them.
+- **Built from MLS-Bench, on your machine:** the KV-cache results tables, plan given and plan hidden
+  (`mls-kv-report`, `mls-kv-report-h`), the KV acceptance gate (`mls-kv-gate`) and the 8-GPU cache-and-decoding table
+  (`pkg-k2-latepole`). [MLS-Bench](https://github.com/Imbernoulli/MLS-Bench) declares no licence, so none of its code
+  or data is in this repository or the dataset. `gpu-tasks/build/add_mlsbench_tasks.sh` clones it at the commit the
+  paper used and builds the four tasks from it and from our own measurements in `gpu-tasks/survey/`.
 
 **The conditions it compares:**
 - no help;
@@ -302,7 +303,7 @@ The dataset card gives the condition codes used in the scored runs.
 | `.claude-plugin/`, `.agents/plugins/` | The marketplace files that `claude plugin marketplace add` and `codex plugin marketplace add` read. They point to `harness/`. |
 | `gpu-mock/` | **The simulated GPU node:** a torch patch, an NVML and `nvidia-smi` bridge, and a replay daemon. The agent's real commands run unchanged, and each job's step times, scores and logs come from a recorded H100 run. `archive/INDEX.tsv` lists every simulator build and what changed in it. |
 | `scheduler/` | A small SLURM-compatible scheduler (`sbatch`, `squeue`, `srun`, `scancel`, `sacct`, ...) that runs inside the benchmark's container, for the study condition that gives the agent a scheduler. It is not part of the plugin. |
-| `gpu-tasks/` | The task registry tooling. `build/` holds the generators that build each benchmark package from upstream records, and `RECORD-FORMAT.md` is the record contract between the tasks and the simulator. The generated task files and records are in the Hugging Face dataset; [`gpu-tasks/registry/README.md`](gpu-tasks/registry/README.md) says where to put them. |
+| `gpu-tasks/` | The task registry tooling. `build/` holds the generators that build each benchmark package from upstream records, and `RECORD-FORMAT.md` is the record contract between the tasks and the simulator. The generated task files and records are in the Hugging Face dataset; [`gpu-tasks/registry/README.md`](gpu-tasks/registry/README.md) says where to put them. `build/add_mlsbench_tasks.sh` builds the four MLS-Bench tasks from a clone of MLS-Bench. |
 | `isolation/` | The sandbox: the container image (`image/`); the single-run launcher `run_one.py`, which runs one task, one coding agent, one model and one seed in a capped container with a read-only root and its own disk; the model-API forwarder; and the cgroup sampler. |
 | `runner/` | The campaign driver, the scorer (`score/`), scripted reference agents (`scripted/`), timelines (`observe/`) and the code that starts and stops each coding agent (`runner/harness/`, not the plugin). |
 | `codex/harness/` | The Codex CLI session driver the launcher uses. It is not the Codex plugin, which is in `harness/codex-skills/`. |
@@ -318,6 +319,9 @@ repository and the dataset on 2026-11-17, and the run they produced is compared 
    and about 200 GB free under `/srv` for Docker's data, the task caches and the runs. The commands below run as root.
 2. **Code and data.** Clone this repository and put the dataset in place as
    [`gpu-tasks/registry/README.md`](gpu-tasks/registry/README.md) says. Its check should report 0 contract violations.
+   For the four MLS-Bench tasks, then run `bash gpu-tasks/build/add_mlsbench_tasks.sh`. It clones MLS-Bench, fetches
+   the late-pole task's datasets and model files from their own hosts (each checked by sha256), and builds the four
+   tasks into the registry in about 4 minutes. Its check should report 66 tasks and 0 contract violations.
 3. **Images.** Build the agent's box image and the simulator's image for the task's environment:
 
    ```bash
@@ -327,6 +331,9 @@ repository and the dataset on 2026-11-17, and the run they produced is compared 
    This took about 7 minutes. It fetches pinned packages from Debian, PyPI, the PyTorch index and npm. The four
    modded-nanogpt tasks (`pkg-g4n-a`, `pkg-g4n-b`, `pkg-unneeded-k`, `pkg-k2-precision`) share this image;
    `pkg-filter-yield` needs its own (`--task pkg-filter-yield --image ml-node:mng3-filter --sidecar-image gpu-daemon:mng3-filter`).
+   The three KV tasks add a layer on top of this image with `isolation/image/mlskv/build_mlskv_layer.sh`, and
+   `pkg-k2-latepole` has its own 8-GPU pair from `isolation/image/latepole/build_latepole.sh`; each script's header gives
+   its arguments. These two builds were used for the paper's runs and were not part of the check at the end.
 4. **The model gate.** Every model call leaves the box through a gate on the host. The gate drops whatever credentials
    the agent sends and adds yours:
 
@@ -373,7 +380,7 @@ run above speed 1 checks the pipeline only; its numbers are not results).
 
 The simulator here is its final build (r8.9.3 in [`gpu-mock/archive/INDEX.tsv`](gpu-mock/archive/INDEX.tsv)). Each run
 in the dataset records the build it ran on (`gpumock_build`); most ran on r7 or r7.1, and the builds after them
-changed how the excluded MLS-Bench tasks and the tabular task are served.
+changed how the MLS-Bench tasks and the tabular task are served.
 
 **Reading a run against the paper.** The paper's figure for a run is `over_ref`: its time to the answer over the
 time of the task's scripted reference run (W0). The dataset ships the W0 runs the paper's readings use, in

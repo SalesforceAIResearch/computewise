@@ -1,0 +1,42 @@
+{
+ "size": {
+  "splits": [
+   {
+    "dataset": "allenai/ai2_arc",
+    "config": "ARC-Challenge",
+    "split": "train",
+    "num_rows": 1119
+   },
+   {
+    "dataset": "allenai/ai2_arc",
+    "config": "ARC-Challenge",
+    "split": "test",
+    "num_rows": 1172
+   },
+   {
+    "dataset": "allenai/ai2_arc",
+    "config": "ARC-Challenge",
+    "split": "validation",
+    "num_rows": 299
+   },
+   {
+    "dataset": "allenai/ai2_arc",
+    "config": "ARC-Easy",
+    "split": "train",
+    "num_rows": 2251
+   },
+   {
+    "dataset": "allenai/ai2_arc",
+    "config": "ARC-Easy",
+    "split": "test",
+    "num_rows": 2376
+   },
+   {
+    "dataset": "allenai/ai2_arc",
+    "config": "ARC-Easy",
+    "split": "validation",
+    "num_rows": 570
+   }
+  ]
+ }
+}

@@ -1,0 +1,7 @@
+{
+ "task_id": "mls-kv-report-h",
+ "feasible_best_s": 32567.1,
+ "best_schedule_s": 32544.3,
+ "how": "the packed policy's makespan (expected_scores.py packed, makespan_wall_s) over the 40 recorded one-GPU durations with mls-kv-report's measured host terms (transferred), one evaluation per GPU at a time; it is the brief-only scripted schedule, which is also feasible. packed_overlap, the best schedule, is 32,544.3 s, 0.07% lower; the package has no preparation, so packed_overlap is feasible here too",
+ "use": "bars 4-6 read makespan to the last job's end / feasible_best_s: the scorer's hindsight bound packs a run's own job times, so an agent that oversubscribes GPUs (two evaluations per GPU, Astra L0) slows its own jobs and the bound absorbs the loss; a fixed reference does not"
+}
