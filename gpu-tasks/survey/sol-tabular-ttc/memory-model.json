@@ -1,0 +1,200 @@
+{
+  "schema": "p006-sol-ttc-modelled-memory/1",
+  "created_utc": "2026-11-03T15:39:12+00:00",
+  "status": "modelled static device working-set proxy, not a measured source peak",
+  "tabpfn_base_commit": "95ff6772152eadc43e97b2a9d27899d44551eba8",
+  "tabpfn_patched_tree": "f2094982e7858328c1cf7f7c39b9d8a3f8f0de88",
+  "ttc_commit": "45fb141b2acf15518e70885aa149c8e1898cd15c",
+  "hf_metadata_revision": "24a16a89d245878b846555110985634aa2e656d7",
+  "architecture_defaults": {
+    "embed_dim": 128,
+    "cls_tokens": 4,
+    "icl_layers": 24,
+    "dist_blocks": 3,
+    "column_blocks": 3,
+    "inducing_points": 128,
+    "feature_group_size": 3,
+    "row_chunk": 2048
+  },
+  "assumptions": {
+    "activation_bytes": 2,
+    "input_bytes": 4,
+    "live_tensor_slots": 8,
+    "context_allocator_bytes": 314572800,
+    "active_inference_views": 1,
+    "finetune_views": 2,
+    "finetune_max_rows": 10000,
+    "finetune_activation_checkpointing": true,
+    "diagscale_state_bytes_per_parameter": 16
+  },
+  "ensemble": {
+    "configs": 96,
+    "validation_views": 2,
+    "test_views": 8,
+    "validation_folds": 8,
+    "residency": "configurations and single-device inference views processed sequentially; do not multiply resident weights or current forward activations by 96 or 8. Two finetuning view checkpoint graphs included."
+  },
+  "weights": {
+    "classification": {
+      "filename": "tabpfn-v3-classifier-v3_default.ckpt",
+      "serialized_bytes": 212804803,
+      "lfs_sha256": "d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988",
+      "basis": "published serialized checkpoint size used as a conservative FP32 weight-storage proxy; weights not downloaded, unpickled, or measured on device; original result CSV does not pin its checkpoint digest"
+    },
+    "regression": {
+      "filename": "tabpfn-v3-regressor-v3_default.ckpt",
+      "serialized_bytes": 233289807,
+      "lfs_sha256": "311ce18d97e9533d8585eaadafe040fbdd8070533209ed8696641dadc97a7301",
+      "basis": "published serialized checkpoint size used as a conservative FP32 weight-storage proxy; weights not downloaded, unpickled, or measured on device; original result CSV does not pin its checkpoint digest"
+    }
+  },
+  "datasets": {
+    "Bioresponse": {
+      "rows_total": 3751,
+      "features": 1776,
+      "nominal_train_rows": "2500.6666666666665",
+      "train_rows_ceil": 2501,
+      "problem_type": "binary",
+      "metadata_rows": 9,
+      "basis": "full raw table and ceiling of published nominal 2/3 train cardinality; not a measurement of each transformed split"
+    },
+    "QSAR-TID-11": {
+      "rows_total": 5742,
+      "features": 1024,
+      "nominal_train_rows": "3828.0",
+      "train_rows_ceil": 3828,
+      "problem_type": "regression",
+      "metadata_rows": 9,
+      "basis": "full raw table and ceiling of published nominal 2/3 train cardinality; not a measurement of each transformed split"
+    },
+    "physiochemical_protein": {
+      "rows_total": 45730,
+      "features": 9,
+      "nominal_train_rows": "30486.666666666668",
+      "train_rows_ceil": 30487,
+      "problem_type": "regression",
+      "metadata_rows": 9,
+      "basis": "full raw table and ceiling of published nominal 2/3 train cardinality; not a measurement of each transformed split"
+    },
+    "APSFailure": {
+      "rows_total": 76000,
+      "features": 170,
+      "nominal_train_rows": "50666.666666666664",
+      "train_rows_ceil": 50667,
+      "problem_type": "binary",
+      "metadata_rows": 9,
+      "basis": "full raw table and ceiling of published nominal 2/3 train cardinality; not a measurement of each transformed split"
+    },
+    "GiveMeSomeCredit": {
+      "rows_total": 150000,
+      "features": 10,
+      "nominal_train_rows": "100000.0",
+      "train_rows_ceil": 100000,
+      "problem_type": "binary",
+      "metadata_rows": 9,
+      "basis": "full raw table and ceiling of published nominal 2/3 train cardinality; not a measurement of each transformed split"
+    },
+    "bank-marketing": {
+      "rows_total": 45211,
+      "features": 13,
+      "nominal_train_rows": "30140.666666666668",
+      "train_rows_ceil": 30141,
+      "problem_type": "binary",
+      "metadata_rows": 9,
+      "basis": "full raw table and ceiling of published nominal 2/3 train cardinality; not a measurement of each transformed split"
+    },
+    "credit_card_clients_default": {
+      "rows_total": 30000,
+      "features": 23,
+      "nominal_train_rows": "20000.0",
+      "train_rows_ceil": 20000,
+      "problem_type": "binary",
+      "metadata_rows": 9,
+      "basis": "full raw table and ceiling of published nominal 2/3 train cardinality; not a measurement of each transformed split"
+    },
+    "customer_satisfaction_in_airline": {
+      "rows_total": 129880,
+      "features": 21,
+      "nominal_train_rows": "86586.66666666667",
+      "train_rows_ceil": 86587,
+      "problem_type": "binary",
+      "metadata_rows": 9,
+      "basis": "full raw table and ceiling of published nominal 2/3 train cardinality; not a measurement of each transformed split"
+    }
+  },
+  "limitations": [
+    "Default architecture shape is used as a reproducible proxy; checkpoint-internal architecture configs were not loaded.",
+    "Raw feature width and nominal train cardinality are proxies; preprocessing/search-configuration differences and auto-scaling of inference view counts are not measured.",
+    "Eight live activation slots and 300 MiB context/allocator slack are modelling choices, not measured constants.",
+    "Assume two-byte mixed-precision activations, four-byte grouped inputs, sequential single-device inference, and default finetune checkpointing; do not reconstruct transient attention matrices, compiler workspaces, or actual allocator peaks.",
+    "The served number is a static whole-job allocation from unit 1, not a phase trace or a timing change. Both arms retain recorded source metric/timing evidence."
+  ],
+  "sources": [
+    {
+      "path": "memory-source/tabpfn/src/tabpfn/architectures/tabpfn_v3.py",
+      "url": "https://raw.githubusercontent.com/PriorLabs/TabPFN/95ff6772152eadc43e97b2a9d27899d44551eba8/src/tabpfn/architectures/tabpfn_v3.py",
+      "bytes": 91773,
+      "sha256": "45a69416cc6013bdeee3338f522beb1a7f6e4940af2e13e1f9a2c846fde7a846"
+    },
+    {
+      "path": "memory-source/tabpfn/src/tabpfn/inference.py",
+      "url": "https://raw.githubusercontent.com/PriorLabs/TabPFN/95ff6772152eadc43e97b2a9d27899d44551eba8/src/tabpfn/inference.py",
+      "bytes": 55015,
+      "sha256": "db79b965e841cc525144b07bad22d8a45ae862a58ab3aeb6023b103d497f9938"
+    },
+    {
+      "path": "memory-source/tabpfn/src/tabpfn/finetuning/finetuned_base.py",
+      "url": "https://raw.githubusercontent.com/PriorLabs/TabPFN/95ff6772152eadc43e97b2a9d27899d44551eba8/src/tabpfn/finetuning/finetuned_base.py",
+      "bytes": 41101,
+      "sha256": "f11b2e3db9a0fa32885aa4a37fe06635b74b313b2d2daab3f7658d17a81f7dbf"
+    },
+    {
+      "path": "memory-source/ttc/src/ttc/agg_model.py",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/src/ttc/agg_model.py",
+      "bytes": 20541,
+      "sha256": "f9460a99eb9c7348f75b586e071a524e36ef9c5b88b93c559296aac602277250"
+    },
+    {
+      "path": "memory-source/ttc/configs/tabpfn3/aggregation_96.yaml",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/configs/tabpfn3/aggregation_96.yaml",
+      "bytes": 623,
+      "sha256": "301537a8730d5c3b13c815280bfdb3262a45d4852079c56d4b27ae39d1d74689"
+    },
+    {
+      "path": "memory-source/ttc/configs/tabpfn3/diagscale_aggregation_96.yaml",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/configs/tabpfn3/diagscale_aggregation_96.yaml",
+      "bytes": 477,
+      "sha256": "8c06cfd1fa33bc5725b806ba1fa842195e02e95b42b3d96097411d1309516189"
+    },
+    {
+      "path": "memory-source/ttc/src/ttc/agg_ft_model.py",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/src/ttc/agg_ft_model.py",
+      "bytes": 9001,
+      "sha256": "9e625edb074b7008389876f8e5436e79b03325e73dc0e29c5a5fc17dc1599de7"
+    },
+    {
+      "path": "memory-source/ttc/patches/tabpfn/0003-Disable-auto_scale_n_estimators-in-the-finetuning-tr.patch",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/patches/tabpfn/0003-Disable-auto_scale_n_estimators-in-the-finetuning-tr.patch",
+      "bytes": 1826,
+      "sha256": "abecea529ca5bec142bdea726d02344fa967c5300ba7d9fac1ff2045dccc9922"
+    },
+    {
+      "path": "memory-source/ttc/patches/tabpfn/0007-finetuning-add-diagscale-mode-bare-learnable-diagona.patch",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/patches/tabpfn/0007-finetuning-add-diagscale-mode-bare-learnable-diagona.patch",
+      "bytes": 4830,
+      "sha256": "b9b2eb439a56d5413580aa3beb9b95b3adf4e50c183ea0fc6a77808ecdf16ca2"
+    },
+    {
+      "path": "memory-source/tabarena/TabArena-v0.1_tasks_metadata.csv",
+      "url": "https://raw.githubusercontent.com/autogluon/tabarena/abd24c7f06e4294e86efe069fe1cd057293a17d1/packages/tabarena/src/tabarena/benchmark/task/metadata/sources/data/TabArena-v0.1_tasks_metadata.csv",
+      "bytes": 204855,
+      "sha256": "02f35e19dead7e3795f65e91eb00fdb7fa255896ed6bde0f29b2ce0af7a46296"
+    },
+    {
+      "path": "memory-source/tabpfn3-hf-tree.json",
+      "url": "https://huggingface.co/api/models/Prior-Labs/tabpfn_3/tree/24a16a89d245878b846555110985634aa2e656d7?recursive=true&expand=false",
+      "bytes": 3007,
+      "sha256": "3552c5f144effb55beaebbef30149f5258750cd640c91aae38deab44671b0c5c"
+    }
+  ]
+}

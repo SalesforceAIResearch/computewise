@@ -1,0 +1,83 @@
+{
+  "scope": "one representative real entry-point replay on native FakeGPU image with r8.1 source mounts; not an installed full box or all144 cells",
+  "entry_hash": "805f54de3901f299316c314fc97244bd0b1511969798dfd57311809be4424a07",
+  "tested_record_id": "sol-ttc-tabpfn3-aggregation-96-bioresponse-split0",
+  "seam": "tabarena.benchmark.experiment.experiment_runner:ExperimentRunner._run",
+  "observed": {
+    "match": "exact",
+    "is_whole_job": true,
+    "whole_job_units": [
+      82,
+      82
+    ],
+    "enqueue_count": 82,
+    "served": "result",
+    "result_matches_record": true,
+    "materialise": {
+      "t_wall": 1793644935.8093944,
+      "t_mono": 9542.324281166,
+      "speed": 50.0,
+      "kind": "materialise",
+      "gpu": -1,
+      "job": 1,
+      "role": "whole_job_result",
+      "tier": "result",
+      "record_id": "sol-ttc-tabpfn3-aggregation-96-bioresponse-split0",
+      "n_units": 82,
+      "result_key": "final_metrics",
+      "result_kind": "metric dict",
+      "provenance": "recorded"
+    },
+    "speed": 50.0
+  },
+  "result": {
+    "dataset": "Bioresponse",
+    "split": 0,
+    "arm": "tabpfn3_aggregation_96",
+    "metric": "roc_auc",
+    "metric_error": 0.11013297502664132,
+    "time_train_s": 4018.00941324234,
+    "time_infer_s": 870.3984758853912
+  },
+  "runtime_hashes_reported": {
+    "patch": "4c17e9d5809bab0fdac8a6b151cb9cb59d847678569f7452f754dbd996c115a3",
+    "sidecar": "2da8801c430aafa27d169f005bc6bc3526ce1d778a394de06f515df60263ed8b",
+    "native_image": "9824955423937ad52d769e5c6af5a0bfcc19256bff7d2d130b074e6feecaa9a9"
+  },
+  "reported_conditions": {
+    "source": "gpu-mock real805f execution handoff, 2026-11-02",
+    "thread": "<t3-thread://v2/2b03216e-2441-45f7-8d3c-8481d2c6930a/219b5ac4-4c21-49cc-900f-2ca1a18d14a2>",
+    "uid": 1000,
+    "original_cache": "read-only",
+    "writable": "HOME and tmp; actual adapter private cache copy",
+    "cache_shim": false,
+    "TabPFN3_weights_staged": false,
+    "client_exit_code": 0
+  },
+  "files": {
+    "body.sh": {
+      "bytes": 601,
+      "sha256": "2df1f24ebb9d2e8295ec500c9d4f5edc7b34cf57fd05cc62145367af6cf763c3"
+    },
+    "daemon.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "occ.jsonl": {
+      "bytes": 39650,
+      "sha256": "83c3f9da402764db63b741ff40fa1d1080efb5af97691f36ea97526484031a9d"
+    },
+    "reg/ttc.json": {
+      "bytes": 8021,
+      "sha256": "32e824ace43c6dde99c915b32ba2bea630e7ab15829013c0abe3956760d4bbd4"
+    },
+    "result.json": {
+      "bytes": 215,
+      "sha256": "d303112df4d9e49cebb530dfb86c1f8c0ed029b0a74eadd7a382b98a709a39db"
+    },
+    "sc.log": {
+      "bytes": 991,
+      "sha256": "486c6404c8406ad7cbbe1464faa231538869662a1de484354164491f3d2ab604"
+    }
+  }
+}

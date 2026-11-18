@@ -1,0 +1,5 @@
+#!/usr/bin/python3
+import os, sys
+sys.path.insert(0, os.environ.get("SLURM_LIBDIR") or os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), "lib", "slurm"))
+from slurmstepd import main
+sys.exit(main())

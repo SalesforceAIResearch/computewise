@@ -1,0 +1,63 @@
+{
+ "policy": "serial",
+ "task_id": "pkg-p6-chain",
+ "think_s": 5.0,
+ "delay_s": 300.0,
+ "host_terms": null,
+ "steps": [
+  {
+   "op": "think",
+   "seconds": 5.0
+  },
+  {
+   "op": "run",
+   "cmd": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 8 --stop-at 500",
+   "label": "ema-nesterov-aurora-seed8-part1"
+  },
+  {
+   "op": "think",
+   "seconds": 5.0
+  },
+  {
+   "op": "run",
+   "cmd": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 8 --resume checkpoints/seed8-step500.pt --stop-at 1000",
+   "label": "ema-nesterov-aurora-seed8-part2"
+  },
+  {
+   "op": "think",
+   "seconds": 5.0
+  },
+  {
+   "op": "run",
+   "cmd": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 8 --resume checkpoints/seed8-step1000.pt --stop-at 1500",
+   "label": "ema-nesterov-aurora-seed8-part3"
+  },
+  {
+   "op": "think",
+   "seconds": 5.0
+  },
+  {
+   "op": "run",
+   "cmd": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 8 --resume checkpoints/seed8-step1500.pt --stop-at 2000",
+   "label": "ema-nesterov-aurora-seed8-part4"
+  },
+  {
+   "op": "think",
+   "seconds": 5.0
+  },
+  {
+   "op": "run",
+   "cmd": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 8 --resume checkpoints/seed8-step2000.pt --stop-at 2500",
+   "label": "ema-nesterov-aurora-seed8-part5"
+  },
+  {
+   "op": "think",
+   "seconds": 5.0
+  },
+  {
+   "op": "run",
+   "cmd": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 ema-nesterov-aurora/radial_scale_then_radius_correct.py --seed 8 --resume checkpoints/seed8-step2500.pt",
+   "label": "ema-nesterov-aurora-seed8-part6"
+  }
+ ]
+}

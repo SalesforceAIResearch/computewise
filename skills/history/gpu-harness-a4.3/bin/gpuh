@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+"""gpuh: the gpu-harness command. Runs the package beside this file, with no install."""
+import os, sys
+sys.dont_write_bytecode = True   # the skill directory is mounted read-only on the box
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+from gpuharness.cli import main
+sys.exit(main())

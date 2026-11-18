@@ -1,0 +1,9 @@
+{
+  "schema": "p006-ttc-docstring-amendment/1",
+  "original_entry_hash": "805f54de3901f299316c314fc97244bd0b1511969798dfd57311809be4424a07",
+  "revised_entry_hash": "143f69ed11fdc63870203a95247f6c7c50f5be2af78790a009238c2fa9d164f4",
+  "original_replay_proof_sha256": "f0538068fd2478079a01d038dec4517584e8af4ac0936f08676bd578b260b067",
+  "original_docstring_literal": "\"\"\"Run one prescribed TTC dataset/split/arm using the pinned project's code.\n\nRequires the original TTC environment and its pinned TabArena dependency. This\nadapter has not yet been staged or box-tested. It calls the original runner's\n_run directly: the process owns one cell and exits after writing the metrics.\n\"\"\"",
+  "revised_docstring_literal": "\"\"\"Run one prescribed TTC dataset/split/arm using the pinned project's code.\n\nRequires the original TTC environment and its pinned TabArena dependency. It\ncalls the original runner's _run directly: the process owns one cell and exits\nafter writing the metrics.\n\"\"\"",
+  "scope": "Removed the obsolete not-yet-staged/box-tested sentence from the agent-facing module docstring. Exact original bytes are reconstructed by reversing this prefix substitution. Executable AST excluding the module docstring is unchanged; argparse help reflects the corrected docstring. No new runtime execution is claimed. Original replay-proof.json retains the actually tested entry hash and original scope."
+}

@@ -1,0 +1,9 @@
+# The gpu-daemon image: gpu-mock's daemon, NVML bridge and GPU-count converter, from the tree snapshot this
+# build took, on the box image's base. run_one.py runs it as the sidecar beside each box, so the daemon's code
+# never enters the agent's box, and every run records which daemon it ran. Built only by build.sh.
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+ARG SRC_SHA256
+COPY src/ /opt/gpu-daemon/src/
+RUN python3 -I -m compileall -q /opt/gpu-daemon/src \
+ && printf '%s\n' "$SRC_SHA256" > /opt/gpu-daemon/SRC_SHA256

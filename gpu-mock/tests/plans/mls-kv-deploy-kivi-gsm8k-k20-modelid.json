@@ -1,0 +1,16 @@
+{
+ "policy": "single-job",
+ "note": "Known answer for fix:gpumock-explicit-default-flag (G-kvrep-astra-L0-r4, analysis 2026-10-25 11:05Z): the agent's direct launch of the kivi quant script with --model-id spelled out at the script's own default, from the project root with the script's absolute path, screened at 20 examples. Expected: lookup match exact_effective on mls-llm-kv-adaptive-quantization-kivi-overlap-4bit-gsm8k-s42 with defaulted_flags [\"--model-id\"], draw exact_seed, subset {k: 20, n_full: 1319}, per_example serving to the end (TEST_METRICS final_score=50.000000 effective_kv_bits=4.187500 kv_compression_ratio=3.820896 as the k20 job-script known answer), job_bye served result, last_step 20; no near_miss, no model-path run. Before the fix this launch read near_miss only_launch ['--model-id', 'Qwen/Qwen2.5-3B-Instruct'] then match none.",
+ "steps": [
+  {
+   "op": "launch_at",
+   "at_s": 0,
+   "cmd": "CUDA_VISIBLE_DEVICES=0 python /home/researcher/project/methods/kivi_overlap_4bit/custom_quant_eval.py --workload gsm8k --max-examples 20 --seed 42 --model-id Qwen/Qwen2.5-3B-Instruct --budget-bits 4",
+   "label": "kivi-gsm8k-k20-modelid"
+  },
+  {
+   "op": "wait",
+   "labels": "all"
+  }
+ ]
+}

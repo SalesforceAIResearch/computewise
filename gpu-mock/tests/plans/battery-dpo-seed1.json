@@ -1,0 +1,16 @@
+{
+ "policy": "single-job",
+ "note": "gpu-mock's replay check of one battery job through run_one.py (2026-10-20); the command is the task's launch line, with the output dir made per-job as plan.py does",
+ "steps": [
+  {
+   "op": "launch_at",
+   "at_s": 0,
+   "cmd": "CUDA_VISIBLE_DEVICES=0 python examples/scripts/dpo.py --model_name_or_path=gpt2 --per_device_train_batch_size 4 --max_steps 1000 --learning_rate 1e-3 --gradient_accumulation_steps 1 --logging_steps 10 --eval_steps 500 --output_dir=dpo_anthropic_hh-dpo-seed1 --optim rmsprop --warmup_steps 150 --report_to wandb --bf16 --logging_first_step --no_remove_unused_columns --seed 1",
+   "label": "dpo-seed1"
+  },
+  {
+   "op": "wait",
+   "labels": "all"
+  }
+ ]
+}

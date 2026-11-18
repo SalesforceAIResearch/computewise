@@ -1,0 +1,16 @@
+{
+ "policy": "single-job",
+ "note": "gpu-mock's gate 2 on the mng3 image (2026-10-20): one COMPILING single-GPU job (train_gpt_simple_muonh.py, one torch.compile) of pkg-p6-par-long through run_one.py",
+ "steps": [
+  {
+   "op": "launch_at",
+   "at_s": 0,
+   "cmd": "CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nproc_per_node=1 muonh-tuned/train_gpt_simple_muonh.py",
+   "label": "muonh-tuned-run1"
+  },
+  {
+   "op": "wait",
+   "labels": "all"
+  }
+ ]
+}

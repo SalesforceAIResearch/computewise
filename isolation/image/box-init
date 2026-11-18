@@ -1,0 +1,47 @@
+#!/bin/sh
+# The box's entrypoint, run as root under docker's --init. It stages the GPU device nodes,
+# runs the harness as the ordinary user, and then stays up after the harness exits, so jobs
+# the agent left running keep running until the run command tears the box down.
+#
+# The run command passes the harness command as arguments, and mounts a root-only host
+# directory at /run/box. /run/box/brief, if present, becomes the harness's stdin: a regular file, or a FIFO
+# whose write end the run command holds open on the host (2026-10-21: Claude Code in stream-json input mode
+# keeps the session while stdin is open, so a background task's completion starts a new turn). The
+# harness's stdout and stderr go to /run/box/harness.stdout and harness.stderr: this script
+# opens them as root and hands the harness only the open descriptors. The timing files written
+# here are read by the run command from the host; the agent cannot read any of them.
+#
+#   BOX_UID          the user the harness runs as (default 1000)
+#   BOX_SCHEDULER    1: start the node's job scheduler (/usr/sbin/slurmctld, the scheduler's
+#                    experiments/scheduler/) as root before the harness, with its event log and its count of jobs not
+#                    yet ended in /run/box; the run command mounts it only for a scheduler run. Default 0: nothing starts.
+#   BOX_OOM_PROTECT  1 (default): the harness keeps the container's oom_score_adj (docker
+#                    --oom-score-adj -1000), and every bash it starts resets itself to 0 (the image's
+#                    /usr/bin/bash is a wrapper that does so). 0: this script raises itself to 0
+#                    before starting the harness, so nothing in the box is protected.
+# Both are removed from the environment before the harness starts.
+set -u
+B=/run/box
+mkdir -p "$B" && chmod 0700 "$B"
+echo $$ >"$B/init_pid"
+# an image built with --gpus <n> other than 4 records its count in /etc/box-gpus (Dockerfile); none means 4, as before
+if ! env $(cat /etc/box-gpus 2>/dev/null) /usr/local/sbin/stage-dev-nodes >"$B/stage-dev-nodes.log" 2>&1; then
+  echo "stage-dev-nodes failed" >"$B/init_error"
+fi
+if [ "${BOX_OOM_PROTECT:-1}" != 1 ]; then
+  echo 0 >/proc/self/oom_score_adj
+fi
+if [ "${BOX_SCHEDULER:-0}" = 1 ]; then
+  if ! /usr/sbin/slurmctld --event-log "$B/sched-events.jsonl" --active-file "$B/sched-active" >"$B/slurmctld.log" 2>&1; then
+    echo "slurmctld failed to start" >"$B/init_error"
+  fi
+fi
+uid="${BOX_UID:-1000}"
+unset BOX_UID BOX_OOM_PROTECT BOX_SCHEDULER
+in=/dev/null
+{ [ -f "$B/brief" ] || [ -p "$B/brief" ]; } && in="$B/brief"
+date +%s.%N >"$B/agent_start"
+setpriv --reuid="$uid" --regid="$uid" --init-groups -- "$@" <"$in" >"$B/harness.stdout" 2>"$B/harness.stderr"
+echo $? >"$B/harness_exit"
+date +%s.%N >"$B/harness_end"
+exec sleep infinity

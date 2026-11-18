@@ -1,0 +1,8 @@
+{
+ "name": "warmup",
+ "start": 4.0,
+ "floor": 3.27,
+ "rate": 1.0,
+ "noise": 0.01,
+ "steps": 1000
+}

@@ -1,0 +1,8 @@
+{
+ "name": "cosine",
+ "start": 4.0,
+ "floor": 3.18,
+ "rate": 1.1,
+ "noise": 0.01,
+ "steps": 1000
+}

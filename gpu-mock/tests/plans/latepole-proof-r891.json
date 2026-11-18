@@ -1,0 +1,63 @@
+{
+ "policy": "gpu-mock late-pole serving proof on the installed r8.9.1 box (served, env-cut, edited bound file)",
+ "steps": [
+  {
+   "op": "shell",
+   "label": "preflight",
+   "cmd": "id -u; sha256sum shared/dLLM-cache/dllm_cache/hooks/cache_hook_LLaDA.py methods/mlsys-sparse-attention-inference/streaming_llm/custom_sparse_attn.py | cut -c1-16; ls -ld data/huggingface_cache/hub data/huggingface_cache/hub/models--GSAI-ML--LLaDA-8B-Instruct/snapshots/*/modeling_llada.py"
+  },
+  {
+   "op": "run",
+   "label": "DLM-served",
+   "cmd": "timeout 1500 bash methods/dlm-dkv-policy/vanilla_uncached/scripts/math.sh"
+  },
+  {
+   "op": "run",
+   "label": "SP-served",
+   "cmd": "timeout 900 bash methods/mlsys-sparse-attention-inference/streaming_llm/scripts/niah_8k.sh"
+  },
+  {
+   "op": "run",
+   "label": "DLM-env",
+   "cmd": "DLM_MAX_EXAMPLES=2 timeout 180 bash methods/dlm-dkv-policy/vanilla_uncached/scripts/math.sh"
+  },
+  {
+   "op": "run",
+   "label": "SP-env",
+   "cmd": "SPARSE_ATTN_DTYPE=bf16 timeout 180 bash methods/mlsys-sparse-attention-inference/streaming_llm/scripts/niah_8k.sh"
+  },
+  {
+   "op": "shell",
+   "label": "edit-lazy",
+   "cmd": "cp -p shared/dLLM-cache/dllm_cache/hooks/cache_hook_LLaDA.py /tmp/lazy.bak && printf '\\n# gpu-mock proof: one edited byte\\n' >> shared/dLLM-cache/dllm_cache/hooks/cache_hook_LLaDA.py && sha256sum shared/dLLM-cache/dllm_cache/hooks/cache_hook_LLaDA.py | cut -c1-16"
+  },
+  {
+   "op": "run",
+   "label": "DLM-lazy-edited",
+   "cmd": "timeout 180 bash methods/dlm-dkv-policy/vanilla_uncached/scripts/math.sh"
+  },
+  {
+   "op": "shell",
+   "label": "restore-lazy",
+   "cmd": "cp -p /tmp/lazy.bak shared/dLLM-cache/dllm_cache/hooks/cache_hook_LLaDA.py && sha256sum shared/dLLM-cache/dllm_cache/hooks/cache_hook_LLaDA.py | cut -c1-16"
+  },
+  {
+   "op": "shell",
+   "label": "edit-meth",
+   "cmd": "cp -p methods/mlsys-sparse-attention-inference/streaming_llm/custom_sparse_attn.py /tmp/meth.bak && printf '\\n# gpu-mock proof: one edited byte\\n' >> methods/mlsys-sparse-attention-inference/streaming_llm/custom_sparse_attn.py && sha256sum methods/mlsys-sparse-attention-inference/streaming_llm/custom_sparse_attn.py | cut -c1-16"
+  },
+  {
+   "op": "run",
+   "label": "SP-method-edited",
+   "cmd": "timeout 180 bash methods/mlsys-sparse-attention-inference/streaming_llm/scripts/niah_8k.sh"
+  },
+  {
+   "op": "shell",
+   "label": "restore-meth",
+   "cmd": "cp -p /tmp/meth.bak methods/mlsys-sparse-attention-inference/streaming_llm/custom_sparse_attn.py && sha256sum methods/mlsys-sparse-attention-inference/streaming_llm/custom_sparse_attn.py | cut -c1-16"
+  },
+  {
+   "op": "exit"
+  }
+ ]
+}

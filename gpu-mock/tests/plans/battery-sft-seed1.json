@@ -1,0 +1,16 @@
+{
+ "policy": "single-job",
+ "note": "gpu-mock's replay check of one battery job through run_one.py (2026-10-20); the command is the task's launch line, with the output dir made per-job as plan.py does",
+ "steps": [
+  {
+   "op": "launch_at",
+   "at_s": 0,
+   "cmd": "CUDA_VISIBLE_DEVICES=0 python examples/scripts/sft.py --model_name_or_path=facebook/opt-350m --report_to=wandb --learning_rate=1.41e-5 --per_device_train_batch_size=64 --gradient_accumulation_steps=16 --output_dir=sft_openassistant-guanaco-sft-seed1 --logging_steps=1 --num_train_epochs=3 --max_steps=-1 --gradient_checkpointing --seed 1",
+   "label": "sft-seed1"
+  },
+  {
+   "op": "wait",
+   "labels": "all"
+  }
+ ]
+}

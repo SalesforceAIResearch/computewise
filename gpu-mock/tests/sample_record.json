@@ -1,0 +1,20 @@
+{
+  "identity": {
+    "record_id": "sample-mlp-001",
+    "fingerprint": "fp-sample-mlp",
+    "entry_hash": "deadbeef",
+    "argv": ["train.py", "--epochs", "3"]
+  },
+  "mode": "replay",
+  "reference": {"gpu": "H100 80GB HBM3", "gpu_count": 1, "precision": "bf16"},
+  "steps": 10,
+  "per_step_gpu_s": 0.20,
+  "split": {"forward": 0.06, "backward": 0.12, "step": 0.02},
+  "memory": {"peak_allocated_bytes": 42949672960, "peak_reserved_bytes": 45097156608, "peak_step": 5},
+  "series": {
+    "loss": [2.30, 1.95, 1.70, 1.52, 1.40, 1.31, 1.25, 1.20, 1.17, 1.15],
+    "grad_norm": [12.1, 9.8, 7.2, 5.1, 4.0, 3.3, 2.9, 2.6, 2.4, 2.3],
+    "throughput_tok_s": [48000, 51000, 52000, 52500, 52800, 53000, 53100, 53200, 53200, 53200]
+  },
+  "failures": []
+}

@@ -1,0 +1,10 @@
+{
+ "name": "high-lr",
+ "start": 4.0,
+ "floor": 3.25,
+ "rate": 1.4,
+ "noise": 0.01,
+ "diverge_after": 0.1,
+ "diverge_slope": 3.0,
+ "steps": 1000
+}

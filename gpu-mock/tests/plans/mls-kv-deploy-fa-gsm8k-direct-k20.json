@@ -1,0 +1,16 @@
+{
+ "policy": "single-job",
+ "note": "gpu-mock's known answer of the MLS KV package through run_one, the evaluator launched DIRECTLY as G-mlskv-haiku-L0-r3 did (no job script, no --compression-ratio: the script's default 0.8): full_attention on gsm8k at --max-examples 20. Expected: lookup match exact_effective on the full_attention gsm8k record with subset {k: 20, n_full: 1319}; TEST_METRICS final_score = the mean of the first 20 served scores, mean_retained_fraction 1.0, runtime_seconds = startup_s + 20 x (7440.4 - startup_s)/1319 (about 114 s); 20 example_score reads tier result; job_bye served result.",
+ "steps": [
+  {
+   "op": "launch_at",
+   "at_s": 0,
+   "cmd": "CUDA_VISIBLE_DEVICES=0 bash -c 'cd methods/full_attention && python custom_selection_eval.py --workload gsm8k --max-examples 20'",
+   "label": "fa-gsm8k-direct-k20"
+  },
+  {
+   "op": "wait",
+   "labels": "all"
+  }
+ ]
+}

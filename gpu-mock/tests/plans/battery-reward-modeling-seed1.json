@@ -1,0 +1,16 @@
+{
+ "policy": "single-job",
+ "note": "gpu-mock's replay check of one battery job through run_one.py (2026-10-20); the command is the task's launch line, with the output dir made per-job as plan.py does",
+ "steps": [
+  {
+   "op": "launch_at",
+   "at_s": 0,
+   "cmd": "CUDA_VISIBLE_DEVICES=0 python examples/scripts/reward_modeling.py --model_name_or_path=facebook/opt-350m --output_dir=reward_modeling_anthropic_hh-reward-modeling-seed1 --per_device_train_batch_size=64 --num_train_epochs=1 --gradient_accumulation_steps=16 --gradient_checkpointing=True --learning_rate=1.41e-5 --report_to=wandb --remove_unused_columns=False --optim=adamw_torch --logging_steps=10 --evaluation_strategy=steps --max_length=512 --seed 1",
+   "label": "reward-modeling-seed1"
+  },
+  {
+   "op": "wait",
+   "labels": "all"
+  }
+ ]
+}

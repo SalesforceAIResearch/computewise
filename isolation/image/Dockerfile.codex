@@ -1,0 +1,10 @@
+# The Codex layer over an image in service, by id (the study, 2026-10-21, option (a)): the box image as it is,
+# gpu-mock's content byte-identical, plus Codex CLI's native musl tree and its link on PATH. Built by
+# build_codex_layer.sh. Codex sits unused in a Claude run's box (no CODEX_HOME config, no provider, no key), as
+# Claude Code sits unused in a Codex run's box (no ANTHROPIC_* settings): run_one.py configures only the run's harness.
+ARG BASE
+FROM ${BASE}
+COPY codex/ /usr/local/lib/codex/
+RUN ln -s /usr/local/lib/codex/bin/codex /usr/local/bin/codex \
+ && HOME=/tmp codex --version > /usr/local/share/image-manifest/codex-version.txt
+COPY codex-layer.json /usr/local/share/image-manifest/codex-layer.json

@@ -1,0 +1,231 @@
+{
+  "hf_repo": "nkh/test-time-compute-for-tabular-foundation-models-results",
+  "hf_revision": "2bbb8ac87c475eaf685c556600090fc153b511c5",
+  "code_repo": "kanghui-learning/test-time-compute-for-tabular-foundation-models",
+  "code_commit": "45fb141b2acf15518e70885aa149c8e1898cd15c",
+  "files": [
+    {
+      "path": "hf/README.md",
+      "url": "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results/resolve/2bbb8ac87c475eaf685c556600090fc153b511c5/README.md",
+      "sha256": "aa6aeddda9713be557ea4d7b0c29ce9f3a2fa4bf625ad845d82140ae5041b625",
+      "bytes": 6033
+    },
+    {
+      "path": "hf/raw/tabfm_diagscale/results_per_split.csv",
+      "url": "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results/resolve/2bbb8ac87c475eaf685c556600090fc153b511c5/raw/tabfm_diagscale/results_per_split.csv",
+      "sha256": "95036fab2a17a57862b95f50e81fda1dd5f6817893cc10b9929f790ecb128920",
+      "bytes": 126921
+    },
+    {
+      "path": "hf/raw/tabfm_frozen/results_per_split.csv",
+      "url": "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results/resolve/2bbb8ac87c475eaf685c556600090fc153b511c5/raw/tabfm_frozen/results_per_split.csv",
+      "sha256": "cc1f8c487eeb2c0b4179ebbbc41a359f285823641e4cade475022f4ac0a0770d",
+      "bytes": 120794
+    },
+    {
+      "path": "hf/raw/tabfm_full_ft/results_per_split.csv",
+      "url": "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results/resolve/2bbb8ac87c475eaf685c556600090fc153b511c5/raw/tabfm_full_ft/results_per_split.csv",
+      "sha256": "cc5a90251b175a445469ecfaa875c02ee366bef380937658d441a052d6b31cdb",
+      "bytes": 127071
+    },
+    {
+      "path": "hf/raw/tabiclv2_diagscale/results_per_split.csv",
+      "url": "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results/resolve/2bbb8ac87c475eaf685c556600090fc153b511c5/raw/tabiclv2_diagscale/results_per_split.csv",
+      "sha256": "a33617b39097fcb5ec6352e0cf67f2e3d31b1eeb69d6edceed43ea2d6af823cc",
+      "bytes": 135143
+    },
+    {
+      "path": "hf/raw/tabiclv2_frozen/results_per_split.csv",
+      "url": "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results/resolve/2bbb8ac87c475eaf685c556600090fc153b511c5/raw/tabiclv2_frozen/results_per_split.csv",
+      "sha256": "2831e6ce04146eb2c3389cdb1897e2259e30d94f3cc0c69ec5bce9034e274050",
+      "bytes": 135720
+    },
+    {
+      "path": "hf/raw/tabiclv2_full_ft/results_per_split.csv",
+      "url": "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results/resolve/2bbb8ac87c475eaf685c556600090fc153b511c5/raw/tabiclv2_full_ft/results_per_split.csv",
+      "sha256": "d5b30f8347811ab357b909ccfd4507df754720654a3cefd225fa7d22dbf069ad",
+      "bytes": 135122
+    },
+    {
+      "path": "hf/raw/tabpfn3_aggregation_96/results_per_split.csv",
+      "url": "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results/resolve/2bbb8ac87c475eaf685c556600090fc153b511c5/raw/tabpfn3_aggregation_96/results_per_split.csv",
+      "sha256": "d2cfa74c99150effcf582f782f79b3e943b3db75f1e94f8f1089faf6acecdc6e",
+      "bytes": 133935
+    },
+    {
+      "path": "hf/raw/tabpfn3_diagscale/results_per_split.csv",
+      "url": "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results/resolve/2bbb8ac87c475eaf685c556600090fc153b511c5/raw/tabpfn3_diagscale/results_per_split.csv",
+      "sha256": "28612e601b395bba7206e7902237968a8bc9ff146c0a2167fc0552b148156fff",
+      "bytes": 132229
+    },
+    {
+      "path": "hf/raw/tabpfn3_diagscale_aggregation_96/results_per_split.csv",
+      "url": "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results/resolve/2bbb8ac87c475eaf685c556600090fc153b511c5/raw/tabpfn3_diagscale_aggregation_96/results_per_split.csv",
+      "sha256": "cb051a64d1c7083a1d69a81b1563476be1a7cec8b0d38a70ba243095c8bd69a4",
+      "bytes": 138873
+    },
+    {
+      "path": "hf/raw/tabpfn3_frozen/results_per_split.csv",
+      "url": "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results/resolve/2bbb8ac87c475eaf685c556600090fc153b511c5/raw/tabpfn3_frozen/results_per_split.csv",
+      "sha256": "098fd8a3ea59bcf31d756d96e17297eb27ec370048ab85070345099263a75552",
+      "bytes": 132931
+    },
+    {
+      "path": "hf/raw/tabpfn3_full_ft/results_per_split.csv",
+      "url": "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results/resolve/2bbb8ac87c475eaf685c556600090fc153b511c5/raw/tabpfn3_full_ft/results_per_split.csv",
+      "sha256": "c3933d8b504f35c4a8ff30988c101984a713ecb4a4ae9cae1700428ab889b0a6",
+      "bytes": 131212
+    },
+    {
+      "path": "hf/raw/tabpfn3_native_views_32/results_per_split.csv",
+      "url": "https://huggingface.co/datasets/nkh/test-time-compute-for-tabular-foundation-models-results/resolve/2bbb8ac87c475eaf685c556600090fc153b511c5/raw/tabpfn3_native_views_32/results_per_split.csv",
+      "sha256": "7245cecd90a10c28725eb79a6a9c741d7971ef13addcb23919ba2ba98f0adc5d",
+      "bytes": 125053
+    },
+    {
+      "path": "git/README.md",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/README.md",
+      "sha256": "39e88fbb4a5dd79d3802b908f5c1bf1ea03b7bc966fa2d20e281675ec7d7896e",
+      "bytes": 11136
+    },
+    {
+      "path": "git/src/ttc/benchmarks/tabarena.py",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/src/ttc/benchmarks/tabarena.py",
+      "sha256": "f14c292713fd25d2d725f9eed59a45c915dcee723b6c43019c47eb33383b33fa",
+      "bytes": 8099
+    },
+    {
+      "path": "git/src/ttc/run.py",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/src/ttc/run.py",
+      "sha256": "a7d44054d4e4c882d1fc2216baf8fdf8e7b9cf1cacc84f44d0bf02b8f343ba93",
+      "bytes": 2390
+    },
+    {
+      "path": "git/src/ttc/agg_model.py",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/src/ttc/agg_model.py",
+      "sha256": "f9460a99eb9c7348f75b586e071a524e36ef9c5b88b93c559296aac602277250",
+      "bytes": 20541
+    },
+    {
+      "path": "git/src/ttc/agg_ft_model.py",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/src/ttc/agg_ft_model.py",
+      "sha256": "9e625edb074b7008389876f8e5436e79b03325e73dc0e29c5a5fc17dc1599de7",
+      "bytes": 9001
+    },
+    {
+      "path": "git/src/ttc/cost.py",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/src/ttc/cost.py",
+      "sha256": "9b28286d54a182b54ab33a40fb6300a71a8c989c093e5550303af85c90daf2f0",
+      "bytes": 3509
+    },
+    {
+      "path": "git/scripts/export_hf_results.py",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/scripts/export_hf_results.py",
+      "sha256": "f78ff943b4d4c67c10845f07315f4035dc14e701cc1c8eb3f0f0144a3b041738",
+      "bytes": 13879
+    },
+    {
+      "path": "git/docs/evaluation.md",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/docs/evaluation.md",
+      "sha256": "b7a2e422ee1d3e8445de615d4169e687220f2def579edb1f507c3f488359a4e8",
+      "bytes": 5259
+    },
+    {
+      "path": "git/configs/tabpfn3/aggregation_96.yaml",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/configs/tabpfn3/aggregation_96.yaml",
+      "sha256": "301537a8730d5c3b13c815280bfdb3262a45d4852079c56d4b27ae39d1d74689",
+      "bytes": 623
+    },
+    {
+      "path": "git/configs/tabpfn3/diagscale_aggregation_96.yaml",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/configs/tabpfn3/diagscale_aggregation_96.yaml",
+      "sha256": "8c06cfd1fa33bc5725b806ba1fa842195e02e95b42b3d96097411d1309516189",
+      "bytes": 477
+    },
+    {
+      "path": "git/LICENSE",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/LICENSE",
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "bytes": 11357
+    },
+    {
+      "path": "git/THIRD_PARTY_NOTICES.md",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/THIRD_PARTY_NOTICES.md",
+      "sha256": "67fae12611cb58bf5c42f64e087bc5be68b4b8f759d04ab3841ea791468f32e8",
+      "bytes": 5573
+    },
+    {
+      "path": "tabarena/LICENSE",
+      "url": "https://raw.githubusercontent.com/autogluon/tabarena/abd24c7f06e4294e86efe069fe1cd057293a17d1/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    {
+      "path": "tabarena/packages/tabarena/src/tabarena/benchmark/experiment/experiment_runner.py",
+      "url": "https://raw.githubusercontent.com/autogluon/tabarena/abd24c7f06e4294e86efe069fe1cd057293a17d1/packages/tabarena/src/tabarena/benchmark/experiment/experiment_runner.py",
+      "sha256": "89606a786be79a4bfbb712b408e79f723010243c0a6d4d0d6173d728c111c052",
+      "bytes": 20231
+    },
+    {
+      "path": "tabarena/packages/tabarena/src/tabarena/benchmark/experiment/experiment_constructor.py",
+      "url": "https://raw.githubusercontent.com/autogluon/tabarena/abd24c7f06e4294e86efe069fe1cd057293a17d1/packages/tabarena/src/tabarena/benchmark/experiment/experiment_constructor.py",
+      "sha256": "ed57a55b821cd98c5e802542570df4a1254977a4e5faacd499b074e368bdacfa",
+      "bytes": 47232
+    },
+    {
+      "path": "tabarena/packages/tabarena/src/tabarena/benchmark/exec_models/base.py",
+      "url": "https://raw.githubusercontent.com/autogluon/tabarena/abd24c7f06e4294e86efe069fe1cd057293a17d1/packages/tabarena/src/tabarena/benchmark/exec_models/base.py",
+      "sha256": "ee6dfadfc2fda1a3eccab04ec19e6195e81113628e5dd697244d2756cb5e2ba8",
+      "bytes": 19286
+    },
+    {
+      "path": "tabarena/packages/tabarena/src/tabarena/benchmark/task/metadata/collection.py",
+      "url": "https://raw.githubusercontent.com/autogluon/tabarena/abd24c7f06e4294e86efe069fe1cd057293a17d1/packages/tabarena/src/tabarena/benchmark/task/metadata/collection.py",
+      "sha256": "a81acd6b7a58d82d52c42de72fbbaa5ccda1f2c13606b6c726e526a930ac49cc",
+      "bytes": 12116
+    },
+    {
+      "path": "tabarena/packages/tabarena/src/tabarena/benchmark/task/openml/task_wrapper.py",
+      "url": "https://raw.githubusercontent.com/autogluon/tabarena/abd24c7f06e4294e86efe069fe1cd057293a17d1/packages/tabarena/src/tabarena/benchmark/task/openml/task_wrapper.py",
+      "sha256": "2479487958887274d706b8d07088f30bd3fd021f96ea396785d182002488ef3c",
+      "bytes": 10466
+    },
+    {
+      "path": "tabarena/packages/tabarena/src/tabarena/nips2025_utils/tabarena_context.py",
+      "url": "https://raw.githubusercontent.com/autogluon/tabarena/abd24c7f06e4294e86efe069fe1cd057293a17d1/packages/tabarena/src/tabarena/nips2025_utils/tabarena_context.py",
+      "sha256": "923be1a22f1c25f499110d2be1c04f61b7f0c1caf985c789da847175d37b9d8e",
+      "bytes": 55633
+    },
+    {
+      "path": "git/src/ttc/registry.py",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/src/ttc/registry.py",
+      "sha256": "2f0eb582c3f3dfd8dc900ee9798ab8e3b733f7e27eb055f26255e045825d5dc9",
+      "bytes": 2581
+    },
+    {
+      "path": "git/envs/environment.yml",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/envs/environment.yml",
+      "sha256": "af518127f2237a9dbdac1ac6be84120d26da002a8262eaf75dd156a4f3bc5150",
+      "bytes": 1055
+    },
+    {
+      "path": "git/scripts/install_forks.sh",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/scripts/install_forks.sh",
+      "sha256": "2f55d5a959c3a5160c2ce73df5b9abee88c5b272f4d48bda69b5cb746bf18a27",
+      "bytes": 6354
+    },
+    {
+      "path": "git/pyproject.toml",
+      "url": "https://raw.githubusercontent.com/kanghui-learning/test-time-compute-for-tabular-foundation-models/45fb141b2acf15518e70885aa149c8e1898cd15c/pyproject.toml",
+      "sha256": "083bcc35ade3625204a06ada0e0a9849302a51d478098bb31aca96fac038d920",
+      "bytes": 812
+    },
+    {
+      "path": "tabarena/packages/tabarena/src/tabarena/benchmark/task/metadata/sources/data/TabArena-v0.1_tasks_metadata.csv",
+      "url": "https://raw.githubusercontent.com/autogluon/tabarena/abd24c7f06e4294e86efe069fe1cd057293a17d1/packages/tabarena/src/tabarena/benchmark/task/metadata/sources/data/TabArena-v0.1_tasks_metadata.csv",
+      "sha256": "02f35e19dead7e3795f65e91eb00fdb7fa255896ed6bde0f29b2ce0af7a46296",
+      "bytes": 204855
+    }
+  ],
+  "tabarena_commit": "abd24c7f06e4294e86efe069fe1cd057293a17d1"
+}

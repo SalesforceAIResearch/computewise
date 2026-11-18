@@ -1,0 +1,15 @@
+# Grok Build and OpenCode over an image in service, by id (the study, 2026-10-26; the study' port notes,
+# experiments/harnesses/port/): the box image as it is, gpu-mock's content and Claude Code and Codex byte-identical,
+# plus each harness's single pinned binary and its link on PATH. Built by build_harness_layer.sh. Each sits unused in
+# another harness's run (no config, no key): run_one.py configures only the run's harness. Grok Build's installer
+# links the binary as both grok and agent, so both are linked here.
+ARG BASE
+FROM ${BASE}
+COPY grok /usr/local/lib/grok/grok
+COPY opencode /usr/local/lib/opencode/opencode
+RUN ln -s /usr/local/lib/grok/grok /usr/local/bin/grok \
+ && ln -s /usr/local/lib/grok/grok /usr/local/bin/agent \
+ && ln -s /usr/local/lib/opencode/opencode /usr/local/bin/opencode \
+ && HOME=/tmp grok --version > /usr/local/share/image-manifest/grok-version.txt \
+ && HOME=/tmp opencode --version > /usr/local/share/image-manifest/opencode-version.txt
+COPY harness-layer.json /usr/local/share/image-manifest/harness-layer.json

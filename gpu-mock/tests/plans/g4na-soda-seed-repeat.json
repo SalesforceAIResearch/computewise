@@ -1,0 +1,30 @@
+{
+ "policy": "single-job",
+ "note": "Known answer for the repeated-exact-seed rule (G-g4na-sonnet-L0 ranks 19-20, runner 2026-10-24 22:28Z; fix in sidecar bfbdd755): on pkg-g4n-a's soda-fade jobs (seeds 0/1/2, exact_seed, no prep), launch --seed 1 twice in a row, then --seed 0, then --seed 2, each from the project root and run to its end. Expected lookups, in order: (1) seed 1 -> its listed record (...617-37d-g4na), match exact, draw exact_seed; (2) seed 1 again, another job key -> the SAME record, draw exact_seed_reused (before the fix: seed_substituted with seed 0's or seed 2's record); (3) seed 0 -> its own record (...c9d-b2a-g4na), exact_seed, NOT recycled; (4) seed 2 -> its own record (...030-ddf-g4na), exact_seed. Every launch GPU busy with MiB above 0; job_bye at the record's last step; no draw returned. The second seed-1 launch shows the first's curve again, which is what hardware does with a fixed seed.",
+ "steps": [
+  {
+   "op": "run",
+   "cmd": "python setups/soda-fade/contra-muon-to-soft-muon.py --seed 1",
+   "label": "soda-fade-seed1-a"
+  },
+  {
+   "op": "run",
+   "cmd": "python setups/soda-fade/contra-muon-to-soft-muon.py --seed 1",
+   "label": "soda-fade-seed1-b"
+  },
+  {
+   "op": "run",
+   "cmd": "python setups/soda-fade/contra-muon-to-soft-muon.py --seed 0",
+   "label": "soda-fade-seed0"
+  },
+  {
+   "op": "run",
+   "cmd": "python setups/soda-fade/contra-muon-to-soft-muon.py --seed 2",
+   "label": "soda-fade-seed2"
+  },
+  {
+   "op": "wait",
+   "labels": "all"
+  }
+ ]
+}

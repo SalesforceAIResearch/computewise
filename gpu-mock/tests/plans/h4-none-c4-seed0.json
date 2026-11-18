@@ -1,0 +1,32 @@
+{
+ "policy": "single-job",
+ "note": "Known answer for the W0-h4-measure misses (runner/the study 2026-10-24 21:13Z): H4's recipe scripts chdir to their own directory before `import torch`, and until patch 81f76686 the patch resolved the entry script against the current directory, so every lookup missed (no entry hash, no script path) and the jobs OOM'd on the model path. Two recipes, cheapest first: prepare `none` (no filter), launch `python runs/none/train_gpt.py --seed 0` from the project root; then prepare `c4` and launch its seed 0, the case the runner quoted. Expected for each launch: ONE lookup with match exact (hash a60031ee-style, the staged script unchanged) or path, record_id the job's listed record (none-seed0 -> mng3-20260509-contra-soft-muon-h100-sxmx8-8634073e-2a3-stop875-h4-none; c4-seed0 -> mng3-20260509-contra-soft-muon-h100-sxmx8-327b14a0-3ea-stop875-h4-c4), entry_hash_live set, script_path ending /runs/<recipe>/train_gpt.py, draw exact_seed; enqueues with GPU 0 busy and MiB above 0 in nvidia-smi; no OutOfMemoryError; the script runs to its step-875 stop and job_bye last_step 875. (2026-10-24 22:36Z: prepare.py defaults to --tasks 1, one datatrove task reading one pool file per 30 s, over four hours for 512; the gm-h4-ka-81f7 run was stopped after its complete `none` launch, and both prep steps now pass --tasks 512 --workers 28, the README's scripted form.)",
+ "steps": [
+  {
+   "op": "shell",
+   "cmd": "python tools/prepare.py none --tasks 512 --workers 28",
+   "label": "prep-none",
+   "expect_s": 300
+  },
+  {
+   "op": "run",
+   "cmd": "python runs/none/train_gpt.py --seed 0",
+   "label": "none-seed0"
+  },
+  {
+   "op": "shell",
+   "cmd": "python tools/prepare.py c4 --tasks 512 --workers 28",
+   "label": "prep-c4",
+   "expect_s": 900
+  },
+  {
+   "op": "run",
+   "cmd": "python runs/c4/train_gpt.py --seed 0",
+   "label": "c4-seed0"
+  },
+  {
+   "op": "wait",
+   "labels": "all"
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+#!/bin/sh
+# Installed as /usr/bin/bash (and so /bin/bash); the real binary is /usr/bin/bash.real. The
+# harness runs protected from the out-of-memory killer (oom_score_adj -1000), and a process
+# inherits its parent's score. Without this reset every command the agent runs, and every job
+# it launches, would inherit -1000: the kernel never kills such a task, so a box that ran out
+# of memory would freeze instead of killing the job. Raising one's own score needs no privilege.
+echo 0 >/proc/self/oom_score_adj 2>/dev/null
+exec /usr/bin/bash.real "$@"

@@ -1,0 +1,16 @@
+{
+ "policy": "single-job",
+ "note": "gpu-mock's known answer of the MLS KV package (mls-kv-deploy) through run_one: kivi_overlap_4bit on gsm8k screened at ADAPTIVE_KV_MAX_EXAMPLES=20 (the task's own launch line and env knob). Expected: TEST_METRICS final_score=50.000000 effective_kv_bits=4.187500 kv_compression_ratio=3.820896 runtime_seconds = this launch's real start-up + 20 \u00d7 (13460.6 \u2212 start-up)/1319, about 205 s with the start-up at about 2 s (it was 303 s on 922d, whose start-up was 101 s: the meta-device defect); lookup subset {k: 20, n_full: 1319}, 20 example_score reads tier result, job_bye served result. Events also carry startup_s (first example enqueue, every example_score, job_bye) from revision 6ef6 on.",
+ "steps": [
+  {
+   "op": "launch_at",
+   "at_s": 0,
+   "cmd": "CUDA_VISIBLE_DEVICES=0 ADAPTIVE_KV_MAX_EXAMPLES=20 bash methods/kivi_overlap_4bit/scripts/gsm8k.sh",
+   "label": "kivi-gsm8k-k20"
+  },
+  {
+   "op": "wait",
+   "labels": "all"
+  }
+ ]
+}

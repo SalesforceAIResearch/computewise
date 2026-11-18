@@ -1,0 +1,29 @@
+{
+  "name": "gpu-harness",
+  "version": "0.1.0",
+  "description": "A harness for agents that run GPU jobs to reach a decision: which method to deploy, which optimizer setups to adopt, the full table of a benchmark. The agent writes the job graph and makes every judgement. The harness owns the GPUs and does the mechanics, by an algorithm with stated guarantees.",
+  "author": {
+    "name": "Salesforce AI Research"
+  },
+  "homepage": "https://github.com/SalesforceAIResearch/computewise",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/SalesforceAIResearch/computewise",
+  "keywords": [
+    "gpu",
+    "scheduling",
+    "experiments",
+    "evaluation",
+    "agents"
+  ],
+  "skills": "./codex-skills/",
+  "interface": {
+    "displayName": "GPU harness",
+    "shortDescription": "Run GPU jobs to reach a decision, with every GPU busy on work the answer needs",
+    "developerName": "Salesforce AI Research",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ]
+  }
+}

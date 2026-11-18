@@ -1,0 +1,8 @@
+{
+ "name": "baseline",
+ "start": 4.0,
+ "floor": 3.3,
+ "rate": 1.0,
+ "noise": 0.01,
+ "steps": 1000
+}
